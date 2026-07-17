@@ -1,0 +1,14 @@
+\section{Related Work}
+
+\paragraph{Grammatical error correction and edit analysis.}
+GEC has been studied through shared tasks, neural generation models, edit-based models, and large language model prompting. Edit extraction and error typing are essential for fine-grained analysis. ERRANT introduced automatic edit extraction and rule-based error classification for GEC evaluation \cite{bryant-etal-2017-automatic}. CLEME2.0 further disentangles correction behavior into hit-correction, wrong-correction, under-correction, and over-correction for interpretable GEC evaluation \cite{ye-etal-2025-cleme2}. Our work uses this edit-level perspective but applies it to explanation faithfulness rather than correction scoring alone.
+
+\paragraph{Explainable GEC and grammar error explanation.}
+EXPECT annotates evidence words and error types to enhance GEC systems with explanations \cite{fei-etal-2023-enhancing}. GEE formulates grammar error explanation as generating one-sentence explanations for atomic edits and studies LLM-based pipelines across languages \cite{song-etal-2024-gee}. Prompt Insertion controls LLM explanation generation by inserting extracted correction points into the output process \cite{kaneko-okazaki-2024-controlled}. EXCGEC introduces an edit-wise explainable Chinese GEC benchmark with hybrid explanations \cite{ye2025excgec}. These studies motivate the need for explanations that correspond to edits. Our focus is an evaluation diagnostic: whether an explanation implies the same structured edit as the model output.
+
+\paragraph{Explanations as signals for GEC.}
+Explanation-based retrieval uses grammatical error explanations to select in-context demonstrations for multilingual GEC \cite{li-etal-2025-explanation}. This supports the broader view that explanations encode useful error-pattern information. Our work asks whether that information is faithful to a particular produced edit.
+
+\paragraph{Faithfulness and simulatability.}
+The broader explainability literature studies whether explanations reflect model behavior, whether humans or models can simulate predictions from explanations, and whether rationales support counterfactual or contrastive evaluation. This draft has not yet completed the closest-work verification for reverse reconstruction and simulatability. Statements in this paragraph remain \texttt{[CITATION-NEEDED]} until the next literature pass.
+

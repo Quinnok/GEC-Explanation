@@ -1,0 +1,21 @@
+\section{Introduction}
+
+Grammatical error correction (GEC) systems are designed to transform learner or user-written text into a corrected version while preserving the intended meaning. Standard evaluations have historically emphasized whether the final corrected sentence matches reference corrections, while tools such as ERRANT make it possible to analyze edits and error types more directly. Recent work has expanded GEC beyond correction alone: systems may now generate explanations, highlight evidence, or provide natural-language feedback that is meant to help users understand why a correction was suggested.
+
+This additional explanatory layer creates a different evaluation problem. A correction can be useful while its explanation is vague, misplaced, or inconsistent with the actual edit. For example, an explanation may mention subject-verb agreement even when the model changed an article, or it may describe replacing one word with another while the system actually inserted a missing preposition. Such explanations can appear fluent and pedagogically plausible, yet fail to describe the behavior of the GEC model. For applications such as writing assistance and second-language feedback, this mismatch matters because users may rely on the explanation to decide whether to accept a correction and how to revise similar errors in the future.
+
+Existing explainable GEC work has introduced datasets and generation methods for evidence words, error types, and natural-language explanations \cite{fei-etal-2023-enhancing,song-etal-2024-gee,kaneko-okazaki-2024-controlled}. Other work has analyzed correction behavior at the edit level or used explanations as signals for retrieval \cite{ye-etal-2025-cleme2,li-etal-2025-explanation}. However, the central question of this paper is more specific: does an explanation faithfully correspond to the edit that a model actually produced? We focus on edit faithfulness rather than overall grammatical correctness, explanation fluency, or human helpfulness.
+
+We propose to operationalize this question through Reverse Edit Reconstruction. Given a source sentence and a natural-language explanation, a reconstructor predicts the edit that the explanation implies. The predicted edit is then compared with the model-produced edit along multiple fields: location, source text, target text, edit operation, direction, and error type. If an explanation is faithful to a specific edit, it should contain enough edit-specific information to support reconstruction of that edit. If reconstruction fails, the failure can indicate a wrong location, wrong target, wrong operation, wrong error type, or overly generic explanation.
+
+This framing deliberately avoids a stronger claim. Reconstructability is not identical to grammatical validity. An explanation can allow reconstruction of a wrong correction and still be faithful to the model's behavior; conversely, a grammatically valid rule may fail to explain the edit that was actually made. We therefore separate edit faithfulness from grammatical correctness, linguistic validity, specificity, and learner helpfulness.
+
+The current draft treats the following contributions as hypotheses until experiments verify them:
+\begin{itemize}
+    \item a task definition for edit-level faithfulness evaluation of GEC explanations;
+    \item a reconstruction-based diagnostic that checks structured consistency between explanations and model-produced edits;
+    \item a hard-negative framework for testing wrong-location, wrong-target, wrong-direction, wrong-type, swapped, and generic explanations;
+    \item leakage-control conditions that test whether reconstruction works beyond explicit edit copying.
+\end{itemize}
+All empirical claims remain \texttt{[RESULT-PENDING]}.
+

@@ -1,0 +1,9 @@
+{
+  "name": "toy_pilot_sanity_check",
+  "seed": 13,
+  "input": "data/raw/toy_pilot.jsonl",
+  "predictions": "results/predictions/toy_pilot_predictions.jsonl",
+  "raw_results": "results/raw_results.json",
+  "summary": "results/summary.json",
+  "note": "Toy sanity-check only; not research evidence."
+}

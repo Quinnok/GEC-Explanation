@@ -1,0 +1,73 @@
+{
+  "details": [
+    {
+      "metrics": {
+        "error_type_accuracy": 1.0,
+        "full_edit_exact": 1.0,
+        "operation_accuracy": 1.0,
+        "source_text_match": 1.0,
+        "span_exact": 1.0,
+        "span_f1": 1.0,
+        "span_precision": 1.0,
+        "span_recall": 1.0,
+        "target_text_match": 1.0
+      },
+      "sample_id": "toy-001"
+    },
+    {
+      "metrics": {
+        "error_type_accuracy": 1.0,
+        "full_edit_exact": 0.0,
+        "operation_accuracy": 1.0,
+        "source_text_match": 1.0,
+        "span_exact": 0.0,
+        "span_f1": 0.0,
+        "span_precision": 0.0,
+        "span_recall": 0.0,
+        "target_text_match": 1.0
+      },
+      "sample_id": "toy-002"
+    },
+    {
+      "metrics": {
+        "error_type_accuracy": 1.0,
+        "full_edit_exact": 0.0,
+        "operation_accuracy": 1.0,
+        "source_text_match": 0.0,
+        "span_exact": 0.0,
+        "span_f1": 0.0,
+        "span_precision": 0.0,
+        "span_recall": 0.0,
+        "target_text_match": 0.0
+      },
+      "sample_id": "toy-003"
+    },
+    {
+      "metrics": {
+        "error_type_accuracy": 0.0,
+        "full_edit_exact": 0.0,
+        "operation_accuracy": 0.0,
+        "source_text_match": 0.0,
+        "span_exact": 0.0,
+        "span_f1": 0.0,
+        "span_precision": 0.0,
+        "span_recall": 0.0,
+        "target_text_match": 0.0
+      },
+      "sample_id": "toy-004"
+    }
+  ],
+  "macro_average": {
+    "error_type_accuracy": 0.75,
+    "full_edit_exact": 0.25,
+    "operation_accuracy": 0.75,
+    "source_text_match": 0.5,
+    "span_exact": 0.25,
+    "span_f1": 0.25,
+    "span_precision": 0.25,
+    "span_recall": 0.25,
+    "target_text_match": 0.5
+  },
+  "n": 4,
+  "note": "Toy sanity-check only. Not real GEC evidence."
+}

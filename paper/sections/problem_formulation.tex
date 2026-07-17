@@ -1,0 +1,23 @@
+\section{Problem Formulation}
+
+Let \(x=(x_1,\ldots,x_n)\) be an original sentence and let \(\hat{y}\) be the correction produced by a GEC system. From the pair \((x,\hat{y})\), an edit extractor produces a set of predicted edits \(\hat{E}=\{e_1,\ldots,e_m\}\). This paper focuses on a single model-produced edit \(e\in \hat{E}\).
+
+We represent an edit as
+\[
+e=(s,t,u,v,o,c),
+\]
+where \(s\) and \(t\) are token-span boundaries in the source sentence, \(u\) is the source text covered by the edit, \(v\) is the replacement or inserted target text, \(o\) is the operation type, and \(c\) is the error type. In this draft, \(o\in\{\textsc{replace},\textsc{insert},\textsc{delete}\}\). The error type \(c\) may come from ERRANT or another verified edit classifier; when unavailable it is set to \textsc{UNK}.
+
+An explanation \(r\) is a natural-language statement intended to explain why edit \(e\) was made. We define a reverse edit reconstructor \(R\) that maps the source sentence and explanation to a reconstructed edit:
+\[
+\tilde{e} = R(x,r).
+\]
+The reconstructor may also abstain:
+\[
+R(x,r)=\textsc{unreconstructable}.
+\]
+
+The primary evaluation target is edit faithfulness. An explanation is edit-faithful if it corresponds to the model-produced edit with respect to the edit's location, operation, direction, source content, target content, and error type. Edit faithfulness is not equivalent to grammatical correctness. If a model makes an incorrect edit and the explanation accurately describes that incorrect edit, the explanation may be faithful to the model behavior while still being linguistically invalid.
+
+We distinguish model-produced edits from missed corrections. Correct corrections, wrong corrections, and overcorrections all correspond to edits in \(\hat{E}\). Missed corrections have no model-produced edit and therefore require a separate missing-edit diagnosis formulation. The main experiments should not mix missed corrections into the same reconstruction task.
+

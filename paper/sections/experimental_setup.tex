@@ -1,0 +1,13 @@
+\section{Experimental Setup}
+
+The experimental setup is currently incomplete because no real GEC model outputs or explanation annotations were present in the workspace at startup. The planned real pilot will use 100--300 edit-level examples. Each example should contain a source sentence, reference correction, model prediction, extracted model edit, explanation, explanation condition, faithfulness label, and negative type when applicable.
+
+\paragraph{Baselines.}
+The first implemented baseline is explicit edit extraction from explanations. Planned baselines include surface overlap, keyword matching, sentence embedding similarity, structured information extraction, LLM-as-a-judge, reverse edit reconstruction, and reconstruction-based reranking.
+
+\paragraph{Metrics.}
+The implemented metrics include span exact match, span F1, source text match, target text match, operation accuracy, error type accuracy, and full edit exact match. Faithfulness classification metrics and ranking metrics are \texttt{[EXPERIMENT-PENDING]}.
+
+\paragraph{Reproducibility.}
+Scripts store outputs under \texttt{results/} and logs under \texttt{logs/}. The current code path has been tested with toy examples only. These examples are not used as research evidence.
+

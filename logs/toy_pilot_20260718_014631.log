@@ -1,0 +1,3 @@
+date=2026-07-17T17:46:31Z
+git_commit=NOT_A_GIT_REPOSITORY
+command=python3 experiments/src/run_toy_pilot.py
