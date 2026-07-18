@@ -4,7 +4,7 @@ Last updated: 2026-07-18
 
 ## Current Round
 
-Round 10 human evaluation preparation is complete and awaiting commit. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`; Round 06 is committed as `1db85c8`; Round 07 is committed as `7b35499`; Round 08 is committed as `4ebd5e4`; Round 09 is committed as `e288227`.
+Round 11 explanation candidate reranking is complete and awaiting verification/commit. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`; Round 06 is committed as `1db85c8`; Round 07 is committed as `7b35499`; Round 08 is committed as `4ebd5e4`; Round 09 is committed as `e288227`; Round 10 is committed as `a7cffc9`.
 
 ## Latest Completed Work
 
@@ -19,10 +19,11 @@ Round 10 human evaluation preparation is complete and awaiting commit. Round 03 
 - Round 08 counterfactual pilot: 48 variants with labels from actual GEC model reruns across GECToR, T5, and CoEdIT.
 - Round 09 scaled pilot: 120 counterfactual variants, 1,080 explanation-variant pairs, grouped bootstrap statistics, and error-analysis packets.
 - Round 10 annotation package: 240 public annotation items, guidelines, adjudication template, hidden auto-label metadata, and human annotation status checker.
+- Round 11 reranking application: 880 candidates for 80 model-produced edits, eight automatic rerankers, local FLAN-T5 judge over all candidates, and reward-hacking audit.
 
 ## Current Highest-Priority Problem
 
-The next nondependent work is simulated review/rebuttal and paper tightening. Human-faithfulness validation is blocked until real double annotation is completed.
+The next nondependent work is the complete AAAI paper draft with generated figures/tables and official-format consistency checks. Human-faithfulness validation is blocked until real double annotation is completed.
 
 ## Active Constraints
 
@@ -39,3 +40,5 @@ The next nondependent work is simulated review/rebuttal and paper tightening. Hu
 - Round 09 does not support a nontrivial counterfactual simulator gain; best automatic L2 simulator macro-F1 is only 0.297.
 - Preserve `competing_edit` as its own L2 behavior class.
 - No human gold labels exist; `results/round10/human_annotation_status.json` records `blocked_no_human_annotation`.
+- Round 11 reranking shows high automatic scores can be produced by template/edit-copy selection; do not frame reranking as solving explanation selection.
+- The local FLAN-T5 judge is a no-paid-API baseline only; it scored below random on the current automatic pairwise ranking task.

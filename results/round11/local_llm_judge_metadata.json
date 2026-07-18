@@ -1,0 +1,13 @@
+{
+  "candidate_count": 880,
+  "created_at": "2026-07-18T06:22:23+00:00",
+  "duration_seconds": 74.919,
+  "important_note": "Local open-source FLAN-T5 judge; no paid API. Scores are automatic and not human judgments.",
+  "model_id": "google/flan-t5-base",
+  "model_revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "score_counts": {
+    "0.0": 227,
+    "0.5": 5,
+    "1.0": 648
+  }
+}

@@ -1,0 +1,16 @@
+\noindent\resizebox{0.95\linewidth}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+Method & Pairwise & MRR & AutoTop1 & AvgLen \\
+\midrule
+combined\_reranker & 0.935 & 1.000 & 0.978 & 13.0 \\
+counterfactual\_score & 0.548 & 0.754 & 0.455 & 12.2 \\
+length\_heuristic & 0.825 & 1.000 & 0.704 & 16.4 \\
+local\_llm\_judge & 0.455 & 0.671 & 0.374 & 11.9 \\
+random\_selection & 0.509 & 0.705 & 0.391 & 11.8 \\
+reconstruction\_score & 0.729 & 1.000 & 0.957 & 13.0 \\
+rule\_evidence\_score & 0.744 & 0.912 & 0.679 & 13.5 \\
+surface\_score & 0.760 & 1.000 & 0.970 & 13.0 \\
+\bottomrule
+\end{tabular}%
+}

@@ -162,3 +162,15 @@ Last updated: 2026-07-18
 - Human annotation status command: `.venv311/bin/python experiments/src/evaluate_human_annotations.py --form annotation/round10/annotation_form.csv --output results/round10/human_annotation_status.json`.
 - Human annotation status: `blocked_no_human_annotation`, 0 completed labels, 0 paired overlaps, Cohen's kappa unavailable.
 - Important boundary: no human gold labels were created. Double-human annotation by real annotators remains required before any human-faithfulness claim.
+- Round 10 committed as `a7cffc9 Round 10 annotation package`.
+
+## Round 11
+
+- Reranking command: `EDIT_LIMIT=80 LLM_JUDGE_LIMIT=2000 LLM_BATCH_SIZE=16 RUN_LOCAL_LLM_JUDGE=1 bash experiments/run_round11.sh`.
+- Reranking candidates: 880 candidates for 80 model-produced edits, with 80 examples each for explicit template, masked-target template, rule-only, GEE-style automatic, rule-grounded automatic, wrong span, wrong target, wrong direction, wrong rule, swapped-across-sentence, and generic explanations.
+- Reranking methods: random selection, length heuristic, surface score, local open-source FLAN-T5 judge, reconstruction score, counterfactual score, rule/evidence score, and combined reranker.
+- Local LLM judge: `google/flan-t5-base` revision `7bcac572ce56db69c1ea7c8af255c5d7c9672fc2`, 880 candidates judged, 74.919 CPU seconds, no paid API.
+- Automatic pairwise ranking accuracy: combined reranker 0.935, length heuristic 0.825, surface score 0.760, rule/evidence score 0.744, reconstruction score 0.729, counterfactual score 0.548, random 0.509, local LLM judge 0.455.
+- Reward-hacking audit: combined, surface, and reconstruction rerankers select template explanations and edit-copy explanations as top-1 for 100.0% of edits; these scores must be treated as leakage controls rather than evidence of human-preferred explanations.
+- Human top-1 preference remains `blocked_no_human_labels`.
+- Outputs: `results/round11/reranking_candidates.jsonl`, `results/round11/reranking_scored_candidates.jsonl`, `results/round11/reranking_metrics.json`, `results/round11/reward_hacking_report.json`, `results/tables/round11_reranking.tex`, and `docs/round_11.md`.
