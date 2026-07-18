@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-07-18T06:02:47+00:00",
+  "models": {
+    "gector_roberta_base": {
+      "config": {
+        "decoding": {
+          "batch_size": 8,
+          "keep_confidence": 0.0,
+          "min_error_prob": 0.0,
+          "n_iteration": 5
+        },
+        "license": "non-commercial only, per Hugging Face model card",
+        "model_family": "sequence-to-edit",
+        "model_id": "gotutiyan/gector-roberta-base-5k",
+        "model_key": "gector_roberta_base",
+        "model_name": "GECToR RoBERTa base 5k",
+        "model_revision": "adaac6fb919431fb5a038b1e449055ae638613a4"
+      },
+      "runtime": {
+        "changed_count": 34,
+        "duration_seconds": 5.521,
+        "environment": {
+          "cuda_available": false,
+          "device": "cpu",
+          "mps_available": true,
+          "platform": "macOS-26.5.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "torch": "2.7.1",
+          "transformers": "4.49.0"
+        },
+        "reference_copy_count": 5,
+        "sample_count": 40,
+        "seconds_per_sample": 0.138029,
+        "started_at": "2026-07-18T06:02:53+00:00"
+      }
+    }
+  },
+  "output": "results/round09/counterfactual_predictions_gector_roberta_base.jsonl"
+}

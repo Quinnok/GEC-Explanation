@@ -4,7 +4,7 @@ Last updated: 2026-07-18
 
 ## Current Round
 
-Round 08 methods and counterfactual pilot are complete and awaiting commit. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`; Round 06 is committed as `1db85c8`; Round 07 is committed as `7b35499`.
+Round 09 scaled pilot statistics and error analysis are complete and awaiting commit. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`; Round 06 is committed as `1db85c8`; Round 07 is committed as `7b35499`; Round 08 is committed as `4ebd5e4`.
 
 ## Latest Completed Work
 
@@ -17,10 +17,11 @@ Round 08 methods and counterfactual pilot are complete and awaiting commit. Roun
 - Round 07 benchmark candidate: 700 model-produced edits, 12,754 automatic explanation/control instances, 160 missed-edit diagnoses, two datasets, and three model families.
 - Round 08 methods: 15 L1/L3 methods/ablations over 11,764 labeled automatic instances.
 - Round 08 counterfactual pilot: 48 variants with labels from actual GEC model reruns across GECToR, T5, and CoEdIT.
+- Round 09 scaled pilot: 120 counterfactual variants, 1,080 explanation-variant pairs, grouped bootstrap statistics, and error-analysis packets.
 
 ## Current Highest-Priority Problem
 
-Round 09 must scale the counterfactual pilot, add grouped statistics/error analysis, and avoid treating automatic template results as final human faithfulness evidence.
+Round 10 must prepare human evaluation and annotation artifacts. Without double-human labels, the project cannot answer which automatic metric is closest to human faithfulness.
 
 ## Active Constraints
 
@@ -34,3 +35,5 @@ Round 09 must scale the counterfactual pilot, add grouped statistics/error analy
 - Round 08 rule/evidence verifier is a lexical automatic baseline, not semantic proof.
 - Round 08 counterfactual labels are real model reruns, but the sample is small and many rule-relevant variants become competing edits.
 - Optional parallel chunked prediction tooling exists in `experiments/run_parallel_model_predictions.sh`; benchmark parallel settings before using it for large CoEdIT runs.
+- Round 09 does not support a nontrivial counterfactual simulator gain; best automatic L2 simulator macro-F1 is only 0.297.
+- Preserve `competing_edit` as its own L2 behavior class.

@@ -1,0 +1,22 @@
+{
+  "behavior_counts": {
+    "correct_correction": 26,
+    "overcorrection": 18,
+    "wrong_correction": 16
+  },
+  "created_at": "2026-07-18T06:02:41+00:00",
+  "error_type_count": 17,
+  "important_note": "Counterfactual labels are not assigned here; labels must be computed from actual reruns of the original GEC model.",
+  "max_per_model": 20,
+  "model_counts": {
+    "coedit_large": 20,
+    "gector_roberta_base": 20,
+    "t5_base_grammar": 20
+  },
+  "origin_edit_count": 60,
+  "variant_count": 120,
+  "variant_family_counts": {
+    "error_irrelevant": 60,
+    "rule_relevant": 60
+  }
+}

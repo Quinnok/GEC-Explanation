@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-07-18T06:03:34+00:00",
+  "models": {
+    "coedit_large": {
+      "config": {
+        "decoding": {
+          "batch_size": 1,
+          "max_input_length": 256,
+          "max_new_tokens": 128,
+          "num_beams": 4,
+          "prefix": "Fix grammatical errors in this sentence: "
+        },
+        "license": "cc-by-nc-4.0, per Hugging Face model card",
+        "model_family": "instruction-following text editor",
+        "model_id": "grammarly/coedit-large",
+        "model_key": "coedit_large",
+        "model_name": "CoEdIT large instruction-tuned editor",
+        "model_revision": "5637bcdf9d8d4419f97c8cfea36f7d35c79232b6"
+      },
+      "runtime": {
+        "changed_count": 40,
+        "duration_seconds": 118.608,
+        "environment": {
+          "cuda_available": false,
+          "device": "cpu",
+          "mps_available": true,
+          "platform": "macOS-26.5.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "torch": "2.7.1",
+          "transformers": "4.49.0"
+        },
+        "reference_copy_count": 0,
+        "sample_count": 40,
+        "seconds_per_sample": 2.965188,
+        "started_at": "2026-07-18T06:05:33+00:00"
+      }
+    }
+  },
+  "output": "results/round09/counterfactual_predictions_coedit_large.jsonl"
+}

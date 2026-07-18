@@ -1,0 +1,248 @@
+{
+  "actual_behavior_counts": {
+    "cancel": 7,
+    "change_span": 3,
+    "change_target": 1,
+    "competing_edit": 52,
+    "preserve": 57
+  },
+  "counterfactual_count": 120,
+  "created_at": "2026-07-18T06:05:44+00:00",
+  "important_note": "Counterfactual labels come from actual reruns of the original public GEC model for each edit.",
+  "method_metrics": {
+    "random": {
+      "accuracy": 0.20833333333333334,
+      "gold_counts": {
+        "cancel": 7,
+        "change_span": 3,
+        "change_target": 1,
+        "competing_edit": 52,
+        "preserve": 57
+      },
+      "label_f1": {
+        "cancel": 0.08695652173913043,
+        "change_operation": 0.0,
+        "change_span": 0.0,
+        "change_target": 0.0,
+        "competing_edit": 0.2571428571428571,
+        "preserve": 0.3614457831325302
+      },
+      "macro_f1": 0.11759086033575294,
+      "n": 120,
+      "prediction_counts": {
+        "cancel": 16,
+        "change_operation": 13,
+        "change_span": 19,
+        "change_target": 28,
+        "competing_edit": 18,
+        "preserve": 26
+      }
+    },
+    "source_edit_availability": {
+      "accuracy": 0.45,
+      "gold_counts": {
+        "cancel": 7,
+        "change_span": 3,
+        "change_target": 1,
+        "competing_edit": 52,
+        "preserve": 57
+      },
+      "label_f1": {
+        "cancel": 0.19672131147540986,
+        "change_operation": 0.0,
+        "change_span": 0.0,
+        "change_target": 0.0,
+        "competing_edit": 0.0,
+        "preserve": 0.7804878048780488
+      },
+      "macro_f1": 0.16286818605890976,
+      "n": 120,
+      "prediction_counts": {
+        "cancel": 54,
+        "preserve": 66
+      }
+    },
+    "variant_family_prior": {
+      "accuracy": 0.5166666666666667,
+      "gold_counts": {
+        "cancel": 7,
+        "change_span": 3,
+        "change_target": 1,
+        "competing_edit": 52,
+        "preserve": 57
+      },
+      "label_f1": {
+        "cancel": 0.208955223880597,
+        "change_operation": 0.0,
+        "change_span": 0.0,
+        "change_target": 0.0,
+        "competing_edit": 0.0,
+        "preserve": 0.9401709401709402
+      },
+      "macro_f1": 0.19152102734192286,
+      "n": 120,
+      "prediction_counts": {
+        "cancel": 60,
+        "preserve": 60
+      }
+    }
+  },
+  "method_metrics_by_variant_family": {
+    "random": {
+      "error_irrelevant": {
+        "accuracy": 0.25,
+        "gold_counts": {
+          "competing_edit": 5,
+          "preserve": 55
+        },
+        "label_f1": {
+          "cancel": 0.0,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.15384615384615385,
+          "preserve": 0.4057971014492754
+        },
+        "macro_f1": 0.09327387588257154,
+        "n": 60,
+        "prediction_counts": {
+          "cancel": 6,
+          "change_operation": 5,
+          "change_span": 5,
+          "change_target": 22,
+          "competing_edit": 8,
+          "preserve": 14
+        }
+      },
+      "rule_relevant": {
+        "accuracy": 0.16666666666666666,
+        "gold_counts": {
+          "cancel": 7,
+          "change_span": 3,
+          "change_target": 1,
+          "competing_edit": 47,
+          "preserve": 2
+        },
+        "label_f1": {
+          "cancel": 0.11764705882352941,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.2807017543859649,
+          "preserve": 0.14285714285714285
+        },
+        "macro_f1": 0.09020099267777286,
+        "n": 60,
+        "prediction_counts": {
+          "cancel": 10,
+          "change_operation": 8,
+          "change_span": 14,
+          "change_target": 6,
+          "competing_edit": 10,
+          "preserve": 12
+        }
+      }
+    },
+    "source_edit_availability": {
+      "error_irrelevant": {
+        "accuracy": 0.8,
+        "gold_counts": {
+          "competing_edit": 5,
+          "preserve": 55
+        },
+        "label_f1": {
+          "cancel": 0.0,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.9142857142857144
+        },
+        "macro_f1": 0.1523809523809524,
+        "n": 60,
+        "prediction_counts": {
+          "cancel": 10,
+          "preserve": 50
+        }
+      },
+      "rule_relevant": {
+        "accuracy": 0.1,
+        "gold_counts": {
+          "cancel": 7,
+          "change_span": 3,
+          "change_target": 1,
+          "competing_edit": 47,
+          "preserve": 2
+        },
+        "label_f1": {
+          "cancel": 0.2352941176470588,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.0
+        },
+        "macro_f1": 0.039215686274509796,
+        "n": 60,
+        "prediction_counts": {
+          "cancel": 44,
+          "preserve": 16
+        }
+      }
+    },
+    "variant_family_prior": {
+      "error_irrelevant": {
+        "accuracy": 0.9166666666666666,
+        "gold_counts": {
+          "competing_edit": 5,
+          "preserve": 55
+        },
+        "label_f1": {
+          "cancel": 0.0,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.9565217391304348
+        },
+        "macro_f1": 0.15942028985507248,
+        "n": 60,
+        "prediction_counts": {
+          "preserve": 60
+        }
+      },
+      "rule_relevant": {
+        "accuracy": 0.11666666666666667,
+        "gold_counts": {
+          "cancel": 7,
+          "change_span": 3,
+          "change_target": 1,
+          "competing_edit": 47,
+          "preserve": 2
+        },
+        "label_f1": {
+          "cancel": 0.208955223880597,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.0
+        },
+        "macro_f1": 0.03482587064676617,
+        "n": 60,
+        "prediction_counts": {
+          "cancel": 60
+        }
+      }
+    }
+  },
+  "model_counts": {
+    "coedit_large": 40,
+    "gector_roberta_base": 40,
+    "t5_base_grammar": 40
+  },
+  "variant_family_counts": {
+    "error_irrelevant": 60,
+    "rule_relevant": 60
+  }
+}

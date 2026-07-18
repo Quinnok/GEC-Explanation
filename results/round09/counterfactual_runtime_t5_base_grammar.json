@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-07-18T06:03:01+00:00",
+  "models": {
+    "t5_base_grammar": {
+      "config": {
+        "decoding": {
+          "batch_size": 8,
+          "max_input_length": 256,
+          "max_new_tokens": 128,
+          "num_beams": 5,
+          "prefix": "grammar: "
+        },
+        "license": "cc-by-nc-sa-4.0, per Hugging Face model card",
+        "model_family": "sequence-to-sequence",
+        "model_id": "vennify/t5-base-grammar-correction",
+        "model_key": "t5_base_grammar",
+        "model_name": "T5 base grammar correction",
+        "model_revision": "9e4a09d21dca1072a69302df9261289d03c3ed78"
+      },
+      "runtime": {
+        "changed_count": 39,
+        "duration_seconds": 24.695,
+        "environment": {
+          "cuda_available": false,
+          "device": "cpu",
+          "mps_available": true,
+          "platform": "macOS-26.5.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "torch": "2.7.1",
+          "transformers": "4.49.0"
+        },
+        "reference_copy_count": 0,
+        "sample_count": 40,
+        "seconds_per_sample": 0.617365,
+        "started_at": "2026-07-18T06:03:26+00:00"
+      }
+    }
+  },
+  "output": "results/round09/counterfactual_predictions_t5_base_grammar.jsonl"
+}

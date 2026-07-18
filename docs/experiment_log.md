@@ -133,3 +133,21 @@ Last updated: 2026-07-18
 - Round 08 report and tables generated from JSON: `docs/round_08.md`, `results/tables/round08_l1_methods.tex`, `results/tables/round08_counterfactual_methods.tex`.
 - Added optional parallel chunked prediction entry point: `experiments/run_parallel_model_predictions.sh`; not used for Round 08 because the current counterfactual sample is small and CoEdIT multi-process loading may hurt CPU memory/runtime.
 - End-to-end reproduction command passed: `CF_MAX_PER_MODEL=8 CHECK_SIZE=30 bash experiments/run_round08.sh`.
+- Round 08 committed as `4ebd5e4 Round 08 methods and counterfactual pilot`.
+
+## Round 09
+
+- Round 09 command: `CF_MAX_PER_MODEL=20 CHECK_SIZE=30 BOOTSTRAP_SAMPLES=200 bash experiments/run_round09.sh`.
+- Initial Round 09 run completed model reruns but failed during statistics because L1 detailed prediction rows did not include `sample_id`; fixed `experiments/src/analyze_round09.py` to join `sample_id` from edit records and resumed from analysis without rerunning model predictions.
+- Scaled counterfactual source construction: 60 origin edits and 120 variants in `data/counterfactuals_round09/`, with model counts CoEdIT 20, GECToR 20, T5 20 and variant counts 60 error-irrelevant / 60 rule-relevant.
+- Counterfactual model predictions: 40 rows each for GECToR, T5, and CoEdIT under `results/round09/counterfactual_predictions_*.jsonl`.
+- Counterfactual actual labels from model reruns: preserve 57, competing_edit 52, cancel 7, change_span 3, change_target 1.
+- Explanation-conditioned counterfactual simulator instances: 1,080 unique explanation-variant pairs and 6,480 method prediction rows.
+- Counterfactual simulator grouped bootstrap macro-F1: random 0.106 [0.089, 0.125], variant-family prior 0.192 [0.172, 0.213], source-edit availability 0.163 [0.142, 0.190], explanation leakage simulator 0.222 [0.195, 0.244], explanation-type heuristic 0.211 [0.189, 0.228], trained explanation-type prior 0.297 [0.277, 0.312].
+- L1 grouped bootstrap macro-F1: surface keyword 0.579 [0.577, 0.583], structured explicit extraction 0.639 [0.632, 0.646], reverse reconstruction 0.640 [0.633, 0.646], target-masked reconstruction 0.439 [0.428, 0.451], leakage-adjusted reconstruction 0.496 [0.489, 0.501], TF-IDF similarity 0.703 [0.694, 0.714], NLI proxy 0.736 [0.731, 0.740], rule/evidence verifier 0.767 [0.752, 0.785].
+- Paired bootstrap deltas with Holm correction stored in `results/round09/statistical_analysis.json`.
+- Grouped analysis stored in `results/round09/statistical_analysis.json` by dataset, model, behavior, error type, operation, sentence length, edit multiplicity, explanation type, negative type, variant family, and counterfactual actual behavior.
+- Error analysis packets generated: 50 success cases, 50 failure cases, 20 model instability cases, 20 counterfactual invalid/competing cases, 20 multi-reference equivalence candidates, 20 ERRANT alignment issues, and 20 simulator confusion cases.
+- Round 09 report and tables generated: `docs/round_09.md`, `results/tables/round09_l1_bootstrap.tex`, and `results/tables/round09_counterfactual_bootstrap.tex`.
+- Paper updated: `paper/sections/results.tex`, `paper/sections/analysis.tex`, and `paper/sections/limitations.tex` now describe Round 09 as automatic pilot evidence and preserve the no-human-gold caveat.
+- Paper compile verification passed with local TinyTeX/latexmk; final LaTeX log grep found no warnings, undefined citations/references, fatal errors, overfull boxes, or underfull boxes.
