@@ -1,15 +1,21 @@
 \section{Method}
 
-Reverse Edit Reconstruction evaluates explanation faithfulness by asking whether a structured edit can be recovered from an explanation. The method has four stages.
+We evaluate explanations with three layers. L1 measures edit correspondence and leakage, L2 measures counterfactual edit simulatability, and L3 measures rule/evidence grounding.
 
 \paragraph{Edit extraction.}
 Given a source sentence and a model prediction, we extract edit-level structures with ERRANT. Each edit records source span boundaries, source text, target text, operation, and ERRANT error type. A deterministic token-diff extractor is retained only as a diagnostic contrast for boundary checks; it is not the current extraction method for the real pilot.
 
-\paragraph{Explanation conditions.}
-To avoid reducing reconstruction to answer copying, explanations should be evaluated under multiple conditions: explicit-edit explanations, implicit explanations, masked-target explanations, rule-only explanations, and minimal sufficient explanations. Additional controls include source-only, explanation-only, shuffled explanation, and raw edit string inputs.
+\paragraph{Explanation conditions and negatives.}
+To avoid reducing evaluation to answer copying, explanations are evaluated under multiple conditions: explicit-edit templates, implicit explanations, masked-target explanations, rule-only explanations, FLAN/open-model explanations, and minimal sufficient explanations. Additional controls include source-only, explanation-only, shuffled explanation, and raw edit string inputs. Hard negatives include wrong span, wrong source token, wrong target, wrong operation, wrong direction, wrong error type, wrong rule, wrong evidence, within-sentence swaps, cross-sentence swaps, generic explanations, and explanations that are faithful to a wrong model edit.
 
-\paragraph{Reconstruction.}
-The reconstructor predicts whether the edit is reconstructable and, if so, outputs span boundaries, source text, target text, operation, and error type. A simple structured baseline can extract explicit phrases such as ``replace A with B'' from explanations. More capable reconstructors may use sequence-to-structure models or LLM-based structured extraction, but they must be compared under leakage controls.
+\paragraph{L1: Edit correspondence.}
+The reconstructor predicts whether the edit is reconstructable and, if so, outputs span boundaries, source text, target text, operation, and error type. A simple structured baseline can extract explicit phrases such as ``replace A with B'' from explanations. This score is never interpreted alone as faithfulness: it is reported with masked-target, shuffled, source-only, explanation-only, and raw-edit controls to estimate leakage.
+
+\paragraph{L2: Counterfactual Edit Simulatability.}
+For each eligible edit, we create two families of counterfactual source variants. Error-irrelevant variants change entities, topics, modifiers, temporal context, or non-error phrases while intending to preserve the model's original edit opportunity. Rule-relevant variants alter grammatical conditions such as subject number, tense cues, article licensing, countability, pronoun antecedents, preposition government, comparison structure, or clause context. We rerun the original GEC model on each counterfactual source. The label is the model's actual edit behavior after rerun: preserve, change target, change span, change operation, cancel, or introduce a competing edit. A simulator predicts this label from the source, explanation, edit, and counterfactual description.
+
+\paragraph{L3: Rule and evidence grounding.}
+We extract a rule claim and evidence span from the explanation. The verifier checks compatibility with ERRANT type, EXPECT evidence labels when available, source tokens, target text, and edit direction. Evidence deletion and substitution tests probe whether the explanation depends on the cited evidence rather than a generic grammar statement.
 
 \paragraph{Scoring.}
-The reconstructed edit \(\tilde{e}\) is compared with the model-produced edit \(e\). We compute span exact match, span precision/recall/F1, source text match, target text match, operation accuracy, error type accuracy, and full edit exact match. For faithfulness classification, reconstruction agreement can be thresholded or used as features for a classifier. Negative examples are required to test whether the method rejects explanations with wrong location, wrong target, wrong direction, wrong type, swapped edit, or generic rationale.
+For L1, the reconstructed edit \(\tilde{e}\) is compared with the model-produced edit \(e\) using span exact match, span precision/recall/F1, source text match, target text match, operation accuracy, error type accuracy, and full edit exact match. For L2, we report counterfactual behavior accuracy, macro-F1 over preserve/change/cancel/retarget labels, and grouped bootstrap confidence intervals by source sentence. For L3, we report rule consistency, evidence span F1, contradiction rejection, and negative rejection rates by negative type.

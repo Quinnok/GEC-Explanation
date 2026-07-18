@@ -4,7 +4,7 @@ Last updated: 2026-07-18
 
 ## Current Objective
 
-Move from a source-reference template sanity check to an edit-level pilot over corrections actually produced by public GEC models. The immediate question is whether explanation-to-edit consistency can be evaluated without letting explicit templates leak the full answer.
+Build a model-produced edit benchmark for evaluating GEC explanation faithfulness with three layers: L1 edit correspondence and leakage controls, L2 Counterfactual Edit Simulatability, and L3 rule/evidence grounding.
 
 ## Current Data Status
 
@@ -28,11 +28,13 @@ Available local research data:
 
 ## Next Experiments
 
-1. Add a normalization ablation for seq2seq detokenization effects, especially T5 `R:ORTH` overcorrections.
-2. Improve open-source explanation generation or retrieve from a license-clear explanation dataset; do not use direct predicted-edit templates as the main explanation source.
-3. Build leakage-aware reconstruction baselines on model-produced edits: source only, explanation only, source plus generated explanation, shuffled explanation, raw edit string, and explicit template upper control.
-4. Add manual adjudication protocol for a small sample before making faithfulness claims.
-5. Expand literature verification before using any "first" or "novel" language.
+1. Build `data/faithfulness_benchmark/` from model-produced edits, targeting at least 500 predicted edits and at least 100 missed-edit diagnoses.
+2. Add a third no-paid model family when feasible, preferably an instruction-following/open text-editing model; if blocked, document the blocker and substitute another public GEC model.
+3. Generate explanation candidates and hard negatives for each edit: explicit template, masked target, rule-only, FLAN, another open model, shuffled, wrong span, wrong target, wrong operation, wrong direction, wrong type, wrong rule, wrong evidence, generic, and counterfactually inconsistent.
+4. Implement L1 baselines: random, majority, surface, embedding similarity, structured extraction, reverse reconstruction, masked-target reconstruction, and leakage-adjusted reconstruction.
+5. Implement L2 Counterfactual Edit Simulatability by creating error-irrelevant and rule-relevant variants, rerunning the original GEC models, and scoring explanation predictions against actual rerun behavior.
+6. Implement L3 rule/evidence verifier using ERRANT types and EXPECT evidence where available.
+7. Prepare a human annotation package before claiming that automatic faithfulness labels match human judgments.
 
 ## Metrics To Keep
 
@@ -42,11 +44,16 @@ Available local research data:
 - Operation Accuracy.
 - Error Type Accuracy.
 - Faithfulness Macro-F1.
+- Counterfactual behavior accuracy.
+- Preserve/change/cancel/retarget macro-F1.
+- Rule consistency.
+- Evidence span F1.
 - Negative rejection rate by negative type.
 - Behavior-conditioned scores: correct correction, wrong correction, overcorrection, and missed correction diagnosis.
+- Grouped bootstrap confidence intervals by source sentence.
 
 ## Blocking Items
 
 - Need a credible human or license-clear natural-language explanation source for final paper claims.
 - Need human inspection protocol for explanation faithfulness.
-- Need final related-work sweep for reverse reconstruction and simulatability before contribution language is frozen.
+- Need counterfactual validity audit before reporting L2 as behavioral faithfulness evidence.

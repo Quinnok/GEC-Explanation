@@ -13,7 +13,9 @@ We use ERRANT 3.0.2 with the small spaCy English model to extract structured edi
 The earlier source-reference template pilot is retained only as a leakage-control sanity check. For model-produced edits, EXPECT provides evidence-word and error-type labels but no natural-language explanation field, so we generate open-source explanation candidates with FLAN-T5-base from source, model prediction, and the predicted edit span. These candidates are not human gold. Explicit edit templates are retained only as an upper control for answer leakage.
 
 \paragraph{Baselines.}
-We evaluate two non-placeholder baselines. The surface keyword baseline predicts faithfulness when the explanation mentions the gold operation, target/source strings when applicable, and ERRANT type. The structured explicit baseline parses explicit edit statements and raw edit strings into span, source text, target text, operation, and error type.
+The current pilot has two non-placeholder L1 baselines: a surface keyword baseline and a structured explicit extraction baseline. The next benchmark stage adds random, majority, embedding similarity, masked-target reconstruction, leakage-adjusted reconstruction, counterfactual simulator, and rule/evidence verifier baselines. Explicit templates and raw edit strings are reported only as leakage upper controls.
 
 \paragraph{Metrics.}
-We report Full Edit Exact Match, Span F1, Target Match, Operation Accuracy, Error Type Accuracy, Faithfulness Macro-F1, and negative rejection rates by negative type. All numbers in this section are generated from the JSON outputs under \texttt{results/real\_pilot/}.
+For L1, we report Full Edit Exact Match, Span F1, Target Match, Operation Accuracy, Error Type Accuracy, and leakage-adjusted deltas. For L2, we report counterfactual behavior accuracy, macro-F1, grouped bootstrap confidence intervals by source sentence, and preserve/change/cancel/retarget breakdowns. For L3, we report rule consistency, evidence span F1, contradiction rejection, and negative rejection rates.
+
+All reported numbers must be generated from JSON outputs under \texttt{results/}; unreproduced values remain \texttt{[RESULT-PENDING]}.

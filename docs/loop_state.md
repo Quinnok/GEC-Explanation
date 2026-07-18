@@ -4,7 +4,7 @@ Last updated: 2026-07-18
 
 ## Current Round
 
-Round 06 in progress. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 literature packaging is complete.
+Round 07 in progress. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`. Round 06 idea restructuring is complete.
 
 ## Latest Completed Work
 
@@ -13,10 +13,11 @@ Round 06 in progress. Round 03 is committed as `8a8fedb`; Round 04 is committed 
 - T5 normalization ablation: `results/model_edits/normalized_behavior_stats.json`.
 - ERRANT alignment reliability audit: `results/audit/alignment_reliability_audit_50.md`.
 - 50-paper literature package: `literature/`.
+- Round 06 idea decision: main line is Counterfactual Edit Simulatability; backup is Rule-grounded Faithfulness.
 
 ## Current Highest-Priority Problem
 
-Round 06 must choose a defensible main idea and backup. Reverse reconstruction is now only an L1 correspondence/leakage diagnostic, not the main contribution.
+Round 07 must build a faithfulness benchmark from model-produced edits with multiple explanation sources and hard negatives.
 
 ## Active Constraints
 
@@ -24,3 +25,4 @@ Round 06 must choose a defensible main idea and backup. Reverse reconstruction i
 - Round 02 template reconstruction remains a leakage upper control only.
 - Raw T5 behavior must be retained alongside normalized and substantive views.
 - Reverse reconstruction should be described as edit correspondence or output self-consistency, not internal model faithfulness.
+- Counterfactual labels must come from rerunning the original GEC models, not from grammar-theory expectations.

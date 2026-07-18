@@ -8,7 +8,7 @@ Build an independent English AAAI paper on edit-level faithfulness evaluation fo
 
 ## Working Title
 
-Working title pending Round 06 decision. Current leading candidate: Counterfactual Edit Simulatability for Faithful Explanations of Model-Produced GEC Edits.
+Counterfactual Edit Simulatability for Faithful Explanations of Grammatical Error Correction Edits
 
 ## Core Question
 

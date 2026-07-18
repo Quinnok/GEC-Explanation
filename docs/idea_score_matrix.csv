@@ -1,0 +1,7 @@
+Idea,Novelty,Importance,GEC Specificity,Feasibility,Experimental Verifiability,Cost,Recruitment/Data Risk,AAAI Potential,Decision
+Reverse Edit Reconstruction,1,3,2,5,4,5,1,2.1,Demote to L1 diagnostic and leakage control
+Leakage-adjusted Edit Simulatability,3,4,3,4,5,4,3,3.5,Keep as required L1/L2 control
+Counterfactual Edit Simulatability,4,5,5,3,4,3,3,4.3,Select as main line
+Rule-grounded Faithfulness,3,4,5,4,4,4,3,3.8,Select as backup line and L3 component
+Evidence-grounded Faithfulness,3,4,4,4,4,4,3,3.6,Keep as L3 component
+Faithfulness-calibrated Explanation Reranking,3,4,4,3,4,3,2,3.2,Keep as downstream application after benchmark validation

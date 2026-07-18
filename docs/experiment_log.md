@@ -77,3 +77,15 @@ Last updated: 2026-07-18
 - Verification: `.venv311/bin/python -m unittest discover -s experiments/tests` ran 5 tests, all passed.
 - Paper compile verification: `../.local-tex/TinyTeX/bin/universal-darwin/latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex` in `paper/` reported `main.pdf` up to date.
 - LaTeX log check found no warnings, undefined citations/references, fatal errors, overfull boxes, or underfull boxes.
+- Round 05 committed as `fa2b7fc Round 05 literature package`.
+
+## Round 06
+
+- Idea restructuring outputs: `docs/idea_candidates.md`, `docs/idea_score_matrix.csv`, `docs/idea_review_panel.md`, `docs/final_idea_decision.md`, and `docs/round_06.md`.
+- Six ideas compared: Reverse Edit Reconstruction, Leakage-adjusted Edit Simulatability, Counterfactual Edit Simulatability, Rule-grounded Faithfulness, Evidence-grounded Faithfulness, and Faithfulness-calibrated Explanation Reranking.
+- Simulated five reviewer perspectives: GEC specialist, explainability/faithfulness specialist, evaluation specialist, counterfactual learning specialist, and educational NLP specialist.
+- Decision: select Counterfactual Edit Simulatability as the main line; select Rule-grounded Faithfulness as backup; demote Reverse Edit Reconstruction to an L1 edit-correspondence/leakage diagnostic.
+- Paper updated: title, abstract, introduction, problem formulation, method, related work, experimental setup, results wording, conclusion, and BibTeX.
+- Verification: `.venv311/bin/python -m unittest discover -s experiments/tests` ran 5 tests, all passed.
+- Paper compile verification: `PATH="$PWD/../.local-tex/TinyTeX/bin/universal-darwin:$PATH" ../.local-tex/TinyTeX/bin/universal-darwin/latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex` in `paper/` completed successfully.
+- LaTeX log check found no warnings, undefined citations/references, fatal errors, overfull boxes, or underfull boxes.
