@@ -37,6 +37,14 @@ def log_clean(path: Path) -> bool:
     return not re.search("|".join(patterns), text)
 
 
+def bibliography_start_page(path: Path) -> int | None:
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    match = re.search(r"\(\./main\.bbl.*?\[(\d+)\]", text, re.DOTALL)
+    if match and match.group(1):
+        return int(match.group(1))
+    return None
+
+
 def section_inputs(main_tex: str) -> List[str]:
     return re.findall(r"\\input\{sections/([^}]+)\}", main_tex)
 
@@ -80,9 +88,19 @@ def check() -> Dict[str, Any]:
             human["status"].replace("_", r"\_"),
         ]
     )
+    main_pages = pdf_pages(ROOT / "paper" / "main.pdf")
+    bib_start = bibliography_start_page(ROOT / "paper" / "main.log")
+    total_page_status = "ok_9_pages_or_less" if (main_pages or 99) <= 9 else "over_9_pages"
+    technical_page_status = (
+        "ok_references_start_by_page_7"
+        if (main_pages or 99) <= 9 and (bib_start is None or bib_start <= 7)
+        else "check_main_content_length"
+    )
     return {
-        "main_pdf_pages": pdf_pages(ROOT / "paper" / "main.pdf"),
-        "main_technical_page_limit_status": "ok_7_pages_or_less" if (pdf_pages(ROOT / "paper" / "main.pdf") or 99) <= 7 else "over_7_pages",
+        "main_pdf_pages": main_pages,
+        "bibliography_start_page_from_log": bib_start,
+        "main_total_page_limit_status": total_page_status,
+        "main_technical_page_limit_status": technical_page_status,
         "appendix_pdf_pages": pdf_pages(ROOT / "paper" / "supplementary" / "appendix.pdf"),
         "anonymous_submission": "Anonymous Submission" in main_tex and "\\affiliations{}" in main_tex,
         "uses_aaai2027_submission_style": "\\usepackage[submission]{aaai2027}" in main_tex,

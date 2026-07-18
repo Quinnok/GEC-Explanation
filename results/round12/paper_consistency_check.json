@@ -2,6 +2,7 @@
   "anonymous_submission": true,
   "appendix_latex_log_clean": true,
   "appendix_pdf_pages": 4,
+  "bibliography_start_page_from_log": 7,
   "generated_asset_count": 11,
   "generated_assets": [
     "benchmark_stats_table.tex",
@@ -19,8 +20,9 @@
   "human_annotation_status": "blocked_no_human_annotation",
   "human_gold_count": 0,
   "main_latex_log_clean": true,
-  "main_pdf_pages": 7,
-  "main_technical_page_limit_status": "ok_7_pages_or_less",
+  "main_pdf_pages": 8,
+  "main_technical_page_limit_status": "ok_references_start_by_page_7",
+  "main_total_page_limit_status": "ok_9_pages_or_less",
   "no_human_claim_status": "ok_blocked_reported",
   "required_asset_count_status": "ok",
   "required_sections_present": {

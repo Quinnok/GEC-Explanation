@@ -15,7 +15,7 @@ Checked on 2026-07-18 from official AAAI pages.
 | Requirement | Official Requirement | Local Status |
 |---|---|---|
 | Template | Use AAAI-27 author kit and AAAI two-column style. | `paper/main.tex` uses `\usepackage[submission]{aaai2027}`. |
-| Page limit | Main track submissions are limited to 7 pages of main content, with maximum total length 9 pages; pages beyond 7 are reserved exclusively for references. | `paper/main.pdf` is 7 pages. References begin on page 7, so the draft is at the limit and should not grow. |
+| Page limit | Main track submissions are limited to 7 pages of main content, with maximum total length 9 pages; pages beyond 7 are reserved exclusively for references. | `paper/main.pdf` is 8 pages after Round 13; references begin on page 7, so the draft is within the 9-page total limit. |
 | Anonymous review | Submissions must remove author and affiliation information for double-blind review. | `paper/main.tex` uses `Anonymous Submission` and empty affiliations. |
 | Abstract/full paper deadlines | Abstracts due July 21, 2026; full papers due July 28, 2026, both 11:59 PM UTC-12. | Recorded for planning; no submission performed. |
 | Supplementary material/code | Supplementary material and code due July 31, 2026, 11:59 PM UTC-12; reviewers are not required to review supplementary material. | `paper/supplementary/appendix.pdf` compiles and should contain nonessential extra material. |
@@ -28,7 +28,8 @@ Checked on 2026-07-18 from official AAAI pages.
 
 `results/round12/paper_consistency_check.json` reports:
 
-- main PDF pages: 7
+- main PDF pages: 8
+- bibliography starts on page: 7
 - appendix PDF pages: 4
 - generated asset count: 11
 - result-pending placeholders: 0
@@ -39,4 +40,4 @@ Checked on 2026-07-18 from official AAAI pages.
 
 ## Risk
 
-The paper is already at the 7-page main-content limit. Any Round 13 revision should move detail to the supplementary appendix rather than adding main-text length.
+The paper is at the main-content limit and uses a second reference page. Further revisions should move detail to the supplementary appendix or shorten existing prose.

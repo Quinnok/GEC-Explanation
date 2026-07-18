@@ -39,4 +39,14 @@ EDIT_LIMIT=80 LLM_JUDGE_LIMIT=2000 RUN_LOCAL_LLM_JUDGE=1 bash experiments/run_ro
 .venv311/bin/python experiments/src/build_paper_assets.py
 \end{verbatim}
 
+\section{Counterfactual Validity and Pilot Scope}
+
+Counterfactual labels are not assigned from grammar theory alone. For each variant, the original GEC model is rerun and ERRANT edits are extracted from the counterfactual source and prediction. The label records whether the original edit is preserved, canceled, shifted in span or target, or replaced by a competing edit. This is intentionally conservative: competing edits are not collapsed into cancellations because Round 09 shows they are frequent.
+
+The current variants are heuristic and should be treated as a pilot. Error-irrelevant variants replace non-error tokens such as entities or modifiers. Rule-relevant variants include applying the original edit to remove the error opportunity and other local rule-condition changes when supported by the edit type. Invalid or competing cases are stored under \path{results/round09/error_analysis/}. A final submission should add human validity checks for a sample of counterfactual pairs.
+
+\section{Scope Relative to Close Work}
+
+The benchmark does not claim to replace GEC correction metrics or explanation generation methods. GEE and Prompt Insertion focus on generating grammar explanations, EXCGEC provides edit-wise explainable GEC data for Chinese, and COCOGEC studies counterfactual generation for GEC robustness. The present diagnostic uses counterfactual reruns to ask whether an explanation of a produced edit predicts the same model's later edit behavior.
+
 \end{document}

@@ -186,3 +186,16 @@ Last updated: 2026-07-18
 - Main paper compile: `paper/main.pdf`, 7 pages, US Letter, clean LaTeX log.
 - Supplementary appendix compile: `paper/supplementary/appendix.pdf`, 4 pages, clean LaTeX log.
 - Consistency check: `results/round12/paper_consistency_check.json` reports 0 result-pending placeholders, 11 generated assets, anonymous submission true, and human annotation status `blocked_no_human_annotation`.
+- Round 12 committed as `62c51cd Round 12 complete AAAI draft assets`.
+
+## Round 13
+
+- Simulated review outputs: `docs/reviews/round13_review_round_01.md`, `docs/reviews/round13_review_round_02.md`, and `docs/reviews/round13_review_round_03.md`.
+- Review roles per round: GEC expert, explainability expert, faithfulness expert, evaluation expert, counterfactual learning expert, educational NLP expert, reproducibility reviewer, skeptical reviewer 2, and area chair.
+- P0 fix: paper title changed from faithful-explanation framing to evaluation framing.
+- P0 fix: Introduction now states the contribution is a benchmark/diagnostic suite, not a new explanation generator.
+- P0 fix: Related Work clarifies the boundary with EXCGEC, GEE, Prompt Insertion, and COCOGEC.
+- P1 fix: supplementary appendix now documents counterfactual validity, pilot scope, and scope relative to close work.
+- P1 fix: Results clarifies that L1/L3 and L2 metrics should not be interpreted as one unified leaderboard.
+- Open issues updated: automatic P0s closed for draft; double-human annotation remains blocked on real external annotators.
+- Verification: `bash experiments/run_round12.sh` passes after Round 13 edits; `results/round12/paper_consistency_check.json` reports 8 total pages, bibliography starts on page 7, total page status `ok_9_pages_or_less`, main technical status `ok_references_start_by_page_7`, and clean main/appendix LaTeX logs.

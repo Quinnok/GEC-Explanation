@@ -2,6 +2,8 @@
 
 \input{../results/paper_assets/main_results_table}
 
+Scores in Table~\ref{tab:main-results} are reported by layer and should not be interpreted as one unified leaderboard: L1/L3 rows are binary automatic-label Macro-F1, while L2 rows are multiclass counterfactual-behavior Macro-F1.
+
 The automatic pilot supports three conservative findings. First, edit correspondence remains strongly affected by leakage: reverse reconstruction reaches 0.640 Macro-F1, but target-masked reconstruction drops to 0.439 and leakage-adjusted reconstruction to 0.496. Second, rule/evidence verification is the strongest current automatic L1/L3 baseline at 0.767 Macro-F1, ahead of the NLI lexical proxy and TF-IDF similarity. Because these labels are automatically constructed, this result is evidence of benchmark separability rather than proof of semantic explanation faithfulness.
 
 Third, L2 counterfactual edit simulatability is substantially harder. We build 120 counterfactual variants from 60 model-produced edits and label each variant by rerunning the original GEC model. The best current automatic L2 simulator, a trained explanation-type prior, reaches only 0.297 Macro-F1. This negative result is important: counterfactual edit behavior is not captured by simple explanation-type or leakage cues.

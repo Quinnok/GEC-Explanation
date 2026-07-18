@@ -27,12 +27,12 @@
 ## Verification
 
 - Command: `bash experiments/run_round12.sh`
-- Main paper: `paper/main.pdf`, 7 pages, clean LaTeX log.
+- Main paper at the time of Round 12: `paper/main.pdf`, 7 pages, clean LaTeX log. After Round 13 review edits it is 8 total pages with references starting on page 7.
 - Supplementary appendix: `paper/supplementary/appendix.pdf`, 4 pages, clean LaTeX log.
 - Consistency report: `results/round12/paper_consistency_check.json`.
 - Status: generated asset count 11, result-pending placeholders 0, anonymous submission true, human labels 0 with `blocked_no_human_annotation` reported.
 
 ## Remaining Risk
 
-- The main paper is exactly 7 pages. Further Round 13 changes should move detail to the supplementary appendix unless text is shortened.
+- The main paper is at the AAAI main-content limit. Further changes should move detail to the supplementary appendix unless text is shortened.
 - Human-faithfulness and helpfulness claims remain blocked by lack of real double annotation.
