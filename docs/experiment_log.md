@@ -199,3 +199,11 @@ Last updated: 2026-07-18
 - P1 fix: Results clarifies that L1/L3 and L2 metrics should not be interpreted as one unified leaderboard.
 - Open issues updated: automatic P0s closed for draft; double-human annotation remains blocked on real external annotators.
 - Verification: `bash experiments/run_round12.sh` passes after Round 13 edits; `results/round12/paper_consistency_check.json` reports 8 total pages, bibliography starts on page 7, total page status `ok_9_pages_or_less`, main technical status `ok_references_start_by_page_7`, and clean main/appendix LaTeX logs.
+- Round 13 committed as `1b219c5 Round 13 simulated reviews and claim tightening`.
+
+## Round 14
+
+- Rebuttal files created under `paper/rebuttal/`: reviewer 1, reviewer 2, reviewer 3, AC summary, evidence index, and high-risk questions.
+- Artifact documentation created: `README.md`, `environment.yml`, `requirements.txt`, `docs/reproduction_commands.md`, `docs/model_data_downloads.md`, `docs/license_summary.md`, `docs/artifact_checklist.md`, and `docs/reproducibility_checklist_notes.md`.
+- Result checksum index generated at `results/round14/result_checksums.sha256`.
+- Human-evaluation status remains blocked: no real double-human annotation files exist.

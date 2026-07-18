@@ -4,7 +4,7 @@ Last updated: 2026-07-18
 
 ## Current Round
 
-Round 13 simulated review and P0/P1 fixes are complete and awaiting verification/commit. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`; Round 06 is committed as `1db85c8`; Round 07 is committed as `7b35499`; Round 08 is committed as `4ebd5e4`; Round 09 is committed as `e288227`; Round 10 is committed as `a7cffc9`; Round 11 is committed as `f8529af`; Round 12 is committed as `62c51cd`.
+Round 14 rebuttal and artifact materials are complete and awaiting verification/commit. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`; Round 06 is committed as `1db85c8`; Round 07 is committed as `7b35499`; Round 08 is committed as `4ebd5e4`; Round 09 is committed as `e288227`; Round 10 is committed as `a7cffc9`; Round 11 is committed as `f8529af`; Round 12 is committed as `62c51cd`; Round 13 is committed as `1b219c5`.
 
 ## Latest Completed Work
 
@@ -22,10 +22,11 @@ Round 13 simulated review and P0/P1 fixes are complete and awaiting verification
 - Round 11 reranking application: 880 candidates for 80 model-produced edits, eight automatic rerankers, local FLAN-T5 judge over all candidates, and reward-hacking audit.
 - Round 12 complete draft: `paper/main.pdf` compiles cleanly; after Round 13 it is 8 total pages with references starting on page 7. `paper/supplementary/appendix.pdf` compiles to 4 clean pages, and 11 generated paper assets are tracked under `results/paper_assets/`.
 - Round 13 simulated reviews: three rounds, nine roles per round, title/framing revised, close-work boundary strengthened, automatic P0s closed for draft.
+- Round 14 rebuttal/artifacts: rebuttal drafts, evidence index, README, environment files, reproduction commands, model/data download notes, license summary, artifact checklist, reproducibility notes, and checksum index.
 
 ## Current Highest-Priority Problem
 
-The next nondependent work is Round 14 rebuttal and artifact packaging. Human-faithfulness validation is blocked until real double annotation is completed.
+All nondependent requested automatic work through Round 14 is complete. The next highest-priority task is real double-human annotation.
 
 ## Active Constraints
 
@@ -47,3 +48,4 @@ The next nondependent work is Round 14 rebuttal and artifact packaging. Human-fa
 - The main paper is at the AAAI main-content limit and uses two reference pages; further changes must be length-neutral or move details to the supplementary appendix.
 - Official AAAI-27 requirements were checked on 2026-07-18 and must be rechecked immediately before final upload.
 - Round 13 title/framing changes reduce overclaiming but do not solve the missing-human-label risk.
+- Round 14 checksums must be regenerated after any future result, paper, or artifact changes.
