@@ -8,15 +8,15 @@ Build an independent English AAAI paper on edit-level faithfulness evaluation fo
 
 ## Working Title
 
-Can GEC Explanations Reconstruct the Edit? Evaluating Explanation Faithfulness via Reverse Edit Reconstruction
+Working title pending Round 06 decision. Current leading candidate: Counterfactual Edit Simulatability for Faithful Explanations of Model-Produced GEC Edits.
 
 ## Core Question
 
-Do natural-language explanations for GEC edits faithfully correspond to the edits actually produced by a GEC system?
+Can an explanation predict and constrain the actual edit behavior of a GEC model, including under controlled counterfactual perturbations?
 
 ## Current Hypothesis
 
-If an explanation faithfully describes a model-produced edit, then a reconstructor given only the source sentence and the explanation should be able to recover the corresponding edit structure.
+Reverse reconstruction can test edit correspondence but is leakage-prone. A stronger behavioral hypothesis is that faithful explanations should remain predictive when error-irrelevant context changes preserve the model edit, and should change or fail when rule-relevant perturbations change the model edit.
 
 ## Scope
 
@@ -33,3 +33,4 @@ The engineering pipeline is now validated on real EXPECT data and two real publi
 - The local opening report PDF has been read with PDF text extraction.
 - At startup, no real GEC datasets, model outputs, explanation annotations, or previous experiment results were found in the workspace.
 - Current real data: 300 EXPECT source/reference pairs, 600 model predictions, 1707 model-produced edits, and 300 open-source explanation candidates.
+- Current literature package: 50 paper cards plus CSV/Markdown/XLSX matrices under `literature/`.

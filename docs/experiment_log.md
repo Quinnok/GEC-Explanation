@@ -63,3 +63,17 @@ Last updated: 2026-07-18
 - Alignment reliability command: `.venv311/bin/python experiments/src/audit_alignment_reliability.py --count 50 --out-dir results/audit`.
 - Alignment reliability outputs: `results/audit/alignment_reliability_audit_50.md`, `results/audit/alignment_reliability_audit_50.jsonl`, `results/audit/alignment_reliability_summary.json`.
 - Exact-only vs stable alignment over 600 sentences: exact-only correct 213, over 1494, missed 427; stable correct 213, wrong 90, over 1404, missed 337.
+- Round 04 committed as `2667862 Round 04 audit normalization alignment`.
+
+## Round 05
+
+- Installed `openpyxl` 3.1.5 in `.venv311` to generate `literature/literature_matrix.xlsx`.
+- Literature package command: `.venv311/bin/python experiments/src/build_literature_package.py`.
+- Literature package outputs: 50 paper cards in `literature/paper_cards/`, matrix files in CSV/Markdown/XLSX, and lineage/taxonomy/novelty documents under `literature/`.
+- Literature validation: matrix rows 50, paper cards 50, XLSX exists.
+- Year coverage: five 2026 papers, twelve 2025 papers, fifteen 2023-2024 papers, and eighteen earlier foundations.
+- P0 closest/threat papers identified: COCOGEC, EXCGEC, CLEME2.0, GEE, Prompt Insertion, EXPECT, ERRANT, BEA-2019, Hase and Bansal simulatability, Jacovi and Goldberg faithfulness, Lyu et al. faithfulness survey, and Parcalabescu and Frank self-consistency.
+- Verification: `.venv311/bin/python -m py_compile experiments/src/build_literature_package.py` passed.
+- Verification: `.venv311/bin/python -m unittest discover -s experiments/tests` ran 5 tests, all passed.
+- Paper compile verification: `../.local-tex/TinyTeX/bin/universal-darwin/latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex` in `paper/` reported `main.pdf` up to date.
+- LaTeX log check found no warnings, undefined citations/references, fatal errors, overfull boxes, or underfull boxes.

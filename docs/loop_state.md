@@ -4,7 +4,7 @@ Last updated: 2026-07-18
 
 ## Current Round
 
-Round 05 in progress. Round 03 is committed as `8a8fedb`. Round 04 audit/normalization/alignment work is complete and pending commit.
+Round 06 in progress. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 literature packaging is complete.
 
 ## Latest Completed Work
 
@@ -12,10 +12,11 @@ Round 05 in progress. Round 03 is committed as `8a8fedb`. Round 04 audit/normali
 - 60-row explanation/edit audit: `results/audit/round04_sample_audit.jsonl`.
 - T5 normalization ablation: `results/model_edits/normalized_behavior_stats.json`.
 - ERRANT alignment reliability audit: `results/audit/alignment_reliability_audit_50.md`.
+- 50-paper literature package: `literature/`.
 
 ## Current Highest-Priority Problem
 
-Novelty and framing remain the highest risk. The next round must build the systematic literature package and novelty-threat map before finalizing the research direction.
+Round 06 must choose a defensible main idea and backup. Reverse reconstruction is now only an L1 correspondence/leakage diagnostic, not the main contribution.
 
 ## Active Constraints
 
