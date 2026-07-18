@@ -174,3 +174,15 @@ Last updated: 2026-07-18
 - Reward-hacking audit: combined, surface, and reconstruction rerankers select template explanations and edit-copy explanations as top-1 for 100.0% of edits; these scores must be treated as leakage controls rather than evidence of human-preferred explanations.
 - Human top-1 preference remains `blocked_no_human_labels`.
 - Outputs: `results/round11/reranking_candidates.jsonl`, `results/round11/reranking_scored_candidates.jsonl`, `results/round11/reranking_metrics.json`, `results/round11/reward_hacking_report.json`, `results/tables/round11_reranking.tex`, and `docs/round_11.md`.
+- Round 11 committed as `f8529af Round 11 explanation reranking application`.
+
+## Round 12
+
+- Paper asset command: `.venv311/bin/python experiments/src/build_paper_assets.py`.
+- Generated paper assets: 11 `.tex` snippets under `results/paper_assets/`, including framework, data pipeline, counterfactual pair, method comparison, main results, leakage ablation, model/behavior breakdown, human status, error analysis, benchmark statistics, and case study assets.
+- Paper structure updated with Benchmark/Data, Ablation, Human Evaluation, Error Analysis, Ethics/Broader Impact, and a compiled supplementary appendix.
+- Official AAAI-27 requirements checked from official AAAI pages and recorded in `docs/aaai27_requirements_check.md`.
+- Round 12 reproduction command: `bash experiments/run_round12.sh`.
+- Main paper compile: `paper/main.pdf`, 7 pages, US Letter, clean LaTeX log.
+- Supplementary appendix compile: `paper/supplementary/appendix.pdf`, 4 pages, clean LaTeX log.
+- Consistency check: `results/round12/paper_consistency_check.json` reports 0 result-pending placeholders, 11 generated assets, anonymous submission true, and human annotation status `blocked_no_human_annotation`.

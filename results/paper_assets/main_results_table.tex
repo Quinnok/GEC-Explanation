@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrr}
+\toprule
+Layer & Method & Macro-F1 / Pairwise & 95\% CI \\
+\midrule
+L1/L3 & surface\_keyword & 0.579 & [0.577, 0.583] \\
+L1/L3 & reverse\_reconstruction & 0.640 & [0.633, 0.646] \\
+L1/L3 & target\_masked\_reconstruction & 0.439 & [0.428, 0.451] \\
+L1/L3 & leakage\_adjusted\_reconstruction & 0.496 & [0.489, 0.501] \\
+L1/L3 & tfidf\_embedding\_similarity & 0.703 & [0.694, 0.714] \\
+L1/L3 & nli\_lexical\_proxy & 0.736 & [0.731, 0.740] \\
+L1/L3 & rule\_evidence\_verifier & 0.767 & [0.752, 0.785] \\
+L2 & random & 0.106 & [0.089, 0.125] \\
+L2 & variant\_family\_prior & 0.192 & [0.172, 0.213] \\
+L2 & explanation\_leakage\_simulator & 0.222 & [0.195, 0.244] \\
+L2 & trained\_explanation\_type\_prior & 0.297 & [0.277, 0.312] \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Main automatic pilot results with grouped bootstrap confidence intervals.}
+\label{tab:main-results}
+\end{table*}

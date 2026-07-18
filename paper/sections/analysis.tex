@@ -1,11 +1,9 @@
 \section{Analysis}
 
-The pilot confirms that explicit edit text is easy for a structured extractor to reconstruct, while source-only, implicit, and masked-target settings sharply reduce access to the target edit. This supports treating explicit explanations and raw edit strings as leakage controls rather than as sufficient evidence of explanation faithfulness.
+The results clarify what each layer measures. L1 reconstruction identifies whether an explanation contains enough information to recover the observed edit, but it is highly sensitive to answer copying. This is useful for detecting leakage, not for claiming internal causal faithfulness.
 
-For structured source+explanation input, negative rejection rates are generic explanation 100.0\%; swapped explanation 100.0\%; wrong direction 100.0\%; wrong location 100.0\%; wrong target 100.0\%; wrong type 100.0\%. Wrong-type and wrong-target cases are rejected when the parsed edit disagrees with the ERRANT gold edit fields. Generic explanations are rejected because they do not contain reconstructable edit fields. Swapped explanations test whether a copied explanation is detected through span, target, and type disagreement.
+L2 is the more behaviorally meaningful layer, but the pilot also shows why it is difficult. Rule-relevant variants often create competing model edits rather than a clean cancel/change label. We therefore keep competing edits as a separate class and avoid binary preserve-versus-cancel scoring.
 
-The token-diff comparison also shows a boundary risk: simple token diff agrees with ERRANT on only 94.7\% of examples before type labels. The paper therefore uses ERRANT for the real pilot and keeps token diff only as a diagnostic contrast.
+L3 rule/evidence checks are useful for rejecting generic or mismatched explanations, yet the current verifier is lexical and benefits from automatic rule templates. Its 0.767 Macro-F1 should be interpreted as evidence that the constructed benchmark is separable, not as evidence that the verifier understands grammar.
 
-The counterfactual pilot exposes a second risk. Rule-relevant variants often do not produce clean edit cancellation; instead, the GEC model may introduce competing edits elsewhere in the sentence. In the scaled pilot, competing edits occur almost as often as preserved edits. We therefore keep competing edit as a separate behavior class and avoid collapsing counterfactual outcomes into a binary preserve/cancel decision.
-
-Finally, the strongest automatic rule/evidence verifier should be interpreted cautiously. Its score is measured on automatic rule templates and hard negatives, so it can reflect construction artifacts. Human-labeled faithfulness is still needed to decide whether the metric tracks explanation quality as perceived by annotators.
+Finally, the reranking application demonstrates why evaluation must include reward-hacking checks. The best automatic reranker prefers explicit templates that repeat the edit. This is acceptable as a diagnostic finding, but not as a learner-facing explanation-selection result.

@@ -1,0 +1,42 @@
+\documentclass[letterpaper]{article}
+\usepackage[hyphens]{url}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+\title{Supplementary Appendix: Counterfactual Edit Simulatability for GEC Explanations}
+\author{Anonymous Submission}
+\date{}
+\begin{document}
+\maketitle
+
+\section{Artifact Overview}
+
+This appendix collects automatically generated tables and figures for the pilot. Every included asset is produced by \texttt{experiments/src/build\_paper\_assets.py} from JSON or JSONL files under \texttt{data/} and \texttt{results/}. Human labels are not included because the Round 10 status file records zero completed annotator labels.
+
+\section{Generated Figures and Tables}
+
+\input{../../results/paper_assets/framework_figure}
+\input{../../results/paper_assets/data_pipeline_figure}
+\input{../../results/paper_assets/benchmark_stats_table}
+\input{../../results/paper_assets/model_behavior_breakdown_table}
+\input{../../results/paper_assets/main_results_table}
+\input{../../results/paper_assets/leakage_ablation_table}
+\input{../../results/paper_assets/method_comparison_figure}
+\input{../../results/paper_assets/human_correlation_table}
+\input{../../results/paper_assets/error_analysis_table}
+\input{../../results/paper_assets/counterfactual_pair_figure}
+\input{../../results/paper_assets/case_study_figure}
+
+\section{Reproduction Commands}
+
+\begin{verbatim}
+bash experiments/run_build_data.sh
+bash experiments/run_model_pilot.sh
+bash experiments/run_round04_audit.sh
+bash experiments/run_benchmark.sh
+CF_MAX_PER_MODEL=20 CHECK_SIZE=30 BOOTSTRAP_SAMPLES=200 bash experiments/run_round09.sh
+EDIT_LIMIT=80 LLM_JUDGE_LIMIT=2000 RUN_LOCAL_LLM_JUDGE=1 bash experiments/run_round11.sh
+.venv311/bin/python experiments/src/build_paper_assets.py
+\end{verbatim}
+
+\end{document}

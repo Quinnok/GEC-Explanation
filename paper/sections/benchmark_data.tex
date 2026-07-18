@@ -1,0 +1,12 @@
+\section{Benchmark and Data}
+
+The benchmark is constructed from public English GEC sources and actual model outputs rather than reference corrections treated as predictions. EXPECT provides learner sentences, corrected references, evidence-word indices, and error types; JFLEG provides fluency-oriented references, with all four references retained and reference 0 used for the current single-reference ERRANT extraction. The pilot uses public model checkpoints from three families: GECToR as a sequence-to-edit model, T5 grammar correction as a sequence-to-sequence model, and CoEdIT-large as an instruction-following editor. Each prediction record stores the source, reference, model output, model identifier, model revision, decoding configuration, and CPU runtime metadata.
+
+\input{../results/paper_assets/data_pipeline_figure}
+\input{../results/paper_assets/benchmark_stats_table}
+
+Predicted edits are extracted from source/prediction pairs with ERRANT and aligned against source/reference edits to identify correct corrections, wrong corrections, and overcorrections. Missed corrections are stored separately because they do not correspond to a model-produced edit. The benchmark contains 700 selected model-produced edits, 160 missed-edit diagnoses, and 12,754 explanation/control instances. The selected edits cover replacement, insertion, and deletion operations, 41 ERRANT error types, two datasets, and three model families.
+
+\input{../results/paper_assets/model_behavior_breakdown_table}
+
+Explanation instances include explicit templates, masked-target templates, rule-only statements, FLAN/open-model candidates, GEE-style automatic candidates, rule-grounded automatic candidates, shuffled explanations, and hard negatives for wrong span, source token, target, operation, direction, error type, rule, and evidence. All such labels are automatic construction labels. They support diagnostic method development, but they are not human gold explanations.

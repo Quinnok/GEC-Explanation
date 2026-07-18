@@ -2,6 +2,8 @@
 
 We evaluate explanations with three layers. L1 measures edit correspondence and leakage, L2 measures counterfactual edit simulatability, and L3 measures rule/evidence grounding.
 
+\input{../results/paper_assets/framework_figure}
+
 \paragraph{Edit extraction.}
 Given a source sentence and a model prediction, we extract edit-level structures with ERRANT. Each edit records source span boundaries, source text, target text, operation, and ERRANT error type. A deterministic token-diff extractor is retained only as a diagnostic contrast for boundary checks; it is not the current extraction method for the real pilot.
 
@@ -19,3 +21,6 @@ We extract a rule claim and evidence span from the explanation. The verifier che
 
 \paragraph{Scoring.}
 For L1, the reconstructed edit \(\tilde{e}\) is compared with the model-produced edit \(e\) using span exact match, span precision/recall/F1, source text match, target text match, operation accuracy, error type accuracy, and full edit exact match. For L2, we report counterfactual behavior accuracy, macro-F1 over preserve/change/cancel/retarget labels, and grouped bootstrap confidence intervals by source sentence. For L3, we report rule consistency, evidence span F1, contradiction rejection, and negative rejection rates by negative type.
+
+\paragraph{Reranking application.}
+To test whether the diagnostics can support an actual downstream decision, we score multiple explanation candidates for each edit and select a top-ranked explanation. We compare random selection, length heuristics, surface score, a local open-source FLAN-T5 judge, reconstruction score, counterfactual score, rule/evidence score, and a combined reranker. This application is evaluated with automatic pairwise ranking accuracy, MRR, top-1 automatic faithfulness, and reward-hacking indicators such as template and edit-copy selection rates.

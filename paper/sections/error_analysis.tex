@@ -1,0 +1,6 @@
+\section{Error Analysis}
+
+\input{../results/paper_assets/error_analysis_table}
+\input{../results/paper_assets/counterfactual_pair_figure}
+
+The error packets show three recurring failure modes. First, ERRANT boundaries and multi-reference alternatives can make valid-looking edits appear wrong under a single-reference alignment. This is especially relevant for JFLEG, where four references are retained but the current pilot uses one reference for primary extraction. Second, rule-relevant counterfactuals often trigger competing edits rather than clean cancellations. In the scaled pilot, actual counterfactual labels are preserve 57, competing edit 52, cancel 7, span change 3, and target change 1. Third, automatic simulators can confuse explanation form with behavioral evidence: rule-grounded and explicit templates may be easier to parse without genuinely predicting model behavior.

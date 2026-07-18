@@ -7,6 +7,10 @@
 \usepackage{natbib}
 \usepackage{caption}
 \frenchspacing
+\raggedbottom
+\emergencystretch=3em
+\hbadness=10000
+\vbadness=10000
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{booktabs}
@@ -31,11 +35,16 @@ of Grammatical Error Correction Edits}
 \input{sections/introduction}
 \input{sections/related_work}
 \input{sections/problem_formulation}
+\input{sections/benchmark_data}
 \input{sections/method}
 \input{sections/experimental_setup}
 \input{sections/results}
+\input{sections/ablation}
+\input{sections/human_evaluation}
 \input{sections/analysis}
+\input{sections/error_analysis}
 \input{sections/limitations}
+\input{sections/ethics}
 \input{sections/conclusion}
 
 \bibliography{references}

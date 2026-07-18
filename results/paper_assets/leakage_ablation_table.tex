@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llrr}
+\toprule
+Condition & Score & Control & Edit-copy top-1 \\
+\midrule
+Reverse reconstruction & 0.640 & target visible & -- \\
+Target-masked reconstruction & 0.439 & target masked & -- \\
+Leakage-adjusted reconstruction & 0.496 & direct leakage penalized & -- \\
+Round 11 combined reranker & 0.935 & automatic ranking & 1.000 \\
+Round 11 local LLM judge & 0.455 & local FLAN-T5 & 0.212 \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Leakage and reward-hacking controls.}
+\label{tab:leakage}
+\end{table}

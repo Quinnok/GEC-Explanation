@@ -1,0 +1,17 @@
+\begin{figure}[t]
+\centering
+\footnotesize
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llr}
+\toprule
+Layer/Application & Best current automatic method & Score \\
+\midrule
+L1 edit correspondence & rule/evidence verifier & 0.767 Macro-F1 \\
+L2 counterfactual simulator & trained explanation-type prior & 0.297 Macro-F1 \\
+Reranking application & combined reranker & 0.935 pairwise \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Method comparison summary generated from Round 09 and Round 11 metrics.}
+\label{fig:method-comparison}
+\end{figure}

@@ -24,6 +24,15 @@ paper/*.synctex.gz
 paper/*.toc
 paper/*.xdv
 paper/main.pdf
+paper/supplementary/*.aux
+paper/supplementary/*.fdb_latexmk
+paper/supplementary/*.fls
+paper/supplementary/*.log
+paper/supplementary/*.out
+paper/supplementary/*.synctex.gz
+paper/supplementary/*.toc
+paper/supplementary/*.xdv
+paper/supplementary/*.pdf
 
 # Local installation and compile scratch logs
 logs/latexmk_*.log

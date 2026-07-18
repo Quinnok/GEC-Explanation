@@ -1,21 +1,11 @@
-\section{Results}
+\section{Main Results}
 
-\paragraph{Leakage-control pilot.}
-The first tables report the source-reference template leakage-control pilot only. They are not evidence that L1 reconstruction works on natural-language explanations for model-produced GEC edits.
+\input{../results/paper_assets/main_results_table}
 
-\input{../results/tables/real_leakage_structured}
-\input{../results/tables/real_baseline_comparison}
+The automatic pilot supports three conservative findings. First, edit correspondence remains strongly affected by leakage: reverse reconstruction reaches 0.640 Macro-F1, but target-masked reconstruction drops to 0.439 and leakage-adjusted reconstruction to 0.496. Second, rule/evidence verification is the strongest current automatic L1/L3 baseline at 0.767 Macro-F1, ahead of the NLI lexical proxy and TF-IDF similarity. Because these labels are automatically constructed, this result is evidence of benchmark separability rather than proof of semantic explanation faithfulness.
 
-The structured explicit baseline reconstructs explicit explanations with 99.7\% Full Edit Exact Match and 99.9\% Faithfulness Macro-F1. The same baseline reaches 100.0\% Full Edit Exact Match on raw edit strings, which is an expected answer-leakage upper control rather than a desirable explanation setting.
+Third, L2 counterfactual edit simulatability is substantially harder. We build 120 counterfactual variants from 60 model-produced edits and label each variant by rerunning the original GEC model. The best current automatic L2 simulator, a trained explanation-type prior, reaches only 0.297 Macro-F1. This negative result is important: counterfactual edit behavior is not captured by simple explanation-type or leakage cues.
 
-Leakage controls expose the limits of direct edit copying. Source-only input yields 0.0\% Full Edit Exact Match, explanation-only input yields 99.7\%, implicit explanations yield 0.0\%, and masked-target explanations yield 11.7\% Target Match. The surface keyword baseline obtains 75.2\% Faithfulness Macro-F1 on source-plus-explanation inputs but does not reconstruct structured edits.
+\input{../results/paper_assets/method_comparison_figure}
 
-\paragraph{Automatic model-edit benchmark.}
-On the Round 09 automatic model-edit benchmark, L1 reconstruction remains sensitive to leakage controls. Reverse reconstruction reaches 0.640 grouped-bootstrap Macro-F1, but target-masked reconstruction drops to 0.439 and leakage-adjusted reconstruction drops to 0.496. Rule/evidence verification is the strongest automatic L1/L3 baseline at 0.767 Macro-F1, ahead of the NLI lexical proxy at 0.736 and TF-IDF similarity at 0.703.
-
-\input{../results/tables/round09_l1_bootstrap}
-
-\paragraph{Counterfactual simulatability pilot.}
-For L2, we build 120 counterfactual variants from 60 model-produced edits and label each variant by rerunning the original GEC model. The labels are preserve 57, competing edit 52, cancel 7, span change 3, and target change 1. The best current automatic simulator is a trained explanation-type prior with 0.297 Macro-F1; this is a weak diagnostic baseline, not evidence of a strong counterfactual simulator.
-
-\input{../results/tables/round09_counterfactual_bootstrap}
+The reranking application shows a complementary risk. The combined reranker obtains 0.935 automatic pairwise accuracy over 880 candidates for 80 edits, but it selects template explanations and edit-copy explanations as top-1 for 100.0\% of edits. A local open-source FLAN-T5 judge covers all 880 candidates without paid APIs, but scores only 0.455 pairwise accuracy, below the random baseline of 0.509. Thus the current reranking experiment is best read as a reward-hacking diagnostic, not as a solved explanation-selection method.

@@ -1,7 +1,7 @@
 \section{Experimental Setup}
 
 \paragraph{Data.}
-The real pilot uses two public English GEC data sources. EXPECT is released under the MIT License; the versioned pilot file contains 300 real source/reference pairs and 320 source-reference ERRANT edits. JFLEG is released under CC-BY-NC-SA-4.0; we retain all four references and use the first reference as the primary reference for this single-reference ERRANT pilot. Exact download commands, commits, and license notes are recorded in the project data statement.
+The real pilot uses two public English GEC data sources. EXPECT is released under the MIT License; the versioned pilot file contains 300 real source/reference pairs and 320 source-reference ERRANT edits. JFLEG is released under CC-BY-NC-SA-4.0; we retain all four references and use reference 0 as the primary reference for this single-reference ERRANT pilot. Exact download commands, commits, and license notes are recorded in the project data statement.
 
 \paragraph{Model predictions.}
 The current pilot evaluates edits actually produced by public GEC models rather than treating reference corrections as model predictions. It includes GECToR RoBERTa base 5k as a sequence-to-edit system, T5 base grammar correction as a sequence-to-sequence system, and a small CoEdIT-large instruction-following editor branch. We store source, reference, prediction, model version, decoding configuration, and CPU runtime metadata for every prediction.
@@ -16,9 +16,7 @@ The earlier source-reference template pilot is retained only as a leakage-contro
 Round 07 constructs an automatic model-edit-level benchmark with 700 selected model-produced edits, 12.8k explanation/control instances, and 160 missed-edit diagnoses. The selected edits cover EXPECT and JFLEG, three model families, replace/insert/delete operations, and 41 ERRANT error types. These automatic labels support method development and leakage analysis; they do not replace human faithfulness annotation.
 
 \paragraph{Baselines.}
-The current pilot has two non-placeholder L1 baselines: a surface keyword baseline and a structured explicit extraction baseline. The next benchmark stage adds random, majority, embedding similarity, masked-target reconstruction, leakage-adjusted reconstruction, counterfactual simulator, and rule/evidence verifier baselines. Explicit templates and raw edit strings are reported only as leakage upper controls.
+The pilot runs random and majority controls, surface keyword matching, structured explicit extraction, reverse reconstruction, no-source reconstruction, target-masked reconstruction, leakage-adjusted reconstruction, TF-IDF similarity, an NLI lexical proxy, a rule/evidence verifier, counterfactual simulator baselines, and reranking baselines. Explicit templates and raw edit strings are reported only as leakage upper controls.
 
 \paragraph{Metrics.}
-For L1, we report Full Edit Exact Match, Span F1, Target Match, Operation Accuracy, Error Type Accuracy, and leakage-adjusted deltas. For L2, we report counterfactual behavior accuracy, macro-F1, grouped bootstrap confidence intervals by source sentence, and preserve/change/cancel/retarget breakdowns. For L3, we report rule consistency, evidence span F1, contradiction rejection, and negative rejection rates.
-
-All reported numbers must be generated from JSON outputs under \texttt{results/}; unreproduced values remain \texttt{[RESULT-PENDING]}.
+For L1, we report Full Edit Exact Match, Span F1, Target Match, Operation Accuracy, Error Type Accuracy, and leakage-adjusted deltas. For L2, we report counterfactual behavior accuracy, Macro-F1, grouped bootstrap confidence intervals by source sentence, and preserve/change/cancel/competing-edit breakdowns. For L3, we report rule consistency, evidence span checks, contradiction rejection, and negative rejection rates. For reranking, we report pairwise ranking accuracy, MRR, top-1 automatic faithfulness, automatic grammatical-validity and helpfulness proxies, fluency proxy, explanation length, and reward-hacking indicators. All reported numbers are generated from JSON outputs under \texttt{results/}.

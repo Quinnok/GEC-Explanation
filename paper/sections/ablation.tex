@@ -1,0 +1,7 @@
+\section{Ablation}
+
+\input{../results/paper_assets/leakage_ablation_table}
+
+The leakage ablation separates edit correspondence from behavioral faithfulness. Explicit and raw edit strings act as upper controls because they expose the answer. When the target is masked, the reconstruction classifier loses much of this signal. The same pattern appears in reranking: high automatic pairwise ranking can be achieved by selecting explanations that restate the edit. These ablations motivate reporting masked-target and leakage-adjusted conditions whenever reconstruction-style metrics are used.
+
+We also keep raw and normalized T5 behavior views. Raw T5 outputs contain many orthographic and punctuation edits; excluding ORTH+PUNCT reduces the number of predicted edits from 1035 to 465 and increases precision from 0.069 to 0.153. This does not justify deleting formatting behavior from the benchmark, but it prevents detokenization noise from being mistaken for substantive grammatical overcorrection.

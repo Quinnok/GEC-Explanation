@@ -1,0 +1,26 @@
+{
+  "benchmark_edit_count": 700,
+  "counterfactual_variant_count": 120,
+  "explanation_instance_count": 12754,
+  "generated_files": [
+    "benchmark_stats_table.tex",
+    "case_study_figure.tex",
+    "counterfactual_pair_figure.tex",
+    "data_pipeline_figure.tex",
+    "error_analysis_table.tex",
+    "framework_figure.tex",
+    "human_correlation_table.tex",
+    "leakage_ablation_table.tex",
+    "main_results_table.tex",
+    "method_comparison_figure.tex",
+    "model_behavior_breakdown_table.tex"
+  ],
+  "human_gold_count": 0,
+  "source_files": [
+    "data/faithfulness_benchmark/benchmark_stats.json",
+    "results/round09/statistical_analysis.json",
+    "results/round10/annotation_package_stats.json",
+    "results/round10/human_annotation_status.json",
+    "results/round11/reranking_metrics.json"
+  ]
+}
