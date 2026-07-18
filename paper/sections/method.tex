@@ -3,7 +3,7 @@
 Reverse Edit Reconstruction evaluates explanation faithfulness by asking whether a structured edit can be recovered from an explanation. The method has four stages.
 
 \paragraph{Edit extraction.}
-Given a source sentence and a model prediction, we extract token-level edits. The current implementation uses a deterministic token-diff fallback for executable scaffolding. Final experiments should use ERRANT or another verified GEC edit extractor to obtain linguistically meaningful boundaries and error types.
+Given a source sentence and a model prediction, we extract edit-level structures with ERRANT. Each edit records source span boundaries, source text, target text, operation, and ERRANT error type. A deterministic token-diff extractor is retained only as a diagnostic contrast for boundary checks; it is not the current extraction method for the real pilot.
 
 \paragraph{Explanation conditions.}
 To avoid reducing reconstruction to answer copying, explanations should be evaluated under multiple conditions: explicit-edit explanations, implicit explanations, masked-target explanations, rule-only explanations, and minimal sufficient explanations. Additional controls include source-only, explanation-only, shuffled explanation, and raw edit string inputs.
@@ -13,4 +13,3 @@ The reconstructor predicts whether the edit is reconstructable and, if so, outpu
 
 \paragraph{Scoring.}
 The reconstructed edit \(\tilde{e}\) is compared with the model-produced edit \(e\). We compute span exact match, span precision/recall/F1, source text match, target text match, operation accuracy, error type accuracy, and full edit exact match. For faithfulness classification, reconstruction agreement can be thresholded or used as features for a classifier. Negative examples are required to test whether the method rejects explanations with wrong location, wrong target, wrong direction, wrong type, swapped edit, or generic rationale.
-

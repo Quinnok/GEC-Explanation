@@ -1,0 +1,30 @@
+{
+  "condition_counts": {
+    "faithful_explicit": 300,
+    "faithful_implicit": 300,
+    "generic_explanation": 300,
+    "masked_target": 300,
+    "raw_edit_string": 300,
+    "swapped_explanation": 300,
+    "wrong_direction": 300,
+    "wrong_location": 300,
+    "wrong_target": 300,
+    "wrong_type": 300
+  },
+  "construction": "Automatic templates from ERRANT edit fields. These labels are pilot labels, not human gold.",
+  "created_at": "2026-07-18T03:51:12+00:00",
+  "edit_level_example_count": 300,
+  "label_counts": {
+    "0": 1800,
+    "1": 1200
+  },
+  "negative_type_counts": {
+    "generic_explanation": 300,
+    "swapped_explanation": 300,
+    "wrong_direction": 300,
+    "wrong_location": 300,
+    "wrong_target": 300,
+    "wrong_type": 300
+  },
+  "record_count": 3000
+}

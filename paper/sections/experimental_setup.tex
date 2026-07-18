@@ -1,13 +1,16 @@
 \section{Experimental Setup}
 
-The experimental setup is currently incomplete because no real GEC model outputs or explanation annotations were present in the workspace at startup. The planned real pilot will use 100--300 edit-level examples. Each example should contain a source sentence, reference correction, model prediction, extracted model edit, explanation, explanation condition, faithfulness label, and negative type when applicable.
+\paragraph{Data.}
+The real pilot uses EXPECT, a public English GEC explanation dataset released under the MIT License. We downloaded the upstream repository with \texttt{git clone --depth 1} and recorded commit \texttt{6e44b68f6e4c}. The versioned pilot file contains 300 real source/reference pairs from EXPECT and 320 ERRANT edits. The selected split distribution is \texttt{{"test": 300}}. The operation distribution over ERRANT edits is \texttt{{"delete": 39, "insert": 51, "replace": 230}}.
+
+\paragraph{Edit extraction.}
+We use ERRANT 3.0.2 with spaCy \texttt{en\_core\_web\_sm} to extract structured edits from each source/reference pair. For transparency, we also compare ERRANT with the earlier token-diff extractor. Token diff exactly matches ERRANT edit spans and strings on 94.7\% of sampled sentences before error types are considered, confirming that ERRANT is necessary for linguistically typed edit boundaries.
+
+\paragraph{Explanation pilot.}
+For each sampled sentence, we use the first ERRANT edit as an edit-level pilot item and automatically construct explanation variants. Positive variants include faithful explicit, faithful implicit, masked-target, and raw edit string explanations. Negative variants include wrong-location, wrong-target, wrong-direction, wrong-type, swapped, and generic explanations. These labels are automatic pilot labels, not human gold annotations.
 
 \paragraph{Baselines.}
-The first implemented baseline is explicit edit extraction from explanations. Planned baselines include surface overlap, keyword matching, sentence embedding similarity, structured information extraction, LLM-as-a-judge, reverse edit reconstruction, and reconstruction-based reranking.
+We evaluate two non-placeholder baselines. The surface keyword baseline predicts faithfulness when the explanation mentions the gold operation, target/source strings when applicable, and ERRANT type. The structured explicit baseline parses explicit edit statements and raw edit strings into span, source text, target text, operation, and error type.
 
 \paragraph{Metrics.}
-The implemented metrics include span exact match, span F1, source text match, target text match, operation accuracy, error type accuracy, and full edit exact match. Faithfulness classification metrics and ranking metrics are \texttt{[EXPERIMENT-PENDING]}.
-
-\paragraph{Reproducibility.}
-Scripts store outputs under \texttt{results/} and logs under \texttt{logs/}. The current code path has been tested with toy examples only. These examples are not used as research evidence.
-
+We report Full Edit Exact Match, Span F1, Target Match, Operation Accuracy, Error Type Accuracy, Faithfulness Macro-F1, and negative rejection rates by negative type. All numbers in this section are generated from the JSON outputs under \texttt{results/real\_pilot/}.

@@ -1,0 +1,575 @@
+{
+  "boundary_note": "Token diff is deterministic and surface based; ERRANT may split, merge, or reclassify edits using linguistic alignment.",
+  "created_at": "2026-07-18T03:51:12+00:00",
+  "errant_edit_count": 320,
+  "errant_operation_counts": {
+    "delete": 39,
+    "insert": 51,
+    "replace": 230
+  },
+  "mismatch_examples": [
+    {
+      "errant_edits": [
+        {
+          "end": 10,
+          "error_type": "M:PUNCT",
+          "operation": "insert",
+          "source_text": "",
+          "start": 10,
+          "target_text": "."
+        },
+        {
+          "end": 11,
+          "error_type": "R:OTHER",
+          "operation": "replace",
+          "source_text": "its",
+          "start": 10,
+          "target_text": "It 's"
+        }
+      ],
+      "sample_id": "expect-test-00008",
+      "source_text": "I 'd like to tell you about my favorite restaurant its name is \" Lemon \" I go there every week it has different food to other restaurants I 'd like chicken crispy with garlic sauce It 's an Excellent choice for me and My favorite appitizer is susage and in order that dessert I 'd like \" Vadge \" cake with chocolate sauce I feel at ease when I go there I enjoy classical music while having lunch about the service It 's very good and all the staff are respectable I ca n't imagine one week without going there that would drive me nuts I advise everyone to go there and enjoy their time there , also this restaurant has a relative advantage in hygiene really It 's excellent The striking thing for anyone despite all of these advantages the prices are not expensive .",
+      "target_text": "I 'd like to tell you about my favorite restaurant . It 's name is \" Lemon \" I go there every week it has different food to other restaurants I 'd like chicken crispy with garlic sauce It 's an Excellent choice for me and My favorite appitizer is susage and in order that dessert I 'd like \" Vadge \" cake with chocolate sauce I feel at ease when I go there I enjoy classical music while having lunch about the service It 's very good and all the staff are respectable I ca n't imagine one week without going there that would drive me nuts I advise everyone to go there and enjoy their time there , also this restaurant has a relative advantage in hygiene really It 's excellent The striking thing for anyone despite all of these advantages the prices are not expensive .",
+      "token_diff_edits": [
+        {
+          "end": 11,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "its",
+          "start": 10,
+          "target_text": ". It 's"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 14,
+          "error_type": "R:SPELL",
+          "operation": "replace",
+          "source_text": "ablished",
+          "start": 13,
+          "target_text": "abolished"
+        },
+        {
+          "end": 14,
+          "error_type": "M:PUNCT",
+          "operation": "insert",
+          "source_text": "",
+          "start": 14,
+          "target_text": ","
+        }
+      ],
+      "sample_id": "expect-test-00016",
+      "source_text": "In the end I think if many people want the Monarchy to be ablished a general election should be called and then see if the Monarchy should be abolished .",
+      "target_text": "In the end I think if many people want the Monarchy to be abolished , a general election should be called and then see if the Monarchy should be abolished .",
+      "token_diff_edits": [
+        {
+          "end": 14,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "ablished",
+          "start": 13,
+          "target_text": "abolished ,"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 9,
+          "error_type": "R:SPELL",
+          "operation": "replace",
+          "source_text": "agricultures",
+          "start": 8,
+          "target_text": "agricultural"
+        },
+        {
+          "end": 9,
+          "error_type": "M:NOUN",
+          "operation": "insert",
+          "source_text": "",
+          "start": 9,
+          "target_text": "land"
+        }
+      ],
+      "sample_id": "expect-test-00021",
+      "source_text": "Additionally , people now continue to destroy more agricultures and forest in order to satisfy all their needs , which will distory the ecosystem diversity and biodiversity especially the endangered species .",
+      "target_text": "Additionally , people now continue to destroy more agricultural land and forest in order to satisfy all their needs , which will distory the ecosystem diversity and biodiversity especially the endangered species .",
+      "token_diff_edits": [
+        {
+          "end": 9,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "agricultures",
+          "start": 8,
+          "target_text": "agricultural land"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 16,
+          "error_type": "R:OTHER",
+          "operation": "replace",
+          "source_text": "in",
+          "start": 15,
+          "target_text": "To put it"
+        },
+        {
+          "end": 17,
+          "error_type": "R:SPELL",
+          "operation": "replace",
+          "source_text": "simple",
+          "start": 16,
+          "target_text": "simply"
+        },
+        {
+          "end": 18,
+          "error_type": "U:NOUN",
+          "operation": "delete",
+          "source_text": "words",
+          "start": 17,
+          "target_text": ""
+        }
+      ],
+      "sample_id": "expect-test-00066",
+      "source_text": "It 's a good way of learning how to communicate and work with people . in simple words ,",
+      "target_text": "It 's a good way of learning how to communicate and work with people . To put it simply ,",
+      "token_diff_edits": [
+        {
+          "end": 18,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "in simple words",
+          "start": 15,
+          "target_text": "To put it simply"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 12,
+          "error_type": "R:VERB:SVA",
+          "operation": "replace",
+          "source_text": "need",
+          "start": 11,
+          "target_text": "needs"
+        },
+        {
+          "end": 12,
+          "error_type": "M:DET",
+          "operation": "insert",
+          "source_text": "",
+          "start": 12,
+          "target_text": "a"
+        }
+      ],
+      "sample_id": "expect-test-00098",
+      "source_text": "But choosing further education is a very important step , which need serious attitude .",
+      "target_text": "But choosing further education is a very important step , which needs a serious attitude .",
+      "token_diff_edits": [
+        {
+          "end": 12,
+          "error_type": "Subject-Verb Agreement",
+          "operation": "replace",
+          "source_text": "need",
+          "start": 11,
+          "target_text": "needs a"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 3,
+          "error_type": "R:SPELL",
+          "operation": "replace",
+          "source_text": "adition",
+          "start": 2,
+          "target_text": "addition"
+        },
+        {
+          "end": 3,
+          "error_type": "M:PUNCT",
+          "operation": "insert",
+          "source_text": "",
+          "start": 3,
+          "target_text": ","
+        }
+      ],
+      "sample_id": "expect-test-00122",
+      "source_text": "In In adition all people have the right to privacy and to be free .",
+      "target_text": "In In addition , all people have the right to privacy and to be free .",
+      "token_diff_edits": [
+        {
+          "end": 3,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "adition",
+          "start": 2,
+          "target_text": "addition ,"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 21,
+          "error_type": "R:PUNCT",
+          "operation": "replace",
+          "source_text": "; this",
+          "start": 19,
+          "target_text": ". This"
+        },
+        {
+          "end": 21,
+          "error_type": "M:VERB",
+          "operation": "insert",
+          "source_text": "",
+          "start": 21,
+          "target_text": "is"
+        }
+      ],
+      "sample_id": "expect-test-00164",
+      "source_text": "I think people will like this movie because , it 's very similar to the story of the book ; this one of the first movies that is really based on the book , the theme is very unique and original . Also , the actors in the first movies were perfect , and I think that in the last movie , they will make double the effort .",
+      "target_text": "I think people will like this movie because , it 's very similar to the story of the book . This is one of the first movies that is really based on the book , the theme is very unique and original . Also , the actors in the first movies were perfect , and I think that in the last movie , they will make double the effort .",
+      "token_diff_edits": [
+        {
+          "end": 21,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "; this",
+          "start": 19,
+          "target_text": ". This is"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 5,
+          "error_type": "R:NOUN",
+          "operation": "replace",
+          "source_text": "party",
+          "start": 4,
+          "target_text": "partyies"
+        },
+        {
+          "end": 6,
+          "error_type": "U:CONTR",
+          "operation": "delete",
+          "source_text": "'s",
+          "start": 5,
+          "target_text": ""
+        }
+      ],
+      "sample_id": "expect-test-00185",
+      "source_text": "Sometimes we go to party 's in the city , I dance at the parties with my friends .",
+      "target_text": "Sometimes we go to partyies in the city , I dance at the parties with my friends .",
+      "token_diff_edits": [
+        {
+          "end": 6,
+          "error_type": "Possessive",
+          "operation": "replace",
+          "source_text": "party 's",
+          "start": 4,
+          "target_text": "partyies"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 39,
+          "error_type": "M:PUNCT",
+          "operation": "replace",
+          "source_text": "so",
+          "start": 38,
+          "target_text": ", So"
+        },
+        {
+          "end": 39,
+          "error_type": "M:PUNCT",
+          "operation": "insert",
+          "source_text": "",
+          "start": 39,
+          "target_text": ","
+        }
+      ],
+      "sample_id": "expect-test-00208",
+      "source_text": "I 've been playing volleyball for 12 years now and hopefully many more , what I love about it is first of all that tall or small , anyone can play it as long as they 're determined so basically is a life long sport for everyone .",
+      "target_text": "I 've been playing volleyball for 12 years now and hopefully many more , what I love about it is first of all that tall or small , anyone can play it as long as they 're determined , So , basically is a life long sport for everyone .",
+      "token_diff_edits": [
+        {
+          "end": 39,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "so",
+          "start": 38,
+          "target_text": ", So ,"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 1,
+          "error_type": "U:DET",
+          "operation": "delete",
+          "source_text": "The",
+          "start": 0,
+          "target_text": ""
+        },
+        {
+          "end": 2,
+          "error_type": "R:SPELL",
+          "operation": "replace",
+          "source_text": "undercovered",
+          "start": 1,
+          "target_text": "Undercover"
+        }
+      ],
+      "sample_id": "expect-test-00256",
+      "source_text": "The undercovered work is very hard , not just because you will work with dangerous people , the real danger is if you get discovered .",
+      "target_text": "Undercover work is very hard , not just because you will work with dangerous people , the real danger is if you get discovered .",
+      "token_diff_edits": [
+        {
+          "end": 2,
+          "error_type": "POS Confusion",
+          "operation": "replace",
+          "source_text": "The undercovered",
+          "start": 0,
+          "target_text": "Undercover"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 5,
+          "error_type": "R:PREP",
+          "operation": "replace",
+          "source_text": "in",
+          "start": 4,
+          "target_text": "at"
+        },
+        {
+          "end": 6,
+          "error_type": "U:DET",
+          "operation": "delete",
+          "source_text": "your",
+          "start": 5,
+          "target_text": ""
+        }
+      ],
+      "sample_id": "expect-test-00266",
+      "source_text": "He prefers to study in your home .",
+      "target_text": "He prefers to study at home .",
+      "token_diff_edits": [
+        {
+          "end": 6,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "in your",
+          "start": 4,
+          "target_text": "at"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 5,
+          "error_type": "R:ORTH",
+          "operation": "replace",
+          "source_text": "everyday",
+          "start": 4,
+          "target_text": "every day"
+        },
+        {
+          "end": 5,
+          "error_type": "M:PREP",
+          "operation": "insert",
+          "source_text": "",
+          "start": 5,
+          "target_text": "for"
+        }
+      ],
+      "sample_id": "expect-test-00277",
+      "source_text": "I usually play basketball everyday around at least thirty minutes per day .",
+      "target_text": "I usually play basketball every day for around at least thirty minutes per day .",
+      "token_diff_edits": [
+        {
+          "end": 5,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "everyday",
+          "start": 4,
+          "target_text": "every day for"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 25,
+          "error_type": "R:VERB:TENSE",
+          "operation": "replace",
+          "source_text": "reward",
+          "start": 24,
+          "target_text": "be rewarded"
+        },
+        {
+          "end": 25,
+          "error_type": "M:PREP",
+          "operation": "insert",
+          "source_text": "",
+          "start": 25,
+          "target_text": "with"
+        }
+      ],
+      "sample_id": "expect-test-00278",
+      "source_text": "I woke up today and I suddenly remembered that I was doing a presentation about landscapes , and the ones that did it would reward a bonus point but anyways this is n't important information .",
+      "target_text": "I woke up today and I suddenly remembered that I was doing a presentation about landscapes , and the ones that did it would be rewarded with a bonus point but anyways this is n't important information .",
+      "token_diff_edits": [
+        {
+          "end": 25,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "reward",
+          "start": 24,
+          "target_text": "be rewarded with"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 9,
+          "error_type": "M:VERB:TENSE",
+          "operation": "insert",
+          "source_text": "",
+          "start": 9,
+          "target_text": "was"
+        },
+        {
+          "end": 10,
+          "error_type": "R:VERB:FORM",
+          "operation": "replace",
+          "source_text": "pronounce",
+          "start": 9,
+          "target_text": "pronounced"
+        }
+      ],
+      "sample_id": "expect-test-00285",
+      "source_text": "So I knew that there was someone whose name pronounce the same as mine .",
+      "target_text": "So I knew that there was someone whose name was pronounced the same as mine .",
+      "token_diff_edits": [
+        {
+          "end": 10,
+          "error_type": "POS Confusion",
+          "operation": "replace",
+          "source_text": "pronounce",
+          "start": 9,
+          "target_text": "was pronounced"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 1,
+          "error_type": "M:OTHER",
+          "operation": "replace",
+          "source_text": "Just",
+          "start": 0,
+          "target_text": "It 's just"
+        },
+        {
+          "end": 1,
+          "error_type": "M:PREP",
+          "operation": "insert",
+          "source_text": "",
+          "start": 1,
+          "target_text": "that"
+        }
+      ],
+      "sample_id": "expect-test-00290",
+      "source_text": "Just your wage paid is much lower than I expected , I want a little higher wages , payment of 300 yuan more than the existing wage basis .",
+      "target_text": "It 's just that your wage paid is much lower than I expected , I want a little higher wages , payment of 300 yuan more than the existing wage basis .",
+      "token_diff_edits": [
+        {
+          "end": 1,
+          "error_type": "Others",
+          "operation": "replace",
+          "source_text": "Just",
+          "start": 0,
+          "target_text": "It 's just that"
+        }
+      ]
+    },
+    {
+      "errant_edits": [
+        {
+          "end": 8,
+          "error_type": "R:VERB",
+          "operation": "replace",
+          "source_text": "go riding",
+          "start": 6,
+          "target_text": "cycle"
+        },
+        {
+          "end": 10,
+          "error_type": "U:OTHER",
+          "operation": "delete",
+          "source_text": "a bike",
+          "start": 8,
+          "target_text": ""
+        },
+        {
+          "end": 12,
+          "error_type": "R:VERB:FORM",
+          "operation": "replace",
+          "source_text": "walking",
+          "start": 11,
+          "target_text": "walk"
+        }
+      ],
+      "sample_id": "expect-test-00293",
+      "source_text": "For that reason , you must go riding a bike or walking .",
+      "target_text": "For that reason , you must cycle or walk .",
+      "token_diff_edits": [
+        {
+          "end": 10,
+          "error_type": "Collocation",
+          "operation": "replace",
+          "source_text": "go riding a bike",
+          "start": 6,
+          "target_text": "cycle"
+        },
+        {
+          "end": 12,
+          "error_type": "Collocation",
+          "operation": "replace",
+          "source_text": "walking",
+          "start": 11,
+          "target_text": "walk"
+        }
+      ]
+    }
+  ],
+  "sample_count": 300,
+  "sample_exact_match_with_error_type": 0,
+  "sample_exact_match_with_error_type_rate": 0.0,
+  "sample_exact_match_without_error_type": 284,
+  "sample_exact_match_without_error_type_rate": 0.946667,
+  "token_diff_edit_count": 303,
+  "token_diff_operation_counts": {
+    "delete": 34,
+    "insert": 40,
+    "replace": 229
+  }
+}

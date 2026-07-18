@@ -7,7 +7,10 @@ __pycache__/
 
 # Python environments and downloaded packages
 .venv/
+.venv311/
 venv/
+.local-tools/
+.local-tex/
 
 # LaTeX build products
 paper/*.aux
@@ -20,6 +23,14 @@ paper/*.out
 paper/*.synctex.gz
 paper/*.toc
 paper/*.xdv
+paper/main.pdf
+
+# Local installation and compile scratch logs
+logs/latexmk_*.log
+logs/tlmgr_*.log
+logs/tinytex_install.log
+logs/tectonic_*.log
+logs/real_pilot_pipeline*.log
 
 # Large or transient downloaded corpora/models
 data/downloads/

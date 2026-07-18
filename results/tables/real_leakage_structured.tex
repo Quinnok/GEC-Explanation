@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Condition & Full & Span & Target & Op & Type & F1 \\
+\midrule
+Source & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 46.2 \\
+Exp only & 99.7 & 100.0 & 99.7 & 100.0 & 100.0 & 99.9 \\
+Source+Exp & 99.7 & 100.0 & 99.7 & 100.0 & 100.0 & 99.9 \\
+Explicit & 99.7 & 100.0 & 99.7 & 100.0 & 100.0 & 99.9 \\
+Implicit & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 46.2 \\
+Masked & 11.7 & 100.0 & 11.7 & 100.0 & 100.0 & 57.0 \\
+Shuffled & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 50.0 \\
+Raw edit & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 & 100.0 \\
+\bottomrule
+\end{tabular}
+\caption{Structured explicit baseline under leakage-control conditions. Values are percentages. Full is full edit exact match; F1 is faithfulness macro-F1.}
+\label{tab:leakage-structured}
+\end{table}

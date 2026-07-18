@@ -1,4 +1,8 @@
 \section{Results}
 
-Real experimental results are \texttt{[RESULT-PENDING]}. The current repository contains only a toy sanity check for the edit data structure, simple reconstruction baseline, and metric implementation. Those outputs verify that the code runs, but they are not evidence for the paper's scientific claims.
+\input{../results/tables/real_leakage_structured}
+\input{../results/tables/real_baseline_comparison}
 
+The structured explicit baseline reconstructs explicit explanations with 99.7\% Full Edit Exact Match and 99.9\% Faithfulness Macro-F1. The same baseline reaches 100.0\% Full Edit Exact Match on raw edit strings, which is an expected answer-leakage upper control rather than a desirable explanation setting.
+
+Leakage controls expose the limits of direct edit copying. Source-only input yields 0.0\% Full Edit Exact Match, explanation-only input yields 99.7\%, implicit explanations yield 0.0\%, and masked-target explanations yield 11.7\% Target Match. The surface keyword baseline obtains 75.2\% Faithfulness Macro-F1 on source-plus-explanation inputs but does not reconstruct structured edits.

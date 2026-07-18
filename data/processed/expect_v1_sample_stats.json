@@ -1,0 +1,76 @@
+{
+  "avg_source_tokens": 27.89,
+  "created_at": "2026-07-18T03:51:12+00:00",
+  "dataset": "EXPECT",
+  "download_method": "git clone --depth 1 https://github.com/lorafei/Explainable_GEC.git data/downloads/Explainable_GEC",
+  "edit_count": 320,
+  "extraction_error_count": 0,
+  "extraction_errors_sample": [],
+  "license": "MIT",
+  "multi_edit_sample_count": 18,
+  "operation_counts": {
+    "delete": 39,
+    "insert": 51,
+    "replace": 230
+  },
+  "sample_count": 300,
+  "sample_ids_preview": [
+    "expect-test-00000",
+    "expect-test-00001",
+    "expect-test-00002",
+    "expect-test-00003",
+    "expect-test-00004",
+    "expect-test-00005",
+    "expect-test-00006",
+    "expect-test-00007",
+    "expect-test-00008",
+    "expect-test-00009"
+  ],
+  "source_commit": "6e44b68f6e4c199dd3b235cacb604a856bd3d133",
+  "source_repo": "https://github.com/lorafei/Explainable_GEC",
+  "split_counts": {
+    "test": 300
+  },
+  "splits_available_count": {
+    "test": 2416
+  },
+  "top_errant_error_types": {
+    "M:DET": 19,
+    "M:PREP": 11,
+    "M:PUNCT": 5,
+    "R:ADV": 6,
+    "R:DET": 11,
+    "R:MORPH": 11,
+    "R:NOUN": 12,
+    "R:NOUN:NUM": 25,
+    "R:OTHER": 32,
+    "R:PREP": 28,
+    "R:PRON": 8,
+    "R:SPELL": 9,
+    "R:VERB": 27,
+    "R:VERB:FORM": 16,
+    "R:VERB:SVA": 6,
+    "R:VERB:TENSE": 25,
+    "U:ADV": 5,
+    "U:DET": 16,
+    "U:NOUN": 5,
+    "U:PREP": 6
+  },
+  "top_expect_error_types": {
+    "Article": 31,
+    "Auxiliary Verb": 3,
+    "Collocation": 72,
+    "Gerund": 8,
+    "Infinitives": 5,
+    "Number": 25,
+    "Others": 50,
+    "POS Confusion": 12,
+    "Participle": 1,
+    "Possessive": 10,
+    "Preposition": 43,
+    "Pronoun-Antecedent Agreement": 10,
+    "Subject-Verb Agreement": 7,
+    "Transitive Verb": 1,
+    "Verb Tense": 22
+  }
+}

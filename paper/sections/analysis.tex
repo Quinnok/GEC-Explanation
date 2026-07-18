@@ -1,6 +1,7 @@
 \section{Analysis}
 
-The planned analysis will separate at least four questions. First, which negative explanation types are easiest or hardest to reject? Second, does performance decrease when explanations are implicit, masked, or rule-only rather than explicit? Third, do reconstruction errors concentrate in span boundaries, target text, operation type, or error type? Fourth, how well do automatic reconstruction scores agree with human edit-faithfulness judgments?
+The pilot confirms that explicit edit text is easy for a structured extractor to reconstruct, while source-only, implicit, and masked-target settings sharply reduce access to the target edit. This supports treating explicit explanations and raw edit strings as leakage controls rather than as sufficient evidence of explanation faithfulness.
 
-This section remains \texttt{[EXPERIMENT-PENDING]} until real pilot results are available.
+For structured source+explanation input, negative rejection rates are generic explanation 100.0\%; swapped explanation 100.0\%; wrong direction 100.0\%; wrong location 100.0\%; wrong target 100.0\%; wrong type 100.0\%. Wrong-type and wrong-target cases are rejected when the parsed edit disagrees with the ERRANT gold edit fields. Generic explanations are rejected because they do not contain reconstructable edit fields. Swapped explanations test whether a copied explanation is detected through span, target, and type disagreement.
 
+The token-diff comparison also shows a boundary risk: simple token diff agrees with ERRANT on only 94.7\% of examples before type labels. The paper therefore uses ERRANT for the real pilot and keeps token diff only as a diagnostic contrast.
