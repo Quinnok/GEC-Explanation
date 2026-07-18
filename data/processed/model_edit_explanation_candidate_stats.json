@@ -1,0 +1,23 @@
+{
+  "behavior_counts": {
+    "correct_correction": 41,
+    "overcorrection": 243,
+    "wrong_correction": 16
+  },
+  "candidate_count": 300,
+  "created_at": "2026-07-18T04:23:30+00:00",
+  "duration_seconds": 109.459,
+  "empty_candidate_count": 0,
+  "generator_license": "apache-2.0",
+  "generator_model": "google/flan-t5-base",
+  "generator_revision": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "important_note": "Open-source explanations are model-generated candidates from source/prediction/span prompts. They are not human gold. Explicit templates are retained only as leakage upper controls.",
+  "input": "/Users/bytedance/Documents/GEC\u53ef\u89e3\u91ca\u6027/results/model_edits/model_edit_dataset.jsonl",
+  "model_counts": {
+    "gector_roberta_base": 150,
+    "t5_base_grammar": 150
+  },
+  "output": "data/processed/model_edit_explanation_candidates.jsonl",
+  "prediction_copy_like_count": 0,
+  "seconds_per_candidate": 0.364863
+}

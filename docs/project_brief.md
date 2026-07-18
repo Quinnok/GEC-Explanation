@@ -24,12 +24,12 @@ The paper focuses on model-produced edits: correct corrections, wrong correction
 
 ## Evidence Status
 
-The idea is not yet experimentally validated. All result-bearing claims must remain pending until real data and experiments are available.
+The engineering pipeline is now validated on real EXPECT data and two real public GEC model outputs. Substantive faithfulness claims remain pending because natural-language explanation candidates are not human gold and the current Round 02 template results are leakage controls.
 
 ## Workspace Status
 
-- No Git repository is present in the current directory.
+- Git is initialized; Round 02 is committed as `1bb4c57 Round 02 real EXPECT ERRANT pilot`.
 - AAAI 2027 author kit is available under `AuthorKit27/`.
 - The local opening report PDF has been read with PDF text extraction.
-- No real GEC datasets, model outputs, explanation annotations, or previous experiment results were found in the workspace at startup.
-
+- At startup, no real GEC datasets, model outputs, explanation annotations, or previous experiment results were found in the workspace.
+- Current real data: 300 EXPECT source/reference pairs, 600 model predictions, 1707 model-produced edits, and 300 open-source explanation candidates.

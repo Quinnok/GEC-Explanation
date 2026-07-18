@@ -31,6 +31,11 @@ logs/tlmgr_*.log
 logs/tinytex_install.log
 logs/tectonic_*.log
 logs/real_pilot_pipeline*.log
+logs/round03_*install*.log
+logs/round03_model_deps_install.log
+logs/round03_transformers_*.log
+logs/round03_model_predictions.log
+results/model_predictions/smoke_*.json*
 
 # Large or transient downloaded corpora/models
 data/downloads/

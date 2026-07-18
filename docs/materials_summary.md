@@ -19,9 +19,8 @@ The AAAI 2027 author kit is available under `AuthorKit27/`. The paper project us
 
 ## Local Data and Code
 
-At startup, no real GEC dataset, model output, explanation dataset, experiment result, README, or existing codebase was found in the working directory. The current implementation therefore creates executable scaffolding and a toy sanity-check dataset only.
+At startup, no real GEC dataset, model output, explanation dataset, experiment result, README, or existing codebase was found in the working directory. The current implementation now includes executable scaffolding, a toy sanity-check dataset, a real EXPECT pilot, two public model prediction runs, model edit alignment, and open-source explanation candidates.
 
 ## Safety Notes
 
-The current directory is not a Git repository. Work is being added in new project directories (`paper/`, `experiments/`, `docs/`, `data/`, `results/`, `logs/`) to avoid overwriting user material.
-
+The current directory is now a Git repository. Work is being added in project directories (`paper/`, `experiments/`, `docs/`, `data/`, `results/`, `logs/`) to avoid overwriting user material. Round 02 is committed; Round 03 changes are currently uncommitted pending review.

@@ -1,13 +1,16 @@
 \section{Experimental Setup}
 
 \paragraph{Data.}
-The real pilot uses EXPECT, a public English GEC explanation dataset released under the MIT License. We downloaded the upstream repository with \texttt{git clone --depth 1} and recorded commit \texttt{6e44b68f6e4c}. The versioned pilot file contains 300 real source/reference pairs from EXPECT and 320 ERRANT edits. The selected split distribution is \texttt{{"test": 300}}. The operation distribution over ERRANT edits is \texttt{{"delete": 39, "insert": 51, "replace": 230}}.
+The real pilot uses EXPECT, a public English GEC explanation dataset released under the MIT License. We downloaded the upstream repository with \texttt{git clone --depth 1} and recorded commit \texttt{6e44b68f6e4c}. The versioned pilot file contains 300 real source/reference pairs from EXPECT and 320 source-reference ERRANT edits. The selected split distribution is \texttt{{"test": 300}}. The operation distribution over reference edits is \texttt{{"delete": 39, "insert": 51, "replace": 230}}.
+
+\paragraph{Model predictions.}
+The current pilot evaluates edits actually produced by two public GEC models on the same 300 EXPECT source sentences: GECToR RoBERTa base 5k as a sequence-to-edit system and T5 base grammar correction as a sequence-to-sequence system. We store source, reference, prediction, model version, decoding configuration, and CPU runtime metadata for every prediction.
 
 \paragraph{Edit extraction.}
-We use ERRANT 3.0.2 with spaCy \texttt{en\_core\_web\_sm} to extract structured edits from each source/reference pair. For transparency, we also compare ERRANT with the earlier token-diff extractor. Token diff exactly matches ERRANT edit spans and strings on 94.7\% of sampled sentences before error types are considered, confirming that ERRANT is necessary for linguistically typed edit boundaries.
+We use ERRANT 3.0.2 with the small spaCy English model to extract structured edits from source/reference pairs and source/model-prediction pairs. Predicted edits are aligned against reference edits and classified as correct correction, wrong correction, or overcorrection; unmatched reference edits are stored separately as missed corrections. For transparency, we also compare ERRANT with the earlier token-diff extractor. Token diff exactly matches ERRANT edit spans and strings on 94.7\% of sampled sentences before error types are considered, confirming that ERRANT is necessary for linguistically typed edit boundaries.
 
 \paragraph{Explanation pilot.}
-For each sampled sentence, we use the first ERRANT edit as an edit-level pilot item and automatically construct explanation variants. Positive variants include faithful explicit, faithful implicit, masked-target, and raw edit string explanations. Negative variants include wrong-location, wrong-target, wrong-direction, wrong-type, swapped, and generic explanations. These labels are automatic pilot labels, not human gold annotations.
+The earlier source-reference template pilot is retained only as a leakage-control sanity check. For model-produced edits, EXPECT provides evidence-word and error-type labels but no natural-language explanation field, so we generate open-source explanation candidates with FLAN-T5-base from source, model prediction, and the predicted edit span. These candidates are not human gold. Explicit edit templates are retained only as an upper control for answer leakage.
 
 \paragraph{Baselines.}
 We evaluate two non-placeholder baselines. The surface keyword baseline predicts faithfulness when the explanation mentions the gold operation, target/source strings when applicable, and ERRANT type. The structured explicit baseline parses explicit edit statements and raw edit strings into span, source text, target text, operation, and error type.

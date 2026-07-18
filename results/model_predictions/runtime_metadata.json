@@ -1,0 +1,73 @@
+{
+  "created_at": "2026-07-18T04:10:06+00:00",
+  "models": {
+    "gector_roberta_base": {
+      "config": {
+        "decoding": {
+          "batch_size": 8,
+          "keep_confidence": 0.0,
+          "min_error_prob": 0.0,
+          "n_iteration": 5
+        },
+        "license": "non-commercial only, per Hugging Face model card",
+        "model_family": "sequence-to-edit",
+        "model_id": "gotutiyan/gector-roberta-base-5k",
+        "model_key": "gector_roberta_base",
+        "model_name": "GECToR RoBERTa base 5k",
+        "model_revision": "adaac6fb919431fb5a038b1e449055ae638613a4"
+      },
+      "runtime": {
+        "changed_count": 247,
+        "duration_seconds": 13.511,
+        "environment": {
+          "cuda_available": false,
+          "device": "cpu",
+          "mps_available": true,
+          "platform": "macOS-26.5.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "torch": "2.7.1",
+          "transformers": "4.49.0"
+        },
+        "reference_copy_count": 39,
+        "sample_count": 300,
+        "seconds_per_sample": 0.045038,
+        "started_at": "2026-07-18T04:10:20+00:00"
+      }
+    },
+    "t5_base_grammar": {
+      "config": {
+        "decoding": {
+          "batch_size": 8,
+          "max_input_length": 256,
+          "max_new_tokens": 128,
+          "num_beams": 5,
+          "prefix": "grammar: "
+        },
+        "license": "cc-by-nc-sa-4.0, per Hugging Face model card",
+        "model_family": "sequence-to-sequence",
+        "model_id": "vennify/t5-base-grammar-correction",
+        "model_key": "t5_base_grammar",
+        "model_name": "T5 base grammar correction",
+        "model_revision": "9e4a09d21dca1072a69302df9261289d03c3ed78"
+      },
+      "runtime": {
+        "changed_count": 295,
+        "duration_seconds": 157.65,
+        "environment": {
+          "cuda_available": false,
+          "device": "cpu",
+          "mps_available": true,
+          "platform": "macOS-26.5.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "torch": "2.7.1",
+          "transformers": "4.49.0"
+        },
+        "reference_copy_count": 0,
+        "sample_count": 300,
+        "seconds_per_sample": 0.525502,
+        "started_at": "2026-07-18T04:12:58+00:00"
+      }
+    }
+  },
+  "output": "results/model_predictions/expect_v1_model_predictions.jsonl"
+}

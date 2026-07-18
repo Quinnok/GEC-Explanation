@@ -1,0 +1,592 @@
+{
+  "alignment_failure_count": 6,
+  "alignment_failure_examples": [
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 11,
+        "error_type": "M:PUNCT",
+        "operation": "replace",
+        "source_text": "its",
+        "start": 10,
+        "target_text": ". Its"
+      },
+      "sample_id": "expect-test-00008",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 6,
+        "error_type": "R:OTHER",
+        "operation": "replace",
+        "source_text": "party 's",
+        "start": 4,
+        "target_text": "parties"
+      },
+      "sample_id": "expect-test-00185",
+      "score": 0.6666666666666666
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 6,
+        "error_type": "U:ADV",
+        "operation": "delete",
+        "source_text": "everyday around",
+        "start": 4,
+        "target_text": ""
+      },
+      "sample_id": "expect-test-00277",
+      "score": 0.6666666666666666
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 10,
+        "error_type": "R:OTHER",
+        "operation": "replace",
+        "source_text": "pronounce",
+        "start": 9,
+        "target_text": "was"
+      },
+      "sample_id": "expect-test-00285",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 6,
+        "error_type": "R:ORTH",
+        "operation": "replace",
+        "source_text": "party 's",
+        "start": 4,
+        "target_text": "party's"
+      },
+      "sample_id": "expect-test-00185",
+      "score": 0.6666666666666666
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 10,
+        "error_type": "R:OTHER",
+        "operation": "replace",
+        "source_text": "pronounce",
+        "start": 9,
+        "target_text": "was"
+      },
+      "sample_id": "expect-test-00285",
+      "score": 1.0
+    }
+  ],
+  "alignment_policy": "Predicted edits are correct when span/source/target/operation match an unmatched reference edit. Non-exact overlapping edits are wrong corrections. Predicted edits with no aligned reference edit are overcorrections. Unmatched reference edits are missed corrections.",
+  "created_at": "2026-07-18T04:15:07+00:00",
+  "error_type_behavior_distribution": {
+    "gector_roberta_base": {
+      "M:ADJ": {
+        "missed_correction": 1
+      },
+      "M:ADV": {
+        "overcorrection": 3
+      },
+      "M:CONJ": {
+        "overcorrection": 2,
+        "wrong_correction": 1
+      },
+      "M:DET": {
+        "correct_correction": 8,
+        "missed_correction": 8,
+        "overcorrection": 8,
+        "wrong_correction": 3
+      },
+      "M:NOUN": {
+        "missed_correction": 3,
+        "overcorrection": 1
+      },
+      "M:NOUN:POSS": {
+        "overcorrection": 1
+      },
+      "M:OTHER": {
+        "missed_correction": 2,
+        "overcorrection": 5,
+        "wrong_correction": 1
+      },
+      "M:PART": {
+        "missed_correction": 1
+      },
+      "M:PREP": {
+        "correct_correction": 5,
+        "missed_correction": 5,
+        "overcorrection": 8,
+        "wrong_correction": 1
+      },
+      "M:PRON": {
+        "correct_correction": 2,
+        "missed_correction": 1,
+        "overcorrection": 3,
+        "wrong_correction": 1
+      },
+      "M:PUNCT": {
+        "correct_correction": 2,
+        "missed_correction": 1,
+        "overcorrection": 167,
+        "wrong_correction": 2
+      },
+      "M:VERB": {
+        "correct_correction": 1,
+        "overcorrection": 7
+      },
+      "M:VERB:TENSE": {
+        "missed_correction": 3,
+        "overcorrection": 4,
+        "wrong_correction": 1
+      },
+      "R:ADJ": {
+        "correct_correction": 1,
+        "missed_correction": 2,
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "R:ADJ:FORM": {
+        "correct_correction": 1,
+        "missed_correction": 1
+      },
+      "R:ADV": {
+        "correct_correction": 1,
+        "missed_correction": 4,
+        "overcorrection": 2,
+        "wrong_correction": 1
+      },
+      "R:CONTR": {
+        "overcorrection": 2
+      },
+      "R:DET": {
+        "correct_correction": 6,
+        "missed_correction": 5,
+        "overcorrection": 6
+      },
+      "R:MORPH": {
+        "correct_correction": 6,
+        "missed_correction": 3,
+        "overcorrection": 1,
+        "wrong_correction": 2
+      },
+      "R:NOUN": {
+        "correct_correction": 2,
+        "missed_correction": 8,
+        "overcorrection": 8,
+        "wrong_correction": 2
+      },
+      "R:NOUN:INFL": {
+        "correct_correction": 1
+      },
+      "R:NOUN:NUM": {
+        "correct_correction": 15,
+        "missed_correction": 8,
+        "overcorrection": 19,
+        "wrong_correction": 2
+      },
+      "R:ORTH": {
+        "overcorrection": 50,
+        "wrong_correction": 1
+      },
+      "R:OTHER": {
+        "correct_correction": 8,
+        "missed_correction": 19,
+        "overcorrection": 25,
+        "wrong_correction": 5
+      },
+      "R:PART": {
+        "correct_correction": 1
+      },
+      "R:PREP": {
+        "correct_correction": 17,
+        "missed_correction": 10,
+        "overcorrection": 10,
+        "wrong_correction": 1
+      },
+      "R:PRON": {
+        "correct_correction": 5,
+        "missed_correction": 1,
+        "overcorrection": 4,
+        "wrong_correction": 2
+      },
+      "R:PUNCT": {
+        "missed_correction": 1,
+        "overcorrection": 46
+      },
+      "R:SPELL": {
+        "correct_correction": 4,
+        "missed_correction": 3,
+        "overcorrection": 29,
+        "wrong_correction": 2
+      },
+      "R:VERB": {
+        "correct_correction": 7,
+        "missed_correction": 18,
+        "overcorrection": 8,
+        "wrong_correction": 2
+      },
+      "R:VERB:FORM": {
+        "correct_correction": 12,
+        "missed_correction": 3,
+        "overcorrection": 9,
+        "wrong_correction": 1
+      },
+      "R:VERB:INFL": {
+        "missed_correction": 1
+      },
+      "R:VERB:SVA": {
+        "correct_correction": 5,
+        "missed_correction": 1,
+        "overcorrection": 2
+      },
+      "R:VERB:TENSE": {
+        "correct_correction": 14,
+        "missed_correction": 9,
+        "overcorrection": 15,
+        "wrong_correction": 2
+      },
+      "R:WO": {
+        "overcorrection": 2
+      },
+      "U:ADJ": {
+        "correct_correction": 1
+      },
+      "U:ADV": {
+        "correct_correction": 1,
+        "missed_correction": 2,
+        "overcorrection": 1,
+        "wrong_correction": 2
+      },
+      "U:CONJ": {
+        "correct_correction": 1,
+        "overcorrection": 1
+      },
+      "U:CONTR": {
+        "missed_correction": 1,
+        "overcorrection": 1
+      },
+      "U:DET": {
+        "correct_correction": 10,
+        "missed_correction": 6,
+        "overcorrection": 18
+      },
+      "U:NOUN": {
+        "missed_correction": 5,
+        "overcorrection": 1
+      },
+      "U:NOUN:POSS": {
+        "missed_correction": 1
+      },
+      "U:OTHER": {
+        "missed_correction": 2,
+        "overcorrection": 3
+      },
+      "U:PART": {
+        "overcorrection": 1
+      },
+      "U:PREP": {
+        "correct_correction": 5,
+        "missed_correction": 1,
+        "overcorrection": 6
+      },
+      "U:PRON": {
+        "overcorrection": 5
+      },
+      "U:PUNCT": {
+        "overcorrection": 7
+      },
+      "U:VERB": {
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "U:VERB:TENSE": {
+        "missed_correction": 1
+      }
+    },
+    "t5_base_grammar": {
+      "M:ADJ": {
+        "missed_correction": 1
+      },
+      "M:ADV": {
+        "overcorrection": 1
+      },
+      "M:CONJ": {
+        "missed_correction": 1,
+        "overcorrection": 1
+      },
+      "M:DET": {
+        "correct_correction": 4,
+        "missed_correction": 10,
+        "overcorrection": 9,
+        "wrong_correction": 5
+      },
+      "M:NOUN": {
+        "correct_correction": 1,
+        "missed_correction": 2,
+        "overcorrection": 2
+      },
+      "M:OTHER": {
+        "missed_correction": 2,
+        "overcorrection": 6,
+        "wrong_correction": 1
+      },
+      "M:PART": {
+        "wrong_correction": 1
+      },
+      "M:PREP": {
+        "correct_correction": 4,
+        "missed_correction": 6,
+        "overcorrection": 4,
+        "wrong_correction": 1
+      },
+      "M:PRON": {
+        "correct_correction": 2,
+        "missed_correction": 1,
+        "overcorrection": 2,
+        "wrong_correction": 1
+      },
+      "M:PUNCT": {
+        "missed_correction": 5
+      },
+      "M:VERB": {
+        "missed_correction": 1,
+        "overcorrection": 7
+      },
+      "M:VERB:TENSE": {
+        "missed_correction": 2,
+        "overcorrection": 3,
+        "wrong_correction": 2
+      },
+      "R:ADJ": {
+        "correct_correction": 2,
+        "missed_correction": 2,
+        "overcorrection": 6
+      },
+      "R:ADJ:FORM": {
+        "correct_correction": 2
+      },
+      "R:ADV": {
+        "missed_correction": 1,
+        "overcorrection": 1,
+        "wrong_correction": 5
+      },
+      "R:CONTR": {
+        "overcorrection": 2
+      },
+      "R:DET": {
+        "correct_correction": 1,
+        "missed_correction": 9,
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "R:MORPH": {
+        "correct_correction": 5,
+        "missed_correction": 3,
+        "overcorrection": 5,
+        "wrong_correction": 3
+      },
+      "R:NOUN": {
+        "missed_correction": 7,
+        "overcorrection": 57,
+        "wrong_correction": 5
+      },
+      "R:NOUN:INFL": {
+        "wrong_correction": 1
+      },
+      "R:NOUN:NUM": {
+        "correct_correction": 6,
+        "missed_correction": 10,
+        "overcorrection": 4,
+        "wrong_correction": 9
+      },
+      "R:ORTH": {
+        "overcorrection": 510,
+        "wrong_correction": 1
+      },
+      "R:OTHER": {
+        "correct_correction": 4,
+        "missed_correction": 18,
+        "overcorrection": 112,
+        "wrong_correction": 10
+      },
+      "R:PART": {
+        "correct_correction": 1
+      },
+      "R:PREP": {
+        "correct_correction": 5,
+        "missed_correction": 23,
+        "overcorrection": 8
+      },
+      "R:PRON": {
+        "correct_correction": 2,
+        "missed_correction": 5,
+        "overcorrection": 4,
+        "wrong_correction": 1
+      },
+      "R:PUNCT": {
+        "missed_correction": 1,
+        "overcorrection": 1
+      },
+      "R:SPELL": {
+        "correct_correction": 4,
+        "missed_correction": 2,
+        "overcorrection": 36,
+        "wrong_correction": 3
+      },
+      "R:VERB": {
+        "correct_correction": 3,
+        "missed_correction": 19,
+        "overcorrection": 10,
+        "wrong_correction": 5
+      },
+      "R:VERB:FORM": {
+        "correct_correction": 8,
+        "missed_correction": 5,
+        "overcorrection": 6,
+        "wrong_correction": 3
+      },
+      "R:VERB:INFL": {
+        "correct_correction": 1
+      },
+      "R:VERB:SVA": {
+        "correct_correction": 3,
+        "missed_correction": 2,
+        "overcorrection": 4,
+        "wrong_correction": 1
+      },
+      "R:VERB:TENSE": {
+        "correct_correction": 5,
+        "missed_correction": 16,
+        "overcorrection": 5,
+        "wrong_correction": 4
+      },
+      "R:WO": {
+        "overcorrection": 4
+      },
+      "U:ADJ": {
+        "missed_correction": 1
+      },
+      "U:ADV": {
+        "missed_correction": 2,
+        "overcorrection": 2,
+        "wrong_correction": 3
+      },
+      "U:CONJ": {
+        "correct_correction": 1,
+        "overcorrection": 3
+      },
+      "U:CONTR": {
+        "missed_correction": 1,
+        "overcorrection": 1
+      },
+      "U:DET": {
+        "correct_correction": 4,
+        "missed_correction": 11,
+        "overcorrection": 2,
+        "wrong_correction": 1
+      },
+      "U:NOUN": {
+        "missed_correction": 3,
+        "overcorrection": 4,
+        "wrong_correction": 2
+      },
+      "U:NOUN:POSS": {
+        "missed_correction": 1
+      },
+      "U:OTHER": {
+        "missed_correction": 1,
+        "overcorrection": 14,
+        "wrong_correction": 1
+      },
+      "U:PART": {
+        "overcorrection": 1
+      },
+      "U:PREP": {
+        "correct_correction": 3,
+        "missed_correction": 2,
+        "overcorrection": 7,
+        "wrong_correction": 1
+      },
+      "U:PRON": {
+        "overcorrection": 6
+      },
+      "U:PUNCT": {
+        "overcorrection": 38
+      },
+      "U:VERB": {
+        "missed_correction": 1,
+        "overcorrection": 3
+      },
+      "U:VERB:TENSE": {
+        "missed_correction": 1,
+        "overcorrection": 1
+      }
+    }
+  },
+  "missing_edit_count": 319,
+  "model_behavior_distribution": {
+    "gector_roberta_base": {
+      "correct_correction": 142,
+      "missed_correction": 141,
+      "overcorrection": 493,
+      "wrong_correction": 37
+    },
+    "t5_base_grammar": {
+      "correct_correction": 71,
+      "missed_correction": 178,
+      "overcorrection": 893,
+      "wrong_correction": 71
+    }
+  },
+  "model_edit_count": 1707,
+  "per_sentence_count": 600,
+  "sentence_counts": {
+    "gector_roberta_base": {
+      "changed_sentences": 247,
+      "sentences": 300
+    },
+    "t5_base_grammar": {
+      "changed_sentences": 295,
+      "sentences": 300
+    }
+  }
+}

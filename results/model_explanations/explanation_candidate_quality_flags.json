@@ -1,0 +1,18 @@
+{
+  "behavior_counts": {
+    "correct_correction": 41,
+    "overcorrection": 243,
+    "wrong_correction": 16
+  },
+  "candidate_count": 300,
+  "first_30_flag_counts": {
+    "few_shot_copy_like": 1,
+    "generic_list_like": 7,
+    "no_automatic_flag": 22
+  },
+  "model_counts": {
+    "gector_roberta_base": 150,
+    "t5_base_grammar": 150
+  },
+  "note": "Automatic flags are rough diagnostics only. FLAN candidates remain open-source model candidates, not human gold."
+}

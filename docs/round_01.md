@@ -47,11 +47,11 @@ All novelty, effectiveness, and generality claims are currently unverified. Do n
 
 ## Updated Research Artifacts
 
-- `research/project_brief.md`
-- `research/claim_evidence_matrix.md`
-- `research/literature_matrix.md`
-- `research/experiment_plan.md`
-- `research/open_issues.md`
+- `docs/project_brief.md`
+- `docs/claim_evidence_matrix.md`
+- `docs/literature_matrix.md`
+- `docs/experiment_plan.md`
+- `docs/open_issues.md`
 
 ## Next Single Action
 
