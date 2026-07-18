@@ -4,7 +4,7 @@ Last updated: 2026-07-18
 
 ## Current Round
 
-Round 09 scaled pilot statistics and error analysis are complete and awaiting commit. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`; Round 06 is committed as `1db85c8`; Round 07 is committed as `7b35499`; Round 08 is committed as `4ebd5e4`.
+Round 10 human evaluation preparation is complete and awaiting commit. Round 03 is committed as `8a8fedb`; Round 04 is committed as `2667862`; Round 05 is committed as `fa2b7fc`; Round 06 is committed as `1db85c8`; Round 07 is committed as `7b35499`; Round 08 is committed as `4ebd5e4`; Round 09 is committed as `e288227`.
 
 ## Latest Completed Work
 
@@ -18,10 +18,11 @@ Round 09 scaled pilot statistics and error analysis are complete and awaiting co
 - Round 08 methods: 15 L1/L3 methods/ablations over 11,764 labeled automatic instances.
 - Round 08 counterfactual pilot: 48 variants with labels from actual GEC model reruns across GECToR, T5, and CoEdIT.
 - Round 09 scaled pilot: 120 counterfactual variants, 1,080 explanation-variant pairs, grouped bootstrap statistics, and error-analysis packets.
+- Round 10 annotation package: 240 public annotation items, guidelines, adjudication template, hidden auto-label metadata, and human annotation status checker.
 
 ## Current Highest-Priority Problem
 
-Round 10 must prepare human evaluation and annotation artifacts. Without double-human labels, the project cannot answer which automatic metric is closest to human faithfulness.
+The next nondependent work is simulated review/rebuttal and paper tightening. Human-faithfulness validation is blocked until real double annotation is completed.
 
 ## Active Constraints
 
@@ -37,3 +38,4 @@ Round 10 must prepare human evaluation and annotation artifacts. Without double-
 - Optional parallel chunked prediction tooling exists in `experiments/run_parallel_model_predictions.sh`; benchmark parallel settings before using it for large CoEdIT runs.
 - Round 09 does not support a nontrivial counterfactual simulator gain; best automatic L2 simulator macro-F1 is only 0.297.
 - Preserve `competing_edit` as its own L2 behavior class.
+- No human gold labels exist; `results/round10/human_annotation_status.json` records `blocked_no_human_annotation`.

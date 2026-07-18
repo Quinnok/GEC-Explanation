@@ -151,3 +151,14 @@ Last updated: 2026-07-18
 - Round 09 report and tables generated: `docs/round_09.md`, `results/tables/round09_l1_bootstrap.tex`, and `results/tables/round09_counterfactual_bootstrap.tex`.
 - Paper updated: `paper/sections/results.tex`, `paper/sections/analysis.tex`, and `paper/sections/limitations.tex` now describe Round 09 as automatic pilot evidence and preserve the no-human-gold caveat.
 - Paper compile verification passed with local TinyTeX/latexmk; final LaTeX log grep found no warnings, undefined citations/references, fatal errors, overfull boxes, or underfull boxes.
+- Round 09 committed as `e288227 Round 09 scaled statistics and analysis`.
+
+## Round 10
+
+- Annotation package command: `.venv311/bin/python experiments/src/build_annotation_package.py --benchmark-dir data/faithfulness_benchmark --round09-dir results/round09 --out-dir annotation/round10 --results-dir results/round10 --faithfulness-items 160 --counterfactual-items 80`.
+- Annotation package outputs: `annotation/round10/guidelines.md`, `annotation/round10/annotation_items.jsonl`, `annotation/round10/annotation_form.csv`, `annotation/round10/adjudication_template.csv`, `annotation/round10/annotation_metadata_with_auto_labels.jsonl`, and `annotation/round10/README.md`.
+- Annotation package size: 240 public items, including 160 edit explanation faithfulness items and 80 counterfactual edit simulatability items.
+- Package distribution: EXPECT 176, JFLEG 64; CoEdIT 62, GECToR 88, T5 90.
+- Human annotation status command: `.venv311/bin/python experiments/src/evaluate_human_annotations.py --form annotation/round10/annotation_form.csv --output results/round10/human_annotation_status.json`.
+- Human annotation status: `blocked_no_human_annotation`, 0 completed labels, 0 paired overlaps, Cohen's kappa unavailable.
+- Important boundary: no human gold labels were created. Double-human annotation by real annotators remains required before any human-faithfulness claim.
