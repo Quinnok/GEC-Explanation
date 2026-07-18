@@ -1,0 +1,658 @@
+{
+  "alignment_failure_count": 13,
+  "alignment_failure_examples": [
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 1,
+        "error_type": "R:PRON",
+        "operation": "replace",
+        "source_text": "4:they",
+        "start": 0,
+        "target_text": "They"
+      },
+      "sample_id": "jfleg-dev-0013",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        4,
+        5
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 2,
+      "predicted_edit": {
+        "end": 15,
+        "error_type": "U:OTHER",
+        "operation": "delete",
+        "source_text": "make ,",
+        "start": 13,
+        "target_text": ""
+      },
+      "sample_id": "jfleg-dev-0023",
+      "score": 0.6666666666666666
+    },
+    {
+      "candidate_ref_indices": [
+        3,
+        4
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 3,
+      "predicted_edit": {
+        "end": 12,
+        "error_type": "M:DET",
+        "operation": "insert",
+        "source_text": "",
+        "start": 12,
+        "target_text": "that"
+      },
+      "sample_id": "jfleg-dev-0026",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        7,
+        8
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 8,
+      "predicted_edit": {
+        "end": 25,
+        "error_type": "R:WO",
+        "operation": "replace",
+        "source_text": "in specializing",
+        "start": 23,
+        "target_text": "specializing in"
+      },
+      "sample_id": "jfleg-dev-0032",
+      "score": 0.6666666666666666
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 4,
+        "error_type": "R:OTHER",
+        "operation": "replace",
+        "source_text": "Compuer",
+        "start": 3,
+        "target_text": "culture ,"
+      },
+      "sample_id": "jfleg-dev-0049",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        4,
+        9
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "gector_roberta_base",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 15,
+        "error_type": "U:DET",
+        "operation": "delete",
+        "source_text": "the",
+        "start": 14,
+        "target_text": ""
+      },
+      "sample_id": "jfleg-dev-0055",
+      "score": 0.75
+    },
+    {
+      "candidate_ref_indices": [
+        2,
+        3
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 1,
+      "predicted_edit": {
+        "end": 14,
+        "error_type": "R:OTHER",
+        "operation": "replace",
+        "source_text": "every stuff",
+        "start": 12,
+        "target_text": "everything"
+      },
+      "sample_id": "jfleg-dev-0010",
+      "score": 0.6666666666666666
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 1,
+        "error_type": "R:PRON",
+        "operation": "replace",
+        "source_text": "4:they",
+        "start": 0,
+        "target_text": "They"
+      },
+      "sample_id": "jfleg-dev-0013",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        1,
+        2
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 1,
+      "predicted_edit": {
+        "end": 6,
+        "error_type": "M:PREP",
+        "operation": "insert",
+        "source_text": "",
+        "start": 6,
+        "target_text": "in"
+      },
+      "sample_id": "jfleg-dev-0019",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 0,
+      "predicted_edit": {
+        "end": 5,
+        "error_type": "R:VERB",
+        "operation": "replace",
+        "source_text": "try learning",
+        "start": 3,
+        "target_text": "tries to teach"
+      },
+      "sample_id": "jfleg-dev-0026",
+      "score": 0.6666666666666666
+    },
+    {
+      "candidate_ref_indices": [
+        3,
+        4
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 2,
+      "predicted_edit": {
+        "end": 12,
+        "error_type": "M:DET",
+        "operation": "insert",
+        "source_text": "",
+        "start": 12,
+        "target_text": "that"
+      },
+      "sample_id": "jfleg-dev-0026",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        1,
+        2
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 2,
+      "predicted_edit": {
+        "end": 3,
+        "error_type": "M:PRON",
+        "operation": "insert",
+        "source_text": "",
+        "start": 3,
+        "target_text": "we"
+      },
+      "sample_id": "jfleg-dev-0042",
+      "score": 1.0
+    },
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "t5_base_grammar",
+      "pred_index": 2,
+      "predicted_edit": {
+        "end": 4,
+        "error_type": "R:SPELL",
+        "operation": "replace",
+        "source_text": "Compuer",
+        "start": 3,
+        "target_text": "computer"
+      },
+      "sample_id": "jfleg-dev-0049",
+      "score": 1.0
+    }
+  ],
+  "alignment_policy": "Predicted edits are correct when span/source/target/operation match an unmatched reference edit. Non-exact overlapping edits are wrong corrections. Predicted edits with no aligned reference edit are overcorrections. Unmatched reference edits are missed corrections.",
+  "created_at": "2026-07-18T05:35:11+00:00",
+  "error_type_behavior_distribution": {
+    "gector_roberta_base": {
+      "M:ADV": {
+        "missed_correction": 3
+      },
+      "M:CONJ": {
+        "missed_correction": 2
+      },
+      "M:DET": {
+        "correct_correction": 9,
+        "missed_correction": 3,
+        "overcorrection": 5,
+        "wrong_correction": 2
+      },
+      "M:NOUN": {
+        "missed_correction": 1,
+        "wrong_correction": 1
+      },
+      "M:OTHER": {
+        "correct_correction": 1,
+        "missed_correction": 5,
+        "overcorrection": 1,
+        "wrong_correction": 9
+      },
+      "M:PREP": {
+        "missed_correction": 4,
+        "overcorrection": 2,
+        "wrong_correction": 1
+      },
+      "M:PRON": {
+        "missed_correction": 3,
+        "overcorrection": 1
+      },
+      "M:PUNCT": {
+        "correct_correction": 17,
+        "missed_correction": 8,
+        "overcorrection": 10,
+        "wrong_correction": 1
+      },
+      "M:VERB": {
+        "correct_correction": 2,
+        "missed_correction": 4,
+        "overcorrection": 1
+      },
+      "M:VERB:FORM": {
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "M:VERB:TENSE": {
+        "missed_correction": 1,
+        "wrong_correction": 2
+      },
+      "R:ADJ": {
+        "correct_correction": 1,
+        "missed_correction": 1,
+        "wrong_correction": 1
+      },
+      "R:DET": {
+        "correct_correction": 2,
+        "missed_correction": 7,
+        "overcorrection": 1,
+        "wrong_correction": 3
+      },
+      "R:MORPH": {
+        "correct_correction": 3,
+        "missed_correction": 5,
+        "overcorrection": 1
+      },
+      "R:NOUN": {
+        "missed_correction": 7,
+        "wrong_correction": 3
+      },
+      "R:NOUN:INFL": {
+        "correct_correction": 2
+      },
+      "R:NOUN:NUM": {
+        "correct_correction": 9,
+        "missed_correction": 9,
+        "overcorrection": 1
+      },
+      "R:ORTH": {
+        "correct_correction": 6,
+        "missed_correction": 6,
+        "overcorrection": 4,
+        "wrong_correction": 1
+      },
+      "R:OTHER": {
+        "correct_correction": 5,
+        "missed_correction": 25,
+        "overcorrection": 3,
+        "wrong_correction": 27
+      },
+      "R:PART": {
+        "overcorrection": 4
+      },
+      "R:PREP": {
+        "correct_correction": 2,
+        "missed_correction": 4,
+        "overcorrection": 3,
+        "wrong_correction": 3
+      },
+      "R:PRON": {
+        "correct_correction": 4,
+        "missed_correction": 2
+      },
+      "R:PUNCT": {
+        "missed_correction": 4,
+        "wrong_correction": 1
+      },
+      "R:SPELL": {
+        "correct_correction": 21,
+        "missed_correction": 7,
+        "overcorrection": 2,
+        "wrong_correction": 7
+      },
+      "R:VERB": {
+        "correct_correction": 2,
+        "missed_correction": 13,
+        "wrong_correction": 6
+      },
+      "R:VERB:FORM": {
+        "correct_correction": 1,
+        "overcorrection": 4
+      },
+      "R:VERB:INFL": {
+        "correct_correction": 1
+      },
+      "R:VERB:SVA": {
+        "correct_correction": 8,
+        "missed_correction": 2,
+        "overcorrection": 2
+      },
+      "R:VERB:TENSE": {
+        "correct_correction": 1,
+        "missed_correction": 6,
+        "overcorrection": 2,
+        "wrong_correction": 2
+      },
+      "R:WO": {
+        "correct_correction": 2,
+        "missed_correction": 4,
+        "wrong_correction": 2
+      },
+      "U:ADJ": {
+        "missed_correction": 2
+      },
+      "U:ADV": {
+        "missed_correction": 6,
+        "overcorrection": 1,
+        "wrong_correction": 2
+      },
+      "U:CONJ": {
+        "missed_correction": 5
+      },
+      "U:DET": {
+        "correct_correction": 2,
+        "missed_correction": 6
+      },
+      "U:NOUN": {
+        "missed_correction": 3
+      },
+      "U:OTHER": {
+        "missed_correction": 6,
+        "overcorrection": 1,
+        "wrong_correction": 7
+      },
+      "U:PREP": {
+        "missed_correction": 4
+      },
+      "U:PRON": {
+        "missed_correction": 2
+      },
+      "U:PUNCT": {
+        "missed_correction": 2,
+        "wrong_correction": 1
+      },
+      "U:VERB": {
+        "correct_correction": 1,
+        "missed_correction": 2,
+        "wrong_correction": 2
+      },
+      "U:VERB:TENSE": {
+        "correct_correction": 2,
+        "missed_correction": 3,
+        "overcorrection": 1
+      }
+    },
+    "t5_base_grammar": {
+      "M:ADV": {
+        "missed_correction": 3
+      },
+      "M:CONJ": {
+        "missed_correction": 2
+      },
+      "M:DET": {
+        "correct_correction": 9,
+        "missed_correction": 3,
+        "overcorrection": 2,
+        "wrong_correction": 2
+      },
+      "M:NOUN": {
+        "overcorrection": 1,
+        "wrong_correction": 2
+      },
+      "M:OTHER": {
+        "correct_correction": 1,
+        "missed_correction": 7,
+        "wrong_correction": 7
+      },
+      "M:PREP": {
+        "missed_correction": 4,
+        "wrong_correction": 1
+      },
+      "M:PRON": {
+        "correct_correction": 1,
+        "missed_correction": 2
+      },
+      "M:PUNCT": {
+        "missed_correction": 25,
+        "wrong_correction": 1
+      },
+      "M:VERB": {
+        "correct_correction": 2,
+        "missed_correction": 3,
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "M:VERB:FORM": {
+        "missed_correction": 1
+      },
+      "M:VERB:TENSE": {
+        "missed_correction": 2,
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "R:ADJ": {
+        "correct_correction": 1,
+        "missed_correction": 2,
+        "overcorrection": 2
+      },
+      "R:CONTR": {
+        "overcorrection": 1
+      },
+      "R:DET": {
+        "correct_correction": 1,
+        "missed_correction": 11
+      },
+      "R:MORPH": {
+        "correct_correction": 1,
+        "missed_correction": 5,
+        "overcorrection": 1,
+        "wrong_correction": 2
+      },
+      "R:NOUN": {
+        "correct_correction": 1,
+        "missed_correction": 6,
+        "overcorrection": 12,
+        "wrong_correction": 3
+      },
+      "R:NOUN:INFL": {
+        "correct_correction": 1,
+        "wrong_correction": 1
+      },
+      "R:NOUN:NUM": {
+        "correct_correction": 7,
+        "missed_correction": 6,
+        "overcorrection": 1,
+        "wrong_correction": 5
+      },
+      "R:ORTH": {
+        "correct_correction": 8,
+        "missed_correction": 2,
+        "overcorrection": 78,
+        "wrong_correction": 3
+      },
+      "R:OTHER": {
+        "correct_correction": 3,
+        "missed_correction": 36,
+        "overcorrection": 19,
+        "wrong_correction": 18
+      },
+      "R:PREP": {
+        "missed_correction": 6,
+        "wrong_correction": 3
+      },
+      "R:PRON": {
+        "correct_correction": 2,
+        "missed_correction": 2,
+        "wrong_correction": 2
+      },
+      "R:PUNCT": {
+        "missed_correction": 1,
+        "wrong_correction": 4
+      },
+      "R:SPELL": {
+        "correct_correction": 18,
+        "missed_correction": 5,
+        "overcorrection": 3,
+        "wrong_correction": 12
+      },
+      "R:VERB": {
+        "correct_correction": 2,
+        "missed_correction": 16,
+        "overcorrection": 1,
+        "wrong_correction": 3
+      },
+      "R:VERB:FORM": {
+        "correct_correction": 1
+      },
+      "R:VERB:INFL": {
+        "wrong_correction": 1
+      },
+      "R:VERB:SVA": {
+        "correct_correction": 5,
+        "missed_correction": 3,
+        "wrong_correction": 2
+      },
+      "R:VERB:TENSE": {
+        "missed_correction": 8,
+        "wrong_correction": 1
+      },
+      "R:WO": {
+        "correct_correction": 1,
+        "missed_correction": 6,
+        "wrong_correction": 1
+      },
+      "U:ADJ": {
+        "missed_correction": 1,
+        "wrong_correction": 1
+      },
+      "U:ADV": {
+        "missed_correction": 6,
+        "overcorrection": 1,
+        "wrong_correction": 2
+      },
+      "U:CONJ": {
+        "missed_correction": 5
+      },
+      "U:DET": {
+        "correct_correction": 2,
+        "missed_correction": 6
+      },
+      "U:NOUN": {
+        "missed_correction": 2,
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "U:OTHER": {
+        "correct_correction": 3,
+        "missed_correction": 3,
+        "overcorrection": 1,
+        "wrong_correction": 7
+      },
+      "U:PREP": {
+        "correct_correction": 2,
+        "missed_correction": 2,
+        "overcorrection": 1
+      },
+      "U:PRON": {
+        "missed_correction": 2
+      },
+      "U:PUNCT": {
+        "correct_correction": 2,
+        "missed_correction": 1,
+        "overcorrection": 8
+      },
+      "U:VERB": {
+        "correct_correction": 2,
+        "missed_correction": 2,
+        "wrong_correction": 1
+      },
+      "U:VERB:TENSE": {
+        "missed_correction": 4,
+        "wrong_correction": 1
+      }
+    }
+  },
+  "missing_edit_count": 378,
+  "model_behavior_distribution": {
+    "gector_roberta_base": {
+      "correct_correction": 104,
+      "missed_correction": 177,
+      "overcorrection": 51,
+      "wrong_correction": 85
+    },
+    "t5_base_grammar": {
+      "correct_correction": 76,
+      "missed_correction": 201,
+      "overcorrection": 135,
+      "wrong_correction": 89
+    }
+  },
+  "model_edit_count": 540,
+  "per_sentence_count": 160,
+  "sentence_counts": {
+    "gector_roberta_base": {
+      "changed_sentences": 71,
+      "sentences": 80
+    },
+    "t5_base_grammar": {
+      "changed_sentences": 80,
+      "sentences": 80
+    }
+  }
+}

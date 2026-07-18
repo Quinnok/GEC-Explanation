@@ -1,0 +1,97 @@
+{
+  "automatic_label_note": "All labels are automatic. Generated/template explanations are not human gold. Explicit templates are leakage upper controls.",
+  "created_at": "2026-07-18T05:42:47+00:00",
+  "explicit_template_count": 700,
+  "generator_evaluator_overlap_policy": "FLAN-T5-base explanation candidates are not evaluated with the same generator in Round 07. Future LLM judges must be model-disjoint from explanation generators.",
+  "masked_target_template_count": 700,
+  "predicted_target_cross_split_overlap_count": 32,
+  "predicted_target_cross_split_overlap_examples": {
+    ",": [
+      "dev",
+      "test",
+      "train"
+    ],
+    ".": [
+      "dev",
+      "train"
+    ],
+    ". it": [
+      "test",
+      "train"
+    ],
+    "a": [
+      "test",
+      "train"
+    ],
+    "about": [
+      "test",
+      "train"
+    ],
+    "and": [
+      "dev",
+      "train"
+    ],
+    "can": [
+      "dev",
+      "train"
+    ],
+    "cars,": [
+      "dev",
+      "train"
+    ],
+    "for": [
+      "test",
+      "train"
+    ],
+    "good": [
+      "test",
+      "train"
+    ],
+    "in": [
+      "test",
+      "train"
+    ],
+    "is": [
+      "test",
+      "train"
+    ],
+    "isn't": [
+      "test",
+      "train"
+    ],
+    "it": [
+      "test",
+      "train"
+    ],
+    "it.": [
+      "test",
+      "train"
+    ],
+    "life.": [
+      "test",
+      "train"
+    ],
+    "lives.": [
+      "test",
+      "train"
+    ],
+    "the": [
+      "dev",
+      "test",
+      "train"
+    ],
+    "there": [
+      "dev",
+      "train"
+    ],
+    "things.": [
+      "test",
+      "train"
+    ]
+  },
+  "source_count": 100,
+  "source_cross_split_duplicate_count": 0,
+  "source_cross_split_duplicate_examples": {},
+  "source_id_duplicate_count": 0,
+  "template_near_duplicate_risk": "High for explicit, masked-target, rule-only, and synthetic negative templates; these must be stratified by explanation_type and excluded from primary natural-language claims."
+}

@@ -1,0 +1,119 @@
+{
+  "alignment_failure_count": 1,
+  "alignment_failure_examples": [
+    {
+      "candidate_ref_indices": [
+        0,
+        1
+      ],
+      "kind": "ambiguous_alignment",
+      "model_key": "coedit_large",
+      "pred_index": 1,
+      "predicted_edit": {
+        "end": 12,
+        "error_type": "R:OTHER",
+        "operation": "replace",
+        "source_text": "its name",
+        "start": 10,
+        "target_text": "It"
+      },
+      "sample_id": "expect-test-00008",
+      "score": 0.6666666666666666
+    }
+  ],
+  "alignment_policy": "Predicted edits are correct when span/source/target/operation match an unmatched reference edit. Non-exact overlapping edits are wrong corrections. Predicted edits with no aligned reference edit are overcorrections. Unmatched reference edits are missed corrections.",
+  "created_at": "2026-07-18T05:39:02+00:00",
+  "error_type_behavior_distribution": {
+    "coedit_large": {
+      "M:ADJ": {
+        "correct_correction": 1
+      },
+      "M:DET": {
+        "correct_correction": 1,
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "M:PUNCT": {
+        "missed_correction": 1,
+        "wrong_correction": 1
+      },
+      "M:VERB": {
+        "overcorrection": 1
+      },
+      "R:ADJ": {
+        "overcorrection": 1
+      },
+      "R:CONTR": {
+        "overcorrection": 1
+      },
+      "R:MORPH": {
+        "missed_correction": 1
+      },
+      "R:NOUN": {
+        "missed_correction": 1,
+        "overcorrection": 19
+      },
+      "R:ORTH": {
+        "overcorrection": 48
+      },
+      "R:OTHER": {
+        "correct_correction": 1,
+        "missed_correction": 1,
+        "overcorrection": 21
+      },
+      "R:PREP": {
+        "correct_correction": 2,
+        "missed_correction": 3,
+        "overcorrection": 2
+      },
+      "R:PRON": {
+        "correct_correction": 1,
+        "missed_correction": 1
+      },
+      "R:SPELL": {
+        "overcorrection": 3,
+        "wrong_correction": 1
+      },
+      "R:VERB": {
+        "correct_correction": 1,
+        "overcorrection": 1,
+        "wrong_correction": 1
+      },
+      "R:WO": {
+        "overcorrection": 2
+      },
+      "U:DET": {
+        "correct_correction": 2
+      },
+      "U:OTHER": {
+        "overcorrection": 1
+      },
+      "U:PREP": {
+        "correct_correction": 1
+      },
+      "U:PUNCT": {
+        "overcorrection": 6
+      },
+      "U:VERB": {
+        "overcorrection": 1
+      }
+    }
+  },
+  "missing_edit_count": 8,
+  "model_behavior_distribution": {
+    "coedit_large": {
+      "correct_correction": 10,
+      "missed_correction": 8,
+      "overcorrection": 108,
+      "wrong_correction": 4
+    }
+  },
+  "model_edit_count": 122,
+  "per_sentence_count": 20,
+  "sentence_counts": {
+    "coedit_large": {
+      "changed_sentences": 20,
+      "sentences": 20
+    }
+  }
+}

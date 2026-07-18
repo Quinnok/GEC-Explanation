@@ -50,6 +50,19 @@ MODEL_CONFIGS: Dict[str, Dict[str, Any]] = {
             "batch_size": 8,
         },
     },
+    "coedit_large": {
+        "model_name": "CoEdIT large instruction-tuned editor",
+        "model_id": "grammarly/coedit-large",
+        "model_family": "instruction-following text editor",
+        "license": "cc-by-nc-4.0, per Hugging Face model card",
+        "decoding": {
+            "prefix": "Fix grammatical errors in this sentence: ",
+            "num_beams": 4,
+            "max_input_length": 256,
+            "max_new_tokens": 128,
+            "batch_size": 1,
+        },
+    },
 }
 
 
@@ -200,7 +213,7 @@ def run_model(model_key: str, samples: List[Dict[str, Any]]) -> Dict[str, Any]:
     started = time.time()
     if model_key == "gector_roberta_base":
         rows = run_gector(samples, config)
-    elif model_key == "t5_base_grammar":
+    elif model_key in {"t5_base_grammar", "coedit_large"}:
         rows = run_t5(samples, config)
     else:
         raise ValueError(f"Unsupported model key: {model_key}")

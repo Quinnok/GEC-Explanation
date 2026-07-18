@@ -49,3 +49,37 @@ The versioned pilot uses real source/reference sentence pairs from EXPECT. The g
 - Input fields: source sentence, model prediction, and predicted edit span.
 - Output file: `data/processed/model_edit_explanation_candidates.jsonl`.
 - Constraint: these are model-generated candidates, not human gold explanations. Explicit templates are kept only as leakage upper controls.
+
+## JFLEG
+
+- Source: https://github.com/keisks/jfleg
+- Paper: JFLEG: A Fluency Corpus and Benchmark for Grammatical Error Correction, EACL 2017.
+- License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International, as stated in the upstream README.
+- Local download: `data/downloads/jfleg`.
+- Download command: `git clone --depth 1 https://github.com/keisks/jfleg data/downloads/jfleg`.
+- Recorded commit: `ee06ff806a208aba815ac45313f4e750a48330a5`.
+- Pilot sample file: `data/processed/jfleg_v1_samples.jsonl`.
+- Pilot sample count: 160.
+- Reference policy: all four references are retained; `ref0` is the primary reference for Round 07 single-reference ERRANT extraction.
+
+## Additional Round 07 Model
+
+### CoEdIT Large
+
+- Source: https://huggingface.co/grammarly/coedit-large
+- Model family: instruction-following text editor.
+- Local role: generated predictions for 20 EXPECT source sentences as a third model-family pilot.
+- Recorded revision: `5637bcdf9d8d4419f97c8cfea36f7d35c79232b6`.
+- License note: upstream model card states `cc-by-nc-4.0`.
+- Decoding: prefix `Fix grammatical errors in this sentence: `, `num_beams=4`, `max_input_length=256`, `max_new_tokens=128`, `batch_size=1`.
+- Runtime metadata: `results/model_predictions/expect_v1_coedit_runtime_metadata.json`.
+
+## Round 07 Benchmark Files
+
+- Benchmark card: `docs/benchmark_card.md`.
+- Data statement: `docs/data_statement.md`.
+- License report: `docs/license_report.md`.
+- Model-edit records: `data/faithfulness_benchmark/edit_records.jsonl`.
+- Explanation/control instances: `data/faithfulness_benchmark/explanation_instances.jsonl`.
+- Missing-edit diagnoses: `data/faithfulness_benchmark/missing_edit_diagnosis.jsonl`.
+- Leakage audit: `data/faithfulness_benchmark/leakage_audit.json`.

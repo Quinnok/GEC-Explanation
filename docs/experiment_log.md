@@ -89,3 +89,28 @@ Last updated: 2026-07-18
 - Verification: `.venv311/bin/python -m unittest discover -s experiments/tests` ran 5 tests, all passed.
 - Paper compile verification: `PATH="$PWD/../.local-tex/TinyTeX/bin/universal-darwin:$PATH" ../.local-tex/TinyTeX/bin/universal-darwin/latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex` in `paper/` completed successfully.
 - LaTeX log check found no warnings, undefined citations/references, fatal errors, overfull boxes, or underfull boxes.
+- Round 06 committed as `1db85c8 Round 06 idea restructuring`.
+
+## Round 07
+
+- JFLEG cloned from `https://github.com/keisks/jfleg` and recorded at commit `ee06ff806a208aba815ac45313f4e750a48330a5`; upstream README states Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
+- JFLEG processing command: `.venv311/bin/python experiments/src/build_jfleg_samples.py --jfleg-root data/downloads/jfleg --sample-size 160`.
+- JFLEG processed sample file: `data/processed/jfleg_v1_samples.jsonl`, 160 rows, all four references retained, `ref0` used as the primary ERRANT reference for this pilot.
+- JFLEG model command: `.venv311/bin/python experiments/src/run_model_predictions.py --input data/processed/jfleg_v1_samples.jsonl --sample-size 80 --models gector_roberta_base t5_base_grammar --overwrite --output results/model_predictions/jfleg_v1_model_predictions.jsonl --metadata results/model_predictions/jfleg_v1_runtime_metadata.json`.
+- JFLEG runtime: GECToR 80 samples, 71 changed, 7.436 CPU seconds; T5 80 samples, 80 changed, 23.322 CPU seconds.
+- JFLEG edit analysis command: `.venv311/bin/python experiments/src/analyze_model_edits.py --predictions results/model_predictions/jfleg_v1_model_predictions.jsonl --out-dir results/model_edits_jfleg --check-size 30`.
+- JFLEG model-produced edits: 540 in `results/model_edits_jfleg/model_edit_dataset.jsonl`; missed edits: 378 in `results/model_edits_jfleg/missing_edit_diagnosis.jsonl`.
+- CoEdIT command: `.venv311/bin/python experiments/src/run_model_predictions.py --input data/processed/expect_v1_samples.jsonl --sample-size 20 --models coedit_large --overwrite --output results/model_predictions/expect_v1_coedit_predictions.jsonl --metadata results/model_predictions/expect_v1_coedit_runtime_metadata.json`.
+- CoEdIT model: `grammarly/coedit-large`, revision `5637bcdf9d8d4419f97c8cfea36f7d35c79232b6`, CC-BY-NC-4.0 model card, instruction prefix `Fix grammatical errors in this sentence: `.
+- CoEdIT runtime: 20 EXPECT samples, 20 changed, 0 copied reference, 90.428 CPU seconds; model weight download was about 3.13GB.
+- CoEdIT edit analysis command: `.venv311/bin/python experiments/src/analyze_model_edits.py --predictions results/model_predictions/expect_v1_coedit_predictions.jsonl --out-dir results/model_edits_coedit_expect --check-size 20`.
+- CoEdIT model-produced edits: 122 in `results/model_edits_coedit_expect/model_edit_dataset.jsonl`; missed edits: 8 in `results/model_edits_coedit_expect/missing_edit_diagnosis.jsonl`.
+- Benchmark build command: `bash experiments/run_benchmark.sh`.
+- Benchmark outputs: `data/faithfulness_benchmark/edit_records.jsonl` with 700 model-produced edits; `data/faithfulness_benchmark/explanation_instances.jsonl` with 12,754 explanation/control instances; `data/faithfulness_benchmark/missing_edit_diagnosis.jsonl` with 160 missed-edit diagnoses.
+- Benchmark selected model counts: CoEdIT 122, GECToR 298, T5 280.
+- Benchmark selected dataset counts: EXPECT 420, JFLEG 280.
+- Benchmark selected behavior counts: correct 136, wrong 126, overcorrection 438.
+- Benchmark selected operation counts: delete 58, insert 115, replace 527; ERRANT error-type count: 41.
+- Documentation generated from JSON outputs: `docs/benchmark_card.md`, `docs/data_statement.md`, `docs/license_report.md`, and `data/faithfulness_benchmark/leakage_audit.json`.
+- Leakage audit: 0 source texts cross train/dev/test splits; 32 predicted target strings cross splits, mostly common punctuation/function words.
+- Verification: unit tests, Python compile checks, shell syntax checks, `git diff --check`, `bash experiments/run_benchmark.sh`, and final `latexmk` compile all passed; LaTeX log grep found no warnings, undefined citations/references, fatal errors, overfull boxes, or underfull boxes.

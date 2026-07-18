@@ -1,0 +1,1 @@
+{"candidate_ref_indices": [0, 1], "kind": "ambiguous_alignment", "model_key": "coedit_large", "pred_index": 1, "predicted_edit": {"end": 12, "error_type": "R:OTHER", "operation": "replace", "source_text": "its name", "start": 10, "target_text": "It"}, "sample_id": "expect-test-00008", "score": 0.6666666666666666}

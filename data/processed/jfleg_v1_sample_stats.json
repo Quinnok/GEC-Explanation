@@ -1,0 +1,13 @@
+{
+  "commit": "ee06ff806a208aba815ac45313f4e750a48330a5",
+  "created_at": "2026-07-18T05:42:47+00:00",
+  "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+  "output": "/Users/bytedance/Documents/GEC\u53ef\u89e3\u91ca\u6027/data/processed/jfleg_v1_samples.jsonl",
+  "reference_policy": "The benchmark pilot uses ref0 as the primary reference for single-reference ERRANT extraction and retains all four JFLEG references in each row.",
+  "sample_count": 160,
+  "source": "https://github.com/keisks/jfleg",
+  "split_counts": {
+    "dev": 160,
+    "test": 0
+  }
+}
