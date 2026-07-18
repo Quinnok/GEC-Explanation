@@ -1,0 +1,51 @@
+{
+  "audit_count": 60,
+  "audit_type": "researcher_readable_automatic_audit_not_human_annotation",
+  "behavior_auto_inconsistent_count": 0,
+  "behavior_counts": {
+    "correct_correction": 19,
+    "overcorrection": 26,
+    "wrong_correction": 15
+  },
+  "error_type_counts": {
+    "M:DET": 3,
+    "M:NOUN": 1,
+    "M:PREP": 2,
+    "M:PUNCT": 7,
+    "R:MORPH": 3,
+    "R:NOUN": 3,
+    "R:NOUN:INFL": 2,
+    "R:ORTH": 8,
+    "R:OTHER": 8,
+    "R:PREP": 5,
+    "R:PRON": 2,
+    "R:SPELL": 3,
+    "R:VERB": 2,
+    "R:VERB:FORM": 1,
+    "U:CONJ": 1,
+    "U:DET": 2,
+    "U:OTHER": 2,
+    "U:PREP": 2,
+    "U:PUNCT": 1,
+    "U:VERB": 2
+  },
+  "generic_explanation_count": 7,
+  "model_counts": {
+    "gector_roberta_base": 31,
+    "t5_base_grammar": 29
+  },
+  "multi_edit_sentence_count": 55,
+  "notes": [
+    "Automatic flags are screening signals only.",
+    "Rule correctness and explanation faithfulness require human review or a stronger validated evaluator."
+  ],
+  "operation_counts": {
+    "delete": 8,
+    "insert": 12,
+    "replace": 40
+  },
+  "orth_or_punct_noise_count": 17,
+  "prediction_clause_repeat_count": 12,
+  "span_auto_check_fail_count": 0,
+  "target_restatement_count": 0
+}

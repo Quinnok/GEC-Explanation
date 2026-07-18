@@ -47,3 +47,19 @@ Last updated: 2026-07-18
 - Open-source explanation candidate command: `.venv311/bin/python experiments/src/generate_model_edit_explanations.py --limit 300 --batch-size 8 --output data/processed/model_edit_explanation_candidates.jsonl --stats data/processed/model_edit_explanation_candidate_stats.json`.
 - Explanation candidates: 300 FLAN-T5-base candidates, balanced 150 per GEC model, generated from source, model prediction, and predicted edit span; not human gold.
 - Explanation candidate audit: `results/model_explanations/explanation_candidate_check_30.md` and `results/model_explanations/explanation_candidate_quality_flags.json`.
+
+## Round 04
+
+- Round 03 committed as `8a8fedb Round 03 model-predicted edit pilot`.
+- Explanation/edit audit command: `.venv311/bin/python experiments/src/build_round04_audit.py --count 60 --out-dir results/audit`.
+- Explanation/edit audit outputs: `results/audit/round04_sample_audit.jsonl`, `results/audit/round04_sample_audit.md`, `results/audit/round04_audit_summary.json`.
+- Model behavior audit command: `.venv311/bin/python experiments/src/build_model_behavior_audit.py --count 100 --out-dir results/audit`.
+- Model behavior audit outputs: 100 rows in `results/audit/model_behavior_audit_100.jsonl`; behavior counts correct 24, wrong 24, over 28, missed 24.
+- T5 normalization command: `.venv311/bin/python experiments/src/t5_normalization_ablation.py --out-dir results/model_edits`.
+- T5 raw stats: correct 71, wrong 71, over 893, missed 178, precision 0.068599, recall 0.221875, F0.5 0.079596.
+- T5 excluding ORTH+PUNCT stats: correct 71, wrong 49, over 345, missed 193, precision 0.152688, recall 0.226837, F0.5 0.163369.
+- T5 substantive-only stats: correct 71, wrong 45, over 245, missed 195, precision 0.196676, recall 0.228296, F0.5 0.202279.
+- Normalization changes: 297 T5 predictions changed under at least one normalization in `results/model_edits/normalization_changes.jsonl`.
+- Alignment reliability command: `.venv311/bin/python experiments/src/audit_alignment_reliability.py --count 50 --out-dir results/audit`.
+- Alignment reliability outputs: `results/audit/alignment_reliability_audit_50.md`, `results/audit/alignment_reliability_audit_50.jsonl`, `results/audit/alignment_reliability_summary.json`.
+- Exact-only vs stable alignment over 600 sentences: exact-only correct 213, over 1494, missed 427; stable correct 213, wrong 90, over 1404, missed 337.

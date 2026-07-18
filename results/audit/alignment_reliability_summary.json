@@ -1,0 +1,24 @@
+{
+  "alignment_strategy": "Stable strategy greedily matches predicted/reference edits by span F1, source text, target text, operation, type, and same-start bonuses; exact signatures remain correct corrections, non-exact matches are wrong corrections.",
+  "audit_count": 50,
+  "case_kind_counts": {
+    "alignment_failure": 3,
+    "exact_match": 18,
+    "no_match_or_stable_same": 11,
+    "one_to_many_or_many_to_one_candidate": 6,
+    "partial_span_overlap": 6,
+    "partial_span_same_source": 6
+  },
+  "old_behavior_counts": {
+    "correct_correction": 213,
+    "missed_correction": 427,
+    "overcorrection": 1494
+  },
+  "old_strategy": "Exact-only matching: only exact span/source/target/operation matches are correct; all other predicted edits are overcorrections and all unmatched reference edits are missed corrections.",
+  "stable_behavior_counts": {
+    "correct_correction": 213,
+    "missed_correction": 337,
+    "overcorrection": 1404,
+    "wrong_correction": 90
+  }
+}

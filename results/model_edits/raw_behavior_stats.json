@@ -1,0 +1,34 @@
+{
+  "avg_predicted_edits_per_sentence": 3.45,
+  "avg_reference_edits_per_sentence": 1.066667,
+  "behavior_counts": {
+    "correct_correction": 71,
+    "missed_correction": 178,
+    "overcorrection": 893,
+    "wrong_correction": 71
+  },
+  "correct": 71,
+  "f0_5": 0.079596,
+  "filter_mode": "all",
+  "missed": 178,
+  "normalization_rules": {
+    "excluding_orth": "Run raw extraction and drop ERRANT edits whose type contains ORTH before alignment.",
+    "excluding_orth_punct": "Run raw extraction and drop ERRANT edits whose type contains ORTH or PUNCT before alignment.",
+    "excluding_punct": "Run raw extraction and drop ERRANT edits whose type contains PUNCT before alignment.",
+    "normalized_case": "Apply punctuation normalization and lowercase source, reference, and prediction to isolate case-only effects.",
+    "normalized_punctuation": "Apply spacing normalization plus quote/apostrophe and contraction tokenization to the T5 prediction only.",
+    "normalized_spacing": "Normalize whitespace and punctuation spacing in the T5 prediction only.",
+    "raw": "Use original T5 predictions without modifying source, reference, or prediction.",
+    "substantive_grammatical_edits_only": "Drop ORTH/PUNCT and punctuation/case-only edits before alignment; keep likely grammatical edits."
+  },
+  "overcorrection": 893,
+  "precision": 0.068599,
+  "predicted_edit_count": 1035,
+  "recall": 0.221875,
+  "reference_edit_count": 320,
+  "sentence_count": 300,
+  "text_transform": "<lambda>",
+  "transform_source_reference": false,
+  "variant": "raw",
+  "wrong": 71
+}

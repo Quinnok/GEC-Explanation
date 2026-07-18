@@ -1,0 +1,24 @@
+{
+  "avg_predicted_edits_per_sentence": 1.203333,
+  "avg_reference_edits_per_sentence": 1.036667,
+  "behavior_counts": {
+    "correct_correction": 71,
+    "missed_correction": 195,
+    "overcorrection": 245,
+    "wrong_correction": 45
+  },
+  "correct": 71,
+  "f0_5": 0.202279,
+  "filter_mode": "substantive",
+  "missed": 195,
+  "overcorrection": 245,
+  "precision": 0.196676,
+  "predicted_edit_count": 361,
+  "recall": 0.228296,
+  "reference_edit_count": 311,
+  "sentence_count": 300,
+  "text_transform": "<lambda>",
+  "transform_source_reference": false,
+  "variant": "substantive_grammatical_edits_only",
+  "wrong": 45
+}

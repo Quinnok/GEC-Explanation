@@ -1,0 +1,64 @@
+{
+  "audit_count": 100,
+  "audit_type": "researcher_readable_automatic_audit_not_human_annotation",
+  "behavior_counts": {
+    "correct_correction": 24,
+    "missed_correction": 24,
+    "overcorrection": 28,
+    "wrong_correction": 24
+  },
+  "errant_boundary_issue_count": 0,
+  "error_type_counts": {
+    "M:ADJ": 2,
+    "M:DET": 8,
+    "M:NOUN": 2,
+    "M:PREP": 2,
+    "M:PRON": 1,
+    "M:PUNCT": 8,
+    "R:MORPH": 4,
+    "R:NOUN": 4,
+    "R:NOUN:INFL": 2,
+    "R:NOUN:NUM": 2,
+    "R:ORTH": 11,
+    "R:OTHER": 14,
+    "R:PREP": 10,
+    "R:PRON": 3,
+    "R:SPELL": 5,
+    "R:VERB": 3,
+    "R:VERB:FORM": 3,
+    "R:VERB:SVA": 1,
+    "R:VERB:TENSE": 1,
+    "U:CONJ": 1,
+    "U:DET": 6,
+    "U:OTHER": 2,
+    "U:PREP": 2,
+    "U:PUNCT": 1,
+    "U:VERB": 2
+  },
+  "model_counts": {
+    "gector_roberta_base": 52,
+    "t5_base_grammar": 48
+  },
+  "model_format_noise_count": 24,
+  "notes": [
+    "Multi-reference equivalence cannot be adjudicated from EXPECT single-reference records.",
+    "Boundary, noise, and suitability fields are automatic screening flags, not human judgments."
+  ],
+  "operation_counts": {
+    "delete": 12,
+    "insert": 21,
+    "replace": 67
+  },
+  "precision_in_audit": 0.315789,
+  "recall_in_audit": 0.333333,
+  "sentence_length_buckets": {
+    "long": 31,
+    "medium": 55,
+    "short": 14
+  },
+  "single_multi_counts": {
+    "multi_edit": 84,
+    "single_edit": 16
+  },
+  "suitable_for_explanation_experiment_count": 58
+}
