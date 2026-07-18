@@ -1,0 +1,241 @@
+{
+  "actual_behavior_counts": {
+    "cancel": 3,
+    "change_span": 2,
+    "competing_edit": 20,
+    "preserve": 23
+  },
+  "counterfactual_count": 48,
+  "created_at": "2026-07-18T05:59:35+00:00",
+  "important_note": "Counterfactual labels come from actual reruns of the original public GEC model for each edit.",
+  "method_metrics": {
+    "random": {
+      "accuracy": 0.2708333333333333,
+      "gold_counts": {
+        "cancel": 3,
+        "change_span": 2,
+        "competing_edit": 20,
+        "preserve": 23
+      },
+      "label_f1": {
+        "cancel": 0.2222222222222222,
+        "change_operation": 0.0,
+        "change_span": 0.0,
+        "change_target": 0.0,
+        "competing_edit": 0.15384615384615383,
+        "preserve": 0.5263157894736841
+      },
+      "macro_f1": 0.1503973609236767,
+      "n": 48,
+      "prediction_counts": {
+        "cancel": 6,
+        "change_operation": 4,
+        "change_span": 11,
+        "change_target": 6,
+        "competing_edit": 6,
+        "preserve": 15
+      }
+    },
+    "source_edit_availability": {
+      "accuracy": 0.4375,
+      "gold_counts": {
+        "cancel": 3,
+        "change_span": 2,
+        "competing_edit": 20,
+        "preserve": 23
+      },
+      "label_f1": {
+        "cancel": 0.2608695652173913,
+        "change_operation": 0.0,
+        "change_span": 0.0,
+        "change_target": 0.0,
+        "competing_edit": 0.0,
+        "preserve": 0.7058823529411765
+      },
+      "macro_f1": 0.16112531969309463,
+      "n": 48,
+      "prediction_counts": {
+        "cancel": 20,
+        "preserve": 28
+      }
+    },
+    "variant_family_prior": {
+      "accuracy": 0.5208333333333334,
+      "gold_counts": {
+        "cancel": 3,
+        "change_span": 2,
+        "competing_edit": 20,
+        "preserve": 23
+      },
+      "label_f1": {
+        "cancel": 0.2222222222222222,
+        "change_operation": 0.0,
+        "change_span": 0.0,
+        "change_target": 0.0,
+        "competing_edit": 0.0,
+        "preserve": 0.9361702127659574
+      },
+      "macro_f1": 0.19306540583136325,
+      "n": 48,
+      "prediction_counts": {
+        "cancel": 24,
+        "preserve": 24
+      }
+    }
+  },
+  "method_metrics_by_variant_family": {
+    "random": {
+      "error_irrelevant": {
+        "accuracy": 0.375,
+        "gold_counts": {
+          "competing_edit": 2,
+          "preserve": 22
+        },
+        "label_f1": {
+          "cancel": 0.0,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.5625000000000001
+        },
+        "macro_f1": 0.09375000000000001,
+        "n": 24,
+        "prediction_counts": {
+          "cancel": 2,
+          "change_operation": 2,
+          "change_span": 2,
+          "change_target": 5,
+          "competing_edit": 3,
+          "preserve": 10
+        }
+      },
+      "rule_relevant": {
+        "accuracy": 0.16666666666666666,
+        "gold_counts": {
+          "cancel": 3,
+          "change_span": 2,
+          "competing_edit": 18,
+          "preserve": 1
+        },
+        "label_f1": {
+          "cancel": 0.28571428571428575,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.1904761904761905,
+          "preserve": 0.33333333333333337
+        },
+        "macro_f1": 0.13492063492063494,
+        "n": 24,
+        "prediction_counts": {
+          "cancel": 4,
+          "change_operation": 2,
+          "change_span": 9,
+          "change_target": 1,
+          "competing_edit": 3,
+          "preserve": 5
+        }
+      }
+    },
+    "source_edit_availability": {
+      "error_irrelevant": {
+        "accuracy": 0.75,
+        "gold_counts": {
+          "competing_edit": 2,
+          "preserve": 22
+        },
+        "label_f1": {
+          "cancel": 0.0,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.8571428571428572
+        },
+        "macro_f1": 0.14285714285714288,
+        "n": 24,
+        "prediction_counts": {
+          "cancel": 4,
+          "preserve": 20
+        }
+      },
+      "rule_relevant": {
+        "accuracy": 0.125,
+        "gold_counts": {
+          "cancel": 3,
+          "change_span": 2,
+          "competing_edit": 18,
+          "preserve": 1
+        },
+        "label_f1": {
+          "cancel": 0.3157894736842105,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.0
+        },
+        "macro_f1": 0.05263157894736842,
+        "n": 24,
+        "prediction_counts": {
+          "cancel": 16,
+          "preserve": 8
+        }
+      }
+    },
+    "variant_family_prior": {
+      "error_irrelevant": {
+        "accuracy": 0.9166666666666666,
+        "gold_counts": {
+          "competing_edit": 2,
+          "preserve": 22
+        },
+        "label_f1": {
+          "cancel": 0.0,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.9565217391304348
+        },
+        "macro_f1": 0.15942028985507248,
+        "n": 24,
+        "prediction_counts": {
+          "preserve": 24
+        }
+      },
+      "rule_relevant": {
+        "accuracy": 0.125,
+        "gold_counts": {
+          "cancel": 3,
+          "change_span": 2,
+          "competing_edit": 18,
+          "preserve": 1
+        },
+        "label_f1": {
+          "cancel": 0.2222222222222222,
+          "change_operation": 0.0,
+          "change_span": 0.0,
+          "change_target": 0.0,
+          "competing_edit": 0.0,
+          "preserve": 0.0
+        },
+        "macro_f1": 0.037037037037037035,
+        "n": 24,
+        "prediction_counts": {
+          "cancel": 24
+        }
+      }
+    }
+  },
+  "model_counts": {
+    "coedit_large": 16,
+    "gector_roberta_base": 16,
+    "t5_base_grammar": 16
+  },
+  "variant_family_counts": {
+    "error_irrelevant": 24,
+    "rule_relevant": 24
+  }
+}

@@ -1,0 +1,21 @@
+\begin{tabular}{lrrrr}
+\toprule
+Method & Acc. & Macro-F1 & Pos. F1 & Neg. F1 \\
+\midrule
+random & 0.504 & 0.490 & 0.406 & 0.574 \\
+majority\_train & 0.655 & 0.396 & 0.000 & 0.791 \\
+current\_edit\_only & 0.345 & 0.257 & 0.514 & 0.000 \\
+surface\_keyword & 0.723 & 0.579 & 0.334 & 0.825 \\
+structured\_explicit\_extraction & 0.751 & 0.639 & 0.439 & 0.840 \\
+reverse\_reconstruction & 0.751 & 0.640 & 0.440 & 0.840 \\
+target\_masked\_reconstruction & 0.669 & 0.439 & 0.081 & 0.798 \\
+leakage\_adjusted\_reconstruction & 0.689 & 0.496 & 0.183 & 0.808 \\
+tfidf\_embedding\_similarity & 0.741 & 0.703 & 0.598 & 0.809 \\
+nli\_lexical\_proxy & 0.740 & 0.736 & 0.704 & 0.768 \\
+rule\_evidence\_verifier & 0.783 & 0.767 & 0.705 & 0.828 \\
+no\_rule\_verifier & 0.654 & 0.641 & 0.573 & 0.709 \\
+no\_evidence\_verifier & 0.775 & 0.761 & 0.702 & 0.820 \\
+no\_source\_reconstruction & 0.717 & 0.564 & 0.306 & 0.822 \\
+no\_explanation\_majority & 0.655 & 0.396 & 0.000 & 0.791 \\
+\bottomrule
+\end{tabular}

@@ -7,7 +7,7 @@ from edit_schema import Edit
 
 
 QUOTED = r"[\"'`“”‘’]"
-SPAN_PATTERN = re.compile(r"source token span\s*\[(\d+)\s*,\s*(\d+)\)", flags=re.IGNORECASE)
+SPAN_PATTERN = re.compile(r"source(?:\s+token)?\s+span\s*\[(\d+)\s*,\s*(\d+)\)", flags=re.IGNORECASE)
 TYPE_PATTERN = re.compile(r"(?:ERRANT\s+)?type\s+([A-Z]:[A-Z0-9_:]+|[A-Z][A-Za-z0-9_:-]+)", flags=re.IGNORECASE)
 RAW_EDIT_PATTERN = re.compile(
     r"EDIT\s+operation=(replace|insert|delete)\s+start=(\d+)\s+end=(\d+)\s+"

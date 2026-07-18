@@ -182,27 +182,43 @@ def run_t5(samples: List[Dict[str, Any]], config: Dict[str, Any]) -> List[Dict[s
 def prediction_rows(samples: List[Dict[str, Any]], predictions: List[str], config: Dict[str, Any]) -> List[Dict[str, Any]]:
     revision = config["model_revision"]
     rows = []
+    passthrough_keys = {
+        "origin_edit_id",
+        "origin_sample_id",
+        "origin_dataset",
+        "original_source",
+        "original_reference",
+        "original_prediction",
+        "original_model_key",
+        "original_model_family",
+        "original_behavior",
+        "original_error_type",
+        "original_predicted_edit",
+        "variant_family",
+        "variant_strategy",
+        "intended_edit_relation",
+    }
     for sample, prediction in zip(samples, predictions):
         pred = normalize_prediction(prediction)
-        rows.append(
-            {
-                "sample_id": sample["sample_id"],
-                "dataset": sample["dataset"],
-                "split": sample["split"],
-                "source": sample["source_text"],
-                "reference": sample["target_text"],
-                "prediction": pred,
-                "model": config["model_name"],
-                "model_key": config["model_key"],
-                "model_family": config["model_family"],
-                "model_id": config["model_id"],
-                "model_version": revision,
-                "model_license": config["license"],
-                "decoding_config": config["decoding"],
-                "prediction_equals_reference": pred == sample["target_text"],
-                "prediction_equals_source": pred == sample["source_text"],
-            }
-        )
+        row = {
+            "sample_id": sample["sample_id"],
+            "dataset": sample["dataset"],
+            "split": sample["split"],
+            "source": sample["source_text"],
+            "reference": sample["target_text"],
+            "prediction": pred,
+            "model": config["model_name"],
+            "model_key": config["model_key"],
+            "model_family": config["model_family"],
+            "model_id": config["model_id"],
+            "model_version": revision,
+            "model_license": config["license"],
+            "decoding_config": config["decoding"],
+            "prediction_equals_reference": pred == sample["target_text"],
+            "prediction_equals_source": pred == sample["source_text"],
+        }
+        row.update({key: sample[key] for key in passthrough_keys if key in sample})
+        rows.append(row)
     return rows
 
 

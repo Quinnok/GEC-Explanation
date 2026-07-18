@@ -5,6 +5,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
 
 from evaluate_reconstruction import evaluate_records
+from baselines import structured_explicit_edit_baseline
 
 
 class ReconstructionEvalTests(unittest.TestCase):
@@ -39,7 +40,17 @@ class ReconstructionEvalTests(unittest.TestCase):
         result = evaluate_records([{"sample_id": "x", "edit": edit, "reconstruction": {"reconstructable": True, **edit}}])
         self.assertEqual(result["macro_average"]["full_edit_exact"], 1.0)
 
+    def test_source_span_pattern_without_token_word(self):
+        edit = structured_explicit_edit_baseline(
+            "She go home .",
+            'This edit should replace "go" with "goes" at source span [1,2) for R:VERB:SVA.',
+            error_type="R:VERB:SVA",
+        )
+        self.assertIsNotNone(edit)
+        self.assertEqual(edit.start, 1)
+        self.assertEqual(edit.end, 2)
+        self.assertEqual(edit.target_text, "goes")
+
 
 if __name__ == "__main__":
     unittest.main()
-

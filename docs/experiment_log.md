@@ -114,3 +114,22 @@ Last updated: 2026-07-18
 - Documentation generated from JSON outputs: `docs/benchmark_card.md`, `docs/data_statement.md`, `docs/license_report.md`, and `data/faithfulness_benchmark/leakage_audit.json`.
 - Leakage audit: 0 source texts cross train/dev/test splits; 32 predicted target strings cross splits, mostly common punctuation/function words.
 - Verification: unit tests, Python compile checks, shell syntax checks, `git diff --check`, `bash experiments/run_benchmark.sh`, and final `latexmk` compile all passed; LaTeX log grep found no warnings, undefined citations/references, fatal errors, overfull boxes, or underfull boxes.
+- Round 07 committed as `7b35499 Round 07 faithfulness benchmark`.
+
+## Round 08
+
+- Fixed structured parser to recognize `source span [s,e)` as well as `source token span [s,e)`.
+- Added regression test for the Round 07 explicit-template span format; unit tests now run 6 tests.
+- L1/L3 command: `.venv311/bin/python experiments/src/run_faithfulness_methods.py --benchmark-dir data/faithfulness_benchmark --out-dir results/round08`.
+- L1/L3 evaluated examples: 11,764; skipped labels: `{"candidate_not_gold": 290, "pending_counterfactual_label": 700}`.
+- L1/L3 methods implemented and run: random, majority, no-explanation majority, current-edit-only, surface keyword, structured explicit extraction, reverse reconstruction, no-source reconstruction, target-masked reconstruction, leakage-adjusted reconstruction, TF-IDF embedding similarity, NLI lexical proxy, rule/evidence verifier, no-rule verifier, no-evidence verifier.
+- L1/L3 headline macro-F1: random 0.490; majority 0.396; surface keyword 0.579; structured explicit extraction 0.639; reverse reconstruction 0.640; target-masked reconstruction 0.439; leakage-adjusted reconstruction 0.496; TF-IDF similarity 0.703; NLI proxy 0.736; rule/evidence verifier 0.767.
+- L1 reconstruction full exact: structured/reverse 0.098; target-masked 0.015; leakage-adjusted 0.035.
+- Counterfactual source command: `.venv311/bin/python experiments/src/build_counterfactuals.py --benchmark data/faithfulness_benchmark/edit_records.jsonl --out-dir data/counterfactuals --max-per-model 8`.
+- Counterfactual sources: 24 origin edits and 48 variants, split evenly into 24 error-irrelevant and 24 rule-relevant variants; model counts GECToR 8, T5 8, CoEdIT 8 origin edits.
+- Counterfactual reruns: GECToR 16 samples in 5.890s CPU; T5 16 samples in 12.505s CPU; CoEdIT 16 samples in 52.096s CPU.
+- Counterfactual labels from actual model reruns: preserve 23, competing_edit 20, cancel 3, change_span 2.
+- Counterfactual baseline macro-F1: random 0.150, source-edit availability 0.161, variant-family prior 0.193.
+- Round 08 report and tables generated from JSON: `docs/round_08.md`, `results/tables/round08_l1_methods.tex`, `results/tables/round08_counterfactual_methods.tex`.
+- Added optional parallel chunked prediction entry point: `experiments/run_parallel_model_predictions.sh`; not used for Round 08 because the current counterfactual sample is small and CoEdIT multi-process loading may hurt CPU memory/runtime.
+- End-to-end reproduction command passed: `CF_MAX_PER_MODEL=8 CHECK_SIZE=30 bash experiments/run_round08.sh`.

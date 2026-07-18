@@ -8,6 +8,9 @@ bash experiments/run_build_data.sh
 bash experiments/run_model_pilot.sh
 bash experiments/run_round04_audit.sh
 bash experiments/run_benchmark.sh
+if [ "${RUN_ROUND08:-0}" = "1" ]; then
+  bash experiments/run_round08.sh
+fi
 
 if command -v latexmk >/dev/null 2>&1; then
   (cd paper && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex)
