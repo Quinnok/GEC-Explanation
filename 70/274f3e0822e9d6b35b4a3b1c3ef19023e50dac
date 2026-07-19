@@ -1,0 +1,51 @@
+README.md
+  s_266f859e6122f5::t_68590247402339 35-43
+configs/rulefaith/README.md
+  s_266f859e6122f5::t_f736d36b0302d3 5-7
+configs/rulefaith/qwen_small_teacher.yaml
+  s_266f859e6122f5::t_686102ad072dc3 1-45
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_b9efe324277ba3 18
+docs/method_decision_log.md
+  s_266f859e6122f5::t_1d0a8fb3a70095 12
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_328cacd6c5547e 81-96
+docs/method_loop_state.md
+  s_266f859e6122f5::t_88a5ba4683ecbf 15,25,35,39
+docs/method_open_issues.md
+  s_266f859e6122f5::t_b5f3dbc1d3d1df 19
+docs/method_round_18_qwen_addendum.md
+  s_266f859e6122f5::t_354585b087225c 1-64
+docs/rulefaith_teacher_data_card.md
+  s_266f859e6122f5::t_86de159bbb5c97 7,14-15,29,37
+experiments/rulefaith/README.md
+  s_266f859e6122f5::t_f91decab208165 5-11
+experiments/rulefaith/audit_teacher_candidates.py
+  s_266f859e6122f5::t_e5a232407bf427 120
+experiments/rulefaith/generate_teacher_candidates.py
+  s_266f859e6122f5::t_92da80b23eec22 27,206-213,370-372,463-597,766,775-777,790-794,796-797,807-812
+experiments/rulefaith/merge_teacher_candidate_shards.py
+  s_266f859e6122f5::t_b3f21251b30b66 1-80
+experiments/rulefaith/run_qwen_teacher_pilot.sh
+  s_266f859e6122f5::t_65e98e11f07b7a 1-63
+results/rulefaith/qwen_limit0_stats.json
+  s_266f859e6122f5::t_291c35987698b0 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "70274f3e0822e9d6b35b4a3b1c3ef19023e50dac",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
