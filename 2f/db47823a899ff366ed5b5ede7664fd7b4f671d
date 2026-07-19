@@ -1,0 +1,53 @@
+README.md
+  s_266f859e6122f5::t_038b8c2fcb6850 14,29-34
+configs/rulefaith/README.md
+  s_266f859e6122f5::t_e4c32fb7552a8b 1-4
+configs/rulefaith/preregistered_metrics.yaml
+  s_266f859e6122f5::t_46fc9de491b81d 1-63
+data/rulefaith/README.md
+  s_266f859e6122f5::t_71a0d0b292fa1d 1-4
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_282aa2c26204d9 1-15
+docs/method_decision_log.md
+  s_266f859e6122f5::t_bc46664e07ffab 1-8
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_e1100eb2b4f256 1-13
+docs/method_go_no_go.md
+  s_266f859e6122f5::t_54223229e8ae73 1-67
+docs/method_hypotheses.md
+  s_266f859e6122f5::t_82dc87efe79a6d 1-52
+docs/method_loop_state.md
+  s_266f859e6122f5::t_b3ab76ba1349b5 1-30
+docs/method_open_issues.md
+  s_266f859e6122f5::t_4ff69891309fdb 1-20
+docs/method_paper_brief.md
+  s_266f859e6122f5::t_a6ecf8882df096 1-68
+docs/method_round_16.md
+  s_266f859e6122f5::t_802c9c7c0c6ea0 1-86
+docs/method_snapshots/round15_stress_test_snapshot.md
+  s_266f859e6122f5::t_1e1690b6fda359 1-32
+experiments/rulefaith/README.md
+  s_266f859e6122f5::t_3b3044ee412afe 1-4
+logs/rulefaith/README.md
+  s_266f859e6122f5::t_52f87060bb0312 1-4
+results/rulefaith/README.md
+  s_266f859e6122f5::t_4d5ea1c5aeb3c3 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2fdb47823a899ff366ed5b5ede7664fd7b4f671d",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
