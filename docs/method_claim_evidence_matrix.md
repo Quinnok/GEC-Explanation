@@ -1,0 +1,15 @@
+# RuleFaith-GEC Claim-Evidence Matrix
+
+Created: 2026-07-19
+
+| Claim ID | Claim | Required Evidence | Current Evidence | Status | Risk |
+|---|---|---|---|---|---|
+| M-C1 | RuleFaith-GEC improves rule correctness over Vanilla SFT. | Natural explanation human evaluation comparing Vanilla SFT and RuleFaith-GEC. | None yet. | Unverified | Requires teacher data, student training, and human labels. |
+| M-C2 | RuleFaith-GEC improves evidence correctness over Vanilla SFT. | Human evidence labels and verifier-aligned automatic metrics. | Round 15 shows evidence is difficult and reconstruction weak. | Unverified | Evidence labels are sparse in the stress-test set. |
+| M-C3 | Verifier filtering reduces false rationalization. | Invalid/wrong-correction subset with human labels for false rationalization. | Round 15 labels include edit validity and rule correctness, but not natural system outputs. | Unverified | Need enough invalid/wrong edits in the natural set. |
+| M-C4 | Preference optimization improves overall faithfulness beyond Filtered SFT. | Direct comparison of Filtered SFT vs Preference Student on held-out edits. | None yet. | Unverified | Training instability or overfitting to verifier style. |
+| M-C5 | Selective abstention lowers risk at matched coverage. | Risk-coverage curves and calibrated confidence scores. | Round 15 suggests dimensions can be decomposed. | Unverified | Model could improve risk only by over-abstaining. |
+| M-C6 | Improvements generalize across at least two corrector families. | Results on GECToR plus T5 or instruction-corrector edits. | Existing edit pool has GECToR, T5, CoEdIT. | Partially ready | CoEdIT pool is small. |
+| M-C7 | RuleFaith is not just edit copying. | Target-masked evaluation, leakage detector, edit-copy rate, and error cases. | Round 08/15 show reconstruction leakage risks. | Diagnostic evidence only | Must demonstrate method gains under masked/natural explanations. |
+| M-C8 | Student model is cheaper while preserving faithfulness. | Cost, latency, throughput, and faithfulness/cost tradeoff. | None yet. | Unverified | Student training may require GPU/model downloads. |
+
