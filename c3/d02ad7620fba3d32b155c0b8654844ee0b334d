@@ -1,0 +1,51 @@
+configs/rulefaith/edit_pool.yaml
+  s_266f859e6122f5::t_69ebd64c558874 1-39
+data/rulefaith/dev_edits.jsonl
+  s_266f859e6122f5::t_a81b17deae1a5d 1-39
+data/rulefaith/edit_pool.jsonl
+  s_266f859e6122f5::t_f1dd1e30e6ba5c 1-300
+data/rulefaith/test_edits.jsonl
+  s_266f859e6122f5::t_1a2d0940d3deb6 1-55
+data/rulefaith/train_edits.jsonl
+  s_266f859e6122f5::t_8e2343c8b39b70 1-206
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_951416d645e846 15
+docs/method_decision_log.md
+  s_266f859e6122f5::t_728e77f0edb94d 8-9
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_c3dbc935c63660 14-31
+docs/method_loop_state.md
+  s_266f859e6122f5::t_04c437ca5b9938 15,27-30,32,34
+docs/method_open_issues.md
+  s_266f859e6122f5::t_5b636ecc9df902 12,21-22
+docs/method_round_16.md
+  s_266f859e6122f5::t_23cc39aa40e7b3 17
+docs/method_round_17.md
+  s_266f859e6122f5::t_8b1e162ca0b96c 1-95
+docs/rulefaith_edit_pool_card.md
+  s_266f859e6122f5::t_eaecf39fb67acf 1-37
+experiments/rulefaith/build_edit_pool.py
+  s_266f859e6122f5::t_b80348d88c6c67 1-429
+results/rulefaith/edit_pool_audit.md
+  s_266f859e6122f5::t_dfe3bee3df9d8b 1-113
+results/rulefaith/edit_pool_stats.json
+  s_266f859e6122f5::t_ab07f43d2f7672 1-166
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "c3d02ad7620fba3d32b155c0b8654844ee0b334d",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
