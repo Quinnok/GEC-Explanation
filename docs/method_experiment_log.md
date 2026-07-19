@@ -78,3 +78,19 @@ Interpretation: verifier calibration is adequate for method-pilot filtering, but
 - Python compile checks for Round 18/19 scripts: passed.
 - Paper compile rerun: failed because `pdflatex`/`latexmk` are not available in the current shell and `.local-tools/tectonic` cannot compile `aaai2027.sty`, which requires pdfTeX.
 - Paper sources were not changed in Rounds 18/19; the previous `paper/main.pdf` remains available.
+
+## Qwen Small Teacher Addendum
+
+- Date: 2026-07-19
+- Added provider: `qwen_small`
+- Default model: `Qwen/Qwen2.5-0.5B-Instruct`
+- Config: `configs/rulefaith/qwen_small_teacher.yaml`
+- Runner: `experiments/rulefaith/run_qwen_teacher_pilot.sh`
+- Parallel support: `RULEFAITH_QWEN_SHARDS=N` launches N independent generation shards and merges them with `experiments/rulefaith/merge_teacher_candidate_shards.py`.
+- Validation commands:
+  - `.venv311/bin/python -m py_compile experiments/rulefaith/generate_teacher_candidates.py experiments/rulefaith/audit_teacher_candidates.py experiments/rulefaith/merge_teacher_candidate_shards.py`
+  - `.venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 0 --output results/rulefaith/qwen_limit0_candidates.jsonl --stats results/rulefaith/qwen_limit0_stats.json --parse-failures results/rulefaith/qwen_limit0_parse_failures.jsonl --raw-dir results/rulefaith/qwen_limit0_raw`
+  - `.venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 1 --candidate-types natural --output results/rulefaith/qwen_smoke_candidates.jsonl --stats results/rulefaith/qwen_smoke_stats.json --parse-failures results/rulefaith/qwen_smoke_parse_failures.jsonl --raw-dir results/rulefaith/qwen_smoke_raw`
+  - `HF_HUB_DISABLE_XET=1 .venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 1 --candidate-types natural --output results/rulefaith/qwen_smoke_candidates.jsonl --stats results/rulefaith/qwen_smoke_stats.json --parse-failures results/rulefaith/qwen_smoke_parse_failures.jsonl --raw-dir results/rulefaith/qwen_smoke_raw --resume`
+- Result: `qwen_small --limit 0` passed without loading the model. Both non-empty smoke attempts reached Hugging Face model-weight download but were manually interrupted after the cache stalled at about 37 MB. No Qwen candidate was produced yet.
+- Interpretation: Qwen small is now integrated as the preferred local open teacher, but the current network prevented completing its first model-weight download. Re-run `RULEFAITH_QWEN_SHARDS=2 bash experiments/rulefaith/run_qwen_teacher_pilot.sh` after the model is cached or the network improves.

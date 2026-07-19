@@ -117,7 +117,7 @@ def audit(args: argparse.Namespace) -> None:
             "",
             "## Interpretation",
             "",
-            "The open-teacher candidates are useful as a weak baseline and failure signal, but they are not strong enough to replace the GPT-5.5 teacher pilot.",
+            "These teacher candidates are model-generated explanations for verifier filtering and failure analysis. They are not human gold and should not be used as positives without RuleFaith validation.",
         ]
     )
     args.md_output.parent.mkdir(parents=True, exist_ok=True)

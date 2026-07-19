@@ -32,6 +32,15 @@ Method-branch work starts from:
 git checkout method/rulefaith-gec
 ```
 
+Open-teacher method pilots:
+
+```bash
+RULEFAITH_TEACHER_PROVIDER=open_teacher RULEFAITH_TEACHER_LIMIT=80 bash experiments/rulefaith/run_teacher_pilot.sh
+HF_HUB_DISABLE_XET=1 RULEFAITH_QWEN_SHARDS=2 bash experiments/rulefaith/run_qwen_teacher_pilot.sh
+```
+
+The Qwen branch uses `Qwen/Qwen2.5-0.5B-Instruct` as the default local instruction teacher. It is a model-generated candidate source, not human gold.
+
 ## Important Boundaries
 
 - Automatic construction labels are separate from the Round 15 human-adjudicated stress-test labels.

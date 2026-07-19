@@ -16,6 +16,7 @@ Last updated: 2026-07-19
 |---|---|---|---|
 | CoEdIT/instruction-corrector pool is small. | Cross-family trend could be underpowered. | Round 17 edit-pool stats and possible additional corrector. | Open |
 | FLAN-T5-base open teacher is weak. | Open-source teacher candidates may add noise rather than useful preference positives. | Treat as weak baseline unless a stronger open model is approved or available locally. | Open |
+| Qwen small model weights did not finish downloading in the current network. | The stronger local open-teacher branch is implemented but has not produced candidates yet. | Re-run `HF_HUB_DISABLE_XET=1 RULEFAITH_QWEN_SHARDS=2 bash experiments/rulefaith/run_qwen_teacher_pilot.sh` when Hugging Face download is stable or the model is pre-cached. | Open |
 | Verifier calibration is pressure-test-only. | Gate A conditional pass may not transfer to natural teacher outputs. | Re-run verifier calibration after GPT/open natural candidates exist. | Open |
 | Large student model download may exceed 10GB. | Requires user confirmation before Round 23/24. | Student model selection report. | Open |
 | `pdflatex`/`latexmk` unavailable in current shell. | Paper compile gate cannot be rerun after method-paper rewrite. | Restore TinyTeX/pdfTeX PATH or install a pdfTeX-compatible LaTeX toolchain. | Open |

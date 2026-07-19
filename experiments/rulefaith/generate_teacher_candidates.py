@@ -24,6 +24,7 @@ DEFAULT_PARSE_FAILURES = ROOT / "results" / "rulefaith" / "teacher_parse_failure
 DEFAULT_RAW_DIR = ROOT / "results" / "rulefaith" / "teacher_raw_responses"
 GPT_CONFIG = ROOT / "configs" / "rulefaith" / "gpt55_teacher.yaml"
 OPEN_CONFIG = ROOT / "configs" / "rulefaith" / "open_teacher.yaml"
+QWEN_CONFIG = ROOT / "configs" / "rulefaith" / "qwen_small_teacher.yaml"
 
 VALID_EDIT_VALIDITY = {"valid", "acceptable_alternative", "invalid", "stylistic", "uncertain"}
 OPENAI_DOCS_RESPONSES_CREATE = "https://developers.openai.com/api/reference/resources/responses/methods/create"
@@ -202,6 +203,14 @@ def open_user_prompt(row: Dict[str, Any], candidate_type: str) -> str:
     )
 
 
+def qwen_user_prompt(row: Dict[str, Any], candidate_type: str) -> str:
+    return (
+        user_prompt(row, candidate_type)
+        + "\n\nReturn ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. "
+        "If the model edit appears invalid or optional, say so honestly in edit_validity and rationale."
+    )
+
+
 def extract_json_object(text: str) -> Tuple[Optional[Dict[str, Any]], str]:
     stripped = text.strip()
     if not stripped:
@@ -358,6 +367,9 @@ def generate_open_teacher(args: argparse.Namespace, config: Dict[str, Any], rows
     from huggingface_hub import model_info
     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
+    if not rows:
+        return []
+
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     model_id = args.open_model or config.get("teacher_model", "google/flan-t5-small")
     candidate_types = args.candidate_types or list(config.get("candidate_types", ["natural", "rule_grounded"]))
@@ -445,6 +457,141 @@ def generate_open_teacher(args: argparse.Namespace, config: Dict[str, Any], rows
             records.append(record)
             new_records.append(record)
         append_jsonl(args.output, new_records)
+    return records
+
+
+def preferred_torch_device(torch: Any, config: Dict[str, Any]) -> str:
+    configured = config.get("device")
+    if configured and configured != "auto":
+        return str(configured)
+    if torch.cuda.is_available():
+        return "cuda"
+    if getattr(torch.backends, "mps", None) and torch.backends.mps.is_available():
+        return "mps"
+    return "cpu"
+
+
+def qwen_dtype(torch: Any, device: str) -> Any:
+    if device == "cuda":
+        return torch.float16
+    if device == "mps":
+        return torch.float16
+    return torch.float32
+
+
+def generate_qwen_small(args: argparse.Namespace, config: Dict[str, Any], rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    import torch
+    from huggingface_hub import model_info
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
+    if not rows:
+        return []
+
+    os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+    model_id = args.qwen_model or config.get("teacher_model", "Qwen/Qwen2.5-0.5B-Instruct")
+    candidate_types = args.candidate_types or list(config.get("candidate_types", ["natural", "rule_grounded"]))
+    local_files_only = bool(config.get("local_files_only", False))
+    trust_remote_code = bool(config.get("trust_remote_code", False))
+    device = preferred_torch_device(torch, config)
+    revision = "unknown"
+    try:
+        revision = model_info(model_id).sha or "unknown"
+    except Exception:
+        revision = "unknown_local_or_unresolved"
+
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_id,
+        local_files_only=local_files_only,
+        trust_remote_code=trust_remote_code,
+    )
+    model = AutoModelForCausalLM.from_pretrained(
+        model_id,
+        local_files_only=local_files_only,
+        trust_remote_code=trust_remote_code,
+        torch_dtype=qwen_dtype(torch, device),
+        low_cpu_mem_usage=True,
+    ).to(device)
+    model.eval()
+    torch.set_num_threads(int(config.get("num_threads", 4)))
+
+    records: List[Dict[str, Any]] = []
+    seen = existing_candidate_ids(args.output) if args.resume else set()
+    prompts: List[Tuple[Dict[str, Any], str, str]] = []
+    for row in rows:
+        for candidate_type in candidate_types:
+            base_id = row.get("rulefaith_pool_id") or row.get("edit_id")
+            candidate_id = f"{base_id}::qwen_small::{candidate_type}"
+            if candidate_id in seen:
+                continue
+            prompts.append((row, candidate_type, qwen_user_prompt(row, candidate_type)))
+
+    for row, candidate_type, prompt in prompts:
+        messages = [
+            {"role": "system", "content": system_prompt()},
+            {"role": "user", "content": prompt},
+        ]
+        started = time.time()
+        chat_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = tokenizer([chat_text], return_tensors="pt", truncation=True, max_length=int(config.get("max_input_length", 1024)))
+        inputs = {key: value.to(device) for key, value in inputs.items()}
+        generate_kwargs: Dict[str, Any] = {
+            "max_new_tokens": int(config.get("max_new_tokens", 384)),
+            "do_sample": bool(config.get("do_sample", False)),
+            "repetition_penalty": float(config.get("repetition_penalty", 1.05)),
+            "pad_token_id": tokenizer.eos_token_id,
+        }
+        if generate_kwargs["do_sample"]:
+            generate_kwargs["temperature"] = float(config.get("temperature", 0.7))
+            generate_kwargs["top_p"] = float(config.get("top_p", 0.9))
+        with torch.inference_mode():
+            output_ids = model.generate(**inputs, **generate_kwargs)
+        generated_ids = output_ids[0][inputs["input_ids"].shape[-1] :]
+        raw = tokenizer.decode(generated_ids, skip_special_tokens=True)
+        latency = time.time() - started
+        parsed, parse_error = extract_json_object(raw)
+        parsed_output, parse_status = coerce_candidate(parsed, raw, row, candidate_type)
+        base_id = row.get("rulefaith_pool_id") or row.get("edit_id")
+        candidate_id = f"{base_id}::qwen_small::{candidate_type}"
+        request_id = f"qwen-local-{uuid.uuid4()}"
+        usage = {
+            "input_tokens": int(inputs["input_ids"].shape[-1]),
+            "output_tokens": int(generated_ids.shape[-1]),
+            "total_tokens": int(inputs["input_ids"].shape[-1] + generated_ids.shape[-1]),
+        }
+        raw_path = write_raw_response(
+            args.raw_dir,
+            candidate_id,
+            {
+                "provider": "qwen_small",
+                "teacher_model": model_id,
+                "model_version": revision,
+                "candidate_type": candidate_type,
+                "device": device,
+                "prompt": prompt,
+                "raw_response": raw,
+                "request_id": request_id,
+                "usage": usage,
+            },
+        )
+        record = candidate_record(
+            row=row,
+            provider="qwen_small",
+            teacher_model=model_id,
+            model_version=revision,
+            prompt_version=config.get("prompt_version", "rulefaith_qwen_small_teacher_v1_json"),
+            candidate_type=candidate_type,
+            raw_response=raw,
+            parsed_output=parsed_output,
+            parse_status=parse_status,
+            parse_error=parse_error,
+            latency_seconds=latency,
+            request_id=request_id,
+            usage=usage,
+            estimated_cost_usd=0.0,
+            api_response_path=raw_path,
+        )
+        append_jsonl(args.output, [record])
+        records.append(record)
     return records
 
 
@@ -616,7 +763,7 @@ def openai_sdk_present() -> bool:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate RuleFaith teacher explanation candidates.")
-    parser.add_argument("--provider", choices=["open_teacher", "gpt55", "all", "dry_run"], default="open_teacher")
+    parser.add_argument("--provider", choices=["open_teacher", "qwen_small", "gpt55", "all", "dry_run"], default="open_teacher")
     parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--stats", type=Path, default=DEFAULT_STATS)
@@ -625,6 +772,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=80)
     parser.add_argument("--candidate-types", nargs="*", default=None)
     parser.add_argument("--open-model", default=None)
+    parser.add_argument("--qwen-model", default=None)
+    parser.add_argument("--num-shards", type=int, default=1)
+    parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--resume", action="store_true")
     return parser.parse_args()
 
@@ -637,7 +787,14 @@ def main() -> int:
     args.parse_failures = args.parse_failures if args.parse_failures.is_absolute() else ROOT / args.parse_failures
     args.raw_dir = args.raw_dir if args.raw_dir.is_absolute() else ROOT / args.raw_dir
 
+    if args.num_shards < 1:
+        raise ValueError("--num-shards must be >= 1")
+    if args.shard_index < 0 or args.shard_index >= args.num_shards:
+        raise ValueError("--shard-index must satisfy 0 <= shard_index < num_shards")
+
     rows = select_pilot_rows(read_jsonl(args.input), args.limit)
+    if args.num_shards > 1:
+        rows = [row for index, row in enumerate(rows) if index % args.num_shards == args.shard_index]
     records: List[Dict[str, Any]] = []
     blocked: List[str] = []
 
@@ -646,6 +803,12 @@ def main() -> int:
             records.extend(generate_open_teacher(args, load_yaml(OPEN_CONFIG), rows))
         except Exception as exc:
             blocked.append(f"open_teacher_failed:{exc}")
+
+    if args.provider in {"qwen_small", "all"}:
+        try:
+            records.extend(generate_qwen_small(args, load_yaml(QWEN_CONFIG), rows))
+        except Exception as exc:
+            blocked.append(f"qwen_small_failed:{exc}")
 
     if args.provider in {"gpt55", "all"}:
         try:

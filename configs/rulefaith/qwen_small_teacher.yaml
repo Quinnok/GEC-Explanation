@@ -1,0 +1,45 @@
+created: "2026-07-19"
+provider: "huggingface_causal_chat"
+teacher_model: "Qwen/Qwen2.5-0.5B-Instruct"
+teacher_model_url: "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct"
+license: "apache-2.0"
+parameter_count: "0.49B"
+optional_upgrade_model: "Qwen/Qwen3-1.7B"
+optional_upgrade_note: "Qwen3-1.7B requires transformers>=4.51.0; the current project pins transformers==4.49.0, so Qwen2.5-0.5B-Instruct is the safe default."
+prompt_version: "rulefaith_qwen_small_teacher_v1_json"
+input_file: "data/rulefaith/edit_pool.jsonl"
+output_file: "data/rulefaith/teacher_candidates_qwen_small_pilot.jsonl"
+raw_response_dir: "results/rulefaith/qwen_teacher_raw_responses"
+parse_failures_file: "results/rulefaith/qwen_teacher_parse_failures.jsonl"
+stats_file: "results/rulefaith/qwen_teacher_generation_stats.json"
+limit: 80
+candidate_types:
+  - natural
+  - rule_grounded
+local_files_only: false
+trust_remote_code: false
+device: "auto"
+num_threads: 4
+max_input_length: 1024
+max_new_tokens: 384
+do_sample: false
+temperature: 0.0
+top_p: 1.0
+repetition_penalty: 1.05
+allowed_teacher_inputs:
+  - source
+  - model_prediction
+  - model_edit
+  - edit_span
+forbidden_teacher_inputs:
+  - reference
+  - aligned_reference_edit
+  - behavior
+  - model_behavior
+  - final_human_label
+  - annotator_labels
+  - gold_correction
+notes:
+  - "Qwen small is an open-source teacher baseline and candidate generator, not a human annotator."
+  - "Use this model to diversify teacher candidates beyond FLAN-T5 and GPT-5.5."
+  - "Generated explanations must still pass RuleFaith verifier and human calibration before becoming training positives."
