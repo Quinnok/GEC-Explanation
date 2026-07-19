@@ -1,0 +1,15 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nThird the butt it in hte front of the door of store to make the poeple see it even if it is not good \n\nMODEL_PREDICTION:\nThird, they put it in front of the door of the store to make the people see it, even if it is not good.\n\nMODEL_EDIT:\noperation=replace\nspan=[1,2)\nsource_text=the\ntarget_text=they\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"the\" with \"they\" at source token span [1,2). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'the' with 'they' at source token span [1,2).\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"Replace 'the' with 'they' at source token span [1,2).\",\n  \"evidence_spans\": [\n    {\"text\": \"Third the butt it in the front of the door of store to make the people see it even if it is not good\", \"start\": 1, \"end\": 5, \"role\": \"source\"}\n  ],\n  \"applicability_conditions\": [\"natural\"],\n  \"rationale\": \"The edit replaces 'the' with 'they' at the specified source token span, which is part of the original sentence structure.\",\n  \"confidence\": 1,\n  \"abstain\": false,\n  \"abstain_reason\": \"The edit maintains the original meaning and structure of the sentence.\"\n}\n```",
+  "request_id": "qwen-local-1d4def1d-c60b-47be-83f7-e533f18bdcde",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 370,
+    "output_tokens": 209,
+    "total_tokens": 579
+  }
+}

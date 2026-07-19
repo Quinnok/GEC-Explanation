@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nThey were planning to steal a very precious thing from Museum tonight .\n\nMODEL_PREDICTION:\nThen, they were planning to steal a very precious thing from the museum tonight.\n\nMODEL_EDIT:\noperation=insert\nspan=[10,10)\nsource_text=\ntarget_text=the\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: insert \"the\" at source token span [10,10). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"insert 'the' at source token span [10,10)\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"no_change\",\n  \"rule_text\": \"No change required as the edit does not introduce any new information or alter the meaning.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"They were planning to steal a very precious thing from Museum tonight.\",\n      \"start\": 10,\n      \"end\": 19,\n      \"role\": \"source\"\n    }\n  ],\n  \"applicability_conditions\": [],\n  \"rationale\": \"The edit does not introduce any new information or alter the meaning of the sentence.\",\n  \"confidence\": \"high\",\n  \"abstain\": \"true\",\n  \"abstain_reason\": \"The edit is a simple insertion of 'the' at the beginning of the source span.\"\n}\n```",
+  "request_id": "qwen-local-c6e3ad42-e104-4ba3-8aff-745a1ec6ee2a",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 344,
+    "output_tokens": 198,
+    "total_tokens": 542
+  }
+}

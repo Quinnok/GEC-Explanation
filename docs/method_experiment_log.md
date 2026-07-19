@@ -79,7 +79,7 @@ Interpretation: verifier calibration is adequate for method-pilot filtering, but
 - Paper compile rerun: failed because `pdflatex`/`latexmk` are not available in the current shell and `.local-tools/tectonic` cannot compile `aaai2027.sty`, which requires pdfTeX.
 - Paper sources were not changed in Rounds 18/19; the previous `paper/main.pdf` remains available.
 
-## Qwen Small Teacher Addendum
+## Qwen Small Teacher Addendum and Open-Teacher Prefilter
 
 - Date: 2026-07-19
 - Added provider: `qwen_small`
@@ -92,5 +92,23 @@ Interpretation: verifier calibration is adequate for method-pilot filtering, but
   - `.venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 0 --output results/rulefaith/qwen_limit0_candidates.jsonl --stats results/rulefaith/qwen_limit0_stats.json --parse-failures results/rulefaith/qwen_limit0_parse_failures.jsonl --raw-dir results/rulefaith/qwen_limit0_raw`
   - `.venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 1 --candidate-types natural --output results/rulefaith/qwen_smoke_candidates.jsonl --stats results/rulefaith/qwen_smoke_stats.json --parse-failures results/rulefaith/qwen_smoke_parse_failures.jsonl --raw-dir results/rulefaith/qwen_smoke_raw`
   - `HF_HUB_DISABLE_XET=1 .venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 1 --candidate-types natural --output results/rulefaith/qwen_smoke_candidates.jsonl --stats results/rulefaith/qwen_smoke_stats.json --parse-failures results/rulefaith/qwen_smoke_parse_failures.jsonl --raw-dir results/rulefaith/qwen_smoke_raw --resume`
-- Result: `qwen_small --limit 0` passed without loading the model. Both non-empty smoke attempts reached Hugging Face model-weight download but were manually interrupted after the cache stalled at about 37 MB. No Qwen candidate was produced yet.
-- Interpretation: Qwen small is now integrated as the preferred local open teacher, but the current network prevented completing its first model-weight download. Re-run `RULEFAITH_QWEN_SHARDS=2 bash experiments/rulefaith/run_qwen_teacher_pilot.sh` after the model is cached or the network improves.
+- Qwen2.5-0.5B full pilot:
+  - Command: `HF_HUB_DISABLE_XET=1 RULEFAITH_QWEN_SHARDS=2 bash experiments/rulefaith/run_qwen_teacher_pilot.sh`
+  - Output: `data/rulefaith/teacher_candidates_qwen_small_pilot.jsonl`
+  - Candidates: 160 for 80 edits, 80 natural and 80 rule-grounded.
+  - Parse JSON rate: 0.975.
+  - Alignment proxy pass: 0.7688.
+  - Rule edit-copy rate: 0.8875.
+  - Contextual evidence rate: 0.0375.
+  - Conservative prefilter: 1 accepted, 15 refine, 144 rejected.
+- Qwen2.5-1.5B probe:
+  - Model size in local cache: about 2.9GB.
+  - Output: `results/rulefaith/qwen15_probe_candidates.jsonl`
+  - Candidates: 20 for 10 non-punctuation edits.
+  - Parse JSON rate: 1.0.
+  - Alignment proxy pass: 1.0.
+  - Missing rule text rate: 1.0.
+  - Conservative prefilter: 0 accepted, 0 refine, 20 rejected.
+- FLAN-T5-base prefilter:
+  - Conservative prefilter: 0 accepted, 0 refine, 160 rejected.
+- Interpretation: current open teachers are useful as direct baselines, negative candidates, and refinement stress cases, but not as positive teacher data for RuleFaith SFT/preference training.

@@ -1,0 +1,31 @@
+{
+  "api_reference": "https://developers.openai.com/api/reference/resources/responses/methods/create",
+  "blocked": [],
+  "budget_env_present": false,
+  "candidate_type_counts": {
+    "natural": 40,
+    "rule_grounded": 40
+  },
+  "created_at": "2026-07-19T18:20:38+00:00",
+  "estimated_total_cost_usd": 0.0,
+  "important_note": "Teacher candidates are model-generated explanation candidates, not human gold. Prompts exclude references, human labels, and behavior labels.",
+  "input": "data/rulefaith/edit_pool.jsonl",
+  "model_counts": {
+    "coedit_large": 28,
+    "gector_roberta_base": 26,
+    "t5_base_grammar": 26
+  },
+  "new_candidate_count_this_run": 80,
+  "openai_api_key_present": false,
+  "openai_sdk_present": false,
+  "output": "data/rulefaith/qwen_shards/teacher_candidates_qwen_small_pilot_shard_1.jsonl",
+  "parse_status_counts": {
+    "parsed_json": 78,
+    "wrapped_non_json_response": 2
+  },
+  "pilot_edit_count": 40,
+  "provider_counts": {
+    "qwen_small": 80
+  },
+  "total_candidate_count_in_output": 80
+}

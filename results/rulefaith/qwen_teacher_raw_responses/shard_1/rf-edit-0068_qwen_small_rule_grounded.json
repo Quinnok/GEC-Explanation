@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nWe have to know this problem it 's serious but almost people doens't know about this . \n\nMODEL_PREDICTION:\nWe should know about this problem . It 's serious , but most people do know about it .\n\nMODEL_EDIT:\noperation=replace\nspan=[10,11)\nsource_text=almost\ntarget_text=most\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"almost\" with \"most\" at source token span [10,11). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'almost' with 'most' at the source token span [10,11).\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"replace_almost_most\",\n  \"rule_text\": \"Replace 'almost' with 'most' at the source token span [10,11).\",\n  \"evidence_spans\": [\n    {\"text\": \"almost\", \"start\": 10, \"end\": 11, \"role\": \"source\"}\n  ],\n  \"applicability_conditions\": [\"inconsistent_with_source\", \"inconsistent_with_target\"],\n  \"rationale\": \"The edit replaces 'almost' with 'most' at the source token span [10,11), which is inconsistent with the target text 'most people do know about it'. This inconsistency makes the edit invalid.\",\n  \"confidence\": \"invalid\",\n  \"abstain\": \"false\"\n}\n```",
+  "request_id": "qwen-local-2df80c26-3732-4369-b1e9-16b172237ad5",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 362,
+    "output_tokens": 204,
+    "total_tokens": 566
+  }
+}

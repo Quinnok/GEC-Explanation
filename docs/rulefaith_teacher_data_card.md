@@ -4,7 +4,7 @@ Created: 2026-07-19
 
 ## Status
 
-Round 18 prepares GPT-5.5, FLAN-T5, and Qwen small open-teacher generation. GPT-5.5 generation requires `OPENAI_API_KEY` and a valid `RULEFAITH_GPT55_MODEL` or accessible default model alias. Qwen small generation uses Hugging Face local inference and has no API cost, but requires downloading model weights.
+Round 18 prepares GPT-5.5, FLAN-T5, and Qwen small open-teacher generation. GPT-5.5 generation requires `OPENAI_API_KEY` and a valid `RULEFAITH_GPT55_MODEL` or accessible default model alias. Qwen small generation uses Hugging Face local inference and has no API cost, but candidate quality must pass RuleFaith filtering before use as positives.
 
 ## Source Data
 
@@ -26,7 +26,8 @@ The outputs are natural explanation candidates for verifier filtering, refinemen
 
 - `OPENAI_API_KEY` is not visible in the current environment.
 - The local OpenAI SDK install attempt was interrupted because package download was too slow; the generation script keeps OpenAI as an optional import.
-- Qwen small provider is implemented with `Qwen/Qwen2.5-0.5B-Instruct`; initial smoke test reached Hugging Face weight download but was interrupted because the download stalled at about 37 MB in the current network.
+- Qwen2.5-0.5B-Instruct completed an 80-edit, 160-candidate pilot. It is parseable but weak as teacher-positive data: only 1/160 candidates passed the conservative prefilter.
+- Qwen2.5-1.5B-Instruct completed a 20-candidate probe. It had better alignment but did not provide explicit rule text under the current prompt, so 0/20 candidates passed the conservative prefilter.
 
 ## Safety Controls
 
@@ -35,3 +36,4 @@ The outputs are natural explanation candidates for verifier filtering, refinemen
 - The script supports resume mode and will not silently overwrite previous candidates.
 - Cost estimates are recorded separately from actual API usage.
 - Qwen small raw responses, parse failures, and quality reports are saved separately from FLAN-T5 outputs.
+- Current FLAN/Qwen candidates should be used as weak baselines, rejected examples, and refinement stress cases, not as SFT positives.

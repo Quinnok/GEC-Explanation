@@ -4,10 +4,10 @@
 
 - Round: 18 addendum
 - Main objective: add a stronger local open instruction teacher branch for RuleFaith-GEC.
-- Highest risk: Hugging Face model-weight download is currently too slow to complete the first Qwen smoke test.
+- Highest risk: Qwen small is parseable but too weak as positive teacher data.
 - Git commit: pending
 - Data version: `data/rulefaith/edit_pool.jsonl`
-- Model version: `Qwen/Qwen2.5-0.5B-Instruct` intended; weights not fully cached yet.
+- Model version: `Qwen/Qwen2.5-0.5B-Instruct`; weights are cached and pilot has completed.
 
 ## Work Completed
 
@@ -25,14 +25,17 @@
 - `.venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 0 --output results/rulefaith/qwen_limit0_candidates.jsonl --stats results/rulefaith/qwen_limit0_stats.json --parse-failures results/rulefaith/qwen_limit0_parse_failures.jsonl --raw-dir results/rulefaith/qwen_limit0_raw`
 - `.venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 1 --candidate-types natural --output results/rulefaith/qwen_smoke_candidates.jsonl --stats results/rulefaith/qwen_smoke_stats.json --parse-failures results/rulefaith/qwen_smoke_parse_failures.jsonl --raw-dir results/rulefaith/qwen_smoke_raw`
 - `HF_HUB_DISABLE_XET=1 .venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --limit 1 --candidate-types natural --output results/rulefaith/qwen_smoke_candidates.jsonl --stats results/rulefaith/qwen_smoke_stats.json --parse-failures results/rulefaith/qwen_smoke_parse_failures.jsonl --raw-dir results/rulefaith/qwen_smoke_raw --resume`
+- `HF_HUB_DISABLE_XET=1 RULEFAITH_QWEN_SHARDS=2 bash experiments/rulefaith/run_qwen_teacher_pilot.sh`
 
 ## Verified Results
 
 - Python compile checks passed.
 - `qwen_small --limit 0` passed and wrote scheduler/summary metadata without triggering model loading.
 - Hugging Face cache for `Qwen/Qwen2.5-0.5B-Instruct` was created.
-- Smoke generation did not complete because the model-weight download stalled at about 37 MB and was manually interrupted.
-- No Qwen explanation candidate has been produced yet.
+- Initial smoke generation failed on 2026-07-19 because the model-weight download stalled at about 37 MB and was manually interrupted.
+- The download resumed successfully on 2026-07-20.
+- Qwen2.5-0.5B generated 160 candidates for 80 edits.
+- Conservative prefilter result: 1 accepted, 15 refine, 144 rejected.
 
 ## Failed Runs
 
@@ -41,24 +44,17 @@
 
 ## Scientific Interpretation
 
-Adding Qwen small is methodologically correct because the FLAN-T5-base branch is too weak to serve as a useful open teacher, while Qwen2.5-0.5B-Instruct is a small instruction model that can diversify teacher candidates without API cost. This addendum does not provide evidence that Qwen candidates are high quality; that claim remains unverified until the pilot completes.
+Adding Qwen small is methodologically correct because the FLAN-T5-base branch is too weak to serve as a useful open teacher, while Qwen2.5-0.5B-Instruct is a small instruction model that can diversify teacher candidates without API cost. The completed pilot shows that Qwen2.5-0.5B is useful as a parseable local baseline and negative/refinement source, but not as positive teacher data.
 
 ## Claim-Evidence Updates
 
-- Added M-C12 to the method claim-evidence matrix: Qwen small as a stronger local open-teacher source remains unverified.
+- Updated M-C12: Qwen small is not supported as a positive teacher source under the current prompt; it remains a weak open baseline/negative source.
 
 ## Open Issues
 
-- Qwen model weights are not fully cached.
 - GPT-5.5 teacher branch remains blocked by missing API credentials.
-- No method-pilot filtering or preference-data construction should use Qwen until candidate quality is audited.
+- No method-pilot SFT/preference construction should use current FLAN/Qwen open-teacher outputs as positives.
 
 ## Next Internal Action
 
-Run:
-
-```bash
-HF_HUB_DISABLE_XET=1 RULEFAITH_QWEN_SHARDS=2 bash experiments/rulefaith/run_qwen_teacher_pilot.sh
-```
-
-after the Qwen model download is stable or the model has been pre-cached.
+Obtain GPT-5.5 credentials or approve a stronger teacher/prompting strategy before building SFT/preference positives.

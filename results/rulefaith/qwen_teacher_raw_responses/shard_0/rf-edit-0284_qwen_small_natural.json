@@ -1,0 +1,15 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nSometimes we go to partyies in the city , I dance in the parties with my friends .\n\nMODEL_PREDICTION:\nSometimes we go to parties in the city; I dance in the parties with my friends.\n\nMODEL_EDIT:\noperation=replace\nspan=[7,8)\nsource_text=city\ntarget_text=city;\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"city\" with \"city;\" at source token span [7,8). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'city' with 'city;' at source token span [7,8)\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"Replace 'city' with 'city;' at source token span [7,8)\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"Sometimes we go to partyies in the city, I dance in the parties with my friends.\",\n      \"start\": 7,\n      \"end\": 8,\n      \"role\": \"source\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The edit is only replacing 'city' with 'city;' at the specified source token span.\"\n  ],\n  \"rationale\": \"This edit replaces the word 'city' with 'city;' at the specified source token span, which is a common practice in English to indicate the location of a party or event.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit maintains the original meaning and structure of the sentence while making a minor grammatical change.\"\n}\n```",
+  "request_id": "qwen-local-c142c130-3d10-4bd3-9dac-0f09df4c30dc",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 352,
+    "output_tokens": 249,
+    "total_tokens": 601
+  }
+}

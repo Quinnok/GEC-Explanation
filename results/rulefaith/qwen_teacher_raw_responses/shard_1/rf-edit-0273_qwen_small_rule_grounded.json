@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nIn the end I think if many people want the Monarchy to be ablished a general election should be called and then see if the Monarchy should be abolished .\n\nMODEL_PREDICTION:\nIn the end, I think if many people want the Monarchy to be abolished, a general election should be called and then see if the Monarchy should be abolished.\n\nMODEL_EDIT:\noperation=replace\nspan=[2,3)\nsource_text=end\ntarget_text=end,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"end\" with \"end,\" at source token span [2,3). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'end' with 'end,' at source token span [2,3).\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"Replace 'end' with 'end,' at source token span [2,3).\",\n  \"evidence_spans\": [\n    {\"text\": \"In the end\", \"start\": 2, \"end\": 3, \"role\": \"source\"},\n    {\"text\": \"I think\", \"start\": 5, \"end\": 9, \"role\": \"subject\"},\n    {\"text\": \"if many people want the Monarchy to be abolished\", \"start\": 14, \"end\": 20, \"role\": \"object\"},\n    {\"text\": \"a general election should be called\", \"start\": 21, \"end\": 26, \"role\": \"verb\"},\n    {\"text\": \"and then see if the Monarchy should be abolished\", \"start\": 27, \"end\": 32, \"role\": \"verb\"}\n  ],\n  \"applicability_conditions\": [\"valid\"],\n  \"rationality\": \"The edit replaces 'end' with 'end,' which is a common phrase used in English to indicate the end of a sentence.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit maintains the original meaning and structure of the sentence without introducing any new information.\"\n}\n```",
+  "request_id": "qwen-local-3623657b-afee-4c0d-9bf8-4ee454fbfef8",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 383,
+    "output_tokens": 327,
+    "total_tokens": 710
+  }
+}

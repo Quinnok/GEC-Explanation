@@ -1,0 +1,15 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\npublic transportation . day by day folk are more crazy about own vehicles which leads dark future for public transportation\n\nMODEL_PREDICTION:\nPublic transportation. Day by day people are more crazy about own vehicles, which leads to a dark future for public transportation.\n\nMODEL_EDIT:\noperation=insert\nspan=[15,15)\nsource_text=\ntarget_text=to a\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: insert \"to a\" at source token span [15,15). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Insert 'to a' at source token span [15,15)\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"no_change\",\n  \"rule_text\": \"No change required as the edit does not introduce any new information or change the meaning.\",\n  \"evidence_spans\": \"[15,15)\",\n  \"applicability_conditions\": [],\n  \"rationale\": \"The edit does not introduce any new information or change the meaning of the sentence.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit does not alter the core meaning of the sentence.\"\n}\n```",
+  "request_id": "qwen-local-7e40cb1d-6ba2-4467-8504-f576585c6793",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 360,
+    "output_tokens": 152,
+    "total_tokens": 512
+  }
+}

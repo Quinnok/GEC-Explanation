@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nI took the sun a very long time and then I went to a cafe and and I drank a drink .\n\nMODEL_PREDICTION:\nI took the sun for a very long time and then I went to a cafe and drank a drink .\n\nMODEL_EDIT:\noperation=delete\nspan=[15,16)\nsource_text=and\ntarget_text=\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: delete \"and\" at source token span [15,16). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Delete 'and' at source token span [15,16)\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"delete_and\",\n  \"rule_text\": \"Delete 'and' at source token span [15,16)\",\n  \"evidence_spans\": [\n    {\"text\": \"I took the sun\", \"start\": 15, \"end\": 16, \"role\": \"source\"}\n  ],\n  \"applicability_conditions\": [\n    \"The edit is only deleting the word 'and'\",\n    \"The edit does not affect the meaning of the sentence\"\n  ],\n  \"rationale\": \"This edit simply deletes the word 'and' from the source token span [15,16) without changing the overall structure or meaning of the sentence.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\"\n}\n```",
+  "request_id": "qwen-local-e3cb9c0f-5267-40e3-8839-c3d1d71df646",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 358,
+    "output_tokens": 200,
+    "total_tokens": 558
+  }
+}

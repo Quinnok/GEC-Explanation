@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "prompt": "SOURCE:\nThey draw the consumers , like me , to purchase this great product with all these amazing ingredients and all that but actually they just sometimes make something up just to increase their sales . \n\nMODEL_PREDICTION:\nThey draw consumers , like me , to purchase this great product with all these amazing ingredients and all that , but actually they just sometimes make something up just to increase their sales .\n\nMODEL_EDIT:\noperation=delete\nspan=[2,3)\nsource_text=the\ntarget_text=\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: delete \"the\" at source token span [2,3). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Delete 'the' at source token span [2,3)\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": null,\n  \"rule_text\": null,\n  \"evidence_spans\": [\n    {\n      \"text\": \"consumers\",\n      \"start\": 0,\n      \"end\": 4,\n      \"role\": \"subject\"\n    },\n    {\n      \"text\": \"like me\",\n      \"start\": 5,\n      \"end\": 10,\n      \"role\": \"subject\"\n    },\n    {\n      \"text\": \"purchase\",\n      \"start\": 11,\n      \"end\": 13,\n      \"role\": \"action\"\n    },\n    {\n      \"text\": \"this great product\",\n      \"start\": 14,\n      \"end\": 21,\n      \"role\": \"object\"\n    },\n    {\n      \"text\": \"with all these amazing ingredients\",\n      \"start\": 22,\n      \"end\": 36,\n      \"role\": \"reason\"\n    },\n    {\n      \"text\": \"and all that\",\n      \"start\": 37,\n      \"end\": 40,\n      \"role\": \"reason\"\n    }\n  ],\n  \"applicability_conditions\": [],\n  \"rationale\": \"Deleting 'the' at the beginning of the sentence does not change the meaning or structure of the sentence.\",\n  \"confidence\": 1,\n  \"abstain\": false,\n  \"abstain_reason\": \"The edit is stylistically correct and does not alter the sentence's meaning.\"\n}\n```",
+  "request_id": "qwen-local-b46e3ab5-a563-4408-8ebd-4422264a8a0a",
+  "teacher_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "usage": {
+    "input_tokens": 382,
+    "output_tokens": 343,
+    "total_tokens": 725
+  }
+}

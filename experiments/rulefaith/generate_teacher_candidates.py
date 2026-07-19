@@ -204,9 +204,24 @@ def open_user_prompt(row: Dict[str, Any], candidate_type: str) -> str:
 
 
 def qwen_user_prompt(row: Dict[str, Any], candidate_type: str) -> str:
+    edit = normalized_edit(row)
+    if edit["operation"] == "replace":
+        exact_edit = f'The only edit to explain is: replace "{edit["source_text"]}" with "{edit["target_text"]}" at source token span [{edit["start"]},{edit["end"]}).'
+    elif edit["operation"] == "insert":
+        exact_edit = f'The only edit to explain is: insert "{edit["target_text"]}" at source token span [{edit["start"]},{edit["end"]}).'
+    elif edit["operation"] == "delete":
+        exact_edit = f'The only edit to explain is: delete "{edit["source_text"]}" at source token span [{edit["start"]},{edit["end"]}).'
+    else:
+        exact_edit = f'The only edit to explain is the {edit["operation"]} operation at source token span [{edit["start"]},{edit["end"]}).'
     return (
         user_prompt(row, candidate_type)
-        + "\n\nReturn ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. "
+        + "\n\n"
+        + exact_edit
+        + " Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. "
+        "Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. "
+        "Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. "
+        "Every evidence_spans item must include text, start, end, and role. "
+        "applicability_conditions must be a list of strings. abstain must be true or false. "
         "If the model edit appears invalid or optional, say so honestly in edit_validity and rationale."
     )
 
@@ -234,6 +249,82 @@ def extract_json_object(text: str) -> Tuple[Optional[Dict[str, Any]], str]:
         return None, f"json_decode_error:{exc.msg}"
 
 
+def normalize_edit_validity(value: Any) -> str:
+    normalized = str(value or "").strip().lower().replace("-", "_").replace(" ", "_")
+    mapping = {
+        "valid": "valid",
+        "acceptable": "acceptable_alternative",
+        "acceptable_alternative": "acceptable_alternative",
+        "alternative": "acceptable_alternative",
+        "invalid": "invalid",
+        "stylistic": "stylistic",
+        "style": "stylistic",
+        "uncertain": "uncertain",
+        "unknown": "uncertain",
+        "not_sure": "uncertain",
+    }
+    return mapping.get(normalized, "uncertain")
+
+
+def coerce_bool(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    normalized = str(value or "").strip().lower()
+    if normalized in {"true", "yes", "y", "1", "abstain", "abstained"}:
+        return True
+    if normalized in {"false", "no", "n", "0", ""}:
+        return False
+    return False
+
+
+def coerce_conditions(value: Any) -> List[str]:
+    if not isinstance(value, list):
+        return []
+    conditions: List[str] = []
+    for item in value:
+        if isinstance(item, str):
+            text = item.strip()
+        elif isinstance(item, dict):
+            text = str(item.get("condition") or item.get("text") or item.get("description") or "").strip()
+        else:
+            text = str(item).strip()
+        if text:
+            conditions.append(text)
+    return conditions
+
+
+def coerce_evidence_spans(value: Any) -> List[Dict[str, Any]]:
+    if not isinstance(value, list):
+        return []
+    spans: List[Dict[str, Any]] = []
+    for item in value:
+        if not isinstance(item, dict):
+            continue
+        try:
+            start = int(item.get("start", -1))
+            end = int(item.get("end", -1))
+        except (TypeError, ValueError):
+            start, end = -1, -1
+        spans.append(
+            {
+                "text": str(item.get("text") or ""),
+                "start": start,
+                "end": end,
+                "role": str(item.get("role") or "unspecified"),
+            }
+        )
+    return spans
+
+
+def coerce_string(value: Any) -> str:
+    if value is None:
+        return ""
+    text = str(value)
+    if text.strip().lower() in {"none", "null", "n/a", "na"}:
+        return ""
+    return text
+
+
 def coerce_candidate(obj: Optional[Dict[str, Any]], raw: str, row: Dict[str, Any], candidate_type: str) -> Tuple[Dict[str, Any], str]:
     if obj is None:
         rationale = " ".join(raw.replace("\n", " ").split())[:1000]
@@ -253,19 +344,17 @@ def coerce_candidate(obj: Optional[Dict[str, Any]], raw: str, row: Dict[str, Any
             "wrapped_non_json_response",
         )
     candidate = {
-        "edit_description": str(obj.get("edit_description", edit_description(row))),
-        "edit_validity": str(obj.get("edit_validity", "uncertain")),
-        "rule_id": str(obj.get("rule_id", "")),
-        "rule_text": str(obj.get("rule_text", "")),
-        "evidence_spans": obj.get("evidence_spans") if isinstance(obj.get("evidence_spans"), list) else [],
-        "applicability_conditions": obj.get("applicability_conditions") if isinstance(obj.get("applicability_conditions"), list) else [],
-        "rationale": str(obj.get("rationale", "")),
+        "edit_description": coerce_string(obj.get("edit_description", edit_description(row))),
+        "edit_validity": normalize_edit_validity(obj.get("edit_validity", "uncertain")),
+        "rule_id": coerce_string(obj.get("rule_id", "")),
+        "rule_text": coerce_string(obj.get("rule_text", "")),
+        "evidence_spans": coerce_evidence_spans(obj.get("evidence_spans")),
+        "applicability_conditions": coerce_conditions(obj.get("applicability_conditions")),
+        "rationale": coerce_string(obj.get("rationale", "")),
         "confidence": obj.get("confidence", 0.5),
-        "abstain": bool(obj.get("abstain", False)),
-        "abstain_reason": str(obj.get("abstain_reason", "")),
+        "abstain": coerce_bool(obj.get("abstain", False)),
+        "abstain_reason": coerce_string(obj.get("abstain_reason", "")),
     }
-    if candidate["edit_validity"] not in VALID_EDIT_VALIDITY:
-        candidate["edit_validity"] = "uncertain"
     try:
         confidence = float(candidate["confidence"])
     except (TypeError, ValueError):

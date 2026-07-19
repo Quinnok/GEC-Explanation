@@ -1,0 +1,15 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nIn my community , we are very interested at the environment and ecological things .\n\nMODEL_PREDICTION:\nIn my community, we are very interested in the environment and ecological things.\n\nMODEL_EDIT:\noperation=replace\nspan=[8,9)\nsource_text=at\ntarget_text=in\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"at\" with \"in\" at source token span [8,9). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'at' with 'in' at source token span [8,9).\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"Replace 'at' with 'in'\",\n  \"evidence_spans\": [\n    {\"text\": \"In my community\", \"start\": 0, \"end\": 3, \"role\": \"source\"},\n    {\"text\": \"we are very interested\", \"start\": 4, \"end\": 12, \"role\": \"target\"}\n  ],\n  \"applicability_conditions\": [\"in the context of the sentence\"],\n  \"rationale\": \"The edit replaces the word 'at' with 'in', which is a common phrase used to indicate being in a community.\",\n  \"confidence\": \"valid\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit maintains the original meaning while improving clarity.\"\n}\n```",
+  "request_id": "qwen-local-4548745a-d112-4105-be92-993836a6696f",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 344,
+    "output_tokens": 210,
+    "total_tokens": 554
+  }
+}

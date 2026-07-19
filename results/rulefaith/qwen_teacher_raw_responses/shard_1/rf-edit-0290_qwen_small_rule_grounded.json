@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nIn conclusion , I think that this type of food and atmosphere is very for us , because normally we speak about books , work and studies , whereas with this type of environment we can speak about ourselves , our family , our hobbies and everyone will get to know new something about other classmates .\n\nMODEL_PREDICTION:\nIn conclusion, I think that this type of food and atmosphere is very good for us because normally, we speak about books, work, and studies, whereas with this type of environment, we can speak about ourselves, our family, our hobbies, and everyone will get to know something new about other classmates.\n\nMODEL_EDIT:\noperation=replace\nspan=[18,19)\nsource_text=normally\ntarget_text=normally,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"normally\" with \"normally,\" at source token span [18,19). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'normally' with 'normally' at source token span [18,19).\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"replace_normality\",\n  \"rule_text\": \"Replace 'normally' with 'normally' at source token span [18,19).\",\n  \"evidence_spans\": [\n    {\"text\": \"normally\", \"start\": 18, \"end\": 19, \"role\": \"source\"}\n  ],\n  \"applicability_conditions\": [\"normal\"],\n  \"rationale\": \"This edit replaces the word 'normally' with 'normally' at the specified source token span, which is a common practice in English grammar.\",\n  \"confidence\": 1,\n  \"abstain\": false,\n  \"abstain_reason\": \"This edit maintains the original meaning while making it grammatically correct.\"\n}\n```",
+  "request_id": "qwen-local-007b50cf-7e33-4321-942f-30aa5f473930",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 439,
+    "output_tokens": 197,
+    "total_tokens": 636
+  }
+}
