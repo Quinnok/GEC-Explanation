@@ -1,6 +1,6 @@
 \section{Human Evaluation}
 
-We evaluate automatic metrics against 160 edit-explanation stress-test items with user-supplied double annotations and adjudication. The annotation protocol separates edit alignment, edit validity, rule correctness, evidence correctness, and overall faithfulness. The 80 counterfactual annotation items are excluded because their explanation fields were incomplete in the Round 10 package.
+We evaluate automatic metrics against 160 edit-explanation stress-test items labeled by two independent human annotators and resolved by a human adjudicator. The annotation protocol separates edit alignment, edit validity, rule correctness, evidence correctness, and overall faithfulness. The 80 counterfactual annotation items are excluded because their explanation fields were incomplete in the Round 10 package.
 
 The adjudicated distribution confirms that this set is a stress test rather than a natural sample: only 1 item is fully faithful, 57 are partially faithful, and 102 are unfaithful. Rule and evidence labels are even more sparse, with only 22 items labeled correct or partially correct for rule correctness and 16 for evidence. We therefore report binary and ordinal metrics rather than treating the three-way faithfulness label as a balanced multiclass task.
 
@@ -10,4 +10,4 @@ Table~\ref{tab:human-gold-metrics} shows that edit-copy and reconstruction-orien
 
 \input{../results/paper_assets/human_gold_correlation_table}
 
-The user supplied the double annotations and adjudication files. Before public release, annotator identities should be confirmed so the labels can be described as human rather than model-assisted adjudicated labels. This provenance caveat does not affect the automatic metric computation, but it limits how strongly we can phrase human-evaluation claims.
+The annotation provenance is confirmed as human: two annotators independently labeled the items under the V2 protocol, and disagreements were resolved by a human adjudicator. Sixty items with full A/B agreement were inherited without an additional blind audit, so the labels should be interpreted as an adjudicated stress-test set rather than a broad natural-sample estimate of GEC explanation quality.

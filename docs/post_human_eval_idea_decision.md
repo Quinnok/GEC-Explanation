@@ -16,7 +16,7 @@ Recommended title family:
 
 ## Evidence
 
-Round 15 finalized 160 adjudicated edit-explanation labels from the user-supplied V2 double annotations and third-party adjudication. The set is a stress test, not a natural sample:
+Round 15 finalized 160 adjudicated edit-explanation labels from two independent human annotators and a human third-party adjudicator, confirmed by the user on 2026-07-19. The set is a stress test, not a natural sample:
 
 - Final faithfulness labels: `faithful=1`, `partially_faithful=57`, `unfaithful=102`.
 - Final edit alignment labels: `correct=18`, `partially_correct=46`, `incorrect=96`.

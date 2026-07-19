@@ -207,9 +207,11 @@ def build_gold(args: argparse.Namespace) -> None:
         "missing_instance_id_count": sum(1 for row in final_rows if not row["instance_id"]),
         "missing_adjudication_note_count_after_fill": len(missing_notes),
         "blind_audit_status": "not_completed_in_this_automated_run",
+        "annotator_provenance": "two independent human annotators, confirmed by the user on 2026-07-19",
+        "adjudicator_provenance": "human third-party adjudicator, confirmed by the user on 2026-07-19",
         "provenance_note": (
-            "A/B annotations and adjudication were supplied by the user. Confirm whether they are human annotations "
-            "before describing them as human gold in the paper."
+            "A/B annotations were completed by two independent human annotators and disagreements were resolved "
+            "by a human third-party adjudicator, as confirmed by the user on 2026-07-19."
         ),
     }
     write_json(args.out_dir / "annotation_final_gold_v2_stats.json", stats)
@@ -224,11 +226,14 @@ def build_gold(args: argparse.Namespace) -> None:
         "",
         "- Includes 160 `edit_explanation_faithfulness` items.",
         "- Excludes 80 counterfactual items because their explanation fields were incomplete in Round 10.",
-        "- Combines user-supplied double annotations with user-supplied third-party adjudication.",
+        "- Combines double annotations from two independent human annotators with third-party human adjudication.",
         "",
         "## Provenance",
         "",
         stats["provenance_note"],
+        "",
+        f"- Annotators: {stats['annotator_provenance']}.",
+        f"- Adjudicator: {stats['adjudicator_provenance']}.",
         "",
         "## Counts",
         "",
@@ -252,7 +257,7 @@ def build_gold(args: argparse.Namespace) -> None:
             "- The benchmark is a stress-test sample, not a natural random sample of all GEC explanations.",
             "- Only one item is labeled fully `faithful`; report binary and ordinal tasks carefully.",
             "- Agreement-inherited items were not independently blind-audited in this automated run.",
-            "- Do not call this `human gold` unless the annotator/adjudicator identities are confirmed as human.",
+            "- Because the set is intentionally adversarial and template-heavy, do not use its label prevalence as an estimate of natural GEC explanation quality.",
         ]
     )
     (args.out_dir / "annotation_v2_data_card.md").write_text("\n".join(data_card).rstrip() + "\n", encoding="utf-8")

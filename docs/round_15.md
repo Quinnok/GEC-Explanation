@@ -52,9 +52,9 @@ The final file contains 160 edit-explanation items:
 
 The five missing adjudication notes in the supplied adjudication file were filled by deterministic protocol-based notes.
 
-Important provenance limitation:
+Annotation provenance:
 
-> A/B annotations and adjudication were supplied by the user. Confirm whether the annotators and adjudicator are human before describing these labels as human gold in the paper.
+> The user confirmed on 2026-07-19 that A/B annotations were completed by two independent human annotators and disagreements were resolved by a human third-party adjudicator. These labels can therefore be described as human-adjudicated labels, with the remaining caveat that 60 agreement-inherited items were not additionally blind-audited.
 
 ## Main Findings
 
@@ -105,7 +105,6 @@ See `docs/post_human_eval_idea_decision.md`.
 
 ## Remaining Issues
 
-- Confirm annotator/adjudicator identity before using `human gold` terminology.
 - Agreement-inherited 60 items were not independently blind-audited in this automated run.
 - The set is intentionally adversarial and template-heavy; do not report faithful-label prevalence as natural explanation quality.
 - Natural GPT-5.5/open-model explanations still need a balanced validation subset.

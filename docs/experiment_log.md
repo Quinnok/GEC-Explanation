@@ -164,6 +164,12 @@ Last updated: 2026-07-18
 - Important boundary: no human gold labels were created. Double-human annotation by real annotators remains required before any human-faithfulness claim.
 - Round 10 committed as `a7cffc9 Round 10 annotation package`.
 
+## Round 15 Provenance Update
+
+- User confirmed on 2026-07-19 that the Round 15 A/B labels were produced by two independent human annotators and that disagreements were resolved by a human third-party adjudicator.
+- Current human-adjudicated stress-test labels: `annotation/round15/annotation_final_gold_v2.csv`.
+- Current caveat: 60 full-agreement items were inherited without an additional blind audit, and the label distribution is adversarial/template-heavy rather than a natural explanation distribution.
+
 ## Round 11
 
 - Reranking command: `EDIT_LIMIT=80 LLM_JUDGE_LIMIT=2000 LLM_BATCH_SIZE=16 RUN_LOCAL_LLM_JUDGE=1 bash experiments/run_round11.sh`.

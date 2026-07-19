@@ -1,16 +1,19 @@
 # Annotation Final Gold V2 Data Card
 
-Created: `2026-07-19T11:09:08+00:00`
+Created: `2026-07-19T11:34:28+00:00`
 
 ## Scope
 
 - Includes 160 `edit_explanation_faithfulness` items.
 - Excludes 80 counterfactual items because their explanation fields were incomplete in Round 10.
-- Combines user-supplied double annotations with user-supplied third-party adjudication.
+- Combines double annotations from two independent human annotators with third-party human adjudication.
 
 ## Provenance
 
-A/B annotations and adjudication were supplied by the user. Confirm whether they are human annotations before describing them as human gold in the paper.
+A/B annotations were completed by two independent human annotators and disagreements were resolved by a human third-party adjudicator, as confirmed by the user on 2026-07-19.
+
+- Annotators: two independent human annotators, confirmed by the user on 2026-07-19.
+- Adjudicator: human third-party adjudicator, confirmed by the user on 2026-07-19.
 
 ## Counts
 
@@ -59,4 +62,4 @@ A/B annotations and adjudication were supplied by the user. Confirm whether they
 - The benchmark is a stress-test sample, not a natural random sample of all GEC explanations.
 - Only one item is labeled fully `faithful`; report binary and ordinal tasks carefully.
 - Agreement-inherited items were not independently blind-audited in this automated run.
-- Do not call this `human gold` unless the annotator/adjudicator identities are confirmed as human.
+- Because the set is intentionally adversarial and template-heavy, do not use its label prevalence as an estimate of natural GEC explanation quality.

@@ -1,9 +1,11 @@
 {
   "adjudicated_count": 100,
+  "adjudicator_provenance": "human third-party adjudicator, confirmed by the user on 2026-07-19",
   "agreement_inherited_count": 60,
+  "annotator_provenance": "two independent human annotators, confirmed by the user on 2026-07-19",
   "blind_audit_status": "not_completed_in_this_automated_run",
   "counterfactual_items_included": 0,
-  "created_at": "2026-07-19T11:09:08+00:00",
+  "created_at": "2026-07-19T11:34:28+00:00",
   "item_count": 160,
   "label_counts": {
     "final_edit_alignment": {
@@ -38,5 +40,5 @@
   },
   "missing_adjudication_note_count_after_fill": 0,
   "missing_instance_id_count": 0,
-  "provenance_note": "A/B annotations and adjudication were supplied by the user. Confirm whether they are human annotations before describing them as human gold in the paper."
+  "provenance_note": "A/B annotations were completed by two independent human annotators and disagreements were resolved by a human third-party adjudicator, as confirmed by the user on 2026-07-19."
 }
