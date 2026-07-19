@@ -1,5 +1,13 @@
 \section{Human Evaluation}
 
-\input{../results/paper_assets/human_correlation_table}
+We evaluate automatic metrics against 160 edit-explanation stress-test items with user-supplied double annotations and adjudication. The annotation protocol separates edit alignment, edit validity, rule correctness, evidence correctness, and overall faithfulness. The 80 counterfactual annotation items are excluded because their explanation fields were incomplete in the Round 10 package.
 
-The project includes a ready-to-use annotation package with 240 public items: 160 edit-explanation faithfulness items and 80 counterfactual edit-simulatability items. The guidelines cover edit correspondence, target consistency, operation consistency, error-type consistency, rule correctness, evidence correctness, specificity, behavioral predictiveness, overall faithfulness, and helpfulness. However, no real annotator labels have been collected in this environment. We therefore report no human correlation, no top-1 human preference, and no agreement statistic. Double annotation is required before making claims about human-perceived faithfulness or learner helpfulness.
+The adjudicated distribution confirms that this set is a stress test rather than a natural sample: only 1 item is fully faithful, 57 are partially faithful, and 102 are unfaithful. Rule and evidence labels are even more sparse, with only 22 items labeled correct or partially correct for rule correctness and 16 for evidence. We therefore report binary and ordinal metrics rather than treating the three-way faithfulness label as a balanced multiclass task.
+
+\input{../results/paper_assets/human_gold_metric_table}
+
+Table~\ref{tab:human-gold-metrics} shows that edit-copy and reconstruction-oriented metrics are strong at coarse binary faithfulness on this stress set, but they do not solve rule or evidence evaluation. Reverse reconstruction reaches 0.789 binary faithfulness Macro-F1 and 0.767 edit-alignment Macro-F1, yet only 0.431 rule Macro-F1 and 0.426 evidence Macro-F1. The rule/evidence verifier improves rule Macro-F1 to 0.558, but evidence remains weak at 0.470. Thus the human-adjudicated labels support our central claim: edit reconstruction is necessary for checking whether an explanation identifies an edit, but insufficient for determining whether the explanation provides a correct grammatical account.
+
+\input{../results/paper_assets/human_gold_correlation_table}
+
+The user supplied the double annotations and adjudication files. Before public release, annotator identities should be confirmed so the labels can be described as human rather than model-assisted adjudicated labels. This provenance caveat does not affect the automatic metric computation, but it limits how strongly we can phrase human-evaluation claims.

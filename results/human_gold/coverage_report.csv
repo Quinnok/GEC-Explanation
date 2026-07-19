@@ -1,0 +1,13 @@
+coverage,covered,method,total
+1.0,160,combined_proxy,160
+0.09375,15,combined_reranker_round11,160
+1.0,160,leakage_adjusted_reconstruction,160
+0.09375,15,local_llm_judge,160
+1.0,160,nli_lexical_proxy,160
+1.0,160,reverse_reconstruction,160
+1.0,160,rule_evidence_verifier,160
+1.0,160,structured_extraction,160
+1.0,160,surface_keyword,160
+1.0,160,surface_leak_score,160
+1.0,160,target_masked_reconstruction,160
+1.0,160,target_masked_score,160

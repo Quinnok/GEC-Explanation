@@ -1,0 +1,102 @@
+{
+  "aligned_items": 160,
+  "created_at": "2026-07-19T11:09:11+00:00",
+  "gold_items": 160,
+  "methods": [
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "combined_proxy",
+      "total": 160
+    },
+    {
+      "coverage": 0.09375,
+      "covered": 15,
+      "method": "combined_reranker_round11",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "leakage_adjusted_reconstruction",
+      "total": 160
+    },
+    {
+      "coverage": 0.09375,
+      "covered": 15,
+      "method": "local_llm_judge",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "nli_lexical_proxy",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "reverse_reconstruction",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "rule_evidence_verifier",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "structured_extraction",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "surface_keyword",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "surface_leak_score",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "target_masked_reconstruction",
+      "total": 160
+    },
+    {
+      "coverage": 1.0,
+      "covered": 160,
+      "method": "target_masked_score",
+      "total": 160
+    }
+  ],
+  "missing_alignment": 0,
+  "target_counts": {
+    "edit_alignment_binary": {
+      "0": 96,
+      "1": 64
+    },
+    "edit_validity_binary": {
+      "0": 20,
+      "1": 137
+    },
+    "evidence_binary": {
+      "0": 144,
+      "1": 16
+    },
+    "faithfulness_binary": {
+      "0": 102,
+      "1": 58
+    },
+    "rule_correctness_binary": {
+      "0": 138,
+      "1": 22
+    }
+  }
+}

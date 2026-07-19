@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Correlation between automatic scores and ordinal adjudicated faithfulness.}
+\label{tab:human-gold-correlations}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+Method & Spearman & Kendall & Pairwise \\
+\midrule
+surface\_leak\_score & 0.551 & 0.496 & 0.854 \\
+reverse\_reconstruction & 0.627 & 0.609 & 0.792 \\
+target\_masked\_score & 0.629 & 0.615 & 0.792 \\
+leakage\_adjusted\_reconstruction & 0.104 & 0.104 & 0.521 \\
+rule\_evidence\_verifier & 0.425 & 0.423 & 0.792 \\
+local\_llm\_judge & 0.040 & 0.040 & 0.500 \\
+combined\_proxy & 0.636 & 0.532 & 0.917 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

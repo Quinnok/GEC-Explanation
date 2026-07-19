@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Automatic metrics against adjudicated edit-explanation labels.}
+\label{tab:human-gold-metrics}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Method & Cov. & Align & Rule & Evid. & Faith. & AUROC \\
+\midrule
+surface\_leak\_score & 1.000 & 0.792 & 0.463 & 0.440 & 0.800 & 0.820 \\
+reverse\_reconstruction & 1.000 & 0.767 & 0.431 & 0.426 & 0.789 & 0.772 \\
+target\_masked\_score & 1.000 & 0.767 & 0.431 & 0.426 & 0.789 & 0.773 \\
+leakage\_adjusted\_reconstruction & 1.000 & 0.392 & 0.461 & 0.472 & 0.408 & 0.509 \\
+rule\_evidence\_verifier & 1.000 & 0.735 & 0.558 & 0.470 & 0.695 & 0.720 \\
+local\_llm\_judge & 0.094 & 0.498 & 0.167 & 0.306 & 0.498 & 0.518 \\
+combined\_proxy & 1.000 & 0.741 & 0.515 & 0.439 & 0.713 & 0.880 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

@@ -1,6 +1,6 @@
 # Claim-Evidence Matrix
 
-Last updated: 2026-07-18
+Last updated: 2026-07-19
 
 | Claim | Current Evidence | Status | Risk |
 |---|---|---|---|
@@ -41,3 +41,7 @@ Last updated: 2026-07-18
 | Simulated review did not find an unresolved automatic P0 after Round 13 fixes. | Three review rounds with nine roles are recorded in `docs/reviews/`; title, contribution framing, related-work boundary, and metric-mixing language were revised. | Supported for internal review | Real reviewers may still reject due to missing human validation or weak L2 simulator. |
 | The remaining human-evaluation gap is an external blocker. | Round 10 status reports 0 completed human labels; Round 13 open issues mark double annotation as blocked on real annotators. | Supported | No human-faithfulness or helpfulness correlation can be claimed. |
 | Rebuttal and artifact materials are prepared. | Round 14 created `paper/rebuttal/`, root `README.md`, environment files, reproduction commands, download notes, license summary, artifact checklist, reproducibility notes, and checksum index. | Supported for draft submission package | Must be regenerated after future experiment or paper changes. |
+| User-supplied adjudicated edit-explanation labels are now available for a stress-test validation set. | Round 15 finalized 160 items in `annotation/round15/annotation_final_gold_v2.csv`: 100 adjudicated disagreements and 60 agreement-inherited items. | Supported with provenance caveat | Confirm annotator/adjudicator identity before calling the labels human gold. |
+| Edit reconstruction is useful for edit alignment but insufficient for rule/evidence faithfulness. | Against Round 15 labels, reverse reconstruction has Faithfulness Macro-F1 0.789 and Edit Alignment Macro-F1 0.767, but Rule Macro-F1 0.431 and Evidence Macro-F1 0.426. Error cases show high reconstruction with `not_applicable` rules and `not_provided` evidence. | Supported for stress-test set | Stress-test labels are template-heavy and adversarial, not a natural explanation sample. |
+| Current Rule/Evidence verifier is promising but not enough for a solved RuleFaith claim. | Round 15 rule/evidence verifier: Rule Macro-F1 0.558, Evidence Macro-F1 0.470, Faithfulness Macro-F1 0.695. | Supported as limitation | Needs stronger rule/evidence model and balanced natural explanations. |
+| The paper should be reframed as human-grounded metric stress testing rather than a solved counterfactual simulator or RuleFaith method. | `docs/post_human_eval_idea_decision.md` records this decision after Round 15 metrics; L2 simulator remains weak and L3 verifier remains noisy. | Supported for paper revision | A later GPT-5.5 natural-explanation validation set could reopen RuleFaith as the primary method line. |

@@ -207,3 +207,11 @@ Last updated: 2026-07-18
 - Artifact documentation created: `README.md`, `environment.yml`, `requirements.txt`, `docs/reproduction_commands.md`, `docs/model_data_downloads.md`, `docs/license_summary.md`, `docs/artifact_checklist.md`, and `docs/reproducibility_checklist_notes.md`.
 - Result checksum index generated at `results/round14/result_checksums.sha256`.
 - Human-evaluation status remains blocked: no real double-human annotation files exist.
+
+## Round 15
+
+- Imported user-supplied V2 double-annotation analysis and completed adjudication into `annotation/round15/source/`.
+- Finalized 160 edit-explanation stress-test labels in `annotation/round15/annotation_final_gold_v2.csv`; counterfactual rows remain excluded.
+- Evaluated automatic metrics against the adjudicated labels in `results/human_gold/`.
+- Main result: reverse reconstruction has binary Faithfulness Macro-F1 0.789 but Rule Macro-F1 0.431 and Evidence Macro-F1 0.426; current Rule/Evidence verifier reaches Rule Macro-F1 0.558 and Evidence Macro-F1 0.470.
+- Updated paper title and Human Evaluation framing toward a human-grounded stress-test paper rather than a solved counterfactual simulator or solved RuleFaith method.

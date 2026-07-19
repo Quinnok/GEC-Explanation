@@ -20,6 +20,9 @@ fi
 if [ "${RUN_ROUND12:-0}" = "1" ]; then
   bash experiments/run_round12.sh
 fi
+if [ "${RUN_ROUND15:-0}" = "1" ]; then
+  bash experiments/run_round15.sh
+fi
 
 if command -v latexmk >/dev/null 2>&1; then
   (cd paper && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex)
