@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I hope my house will win the champion next year .\nModel prediction: I hope my house will win the championship next year .\nCurrent edit: replacing \"champion\" with \"championship\" at source token span [7,8).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i n't go to the library",
+  "request_id": "local-6a8f0ef4-edca-4464-9840-8afc677d2291",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nIn conclusion , I think that this type of food and atmosphere is very for us , because normally we speak about books , work and studies , whereas with this type of environment we can speak about ourselves , our family , our hobbies and everyone will get to know new something about other classmates .\n\nMODEL_PREDICTION:\nIn conclusion, I think that this type of food and atmosphere is very good for us because normally, we speak about books, work, and studies, whereas with this type of environment, we can speak about ourselves, our family, our hobbies, and everyone will get to know something new about other classmates.\n\nMODEL_EDIT:\noperation=replace\nspan=[18,19)\nsource_text=normally\ntarget_text=normally,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) e) g) h) iii)",
+  "request_id": "local-dc5b3456-d220-4795-8a41-f7d7cdc97197",
+  "teacher_model": "google/flan-t5-small"
+}

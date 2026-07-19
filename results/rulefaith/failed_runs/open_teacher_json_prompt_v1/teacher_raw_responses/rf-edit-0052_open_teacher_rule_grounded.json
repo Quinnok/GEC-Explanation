@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nbecause they spent time unmeaningful subjects . \n\nMODEL_PREDICTION:\nbecause they spent time on important subjects .\n\nMODEL_EDIT:\noperation=replace\nspan=[4,5)\nsource_text=unmeaningful\ntarget_text=on important\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-51d65b53-3742-4028-9411-8b43df0c5f60",
+  "teacher_model": "google/flan-t5-small"
+}

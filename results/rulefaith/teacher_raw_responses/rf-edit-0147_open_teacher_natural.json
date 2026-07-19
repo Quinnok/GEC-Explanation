@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Specializing in one particular subject does not suit our life in this era which is characterized by diversity and innovation \nModel prediction: Specializing in one particular subject does not suit our life in this era, which is characterized by diversity and innovation.\nCurrent edit: replacing \"era\" with \"era,\" at source token span [12,13).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "A syllable is a grammatical rephrasing of a word or phrase.",
+  "request_id": "local-6876856e-fde1-49c1-89f5-6d3da46116e5",
+  "teacher_model": "google/flan-t5-base"
+}

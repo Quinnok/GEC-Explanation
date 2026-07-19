@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nThey were planning to steal a very precious thing from Museum tonight .\n\nMODEL_PREDICTION:\nThen, they were planning to steal a very precious thing from the museum tonight.\n\nMODEL_EDIT:\noperation=insert\nspan=[10,10)\nsource_text=\ntarget_text=the\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-2e71fc75-e9d5-4b6b-8d5d-6f6f6f945241",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: So the school try learning the students a bit in every science exist . \nModel prediction: So the school tries teaching the students a bit of every science that exists .\nCurrent edit: replacing \"try\" with \"tries\" at source token span [3,4).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"try\" is a grammatical contraction of the verb \"try\".",
+  "request_id": "local-934ccbaf-26c5-4223-853f-89df5b29a304",
+  "teacher_model": "google/flan-t5-base"
+}

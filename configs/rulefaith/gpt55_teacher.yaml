@@ -1,0 +1,52 @@
+created: "2026-07-19"
+provider: "openai_responses"
+requested_teacher: "GPT-5.5"
+model_env: "RULEFAITH_GPT55_MODEL"
+default_model: "gpt-5.5"
+availability_note: "Set RULEFAITH_GPT55_MODEL if the requested GPT-5.5 alias is unavailable for the account."
+prompt_version: "rulefaith_teacher_v1"
+input_file: "data/rulefaith/edit_pool.jsonl"
+output_file: "data/rulefaith/teacher_candidates_pilot.jsonl"
+raw_response_dir: "results/rulefaith/teacher_raw_responses"
+parse_failures_file: "results/rulefaith/teacher_parse_failures.jsonl"
+stats_file: "results/rulefaith/teacher_generation_stats.json"
+limit: 80
+candidate_types:
+  - natural
+  - rule_grounded
+  - evidence_grounded
+  - concise
+  - uncertainty_aware
+temperature: 0.4
+max_output_tokens: 700
+timeout_seconds: 90
+retry_attempts: 2
+api_key_env: "OPENAI_API_KEY"
+budget_env: "RULEFAITH_API_BUDGET_USD"
+default_budget_usd: 30.0
+pricing:
+  input_usd_per_million_env: "RULEFAITH_GPT_INPUT_USD_PER_MILLION"
+  output_usd_per_million_env: "RULEFAITH_GPT_OUTPUT_USD_PER_MILLION"
+  fallback_input_usd_per_million: 2.5
+  fallback_output_usd_per_million: 10.0
+allowed_teacher_inputs:
+  - source
+  - model_prediction
+  - model_edit
+  - edit_span
+forbidden_teacher_inputs:
+  - reference
+  - aligned_reference_edit
+  - behavior
+  - model_behavior
+  - final_human_label
+  - annotator_labels
+  - gold_correction
+outputs_required:
+  - raw_response
+  - parsed_output
+  - parsing_errors
+  - request_id
+  - token_usage
+  - latency
+  - estimated_cost

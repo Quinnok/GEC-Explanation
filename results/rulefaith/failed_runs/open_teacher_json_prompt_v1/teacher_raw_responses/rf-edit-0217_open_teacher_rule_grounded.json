@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nIn the end I think if many people want the Monarchy to be ablished a general election should be called and then see if the Monarchy should be abolished .\n\nMODEL_PREDICTION:\nIn the end, I think if many people want the monarchy to be established, a general election should be called and then see if the monarchy should be abolished.\n\nMODEL_EDIT:\noperation=replace\nspan=[13,14)\nsource_text=ablished\ntarget_text=established,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "SOURCE: In the end I think if many people want the Monarchy to be ablished a general election should be called and then see if the monarchy should be abolished. MODEL_EDIT: operation=replace span=[13,14] source_text=established target_text = established, CANDIDATE_TYPE: rule_grounded",
+  "request_id": "local-7a22a157-0c77-47b4-ae79-d973a8cb918d",
+  "teacher_model": "google/flan-t5-small"
+}

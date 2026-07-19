@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Computers have had a most significant impact on the people in the latter 1/2 of the 20th century .\nModel prediction: Using the Internet for the first time since the beginning of the 20th century.\nCurrent edit: replacing \"on\" with \"for\" at source token span [7,8).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "(A) (B) (C) (D)",
+  "request_id": "local-db2b454c-f72a-4de0-ba58-fb189c125473",
+  "teacher_model": "google/flan-t5-small"
+}

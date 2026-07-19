@@ -1,0 +1,32 @@
+{
+  "api_reference": "https://developers.openai.com/api/reference/resources/responses/methods/create",
+  "blocked": [
+    "gpt55_failed:missing_OPENAI_API_KEY"
+  ],
+  "budget_env_present": false,
+  "candidate_type_counts": {
+    "natural": 80,
+    "rule_grounded": 80
+  },
+  "created_at": "2026-07-19T13:47:53+00:00",
+  "estimated_total_cost_usd": 0.0,
+  "important_note": "Teacher candidates are model-generated explanation candidates, not human gold. Prompts exclude references, human labels, and behavior labels.",
+  "input": "data/rulefaith/edit_pool.jsonl",
+  "model_counts": {
+    "coedit_large": 56,
+    "gector_roberta_base": 52,
+    "t5_base_grammar": 52
+  },
+  "new_candidate_count_this_run": 0,
+  "openai_api_key_present": false,
+  "openai_sdk_present": false,
+  "output": "data/rulefaith/teacher_candidates_pilot.jsonl",
+  "parse_status_counts": {
+    "wrapped_non_json_response": 160
+  },
+  "pilot_edit_count": 80,
+  "provider_counts": {
+    "open_teacher": 160
+  },
+  "total_candidate_count_in_output": 160
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Technology will have advanced and maybe the cars will fly above streets and computers will have totally changed .\nModel prediction: Technology will have advanced, and maybe cars will fly above the streets, and computers will have totally changed.\nCurrent edit: inserting \"the\" at source token span [11,11).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"too\" is a grammatical error.",
+  "request_id": "local-f8dcf479-eb2f-46f9-86f7-7a6a81e726e6",
+  "teacher_model": "google/flan-t5-base"
+}

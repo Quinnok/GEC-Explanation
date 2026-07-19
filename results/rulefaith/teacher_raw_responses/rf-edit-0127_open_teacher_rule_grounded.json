@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring of the environment is very important and in my village they take different actions to care for it .\nModel prediction: I live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring for the environment is very important and in my village they take different actions to care for it.\nCurrent edit: replacing \"of\" with \"for\" at source token span [25,26).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"for\" is a grammatical error.",
+  "request_id": "local-6f0c54da-32a1-437a-8c04-dd9f8b082f72",
+  "teacher_model": "google/flan-t5-base"
+}

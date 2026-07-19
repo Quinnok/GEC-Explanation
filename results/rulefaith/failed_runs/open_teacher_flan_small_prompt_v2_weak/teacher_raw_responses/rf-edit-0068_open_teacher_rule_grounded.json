@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: We have to know this problem it 's serious but almost people doens't know about this . \nModel prediction: We should know about this problem . It 's serious , but most people do know about it .\nCurrent edit: replacing \"almost\" with \"most\" at source token span [10,11).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i need to know the grammar or usage rule for grammatical error correction model edits.",
+  "request_id": "local-e5ef53b1-f9be-495f-a214-8db79e5d5fb3",
+  "teacher_model": "google/flan-t5-small"
+}

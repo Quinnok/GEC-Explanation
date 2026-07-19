@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I think about transport that the government should help the public transport , for example buses , train , the metro and more , for a single reason : the quality of life against the pollution .\nModel prediction: I think about transport that the government should help public transport , for example buses , trains , the metro and more , for a single reason : the quality of life against pollution .\nCurrent edit: deleting \"the\" at source token span [34,35).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"the\" is a grammatical rephrase of the word \"buses , trains , the metro and more , for a single reason : the quality of life against the pollution .",
+  "request_id": "local-69134d27-3598-4180-8857-dacb9e9a7021",
+  "teacher_model": "google/flan-t5-base"
+}

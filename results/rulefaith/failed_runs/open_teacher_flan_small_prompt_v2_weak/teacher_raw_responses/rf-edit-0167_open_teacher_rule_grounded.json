@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: For example they can play football whenever they want but the olders can not . \nModel prediction: For example, they can play football whenever they want, but the older ones can not.\nCurrent edit: replacing \"example\" with \"example,\" at source token span [1,2).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i. a grammatical error correction model edit",
+  "request_id": "local-f8bf521d-1e1c-4b02-9298-2ee3caa1cedc",
+  "teacher_model": "google/flan-t5-small"
+}

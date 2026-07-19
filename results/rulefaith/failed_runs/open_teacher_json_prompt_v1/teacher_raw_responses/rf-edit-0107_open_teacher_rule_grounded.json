@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nimage you salf you are wark in factory just to do one thing like pot taire on car if they fire you you will destroy , becouse u dont know more than pot taire in car . \n\nMODEL_PREDICTION:\nImagine working in a factory just to do one thing , like potting taire on a car . If they fire you , you will destroy it , because you do know more than potting taire on a car .\n\nMODEL_EDIT:\noperation=replace\nspan=[32,33)\nsource_text=pot\ntarget_text=potting\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "SOURCE: image you salf you are wark in factory just to do one thing like pot taire on car if they fire you you will destroy",
+  "request_id": "local-9b73df28-003d-4210-aaf1-7ac5a3f167aa",
+  "teacher_model": "google/flan-t5-small"
+}

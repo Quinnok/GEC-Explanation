@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Everyone should develop their awareness of public manner .\nModel prediction: The goal is to develop their awareness of the public manner.\nCurrent edit: replacing \"manner .\" with \"manner.\" at source token span [7,9).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i n't be able to use a word in a sentence",
+  "request_id": "local-c4f6ed9b-0a3c-476c-ab05-d152572b9725",
+  "teacher_model": "google/flan-t5-small"
+}

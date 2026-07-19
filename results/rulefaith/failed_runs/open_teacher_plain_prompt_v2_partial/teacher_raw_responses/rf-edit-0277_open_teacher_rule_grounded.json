@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Technology will have advanced and maybe the cars will fly above streets and computers will have totally changed .\nModel prediction: Technology will have advanced, and maybe cars will fly above the streets, and computers will have totally changed.\nCurrent edit: inserting \"the\" at source token span [11,11).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "muse",
+  "request_id": "local-e9db34dd-b00f-47a6-96a5-68fe63a8cbba",
+  "teacher_model": "google/flan-t5-small"
+}

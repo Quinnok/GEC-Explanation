@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Sometimes we go to partyies in the city , I dance in the parties with my friends .\nModel prediction: Sometimes we go to parties in the city; I dance in the parties with my friends.\nCurrent edit: replacing \"partyies\" with \"parties\" at source token span [4,5).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "he will be able to help him with the grammatical error correction model edits.",
+  "request_id": "local-075c6379-055d-4d05-b234-c9efe98d4ee8",
+  "teacher_model": "google/flan-t5-small"
+}

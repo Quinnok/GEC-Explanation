@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I took the sun a very long time and then I went to a cafe and and I drank a drink .\nModel prediction: I took the sun for a very long time and then I went to a cafe and drank a drink .\nCurrent edit: deleting \"and\" at source token span [15,16).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i n't be able to do this if i'm unable to do it .",
+  "request_id": "local-932d4601-a5db-4f0a-b9db-9f9478881c0c",
+  "teacher_model": "google/flan-t5-small"
+}

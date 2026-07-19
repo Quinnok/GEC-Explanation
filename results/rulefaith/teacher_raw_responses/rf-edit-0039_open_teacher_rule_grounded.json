@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I took the sun a very long time and then I went to a cafe and and I drank a drink .\nModel prediction: I took the sun for a very long time and then I went to a cafe and drank a drink .\nCurrent edit: deleting \"and\" at source token span [15,16).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"and\" is a grammatical error.",
+  "request_id": "local-6f830a58-6d33-4fe5-9968-3da61d973afb",
+  "teacher_model": "google/flan-t5-base"
+}

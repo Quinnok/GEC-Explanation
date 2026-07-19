@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nSo the school try learning the students a bit in every science exist . \n\nMODEL_PREDICTION:\nSo the school tries teaching the students a bit of every science that exists .\n\nMODEL_EDIT:\noperation=replace\nspan=[3,4)\nsource_text=try\ntarget_text=tries\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-5051f97e-1717-4847-b1ad-e56534bb31ff",
+  "teacher_model": "google/flan-t5-small"
+}

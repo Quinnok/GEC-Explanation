@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: They were planning to steal a very precious thing from Museum tonight .\nModel prediction: Then, they were planning to steal a very precious thing from the museum tonight.\nCurrent edit: inserting \"the\" at source token span [10,10).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i need to be a grammarian",
+  "request_id": "local-deaec8c1-c8fb-4ca3-9a22-cdcb7fc00ec6",
+  "teacher_model": "google/flan-t5-small"
+}

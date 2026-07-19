@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nI took the sun a very long time and then I went to a cafe and and I drank a drink .\n\nMODEL_PREDICTION:\nI took the sun for a very long time and then I went to a cafe and drank a drink .\n\nMODEL_EDIT:\noperation=delete\nspan=[15,16)\nsource_text=and\ntarget_text=\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-5d92c9ac-aae2-48ac-aee4-b60ed822a7bd",
+  "teacher_model": "google/flan-t5-small"
+}

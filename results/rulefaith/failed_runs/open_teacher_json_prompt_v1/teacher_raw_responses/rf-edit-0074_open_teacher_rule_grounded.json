@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nwhich play an important role to giving tough competition to the government . as a result of this consumer gets more benefits , like lower faire , privacy , freedom and safe travelling.in addition many automobile companies launcing new cars at affordable prices , which encourages people to use more and more private vechile .\n\nMODEL_PREDICTION:\nwhich play an important role in giving tough competition to the government . As a result of this , consumers get more benefits , like lower faire , privacy , freedom and safe journeys . In addition , many automobile companies are launcing new cars at affordable prices , which encourages people to use more and more private vegetables .\n\nMODEL_EDIT:\noperation=insert\nspan=[37,37)\nsource_text=\ntarget_text=are\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "MODEL_EDIT: operation=insert span=[37,37]",
+  "request_id": "local-de8f0cac-5076-452a-acaa-94d13a016010",
+  "teacher_model": "google/flan-t5-small"
+}

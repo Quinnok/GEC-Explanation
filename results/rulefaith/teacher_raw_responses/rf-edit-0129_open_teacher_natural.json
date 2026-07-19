@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Beacuse all those broad knowledge help they to understand their major in university as well as help they to make a correct choice in specializing study . \nModel prediction: Because all those broad knowledge help them to understand their major in university as well as help them to make a correct choice in specializing study.\nCurrent edit: replacing \"Beacuse\" with \"Because\" at source token span [0,1).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The first sentence of a sentence is a grammatical error. The second sentence of the sentence is an error.",
+  "request_id": "local-a7659112-cbd1-4a80-bbee-b26c07c40daa",
+  "teacher_model": "google/flan-t5-base"
+}

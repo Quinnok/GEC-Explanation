@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: It is true that consumers preffer to buy a product that has a lower price , but when international companies that has already the certification begins to send its market , people will preffer to consume theirs because the difference between prices is probbably not going to affect them to much . \nModel prediction: It is true that consumers prefer to buy a product that has a lower price , but when international companies that have already the certification begin to send their market , people will prefer to consume theirs because the difference between prices is probably not going to affect them too much .\nCurrent edit: replacing \"its\" with \"their\" at source token span [28,29).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The difference between prices is the difference between the price of a product and its price.",
+  "request_id": "local-f8b1c708-e093-4ffa-8c8a-2dd173f7bcfd",
+  "teacher_model": "google/flan-t5-base"
+}

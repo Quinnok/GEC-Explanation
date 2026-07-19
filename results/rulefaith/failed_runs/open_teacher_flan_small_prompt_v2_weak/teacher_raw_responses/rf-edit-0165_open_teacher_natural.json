@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: But such a high level of development of Egyptian civilization has a negative side as well as positive .\nModel prediction: There is a high level of development of Egyptian civilization, but there is a negative side as well as a positive side.\nCurrent edit: inserting \"a\" at source token span [17,17).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i need to know if i am able to do this. i want to know what i can do to help i find a solution to this problem.",
+  "request_id": "local-7e056a0f-492c-47d0-89be-f8a74498f2c4",
+  "teacher_model": "google/flan-t5-small"
+}

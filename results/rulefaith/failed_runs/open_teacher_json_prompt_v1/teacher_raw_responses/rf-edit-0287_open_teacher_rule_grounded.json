@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nwe think that in the future the planet will be in a bad condition and the trees will be dissappearing , after that we will have wars .\n\nMODEL_PREDICTION:\nWe think that in the future, the planet will be in a bad condition and the trees will be dissappearing. After that, we will have wars.\n\nMODEL_EDIT:\noperation=replace\nspan=[5,6)\nsource_text=future\ntarget_text=future,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-26317c33-a94b-4fc7-9e20-bfd28a3e261d",
+  "teacher_model": "google/flan-t5-small"
+}

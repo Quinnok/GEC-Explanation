@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Technology will have advanced and maybe the cars will fly above streets and computers will have totally changed .\nModel prediction: Technology will have advanced, and maybe cars will fly above the streets, and computers will have totally changed.\nCurrent edit: replacing \"streets\" with \"streets,\" at source token span [11,12).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d e m d",
+  "request_id": "local-71f1e441-e4c3-4956-a9cb-26173253b1b5",
+  "teacher_model": "google/flan-t5-small"
+}

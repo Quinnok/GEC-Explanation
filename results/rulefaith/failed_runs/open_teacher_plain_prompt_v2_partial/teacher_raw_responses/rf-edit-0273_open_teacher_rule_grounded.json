@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: In the end I think if many people want the Monarchy to be ablished a general election should be called and then see if the Monarchy should be abolished .\nModel prediction: In the end, I think if many people want the Monarchy to be abolished, a general election should be called and then see if the Monarchy should be abolished.\nCurrent edit: replacing \"end\" with \"end,\" at source token span [2,3).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "he/so go to the library",
+  "request_id": "local-087e5c00-959f-4931-862e-79c97e35d99f",
+  "teacher_model": "google/flan-t5-small"
+}

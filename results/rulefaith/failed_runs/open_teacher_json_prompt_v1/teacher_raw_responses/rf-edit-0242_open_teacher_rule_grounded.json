@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nSometimes we go to partyies in the city , I dance in the parties with my friends .\n\nMODEL_PREDICTION:\nSometimes we go to parties in the city; I dance in the parties with my friends.\n\nMODEL_EDIT:\noperation=replace\nspan=[4,5)\nsource_text=partyies\ntarget_text=parties\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i m n m",
+  "request_id": "local-da59f4d4-fda0-4dd1-8d67-0b876565cf15",
+  "teacher_model": "google/flan-t5-small"
+}

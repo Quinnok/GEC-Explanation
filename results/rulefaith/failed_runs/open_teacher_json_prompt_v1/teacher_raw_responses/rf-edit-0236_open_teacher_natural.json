@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nComputers have had a most significant impact on the people in the latter 1/2 of the 20th century .\n\nMODEL_PREDICTION:\nUsing the Internet for the first time since the beginning of the 20th century.\n\nMODEL_EDIT:\noperation=replace\nspan=[12,14)\nsource_text=latter 1/2\ntarget_text=beginning\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-9b32a12d-3a02-461c-8f97-b7d07a7085d6",
+  "teacher_model": "google/flan-t5-small"
+}

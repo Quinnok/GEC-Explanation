@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nBut such a high level of development of Egyptian civilization has a negative side as well as positive .\n\nMODEL_PREDICTION:\nBut such a high level of development of Egyptian civilization has a negative side as well as a positive side.\n\nMODEL_EDIT:\noperation=replace\nspan=[18,19)\nsource_text=.\ntarget_text=side.\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i n't be able to edit the grammatical error correction model edits",
+  "request_id": "local-eba4ad65-7643-443f-949d-2d8edd0e47a4",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nComputers have had a most significant impact on the people in the latter 1/2 of the 20th century .\n\nMODEL_PREDICTION:\nComputers have had a most significant impact on people in the latter half of the 20th century.\n\nMODEL_EDIT:\noperation=replace\nspan=[13,14)\nsource_text=1/2\ntarget_text=half\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) e) g) h) iii)",
+  "request_id": "local-26c5cef2-7871-462b-a271-bdb25de7da2b",
+  "teacher_model": "google/flan-t5-small"
+}

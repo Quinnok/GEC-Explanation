@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nIf in this society who will not to do study they never concept there opportunity or ca n't understand any ideas so most of the important that in this situation and I also very interestion and also prefer that for the study material . \n\nMODEL_PREDICTION:\nIf in this society, who will not study, they never concept there opportunity or can't understand any ideas so most of the important that in this situation and I also very interested and also prefer that for the study material.\n\nMODEL_EDIT:\noperation=replace\nspan=[42,44)\nsource_text=material .\ntarget_text=material.\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "MODEL_EDIT: operation=replace span=[42,44] source_text=material . target_text_material. CANDIDATE_TYPE: grammatical error correction model edits",
+  "request_id": "local-714874b3-94cb-497d-a4da-35847f3dbec5",
+  "teacher_model": "google/flan-t5-small"
+}

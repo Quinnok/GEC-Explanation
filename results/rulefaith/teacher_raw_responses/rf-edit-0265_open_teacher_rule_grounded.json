@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Technology has chanched people 's lives a lot . In fact we can think how different is our life compared either to our parents ' or our grandparents ' lives . For example my parents did n't watch tv , because there was n't any tv in the world when they were young.but that is n't the only difference : we can think about the mobile phone , the computer ed finally the internet.our grandparents could n't have imagined a strange machine like the computer in their lives .\nModel prediction: Technology has changed people's lives a lot. In fact, we can think how different our lives are compared to either our parents' or our grandparents' lives. For example, my parents didn't watch tv because there wasn't any TV in the world when they were young. But that isn't the only difference: we can think about the mobile phone, the computer, and finally the internet. Our grandparents couldn't have imagined a strange machine like the computer in their lives.\nCurrent edit: deleting \"is\" at source token span [16,17).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"is\" is a contraction of the verb \"is\".",
+  "request_id": "local-247685bd-f72c-43f7-90e0-5543c2da9195",
+  "teacher_model": "google/flan-t5-base"
+}

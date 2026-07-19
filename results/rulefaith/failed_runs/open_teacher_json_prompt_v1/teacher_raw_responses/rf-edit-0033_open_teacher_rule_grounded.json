@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nI think about transport that the government should help the public transport , for example buses , train , the metro and more , for a single reason : the quality of life against the pollution .\n\nMODEL_PREDICTION:\nI think about transport that the government should help public transport , for example buses , trains , the metro and more , for a single reason : the quality of life against pollution .\n\nMODEL_EDIT:\noperation=delete\nspan=[34,35)\nsource_text=the\ntarget_text=\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) a b) c) d) e) f) g) h) iii)",
+  "request_id": "local-698b22d0-a152-4302-8224-d2326d612908",
+  "teacher_model": "google/flan-t5-small"
+}

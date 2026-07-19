@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nBeacuse all those broad knowledge help they to understand their major in university as well as help they to make a correct choice in specializing study . \n\nMODEL_PREDICTION:\nBecause all those broad knowledge help them to understand their major in university as well as help them to make a correct choice in specializing study.\n\nMODEL_EDIT:\noperation=replace\nspan=[0,1)\nsource_text=Beacuse\ntarget_text=Because\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i n't be able to edit the grammatical error correction model edits",
+  "request_id": "local-b52ccbd3-66d1-41de-95d6-2759d2ac47a8",
+  "teacher_model": "google/flan-t5-small"
+}

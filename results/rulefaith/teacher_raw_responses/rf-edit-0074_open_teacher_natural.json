@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: which play an important role to giving tough competition to the government . as a result of this consumer gets more benefits , like lower faire , privacy , freedom and safe travelling.in addition many automobile companies launcing new cars at affordable prices , which encourages people to use more and more private vechile .\nModel prediction: which play an important role in giving tough competition to the government . As a result of this , consumers get more benefits , like lower faire , privacy , freedom and safe journeys . In addition , many automobile companies are launcing new cars at affordable prices , which encourages people to use more and more private vegetables .\nCurrent edit: inserting \"are\" at source token span [37,37).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"are\" is a grammatical rephrasing of the verb \"are\".",
+  "request_id": "local-e27de7fc-3ea9-4989-a867-ebe770c9df96",
+  "teacher_model": "google/flan-t5-base"
+}

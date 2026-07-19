@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nHe has ever been with me .\n\nMODEL_PREDICTION:\nHe has always been with me .\n\nMODEL_EDIT:\noperation=replace\nspan=[2,3)\nsource_text=ever\ntarget_text=always\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d)",
+  "request_id": "local-5f84be3d-b4c8-4056-a727-52d8328541d2",
+  "teacher_model": "google/flan-t5-small"
+}

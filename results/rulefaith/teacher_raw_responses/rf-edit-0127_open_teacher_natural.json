@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring of the environment is very important and in my village they take different actions to care for it .\nModel prediction: I live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring for the environment is very important and in my village they take different actions to care for it.\nCurrent edit: replacing \"of\" with \"for\" at source token span [25,26).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "For example, if the word \"for\" is used in a sentence, it means \"for\".",
+  "request_id": "local-555d8690-2cf6-417c-8e3a-9b1c3f432a72",
+  "teacher_model": "google/flan-t5-base"
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I want to talk about nocive or bad products like alcohol , hair spray and cigarrets . \nModel prediction: I want to talk about nocive or bad products like alcohol , hair spray and cigarettes .\nCurrent edit: replacing \"cigarrets\" with \"cigarettes\" at source token span [15,16).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"cigarettes\" is a grammatical rephrasing of the word \"alcohol , hair spray , and cigarrets .",
+  "request_id": "local-57e59cef-659f-4cec-8124-825d2b2a9e50",
+  "teacher_model": "google/flan-t5-base"
+}

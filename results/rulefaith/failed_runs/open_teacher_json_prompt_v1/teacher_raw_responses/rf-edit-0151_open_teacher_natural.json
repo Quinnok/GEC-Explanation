@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\npublic transportation . day by day folk are more crazy about own vehicles which leads dark future for public transportation\n\nMODEL_PREDICTION:\nPublic transportation. Day by day people are more crazy about own vehicles, which leads to a dark future for public transportation.\n\nMODEL_EDIT:\noperation=insert\nspan=[15,15)\nsource_text=\ntarget_text=to a\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) e) g) h) iii)",
+  "request_id": "local-8e2fc71b-cc28-465b-8327-c61418d9ee60",
+  "teacher_model": "google/flan-t5-small"
+}

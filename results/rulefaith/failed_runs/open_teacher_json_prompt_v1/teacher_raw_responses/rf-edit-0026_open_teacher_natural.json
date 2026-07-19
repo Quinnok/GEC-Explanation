@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nIt is true that consumers preffer to buy a product that has a lower price , but when international companies that has already the certification begins to send its market , people will preffer to consume theirs because the difference between prices is probbably not going to affect them to much . \n\nMODEL_PREDICTION:\nIt is true that consumers prefer to buy a product that has a lower price , but when international companies that have already the certification begin to send their market , people will prefer to consume theirs because the difference between prices is probably not going to affect them too much .\n\nMODEL_EDIT:\noperation=replace\nspan=[28,29)\nsource_text=its\ntarget_text=their\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "grammatical error correction model edits are grammatically correct.",
+  "request_id": "local-09bb8d53-1778-48a1-9769-6de977dc447e",
+  "teacher_model": "google/flan-t5-small"
+}

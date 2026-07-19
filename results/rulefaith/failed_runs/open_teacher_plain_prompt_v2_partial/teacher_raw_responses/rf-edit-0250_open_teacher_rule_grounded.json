@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring of the environment is very important and in my village they take different actions to care for it .\nModel prediction: I live in San Miguel Almoloyan, this is a village in the municipality of Almoloya de Juarez in the State of Mexico. Caring of the environment is very important, and in my village, they take different actions to care for it.\nCurrent edit: replacing \"village\" with \"village,\" at source token span [34,35).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i.e. a village in the municipality of Almoloya de Juarez in the state of Mexico .",
+  "request_id": "local-671a054e-03af-4d2e-81fd-19a7f8738646",
+  "teacher_model": "google/flan-t5-small"
+}

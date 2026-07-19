@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: So the school try learning the students a bit in every science exist . \nModel prediction: So the school tries teaching the students a bit of every science that exists .\nCurrent edit: replacing \"try\" with \"tries\" at source token span [3,4).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i need to know the grammar and usage rules for a grammatical error correction model.",
+  "request_id": "local-3da9f73a-9cf5-44cd-abf7-e1f526cad54b",
+  "teacher_model": "google/flan-t5-small"
+}

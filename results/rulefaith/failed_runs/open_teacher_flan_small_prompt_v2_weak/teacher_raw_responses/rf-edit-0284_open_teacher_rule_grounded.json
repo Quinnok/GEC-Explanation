@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Sometimes we go to partyies in the city , I dance in the parties with my friends .\nModel prediction: Sometimes we go to parties in the city; I dance in the parties with my friends.\nCurrent edit: replacing \"city\" with \"city;\" at source token span [7,8).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a city and a lord",
+  "request_id": "local-5df1b1db-23de-45a9-9d7f-33b2cdb15b34",
+  "teacher_model": "google/flan-t5-small"
+}

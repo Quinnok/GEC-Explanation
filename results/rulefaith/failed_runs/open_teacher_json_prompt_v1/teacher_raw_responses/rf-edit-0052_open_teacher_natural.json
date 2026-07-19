@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nbecause they spent time unmeaningful subjects . \n\nMODEL_PREDICTION:\nbecause they spent time on important subjects .\n\nMODEL_EDIT:\noperation=replace\nspan=[4,5)\nsource_text=unmeaningful\ntarget_text=on important\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d)",
+  "request_id": "local-ddbd5827-a1de-4e05-b2c5-25a0517f8283",
+  "teacher_model": "google/flan-t5-small"
+}

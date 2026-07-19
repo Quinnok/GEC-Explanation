@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: because they spent time unmeaningful subjects . \nModel prediction: because they spent time on important subjects .\nCurrent edit: replacing \"unmeaningful\" with \"on important\" at source token span [4,5).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The first sentence of a sentence is a grammatical error. The second sentence is an error.",
+  "request_id": "local-37b8e10e-1002-416e-b781-ef520ac3e81b",
+  "teacher_model": "google/flan-t5-base"
+}

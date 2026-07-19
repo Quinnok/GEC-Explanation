@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: We should use of public transport because at the present there are a lot of cars in the world that pollute and unfortunately we are harming the environment and the world .\nModel prediction: We should use public transport because, at the present, there are a lot of cars in the world that pollute and, unfortunately, we are harming the environment and the world.\nCurrent edit: replacing \"unfortunately\" with \"unfortunately,\" at source token span [22,23).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i m a",
+  "request_id": "local-a6e3c646-45a3-4f28-aabc-69690e225754",
+  "teacher_model": "google/flan-t5-small"
+}

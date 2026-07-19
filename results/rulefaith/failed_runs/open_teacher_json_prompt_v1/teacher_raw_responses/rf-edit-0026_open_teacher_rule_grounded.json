@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nIt is true that consumers preffer to buy a product that has a lower price , but when international companies that has already the certification begins to send its market , people will preffer to consume theirs because the difference between prices is probbably not going to affect them to much . \n\nMODEL_PREDICTION:\nIt is true that consumers prefer to buy a product that has a lower price , but when international companies that have already the certification begin to send their market , people will prefer to consume theirs because the difference between prices is probably not going to affect them too much .\n\nMODEL_EDIT:\noperation=replace\nspan=[28,29)\nsource_text=its\ntarget_text=their\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "SOURCE: It is true that consumers preffer to buy a product that has a lower price , but when international companies that has already the certification begins to send its market , people will prefer to consume theirs because the difference between prices is probbably not going to affect them to much . MODEL_EDIT: operation=replace span=[28,29] source_text=its target_text = their CANDIDATE_TYPE: rule_grounded",
+  "request_id": "local-28719115-73b1-4293-ab17-4dcb02cf979c",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Thus in concordance with the above I agree whole heartedly that in twenty years there will be fewer cars in use than there are today . \nModel prediction: Thus, in concordance with the above, I agree wholeheartedly that in twenty years there will be fewer cars in use than there are today.\nCurrent edit: replacing \"above\" with \"above,\" at source token span [5,6).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "Grass is a type of grammatical error correction.",
+  "request_id": "local-67c3d3e5-f5f2-4e97-be75-8436ab9cd1a3",
+  "teacher_model": "google/flan-t5-small"
+}

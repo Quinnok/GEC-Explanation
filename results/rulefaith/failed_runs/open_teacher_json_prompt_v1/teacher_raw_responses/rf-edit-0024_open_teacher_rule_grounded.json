@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nThus in concordance with the above I agree whole heartedly that in twenty years there will be fewer cars in use than there are today . \n\nMODEL_PREDICTION:\nThus , in concordance with the above , I agree whole heartedly that in twenty years there will be fewer cars in use than there are today .\n\nMODEL_EDIT:\noperation=insert\nspan=[1,1)\nsource_text=\ntarget_text=,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) e) g) h) iii)",
+  "request_id": "local-3d908f22-fad4-4a09-90af-f8ba99b201e0",
+  "teacher_model": "google/flan-t5-small"
+}

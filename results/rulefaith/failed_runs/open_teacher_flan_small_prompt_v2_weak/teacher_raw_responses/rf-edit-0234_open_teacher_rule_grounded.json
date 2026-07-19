@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Additionally , people now continue to destroy more agricultures and forest in order to satisfy all their needs , which will distory the ecosystem diversity and biodiversity especially the endangered species .\nModel prediction: Additionally, people now continue to destroy more agriculture and forest in order to satisfy all their needs, which will discredit the ecosystem diversity and biodiversity, especially the endangered species.\nCurrent edit: replacing \"agricultures\" with \"agriculture\" at source token span [8,9).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a city and a state",
+  "request_id": "local-13f4810e-e6eb-4a11-8750-f7c3fa9398c0",
+  "teacher_model": "google/flan-t5-small"
+}

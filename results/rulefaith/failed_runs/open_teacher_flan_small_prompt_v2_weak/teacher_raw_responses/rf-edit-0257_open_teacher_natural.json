@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Technology has chanched people 's lives a lot . In fact we can think how different is our life compared either to our parents ' or our grandparents ' lives . For example my parents did n't watch tv , because there was n't any tv in the world when they were young.but that is n't the only difference : we can think about the mobile phone , the computer ed finally the internet.our grandparents could n't have imagined a strange machine like the computer in their lives .\nModel prediction: Technology has changed people's lives a lot. In fact, we can think how different our lives are compared to either our parents' or our grandparents' lives. For example, my parents didn't watch tv because there wasn't any TV in the world when they were young. But that isn't the only difference: we can think about the mobile phone, the computer, and finally the internet. Our grandparents couldn't have imagined a strange machine like the computer in their lives.\nCurrent edit: replacing \"example\" with \"example,\" at source token span [32,33).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "We can think how different our lives are compared to either our parents' or our grandparents' lives. But that isn't the only difference: we can think about the mobile phone, the computer, and finally the internet. Our grandparents couldn't have imagined a strange machine like the computer in their lives.",
+  "request_id": "local-805ec18e-61a8-425b-8363-5ae2862238b7",
+  "teacher_model": "google/flan-t5-small"
+}

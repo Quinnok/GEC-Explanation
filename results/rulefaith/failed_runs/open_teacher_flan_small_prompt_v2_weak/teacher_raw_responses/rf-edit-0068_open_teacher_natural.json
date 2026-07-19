@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: We have to know this problem it 's serious but almost people doens't know about this . \nModel prediction: We should know about this problem . It 's serious , but most people do know about it .\nCurrent edit: replacing \"almost\" with \"most\" at source token span [10,11).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i need to know this problem , but almost people doens't know about it .",
+  "request_id": "local-fb8d2894-d6ac-448a-8345-32c6e74c14a4",
+  "teacher_model": "google/flan-t5-small"
+}

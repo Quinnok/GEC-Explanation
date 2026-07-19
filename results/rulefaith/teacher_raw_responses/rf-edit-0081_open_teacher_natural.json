@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: He has ever been with me .\nModel prediction: He has always been with me .\nCurrent edit: replacing \"ever\" with \"always\" at source token span [2,3).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"always\" is a grammatical contraction of the verb \"ever\".",
+  "request_id": "local-dab70129-69b7-46b4-9686-cf0e34cf3641",
+  "teacher_model": "google/flan-t5-base"
+}

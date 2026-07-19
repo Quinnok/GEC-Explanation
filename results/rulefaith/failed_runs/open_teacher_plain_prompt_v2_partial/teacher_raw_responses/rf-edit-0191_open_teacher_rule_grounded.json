@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Students can focus on only a few subjects they are intwerested in and they will become an experts in those areas . \nModel prediction: Students can focus on only a few subjects they are interested in and they will become experts in those areas.\nCurrent edit: deleting \"an\" at source token span [16,17).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i.s. a grammatical error correction model edit",
+  "request_id": "local-4a9572f2-8e7d-48f0-8f7e-7e926a62e834",
+  "teacher_model": "google/flan-t5-small"
+}

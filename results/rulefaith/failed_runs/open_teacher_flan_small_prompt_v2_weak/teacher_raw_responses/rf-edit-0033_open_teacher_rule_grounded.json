@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I think about transport that the government should help the public transport , for example buses , train , the metro and more , for a single reason : the quality of life against the pollution .\nModel prediction: I think about transport that the government should help public transport , for example buses , trains , the metro and more , for a single reason : the quality of life against pollution .\nCurrent edit: deleting \"the\" at source token span [34,35).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model edits [34, 35]",
+  "request_id": "local-f2a8b72f-1a32-422a-8f99-4ff77c0c478d",
+  "teacher_model": "google/flan-t5-small"
+}

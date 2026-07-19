@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Third the butt it in hte front of the door of store to make the poeple see it even if it is not good \nModel prediction: Third, they put it in front of the door of the store to make the people see it, even if it is not good.\nCurrent edit: replacing \"the\" with \"they\" at source token span [1,2).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"they\" is a grammatical error.",
+  "request_id": "local-c73b0532-add7-425c-8a46-a724640cfef6",
+  "teacher_model": "google/flan-t5-base"
+}

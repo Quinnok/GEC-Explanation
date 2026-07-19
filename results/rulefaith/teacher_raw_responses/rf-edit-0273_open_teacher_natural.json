@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: In the end I think if many people want the Monarchy to be ablished a general election should be called and then see if the Monarchy should be abolished .\nModel prediction: In the end, I think if many people want the Monarchy to be abolished, a general election should be called and then see if the Monarchy should be abolished.\nCurrent edit: replacing \"end\" with \"end,\" at source token span [2,3).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "A general election should be called and then see if the Monarchy should be abolished.",
+  "request_id": "local-924b0894-ede5-4a2f-9a34-85c2281c6570",
+  "teacher_model": "google/flan-t5-base"
+}

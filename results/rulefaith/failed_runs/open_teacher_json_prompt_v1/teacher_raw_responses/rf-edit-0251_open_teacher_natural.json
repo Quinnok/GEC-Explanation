@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nTechnology will have advanced and maybe the cars will fly above streets and computers will have totally changed .\n\nMODEL_PREDICTION:\nTechnology will have advanced, and maybe cars will fly above the streets, and computers will have totally changed.\n\nMODEL_EDIT:\noperation=replace\nspan=[11,12)\nsource_text=streets\ntarget_text=streets,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a).",
+  "request_id": "local-7d4a49c3-5268-4050-84d9-7bb67dbd3f75",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: What a wonderful day ! There is April now and finally spring has come .\nModel prediction: What a wonderful day ! It is April now, and finally, spring has come.\nCurrent edit: replacing \"finally\" with \"finally,\" at source token span [10,11).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i s i do n't know if i can't find a book in a library.",
+  "request_id": "local-fedee700-e66a-4761-8dfb-43c0cb6c27ac",
+  "teacher_model": "google/flan-t5-small"
+}

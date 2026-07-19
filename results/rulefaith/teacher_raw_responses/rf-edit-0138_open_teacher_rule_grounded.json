@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: But such a high level of development of Egyptian civilization has a negative side as well as positive .\nModel prediction: There is a high level of development of Egyptian civilization, but there is a negative side as well as a positive side.\nCurrent edit: replacing \"civilization\" with \"civilization,\" at source token span [9,10).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "There is a grammatical or usage rule that if a word is used in a sentence, it must be in the present tense.",
+  "request_id": "local-689f4fee-f607-4bcd-a2fb-8ba91fa6091d",
+  "teacher_model": "google/flan-t5-base"
+}

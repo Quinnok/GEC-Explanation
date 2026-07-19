@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: What a wonderful day ! There is April now and finally spring has come .\nModel prediction: What a wonderful day ! It is April now, and finally, spring has come.\nCurrent edit: replacing \"finally\" with \"finally,\" at source token span [10,11).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"finally\" is a grammatical rephrasing of the word \"now\".",
+  "request_id": "local-3cb4a9b4-cf61-48f2-9f2b-a264529c4c36",
+  "teacher_model": "google/flan-t5-base"
+}

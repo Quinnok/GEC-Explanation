@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: public transportation . day by day folk are more crazy about own vehicles which leads dark future for public transportation\nModel prediction: Public transportation. Day by day people are more crazy about own vehicles, which leads to a dark future for public transportation.\nCurrent edit: inserting \"to a\" at source token span [15,15).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i. a grammarian for grammatical error correction model edits",
+  "request_id": "local-e955eb30-84ee-4bea-ae1a-74a340bf3e18",
+  "teacher_model": "google/flan-t5-small"
+}

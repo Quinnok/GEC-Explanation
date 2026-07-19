@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nIf every people thinks to learn and understand lots of scientifc subjects , any person will do not do it and as a result of this any science is n't imporeved . \n\nMODEL_PREDICTION:\nIf every person thinks to learn and understand lots of scientific subjects, any person will not do it and as a result of this any science isn't improved.\n\nMODEL_EDIT:\noperation=replace\nspan=[10,11)\nsource_text=scientifc\ntarget_text=scientific\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "grammatical error correction model edits",
+  "request_id": "local-2b4b6a11-3879-4c60-bf72-aa7b5863a4ee",
+  "teacher_model": "google/flan-t5-small"
+}

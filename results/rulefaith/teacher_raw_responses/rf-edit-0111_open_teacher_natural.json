@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I hope my house will win the champion next year .\nModel prediction: I hope my house will win the championship next year .\nCurrent edit: replacing \"champion\" with \"championship\" at source token span [7,8).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word 'champion' is a contraction of the verb 'house'.",
+  "request_id": "local-9482ca5d-cfab-42a6-ac60-f1d79fe593a0",
+  "teacher_model": "google/flan-t5-base"
+}
