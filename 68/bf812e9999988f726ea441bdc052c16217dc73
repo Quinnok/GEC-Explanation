@@ -1,0 +1,61 @@
+results/rulefaith/qwen_smoke_candidates.jsonl
+  s_266f859e6122f5::t_28fe3e47eba779 1
+results/rulefaith/qwen_smoke_raw/rf-edit-0251_qwen_small_natural.json
+  s_266f859e6122f5::t_384324fbd836c5 1-15
+results/rulefaith/qwen_smoke_stats.json
+  s_266f859e6122f5::t_7e068f6361591b 1-27
+results/rulefaith/qwen_smoke_v2_candidates.jsonl
+  s_266f859e6122f5::t_9bb82ddc054177 1
+results/rulefaith/qwen_smoke_v2_raw/rf-edit-0251_qwen_small_natural.json
+  s_266f859e6122f5::t_968379f5005b7e 1-15
+results/rulefaith/qwen_smoke_v2_stats.json
+  s_266f859e6122f5::t_47d95315ebb13d 1-27
+results/rulefaith/qwen_smoke_v3_candidates.jsonl
+  s_266f859e6122f5::t_28e0d338f1dfca 1
+results/rulefaith/qwen_smoke_v3_raw/rf-edit-0251_qwen_small_natural.json
+  s_266f859e6122f5::t_11a5779a813fc9 1-15
+results/rulefaith/qwen_smoke_v3_stats.json
+  s_266f859e6122f5::t_c907086207f244 1-27
+results/rulefaith/qwen_teacher_raw_responses/shard_0/rf-edit-0111_qwen_small_rule_grounded.json
+  s_266f859e6122f5::t_ca9cdfc46d18aa 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_0/rf-edit-0251_qwen_small_natural.json
+  s_266f859e6122f5::t_a65e32a415ff53 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_0/rf-edit-0251_qwen_small_rule_grounded.json
+  s_266f859e6122f5::t_893f49354d23a8 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_0/rf-edit-0255_qwen_small_rule_grounded.json
+  s_266f859e6122f5::t_38ec35682703bb 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_0/rf-edit-0261_qwen_small_natural.json
+  s_266f859e6122f5::t_20eff0d29838da 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_0/rf-edit-0284_qwen_small_natural.json
+  s_266f859e6122f5::t_a603d17cad7aaf 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_1/rf-edit-0016_qwen_small_natural.json
+  s_266f859e6122f5::t_cfa10887109b01 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_1/rf-edit-0051_qwen_small_natural.json
+  s_266f859e6122f5::t_6ffc187fdf626a 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_1/rf-edit-0051_qwen_small_rule_grounded.json
+  s_266f859e6122f5::t_dad2ce77d866c9 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_1/rf-edit-0267_qwen_small_rule_grounded.json
+  s_266f859e6122f5::t_53d317d5f1c998 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_1/rf-edit-0276_qwen_small_rule_grounded.json
+  s_266f859e6122f5::t_969ed8798a997e 1-15
+results/rulefaith/qwen_teacher_raw_responses/shard_1/rf-edit-0292_qwen_small_natural.json
+  s_266f859e6122f5::t_49c68918237d25 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "68bf812e9999988f726ea441bdc052c16217dc73",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
