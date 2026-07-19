@@ -14,7 +14,7 @@ The project could overclaim a method before natural teacher candidates, verifier
 
 ## Git Commit
 
-`2fdb478`
+`3d9598e`
 
 ## Data Version
 
