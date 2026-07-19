@@ -1,0 +1,23 @@
+LICENSE
+  s_266f859e6122f5::t_85f7a38067a2c6 1-201
+README.md
+  s_266f859e6122f5::t_36ef983ee12b65 1,12-13,25,30,34-35,44,46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "4042c9ea0953dc9efe18d7aef1ce839119e0852a",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
