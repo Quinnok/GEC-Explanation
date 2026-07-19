@@ -1,0 +1,373 @@
+configs/rulefaith/gpt55_teacher.yaml
+  s_266f859e6122f5::t_f5efbe46af6525 1-52
+configs/rulefaith/open_teacher.yaml
+  s_266f859e6122f5::t_8e5e98e27cfc1a 1-33
+data/rulefaith/teacher_candidates_pilot.jsonl
+  s_266f859e6122f5::t_02e84cc9ec4b52 1-160
+docs/rulefaith_teacher_data_card.md
+  s_266f859e6122f5::t_508f2d42b9b5c0 1-34
+docs/rulefaith_teacher_prompt.md
+  s_266f859e6122f5::t_fa8159274fdfd3 1-105
+experiments/rulefaith/generate_teacher_candidates.py
+  s_266f859e6122f5::t_2e4a96dc900a70 1-707
+experiments/rulefaith/run_teacher_pilot.sh
+  s_266f859e6122f5::t_8380b9e9d67f20 1-13
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_candidates_pilot.jsonl
+  s_266f859e6122f5::t_e37580788d9f8e 1-160
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_generation_stats.json
+  s_266f859e6122f5::t_4a272e65097c8c 1-30
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_parse_failures.jsonl
+  s_266f859e6122f5::t_147cd5f6601c23 1-160
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0009_open_teacher_natural.json
+  s_266f859e6122f5::t_f51583cb575768 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0009_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_893ba532ef3e77 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0025_open_teacher_natural.json
+  s_266f859e6122f5::t_9a2562fe77a70c 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0025_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_f3ebabf00d51f8 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0051_open_teacher_natural.json
+  s_266f859e6122f5::t_04490f322b3270 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0051_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_fb5a68f5db95c3 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0052_open_teacher_natural.json
+  s_266f859e6122f5::t_72f24d65150df6 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0052_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_3a0ab75f49ffc5 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0150_open_teacher_natural.json
+  s_266f859e6122f5::t_30f53cac5fc471 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0150_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_68820c29c8fedc 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0165_open_teacher_natural.json
+  s_266f859e6122f5::t_3a11fe0bdb577e 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0165_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_39f504887d7e64 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0167_open_teacher_natural.json
+  s_266f859e6122f5::t_5770abd3145248 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0167_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_abbba008141b13 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0170_open_teacher_natural.json
+  s_266f859e6122f5::t_17e33d63973fc4 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0170_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_0f44f148ef18cd 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0231_open_teacher_natural.json
+  s_266f859e6122f5::t_6bfb944eb341c3 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0231_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_fe5ac4eeb07b36 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0234_open_teacher_natural.json
+  s_266f859e6122f5::t_2cd5ddd3ea4dd8 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0234_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_bfd7013857a6d3 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0242_open_teacher_natural.json
+  s_266f859e6122f5::t_59d080ec05ee08 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0242_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_c1bd8ecc58c387 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0257_open_teacher_natural.json
+  s_266f859e6122f5::t_d8fc9d17dd04a3 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0257_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_7e10baca2110b1 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0265_open_teacher_natural.json
+  s_266f859e6122f5::t_d3c7d63f0e988f 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0265_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_c06bf332646fda 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0279_open_teacher_natural.json
+  s_266f859e6122f5::t_21964762d00c35 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0279_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_c96f494ec42c82 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0283_open_teacher_natural.json
+  s_266f859e6122f5::t_a87d94f7dc4cea 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0283_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_c6462a2ab18ac1 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0287_open_teacher_natural.json
+  s_266f859e6122f5::t_8a299583424f9d 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0287_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_19880ba4200108 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0290_open_teacher_natural.json
+  s_266f859e6122f5::t_4eb508f6b32717 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0290_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_761a42c1f3e532 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0291_open_teacher_natural.json
+  s_266f859e6122f5::t_9f77c594934740 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0291_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_5b5090ad22ecd5 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0292_open_teacher_natural.json
+  s_266f859e6122f5::t_70edad71cfc30f 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0292_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_83e8f2dfa57037 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0293_open_teacher_natural.json
+  s_266f859e6122f5::t_1df3066a47eb7d 1-9
+results/rulefaith/failed_runs/open_teacher_flan_small_prompt_v2_weak/teacher_raw_responses/rf-edit-0293_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_85335d4d077435 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_candidates_pilot.jsonl
+  s_266f859e6122f5::t_bf60c31b89338b 1-160
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_generation_stats.json
+  s_266f859e6122f5::t_d63f69f034679b 1-30
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_parse_failures.jsonl
+  s_266f859e6122f5::t_773b42584c1f8d 1-160
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0016_open_teacher_natural.json
+  s_266f859e6122f5::t_d61095c3544e4d 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0016_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_5bed78cb8a931b 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0024_open_teacher_natural.json
+  s_266f859e6122f5::t_e345545667c31d 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0024_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_604abca18a8e2c 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0034_open_teacher_natural.json
+  s_266f859e6122f5::t_f822207307b430 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0034_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_41a50d75c88cab 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0035_open_teacher_natural.json
+  s_266f859e6122f5::t_814072b2f8c408 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0035_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_c8094a00a405f5 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0056_open_teacher_natural.json
+  s_266f859e6122f5::t_8585d6b268f44b 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0056_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_1af29863b86a6c 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0068_open_teacher_natural.json
+  s_266f859e6122f5::t_de6ec98f563dbe 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0068_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_bd6959d25b0ead 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0074_open_teacher_natural.json
+  s_266f859e6122f5::t_46f0c286293dff 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0074_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_83a6a126824b43 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0098_open_teacher_natural.json
+  s_266f859e6122f5::t_e390d164fe1558 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0098_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_6060833c3b8bea 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0107_open_teacher_natural.json
+  s_266f859e6122f5::t_e6601d7e5cff45 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0107_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_ea5c5b8b7506e1 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0118_open_teacher_natural.json
+  s_266f859e6122f5::t_5fc1620296d200 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0118_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_5e4ce126a0496f 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0165_open_teacher_natural.json
+  s_266f859e6122f5::t_3f7e0c4f984752 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0165_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_6020d3c85ba609 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0234_open_teacher_natural.json
+  s_266f859e6122f5::t_661bfb9dadfcf2 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0234_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_dfe73c6a358697 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0242_open_teacher_natural.json
+  s_266f859e6122f5::t_0993ded9c8ef53 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0242_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_864548d63c016f 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0250_open_teacher_natural.json
+  s_266f859e6122f5::t_5f90639087e237 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0250_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_934961ac122c71 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0264_open_teacher_natural.json
+  s_266f859e6122f5::t_a3621ebab01179 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0264_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_d4247e53eb2b3c 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0293_open_teacher_natural.json
+  s_266f859e6122f5::t_cd6fc5abffbe02 1-9
+results/rulefaith/failed_runs/open_teacher_json_prompt_v1/teacher_raw_responses/rf-edit-0293_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_441fe95169689a 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_candidates_pilot.jsonl
+  s_266f859e6122f5::t_59988a3f68194b 1-80
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_generation_stats.json
+  s_266f859e6122f5::t_da1ee653edf4e0 1-29
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_parse_failures.jsonl
+  s_266f859e6122f5::t_9f5eefe8d6cbba 1-80
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0016_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_d80f1112172d95 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0024_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_fad164d97473ec 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0033_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_7b69fdd1f6ce78 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0034_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_db94ec5f8a5e18 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0035_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_0b22e224891fcf 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0056_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_7515c4d6d726a5 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0058_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_3e36158b22833e 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0068_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_447f568c678806 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0074_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_aada22c7c562c7 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0077_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_66a867737be33e 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0081_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_6412eda5ebb139 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0098_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_b6dd6a6e4fa3cd 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0107_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_4af1b9edfeb9c1 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0118_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_c1590d551bc558 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0123_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_a450a50fababd8 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0126_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_17906c3e664058 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0163_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_93c9986b885f98 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0165_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_72f1c6b4126e4c 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0207_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_8a3a6f98c10c47 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0234_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_3f42a30ab24210 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0242_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_a3ad704e18dcaa 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0250_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_b728645e4c263c 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0253_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_84ee51de838d60 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0257_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_29d17ba700ca0e 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0262_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_205833ff2aa0b1 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0264_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_e6209b67ef9936 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0279_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_04984daf4e847b 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0283_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_c4dda6fdf379ca 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0284_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_e0dda7d4b17d90 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0287_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_bb69e01805ef77 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0293_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_d19ea3172d98f3 1-9
+results/rulefaith/failed_runs/open_teacher_plain_prompt_v2_partial/teacher_raw_responses/rf-edit-0294_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_dcf53c7e34f8c5 1-9
+results/rulefaith/teacher_parse_failures.jsonl
+  s_266f859e6122f5::t_fdc73fd0eb8d4e 1-160
+results/rulefaith/teacher_raw_responses/rf-edit-0023_open_teacher_natural.json
+  s_266f859e6122f5::t_8fa1e946774b52 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0023_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_786d12f0e3b4c4 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0033_open_teacher_natural.json
+  s_266f859e6122f5::t_0ee953e6b28ef0 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0033_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_30ab508873f2d1 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0058_open_teacher_natural.json
+  s_266f859e6122f5::t_060fb2eb513707 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0058_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_4e09e25f1c277a 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0062_open_teacher_natural.json
+  s_266f859e6122f5::t_768be48978a8b4 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0062_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_2d6a3986e25b35 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0077_open_teacher_natural.json
+  s_266f859e6122f5::t_347449ff90dcf4 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0077_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_1492d2a20c24f8 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0081_open_teacher_natural.json
+  s_266f859e6122f5::t_424b02a1c31faf 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0081_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_b6e4f34fa33b47 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0092_open_teacher_natural.json
+  s_266f859e6122f5::t_d3541088ccfc14 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0092_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_eccb5e07a23910 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0111_open_teacher_natural.json
+  s_266f859e6122f5::t_904d25d7a35af1 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0111_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_a1f6b9d5d3f87f 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0125_open_teacher_natural.json
+  s_266f859e6122f5::t_7ec20d4662cafa 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0125_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_4495d9c6162e12 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0129_open_teacher_natural.json
+  s_266f859e6122f5::t_0fd83b9954df4e 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0129_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_69cc26b0fdbfe9 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0137_open_teacher_natural.json
+  s_266f859e6122f5::t_4e04a17991a9ff 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0137_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_0dd30424297226 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0141_open_teacher_natural.json
+  s_266f859e6122f5::t_1ae7d08cdc0990 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0141_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_52d16ca124bd5d 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0147_open_teacher_natural.json
+  s_266f859e6122f5::t_ce035663472fc9 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0147_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_e5e9d819d76771 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0151_open_teacher_natural.json
+  s_266f859e6122f5::t_3fa09e5e9fc0c6 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0151_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_23605eefd163db 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0158_open_teacher_natural.json
+  s_266f859e6122f5::t_116ec8e685c9ba 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0158_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_3b1bcbdbb7944f 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0165_open_teacher_natural.json
+  s_266f859e6122f5::t_689379e09c9dee 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0165_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_6f50247efd0eed 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0178_open_teacher_natural.json
+  s_266f859e6122f5::t_ec6799a5e49a62 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0178_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_dda67caf899240 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0183_open_teacher_natural.json
+  s_266f859e6122f5::t_c9f179d123c437 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0183_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_f10d3cea36b474 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0217_open_teacher_natural.json
+  s_266f859e6122f5::t_872c9d7b84384c 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0217_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_0b5b04aa1ea61b 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0225_open_teacher_natural.json
+  s_266f859e6122f5::t_c017ff6eec229a 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0225_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_c0b9b9f68ce666 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0234_open_teacher_natural.json
+  s_266f859e6122f5::t_3be193be3d3e33 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0234_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_f4b8a35491f399 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0236_open_teacher_natural.json
+  s_266f859e6122f5::t_0625a93372c226 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0236_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_d3360d0a451e80 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0242_open_teacher_natural.json
+  s_266f859e6122f5::t_6680de917eacf6 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0242_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_870cd81ca8f21e 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0248_open_teacher_natural.json
+  s_266f859e6122f5::t_d348a47df26797 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0248_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_610fd5f31f18ab 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0251_open_teacher_natural.json
+  s_266f859e6122f5::t_3655264eb8e371 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0251_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_ce0691803c1776 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0276_open_teacher_natural.json
+  s_266f859e6122f5::t_4f33c6147aeb29 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0276_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_f2bdd821ee9fe2 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0277_open_teacher_natural.json
+  s_266f859e6122f5::t_30d27bec7f21c8 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0277_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_f5ae7276f39496 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0293_open_teacher_natural.json
+  s_266f859e6122f5::t_ddf662883a9d06 1-9
+results/rulefaith/teacher_raw_responses/rf-edit-0293_open_teacher_rule_grounded.json
+  s_266f859e6122f5::t_7674c04c17d729 1-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "d2c34c314a00574301fc7f60cb0f735571652547",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
