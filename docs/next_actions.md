@@ -4,15 +4,15 @@ Last updated: 2026-07-20
 
 ## Next Highest-Priority Loop
 
-Hand off the canonicalized Qwen3 blind audit package to a real human auditor, then use those labels to revise the evidence verifier and refinement strategy.
+Send the prepared canonicalized Qwen3 blind audit package to a real human auditor, then validate and merge the completed labels.
 
 ## Required Work
 
-1. Send `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_form.csv` and `annotation/rulefaith_qwen3_audit_canonicalized/guidelines.md` to a real human auditor.
+1. Send only `annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip` to a real human auditor.
 2. Keep `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_key.csv` hidden until after annotation.
-3. Collect all human issue flags, notes, and `human_decision`.
-4. Merge the completed audit with `manual_audit_key.csv`.
-5. Use human audit outcomes to update the evidence verifier and decide whether any canonicalized Qwen3 candidates can become positives.
+3. Save the completed form as `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_completed.csv`.
+4. Run `python3 experiments/rulefaith/validate_qwen3_human_audit.py --form annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_completed.csv --key annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_key.csv --merged-output annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_merged_with_key.csv --summary-output results/rulefaith/qwen3_human_audit_validation_summary.json --report-output results/rulefaith/qwen3_human_audit_validation_report.md --overwrite`.
+5. Use validated human audit outcomes to update the evidence verifier and decide whether any canonicalized Qwen3 candidates can become positives.
 6. If evidence quality remains weak, redesign the refiner prompt or move to a stronger teacher before preference construction.
 
 ## Do Not Do Yet

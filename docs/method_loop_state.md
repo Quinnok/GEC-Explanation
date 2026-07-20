@@ -12,7 +12,7 @@ Stress-test paper frozen at commit `4519543060cbaff49806fd9963412f4ca4ab83c0`.
 
 ## Current Round
 
-Loop D evidence refinement probe: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has stricter evidence-span diagnostics, a canonicalized blind 80-row human audit package, deterministic evidence-span canonicalization, and a 20-edit canonicalization-plus-refinement probe.
+Loop E Qwen3 human-audit handoff: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has stricter evidence-span diagnostics, deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, and a packaged 80-row blind human audit handoff.
 
 ## Highest-Priority Problem
 
@@ -39,7 +39,8 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Qwen3 prompt-v2 smoke tests: the 1-candidate smoke and 10-candidate smoke both parsed successfully. Smoke10 has 0/10 prediction-only evidence, but only 3/10 contextual source-evidence candidates and 6/10 wrong-evidence flags.
 - Loop C targeted evidence refinement: compact Qwen3 evidence-only repair parsed 7/7 selected smoke outputs but improved contextual evidence 0/7 -> 0/7, mostly clearing evidence spans. Deterministic evidence-span canonicalization on smoke10 improved contextual source evidence 3/10 -> 8/10 and wrong-evidence flags 6/10 -> 0/10 without prediction-only regression. Full-pool post-canonicalization strict audit improved all-spans source-index match 20/160 -> 155/160, contextual source evidence 24/160 -> 82/160, and wrong-evidence flags 141/160 -> 29/160. Canonicalized prefilter buckets are accepted 34, refine 67, rejected 59.
 - Loop D evidence refinement probe20: selected 20 evidence-risk candidates across 20 unique edits from the canonicalized pool and ran Qwen3 targeted repair. Outputs parsed 20/20, but contextual evidence fell 7/20 -> 2/20 and missing evidence rose 13/20 -> 18/20. Refined-output canonicalization did not recover contextual evidence.
+- Loop E Qwen3 human-audit handoff: packaged `qwen3_canonicalized_human_audit_package.zip` with only README, guidelines, and blind form; excluded `manual_audit_key.csv`; added validation/merge tooling for the completed human audit.
 
 ## Next Internal Action
 
-Send the canonicalized blind audit package to a real human auditor, then use audit results to revise the evidence verifier/refinement strategy. Do not enter SFT or preference construction until this quality gate is closed.
+Wait for the completed real-human audit. After it returns, validate and merge it with `experiments/rulefaith/validate_qwen3_human_audit.py`, then revise the evidence verifier/refinement strategy. Do not enter SFT or preference construction until this quality gate is closed.

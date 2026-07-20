@@ -387,3 +387,45 @@ Validation:
 
 - `python3 -m py_compile experiments/rulefaith/build_evidence_refinement_probe.py experiments/rulefaith/compare_evidence_refinement_probe.py experiments/rulefaith/refine_qwen3_evidence.py experiments/rulefaith/canonicalize_evidence_spans.py` passed.
 - `python3 -m unittest experiments.tests.test_evidence_refinement_probe_selection experiments.tests.test_qwen3_evidence_refinement experiments.tests.test_evidence_span_canonicalizer` passed, 9 tests.
+
+## 2026-07-20 Loop E Qwen3 Human Audit Handoff
+
+Objective: prepare a safe blind package for the real-human audit and add tooling to validate and merge the completed audit.
+
+Implemented:
+
+- `experiments/rulefaith/prepare_qwen3_audit_handoff.py`
+- `experiments/rulefaith/validate_qwen3_human_audit.py`
+- `experiments/tests/test_qwen3_human_audit_tools.py`
+
+Generated:
+
+- `annotation/rulefaith_qwen3_audit_canonicalized/handoff_package/`
+- `annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip`
+- `annotation/rulefaith_qwen3_audit_canonicalized/handoff_manifest.json`
+- `annotation/rulefaith_qwen3_audit_canonicalized/handoff_manifest.md`
+- `results/rulefaith/qwen3_human_audit_validation_summary.json`
+- `results/rulefaith/qwen3_human_audit_validation_report.md`
+- `docs/rulefaith_loop_E_qwen3_human_audit_handoff.md`
+
+Verified handoff package:
+
+- Rows in blind form: 80.
+- Candidate IDs match hidden key: yes.
+- Hidden key columns in blind form: none.
+- Human annotation cells filled before handoff: 0.
+- Human annotation cells blank before handoff: 960.
+- Zip contents: `README_FOR_AUDITOR.md`, `guidelines.md`, `manual_audit_form.csv`.
+- Zip SHA256: `5d0cd63b24e9590a306929201206e9ca532d3585f04c4a49afdafacdf3cf46ad`.
+- `manual_audit_key.csv` is intentionally excluded from the package.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/prepare_qwen3_audit_handoff.py experiments/rulefaith/validate_qwen3_human_audit.py` passed.
+- `python3 -m unittest experiments.tests.test_qwen3_human_audit_tools` passed, 3 tests.
+- `python3 -m unittest discover -s experiments/tests` passed, 27 tests.
+- `git diff --check` passed.
+- `python3 -m pytest -q` could not run because `pytest` is not installed in the current shell.
+- Current blank form validation returns `waiting_for_human_completion`.
+
+Decision: all non-human handoff work is complete. Qwen3 positive-data construction is now blocked on the real human audit.

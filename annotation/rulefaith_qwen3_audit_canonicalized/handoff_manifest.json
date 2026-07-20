@@ -1,0 +1,39 @@
+{
+  "audit_dir": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit_canonicalized",
+  "auditor_files": [
+    {
+      "filename": "README_FOR_AUDITOR.md",
+      "sha256": "88ad50cc9a3c4ba907094c8316ac1a6c3751f97f827aee37360562d3cd175030",
+      "size_bytes": 1731
+    },
+    {
+      "filename": "guidelines.md",
+      "sha256": "058c0a65997acf76427357aa07a821973fb822ab3caed3439453f46af2f9f400",
+      "size_bytes": 3074
+    },
+    {
+      "filename": "manual_audit_form.csv",
+      "sha256": "5d9f42d973bd3de3c0e5ef5ae86b8709e4b716fdd3ddd1fecabe4e0c8947a4c7",
+      "size_bytes": 82611
+    }
+  ],
+  "decision": "ready_for_human_auditor_handoff",
+  "expected_rows": 80,
+  "generated_at": "2026-07-20T15:12:18+00:00",
+  "git_commit": "e21c0cf",
+  "hidden_key_file_kept_out_of_package": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_key.csv",
+  "manifest_file": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit_canonicalized/handoff_manifest.json",
+  "package_dir": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit_canonicalized/handoff_package",
+  "report_file": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit_canonicalized/handoff_manifest.md",
+  "validation": {
+    "candidate_id_count": 80,
+    "hidden_key_columns_in_form": [],
+    "human_annotation_cells_blank": 960,
+    "human_annotation_cells_filled": 0,
+    "key_row_count": 80,
+    "row_count": 80
+  },
+  "zip_file": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip",
+  "zip_sha256": "5d0cd63b24e9590a306929201206e9ca532d3585f04c4a49afdafacdf3cf46ad",
+  "zip_size_bytes": 16120
+}
