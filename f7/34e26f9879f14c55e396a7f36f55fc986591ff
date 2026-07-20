@@ -1,0 +1,71 @@
+annotation/qwen3_codex_annotation_data_card.md
+  s_266f859e6122f5::t_f9f3d2a24af307 1-76
+annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled.csv
+  s_266f859e6122f5::t_c224e364ce54e0 1-81
+annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled_merged_with_key.csv
+  s_266f859e6122f5::t_8e44ed5621aa39 1-81
+annotation/rulefaith_qwen3_audit/manual_audit_completed_by_codex.csv
+  s_266f859e6122f5::t_79504a6fe696c8 1-81
+annotation/rulefaith_qwen3_audit/manual_audit_completed_by_codex_merged_with_key.csv
+  s_266f859e6122f5::t_850a2f5dd6930f 1-81
+annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_completed_by_codex.csv
+  s_266f859e6122f5::t_dd6c5f74e8c0a2 1-81
+annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_completed_by_codex_merged_with_key.csv
+  s_266f859e6122f5::t_fe357f48cb6e70 1-81
+docs/current_status.md
+  s_266f859e6122f5::t_e3a53bf764ad73 15,27,31,38,43,51
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_184a624263f3c2 20
+docs/method_decision_log.md
+  s_266f859e6122f5::t_e7b5ece9a8e711 19
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_931cf060b8e357 501-553
+docs/method_loop_state.md
+  s_266f859e6122f5::t_2a68211ee90310 15,26,45,49
+docs/method_open_issues.md
+  s_266f859e6122f5::t_06d1ee4391b76b 11,30
+docs/next_actions.md
+  s_266f859e6122f5::t_93fe61bc81aa9a 7,11-15,21
+docs/research_decisions.md
+  s_266f859e6122f5::t_6395e2efeebd62 16
+docs/rulefaith_loop_G_complete_codex_audit_forms.md
+  s_266f859e6122f5::t_bae67cae84b701 1-62
+results/rulefaith/qwen3_canonicalized_codex_completed_validation_report.md
+  s_266f859e6122f5::t_2d6bc3b42d0da9 1-32
+results/rulefaith/qwen3_canonicalized_codex_completed_validation_summary.json
+  s_266f859e6122f5::t_5c136cd6757f5b 1-59
+results/rulefaith/qwen3_precano_codex_completed_validation_report.md
+  s_266f859e6122f5::t_cd519c23e8e709 1-32
+results/rulefaith/qwen3_precano_codex_completed_validation_summary.json
+  s_266f859e6122f5::t_019ab919731a15 1-57
+results/rulefaith/qwen3_precano_codex_prelabeled_audit_report.md
+  s_266f859e6122f5::t_4baecd71f80f44 1-229
+results/rulefaith/qwen3_precano_codex_prelabeled_audit_summary.json
+  s_266f859e6122f5::t_c3579df53f5ba2 1-57
+results/rulefaith/qwen3_precano_codex_prelabeled_breakdown.json
+  s_266f859e6122f5::t_597944a87ca68b 1-187
+results/rulefaith/qwen3_precano_codex_prelabeled_breakdown.md
+  s_266f859e6122f5::t_5aa26f951ad9ec 1-104
+results/rulefaith/qwen3_precano_codex_prelabeled_validation_report.md
+  s_266f859e6122f5::t_42bd1ba894c19b 1-32
+results/rulefaith/qwen3_precano_codex_prelabeled_validation_summary.json
+  s_266f859e6122f5::t_0731c6e03b4a51 1-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "f734e26f9879f14c55e396a7f36f55fc986591ff",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
