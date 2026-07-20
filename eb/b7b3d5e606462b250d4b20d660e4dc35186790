@@ -1,0 +1,59 @@
+annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_codex_prelabeled.csv
+  s_266f859e6122f5::t_5946ee0bf3c5ad 1-81
+annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_codex_prelabeled_merged_with_key.csv
+  s_266f859e6122f5::t_d79ea01397e954 1-81
+docs/current_status.md
+  s_266f859e6122f5::t_d7e4ec0302a0e9 3,11,15,26,30,37,42,50
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_19262e073f2c9d 20
+docs/method_decision_log.md
+  s_266f859e6122f5::t_bf19fde5cf595a 18
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_48bd212879d2df 432-500
+docs/method_loop_state.md
+  s_266f859e6122f5::t_cb5a889ec83157 3,15,26,44,48
+docs/method_open_issues.md
+  s_266f859e6122f5::t_f1a76469d85e99 3,11,30
+docs/next_actions.md
+  s_266f859e6122f5::t_520160d0403771 3,7,11-18,24
+docs/research_decisions.md
+  s_266f859e6122f5::t_d4b1697b40f0eb 3,15
+docs/rulefaith_loop_F_codex_audit_prelabelling.md
+  s_266f859e6122f5::t_687889520c975d 1-82
+experiments/rulefaith/prefill_qwen3_audit_codex.py
+  s_266f859e6122f5::t_353b7f0262bdd5 1-241
+experiments/rulefaith/summarize_qwen3_prelabeled_audit.py
+  s_266f859e6122f5::t_21278d9773119f 1-155
+experiments/tests/test_qwen3_codex_prelabelling.py
+  s_266f859e6122f5::t_57c1185d69ceb1 1-77
+results/rulefaith/qwen3_codex_prelabeled_audit_report.md
+  s_266f859e6122f5::t_465acb91a5d8f5 1-229
+results/rulefaith/qwen3_codex_prelabeled_audit_summary.json
+  s_266f859e6122f5::t_dfd05a545573c7 1-59
+results/rulefaith/qwen3_codex_prelabeled_breakdown.json
+  s_266f859e6122f5::t_95a48fac51d340 1-185
+results/rulefaith/qwen3_codex_prelabeled_breakdown.md
+  s_266f859e6122f5::t_ea35b9e91a9013 1-103
+results/rulefaith/qwen3_codex_prelabeled_validation_report.md
+  s_266f859e6122f5::t_94571309f92afa 1-32
+results/rulefaith/qwen3_codex_prelabeled_validation_summary.json
+  s_266f859e6122f5::t_859279c6344e33 1-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ebb7b3d5e606462b250d4b20d660e4dc35186790",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
