@@ -1,0 +1,51 @@
+docs/claim_evidence_matrix.md
+  s_266f859e6122f5::t_b5f9af9558d069 48-57
+docs/current_status.md
+  s_266f859e6122f5::t_861625104a4079 1-44
+docs/failed_experiments.md
+  s_266f859e6122f5::t_60d7150a3bd1de 1-9
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_0712a95cd69680 7-20
+docs/method_decision_log.md
+  s_266f859e6122f5::t_5a904e59dadaf1 13
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_f64701ce60903f 149-185
+docs/method_loop_state.md
+  s_266f859e6122f5::t_594debe00eef4b 7,15,25,37,41
+docs/method_open_issues.md
+  s_266f859e6122f5::t_47df9d2cecb6b0 11-12,23
+docs/next_actions.md
+  s_266f859e6122f5::t_006ed5e97b3287 1-21
+docs/research_decisions.md
+  s_266f859e6122f5::t_3af245c581dccb 1-9
+docs/rulefaith_loop_A_qwen3_audit.md
+  s_266f859e6122f5::t_3fc9220697056f 1-84
+experiments/rulefaith/build_qwen3_manual_audit.py
+  s_266f859e6122f5::t_591140b22e24a0 1-766
+experiments/tests/test_qwen3_manual_audit.py
+  s_266f859e6122f5::t_f0763301b950ea 1-57
+results/rulefaith/qwen3_manual_audit.csv
+  s_266f859e6122f5::t_089ce09f38058b 1-161
+results/rulefaith/qwen3_manual_audit_cases.md
+  s_266f859e6122f5::t_1175b76e1fae63 1-357
+results/rulefaith/qwen3_manual_audit_summary.json
+  s_266f859e6122f5::t_8e1a443e5cfffa 1-117
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "a8549e50d8280ede1535f43f48b354c43aa6b7c7",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
