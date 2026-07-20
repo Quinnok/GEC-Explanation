@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nTechnology will have advanced and maybe the cars will fly above streets and computers will have totally changed .\n\nMODEL_PREDICTION:\nTechnology will have advanced, and maybe cars will fly above the streets, and computers will have totally changed.\n\nMODEL_EDIT:\noperation=replace\nspan=[11,12)\nsource_text=streets\ntarget_text=streets,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"streets\" with \"streets,\" at source token span [11,12). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Adding a comma after 'streets'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_comma_usage\",\n  \"rule_text\": \"A comma should be used to separate independent clauses or items in a list when clarity is needed.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"and maybe cars will fly above the streets, and computers will have totally changed\",\n      \"start\": 11,\n      \"end\": 12,\n      \"role\": \"modified\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the sentence contains multiple independent clauses connected by conjunctions\",\n    \"clarity is required to distinguish between clauses\"\n  ],\n  \"rationale\": \"The addition of a comma after 'streets' serves to separate the clause 'cars will fly above the streets' from the following clause 'computers will have totally changed', improving readability and adhering to standard punctuation rules for compound sentences.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-df5f7d5c-719b-498d-a380-2c7fe17fa017",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 383,
+    "output_tokens": 237,
+    "total_tokens": 620
+  }
+}

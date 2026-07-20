@@ -1,0 +1,63 @@
+created: "2026-07-19"
+branch: "method/rulefaith-gec"
+score_variants:
+  equal_weight:
+    alignment: 1.0
+    validity: 1.0
+    rule: 1.0
+    evidence: 1.0
+    counterfactual: 1.0
+    specificity: 1.0
+    leakage_penalty: 1.0
+    genericness_penalty: 1.0
+  learned_weight:
+    tuning_split: "dev"
+    forbidden_split: "test"
+    report_alongside_equal_weight: true
+primary_tasks:
+  edit_alignment:
+    positive: ["correct", "partially_correct"]
+    negative: ["incorrect"]
+    uncertain_policy: "exclude_with_count"
+  edit_validity:
+    positive: ["valid", "acceptable_alternative"]
+    negative: ["invalid", "stylistic"]
+    uncertain_policy: "exclude_with_count"
+  rule_correctness:
+    positive: ["correct", "partially_correct"]
+    negative: ["incorrect", "not_applicable"]
+    uncertain_policy: "exclude_with_count"
+  evidence_correctness:
+    positive: ["correct", "partially_correct"]
+    negative: ["incorrect", "not_provided"]
+    uncertain_policy: "exclude_with_count"
+  overall_faithfulness:
+    positive: ["faithful", "partially_faithful"]
+    negative: ["unfaithful"]
+    ordinal:
+      faithful: 2
+      partially_faithful: 1
+      unfaithful: 0
+report_metrics:
+  - accuracy
+  - macro_f1
+  - classwise_precision_recall_f1
+  - auroc
+  - auprc
+  - spearman
+  - kendall_b
+  - pairwise_ranking_accuracy
+  - grouped_bootstrap_95ci
+grouping:
+  bootstrap_unit: "source_sentence_or_edit_cluster"
+  required_breakdowns:
+    - dataset
+    - corrector
+    - model_behavior
+    - error_type
+    - edit_operation
+    - edit_validity
+    - explanation_source
+    - rule_provided
+    - evidence_provided
+

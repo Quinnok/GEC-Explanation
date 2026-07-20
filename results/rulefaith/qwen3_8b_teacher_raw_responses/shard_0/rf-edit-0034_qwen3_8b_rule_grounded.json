@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nimage you salf you are wark in factory just to do one thing like pot taire on car if they fire you you will destroy , becouse u dont know more than pot taire in car . \n\nMODEL_PREDICTION:\nImagine working in a factory just to do one thing , like potting taire on a car . If they fire you , you will destroy it , because you do know more than potting taire on a car .\n\nMODEL_EDIT:\noperation=replace\nspan=[14,15)\nsource_text=pot\ntarget_text=potting\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"pot\" with \"potting\" at source token span [14,15). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'pot' with 'potting' to correct the verb form.\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"grammar_verb_inflection\",\n  \"rule_text\": \"Verbs should be correctly inflected to match the context and intended meaning.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"pot\",\n      \"start\": 14,\n      \"end\": 15,\n      \"role\": \"error\"\n    },\n    {\n      \"text\": \"potting\",\n      \"start\": 14,\n      \"end\": 20,\n      \"role\": \"correction\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The verb is used in a context where the gerund or -ing form is required.\",\n    \"The original form is a base verb that does not fit the grammatical structure.\"\n  ],\n  \"rationale\": \"The word 'pot' is a base verb, but in this context, the correct form should be 'potting' to indicate the ongoing action of potting tires on a car. This change ensures grammatical accuracy and clarity.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-b2f5017f-9817-4e93-9967-a562d9ed185a",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 431,
+    "output_tokens": 272,
+    "total_tokens": 703
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Computers have had a most significant impact on the people in the latter 1/2 of the 20th century .\nModel prediction: Using the Internet for the first time since the beginning of the 20th century.\nCurrent edit: replacing \"latter 1/2\" with \"beginning\" at source token span [12,14).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"beginning\" is a contraction of the verb \"to begin\" and \"to end\".",
+  "request_id": "local-96a30a7d-7be7-4d5c-9fad-e79582557265",
+  "teacher_model": "google/flan-t5-base"
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nWe have to know this problem it 's serious but almost people doens't know about this . \n\nMODEL_PREDICTION:\nWe should know about this problem . It 's serious , but most people do know about it .\n\nMODEL_EDIT:\noperation=replace\nspan=[10,11)\nsource_text=almost\ntarget_text=most\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"almost\" with \"most\" at source token span [10,11). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'almost' with 'most' to indicate a majority rather than a near-complete lack.\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"grammar_conjunction_usage\",\n  \"rule_text\": \"Use 'most' to indicate a majority when referring to a group, and 'almost' to indicate something is nearly complete.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"almost\",\n      \"start\": 10,\n      \"end\": 14,\n      \"role\": \"error\"\n    },\n    {\n      \"text\": \"doens't\",\n      \"start\": 15,\n      \"end\": 23,\n      \"role\": \"spelling\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The sentence refers to a group of people\",\n    \"The intended meaning is that most people are aware\",\n    \"The original phrase uses 'almost' incorrectly\"\n  ],\n  \"rationale\": \"The word 'almost' is used incorrectly in the context of indicating a majority. 'Most' is the appropriate term to convey that the majority of people are aware of the issue, which aligns with the intended meaning of the sentence.\",\n  \"confidence\": 0.9,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-d2670c70-cc33-43f1-9bbb-ecae5b56d18b",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 382,
+    "output_tokens": 284,
+    "total_tokens": 666
+  }
+}

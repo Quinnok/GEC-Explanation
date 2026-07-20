@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Third the butt it in hte front of the door of store to make the poeple see it even if it is not good \nModel prediction: Third, they put it in front of the door of the store to make the people see it, even if it is not good.\nCurrent edit: replacing \"the\" with \"they\" at source token span [1,2).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "They will be able to see it, even if it is not good.",
+  "request_id": "local-be0787dc-7b98-48aa-a975-7389b7babaa8",
+  "teacher_model": "google/flan-t5-small"
+}

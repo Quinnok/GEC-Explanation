@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nEveryone should develop their awareness of public manner .\n\nMODEL_PREDICTION:\nThe goal is to develop their awareness of the public manner.\n\nMODEL_EDIT:\noperation=replace\nspan=[1,2)\nsource_text=should\ntarget_text=is to\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"should\" with \"is to\" at source token span [1,2). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'should' with 'is to' at source token span [1,2).\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"The goal is to develop their awareness of the public manner.\",\n  \"evidence_spans\": [\n    {\"text\": \"Everyone should develop\", \"start\": 1, \"end\": 5, \"role\": \"subject\"},\n    {\"text\": \"their awareness of\", \"start\": 6, \"end\": 11, \"role\": \"object\"}\n  ],\n  \"applicability_conditions\": [\"should\", \"is to\"],\n  \"rationale\": \"The sentence structure needs to be changed from 'Everyone should develop their awareness of public manner' to 'Everyone should develop their awareness of the public manner'. The word order and placement of 'public' need to be adjusted.\",\n  \"confidence\": \"valid\",\n  \"abstain\": \"false\"\n}\n```",
+  "request_id": "qwen-local-4bd1f329-0368-4266-95e1-b30200df69c0",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 339,
+    "output_tokens": 214,
+    "total_tokens": 553
+  }
+}

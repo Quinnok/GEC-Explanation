@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nThird the butt it in hte front of the door of store to make the poeple see it even if it is not good \n\nMODEL_PREDICTION:\nThird, they put it in front of the door of the store to make the people see it, even if it is not good.\n\nMODEL_EDIT:\noperation=replace\nspan=[1,2)\nsource_text=the\ntarget_text=they\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-6c607c17-c2bc-4ba6-858d-75bc55543f55",
+  "teacher_model": "google/flan-t5-small"
+}

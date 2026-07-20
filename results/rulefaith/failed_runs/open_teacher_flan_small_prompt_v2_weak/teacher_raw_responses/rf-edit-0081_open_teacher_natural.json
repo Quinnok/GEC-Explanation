@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: He has ever been with me .\nModel prediction: He has always been with me .\nCurrent edit: replacing \"ever\" with \"always\" at source token span [2,3).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "he will be able to do a grammatical error correction.",
+  "request_id": "local-48ba5ae3-6924-4ab8-8f8c-c337e79a9d62",
+  "teacher_model": "google/flan-t5-small"
+}

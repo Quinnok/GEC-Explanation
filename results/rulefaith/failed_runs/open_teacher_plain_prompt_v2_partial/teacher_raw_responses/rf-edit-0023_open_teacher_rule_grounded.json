@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Beacuse all those broad knowledge help they to understand their major in university as well as help they to make a correct choice in specializing study . \nModel prediction: Because all this broad knowledge helps them to understand their major at university , as well as helps them to make a correct choice specializing in studies .\nCurrent edit: replacing \"in specializing\" with \"specializing in\" at source token span [23,25).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a specializing in a library",
+  "request_id": "local-fcb151e4-5952-41ae-a09c-c8ef8badbf89",
+  "teacher_model": "google/flan-t5-small"
+}

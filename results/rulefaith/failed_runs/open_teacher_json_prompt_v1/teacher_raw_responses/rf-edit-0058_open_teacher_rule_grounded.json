@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nVariety of buses are provided by the government in order to meet people 's financial means .\n\nMODEL_PREDICTION:\nA variety of buses are provided by the government in order to meet people 's financial means .\n\nMODEL_EDIT:\noperation=replace\nspan=[0,1)\nsource_text=Variety\ntarget_text=A variety\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) e) g) h) iii)",
+  "request_id": "local-f96641ed-3030-40b3-b12d-dcd4b205835d",
+  "teacher_model": "google/flan-t5-small"
+}

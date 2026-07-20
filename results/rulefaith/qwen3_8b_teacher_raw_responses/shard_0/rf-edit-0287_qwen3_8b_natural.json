@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nwe think that in the future the planet will be in a bad condition and the trees will be dissappearing , after that we will have wars .\n\nMODEL_PREDICTION:\nWe think that in the future, the planet will be in a bad condition and the trees will be dissappearing. After that, we will have wars.\n\nMODEL_EDIT:\noperation=replace\nspan=[5,6)\nsource_text=future\ntarget_text=future,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"future\" with \"future,\" at source token span [5,6). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Adding a comma after 'future'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_comma_after_introduction\",\n  \"rule_text\": \"A comma should follow introductory words or phrases such as 'in the future' when they are followed by a complete sentence.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"future\",\n      \"start\": 5,\n      \"end\": 10,\n      \"role\": \"introduced_phrase\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the phrase introduces a clause or sentence\",\n    \"the phrase is followed by a complete sentence\",\n    \"the phrase is not part of a list or enumeration\"\n  ],\n  \"rationale\": \"The phrase 'in the future' is an introductory element followed by a complete sentence. Adding a comma after it improves clarity and adheres to standard punctuation rules for introductory phrases.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-3ac56ada-e80f-470e-9cff-e4cd37281e6d",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 397,
+    "output_tokens": 227,
+    "total_tokens": 624
+  }
+}

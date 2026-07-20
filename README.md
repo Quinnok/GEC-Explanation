@@ -10,7 +10,8 @@ This repository is an executable research workspace for an AAAI-style paper on e
 - Data sources: EXPECT and JFLEG, with license notes in `docs/license_report.md` and `docs/license_summary.md`.
 - Model families: GECToR, T5 grammar correction, and a small CoEdIT-large instruction-following branch.
 - Human-adjudicated stress-test labels: 160 edit-explanation items labeled by two independent human annotators and resolved by a human third-party adjudicator; see `annotation/round15/annotation_v2_data_card.md`.
-- Current paper framing: human-adjudicated metric stress testing. Reverse reconstruction is treated as an edit-alignment diagnostic, not a complete faithfulness metric.
+- Current paper framing: transitioning from human-adjudicated metric stress testing to `RuleFaith-GEC`, a verifier-guided method for generating more faithful edit-level GEC explanations.
+- Active method branch: `method/rulefaith-gec`, with Qwen3-8B open-teacher pilots, verifier filtering, and method-branch preregistration.
 
 ## Main Reproduction Commands
 
@@ -24,6 +25,32 @@ EDIT_LIMIT=80 LLM_JUDGE_LIMIT=2000 RUN_LOCAL_LLM_JUDGE=1 bash experiments/run_ro
 bash experiments/run_round12.sh
 bash experiments/run_round15.sh
 ```
+
+Method-branch work starts from:
+
+```bash
+git checkout method/rulefaith-gec
+```
+
+Open-teacher method pilots:
+
+```bash
+RULEFAITH_TEACHER_PROVIDER=open_teacher RULEFAITH_TEACHER_LIMIT=80 bash experiments/rulefaith/run_teacher_pilot.sh
+HF_HUB_DISABLE_XET=1 RULEFAITH_QWEN_SHARDS=2 bash experiments/rulefaith/run_qwen_teacher_pilot.sh
+HF_HUB_DISABLE_XET=1 RULEFAITH_QWEN3_SHARDS=1 bash experiments/rulefaith/run_qwen3_8b_teacher_pilot.sh
+```
+
+The Qwen2.5 branch is retained as a weak open-teacher baseline. The current local open-teacher branch uses `Qwen/Qwen3-8B` with thinking disabled. Qwen outputs are model-generated candidate explanations, not human gold, and must pass RuleFaith filtering and manual spot checks before use as training positives.
+
+## RuleFaith Method Status
+
+The method branch currently includes:
+
+- A 300-edit RuleFaith method pool over EXPECT/JFLEG and GECToR/T5/CoEdIT model-produced edits.
+- Human-calibrated verifier diagnostics from the Round 15 pressure-test labels.
+- FLAN-T5, Qwen2.5, and Qwen3-8B open-teacher candidate pilots.
+- Qwen3-8B no-thinking pilot: 160 candidates for 80 edits; conservative prefilter accepted 41, marked 63 for refinement, and rejected 56.
+- Next step: verifier-guided refinement and manual spot-checking of Qwen3-8B accepted/refine candidates before SFT or preference training.
 
 ## Important Boundaries
 

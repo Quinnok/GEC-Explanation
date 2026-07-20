@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Students can focus on only a few subjects they are intwerested in and they will become an experts in those areas . \nModel prediction: Students can focus on only a few subjects they are interested in and they will become experts in those areas .\nCurrent edit: deleting \"an\" at source token span [16,17).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "A grammatical error occurs when a word is spelled incorrectly.",
+  "request_id": "local-1f8f6b17-4ec4-4193-9f92-120117cd6415",
+  "teacher_model": "google/flan-t5-base"
+}

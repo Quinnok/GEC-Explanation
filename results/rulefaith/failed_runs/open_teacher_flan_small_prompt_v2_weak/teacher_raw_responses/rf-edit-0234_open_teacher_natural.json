@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Additionally , people now continue to destroy more agricultures and forest in order to satisfy all their needs , which will distory the ecosystem diversity and biodiversity especially the endangered species .\nModel prediction: Additionally, people now continue to destroy more agriculture and forest in order to satisfy all their needs, which will discredit the ecosystem diversity and biodiversity, especially the endangered species.\nCurrent edit: replacing \"agricultures\" with \"agriculture\" at source token span [8,9).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "he will be able to help him.",
+  "request_id": "local-7ff89376-043f-4525-bd9d-983cfbd39e0d",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nA worldwide war is the only case in which we would see a dramatic change in peoples lives in the time length of 50 years from now .\n\nMODEL_PREDICTION:\nA worldwide war is the only case in which we will see a dramatic change in peoples ' lives in 50 years from now .\n\nMODEL_EDIT:\noperation=insert\nspan=[17,17)\nsource_text=\ntarget_text='\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: insert \"'\" at source token span [17,17). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Insert an apostrophe after 'peoples' to form the possessive form 'peoples' correctly.\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_ownership\",\n  \"rule_text\": \"Use an apostrophe to indicate possession in plural nouns.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"peoples\",\n      \"start\": 17,\n      \"end\": 23,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the noun is plural\",\n    \"the noun is being used to show possession\",\n    \"the noun is not a proper noun\"\n  ],\n  \"rationale\": \"The word 'peoples' is a plural noun and requires an apostrophe to indicate possession. The insertion of the apostrophe is a stylistic choice to ensure grammatical correctness in the possessive form.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-b2df3866-afaf-4a07-84d9-7b0ae26620fd",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 389,
+    "output_tokens": 225,
+    "total_tokens": 614
+  }
+}

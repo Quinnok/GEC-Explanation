@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: i love my family especially my little sister , she has sixteen years old , i consider her my best friend because i usually tell her everything about my life .\nModel prediction: I love my family, especially my little sister. She is sixteen years old. I consider her my best friend because I usually tell her everything about my life.\nCurrent edit: replacing \"sister\" with \"sister.\" at source token span [7,8).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model edits the grammar or usage rule.",
+  "request_id": "local-b2e1adc9-4688-4f1b-a2b4-185b72d8f9e6",
+  "teacher_model": "google/flan-t5-small"
+}

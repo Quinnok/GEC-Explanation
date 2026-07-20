@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nIn the case of young people the best way is studying as hard as possible to get better grades so in the future they will have better chance to find better jobs . \n\nMODEL_PREDICTION:\nIn the case of young people, the best way is to study as hard as possible to get better grades so in the future they will have a better chance to find better jobs.\n\nMODEL_EDIT:\noperation=replace\nspan=[31,33)\nsource_text=jobs .\ntarget_text=jobs.\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "MODEL_EDIT: operation=replace span=[31,33) source_text=jobs . target_text_jobs. CANDIDATE_TYPE: grammatical error correction model edits",
+  "request_id": "local-aa693d79-d751-47be-b8bb-57590eb97224",
+  "teacher_model": "google/flan-t5-small"
+}

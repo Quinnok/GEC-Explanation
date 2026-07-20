@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: If in this society who will not to do study they never concept there opportunity or ca n't understand any ideas so most of the important that in this situation and I also very interestion and also prefer that for the study material . \nModel prediction: If in this society, who will not study, they never concept there opportunity or can't understand any ideas so most of the important that in this situation and I also very interested and also prefer that for the study material.\nCurrent edit: replacing \"material .\" with \"material.\" at source token span [42,44).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "grammatical error correction model edits are grammatically correct.",
+  "request_id": "local-20dcf35f-c7a2-46ec-b43a-c191f8cfb577",
+  "teacher_model": "google/flan-t5-small"
+}

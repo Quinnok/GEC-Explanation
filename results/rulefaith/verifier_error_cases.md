@@ -1,0 +1,294 @@
+# RuleFaith Verifier Error Cases
+
+This file links Round 19 verifier calibration to the earlier human-gold stress-test cases.
+
+## Gate A Summary
+
+- Status: `conditional_pass`
+- Rule AUROC delta over reverse reconstruction: `0.3280632411067194`
+- Evidence AUROC delta over reverse reconstruction: `0.2530381944444444`
+
+## Reused Stress-Test Case Excerpt
+
+# Human-Gold Stress Test Cases
+
+## High Reconstruction But Low Rule Correctness
+
+- `r10-faith-00011` `masked_target_template` `coedit_large` `correct_correction`
+  - Edit: replace "at" with "in"
+  - Explanation: This edit should replace "at" with "[MASK]" at source span [8,9) for R:PREP.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-01005` `wrong_target` `coedit_large` `correct_correction`
+  - Edit: delete "the"
+  - Explanation: This edit should delete "the".
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-00900` `explicit_template` `coedit_large` `overcorrection`
+  - Edit: replace "i" with "I"
+  - Explanation: This edit should replace "i" with "I" at source span [0,1) for R:ORTH.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-00271` `masked_target_template` `coedit_large` `overcorrection`
+  - Edit: replace "because" with "because,"
+  - Explanation: This edit should replace "because" with "[MASK]" at source span [6,7) for R:OTHER.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-00360` `explicit_template` `coedit_large` `wrong_correction`
+  - Edit: insert "the"
+  - Explanation: This edit should insert "the" at source span [10,10) for M:DET.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-00531` `masked_target_template` `coedit_large` `wrong_correction`
+  - Edit: replace "its name" with "It"
+  - Explanation: This edit should replace "its name" with "[MASK]" at source span [10,12) for M:PUNCT.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-01220` `explicit_template` `gector_roberta_base` `correct_correction`
+  - Edit: replace "at" with "in"
+  - Explanation: This edit should replace "at" with "in" at source span [8,9) for R:PREP.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-01821` `masked_target_template` `gector_roberta_base` `correct_correction`
+  - Edit: replace "be dissappearing" with "disappear"
+  - Explanation: This edit should replace "be dissappearing" with "[MASK]" at source span [18,20) for R:VERB.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-01870` `explicit_template` `gector_roberta_base` `overcorrection`
+  - Edit: insert ","
+  - Explanation: This edit should insert "," at source span [27,27) for M:PUNCT.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-02111` `masked_target_template` `gector_roberta_base` `overcorrection`
+  - Edit: insert "."
+  - Explanation: This edit should insert "[MASK]" at source span [20,20) for M:PUNCT[MASK]
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-01430` `explicit_template` `gector_roberta_base` `wrong_correction`
+  - Edit: insert "the"
+  - Explanation: This edit should insert "the" at source span [10,10) for M:DET.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-01491` `masked_target_template` `gector_roberta_base` `wrong_correction`
+  - Edit: replace "its" with ". Its"
+  - Explanation: This edit should replace "its" with "[MASK]" at source span [10,11) for M:PUNCT.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-02810` `explicit_template` `t5_base_grammar` `correct_correction`
+  - Edit: replace "ed" with "and"
+  - Explanation: This edit should replace "ed" with "and" at source span [70,71) for R:OTHER.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-03101` `masked_target_template` `t5_base_grammar` `correct_correction`
+  - Edit: insert "a"
+  - Explanation: This edit should insert "[MASK]" [MASK]t source span [17,17) for M:DET.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-02650` `explicit_template` `t5_base_grammar` `overcorrection`
+  - Edit: replace "chanched" with "changed"
+  - Explanation: This edit should replace "chanched" with "changed" at source span [2,3) for R:SPELL.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-03481` `masked_target_template` `t5_base_grammar` `overcorrection`
+  - Edit: replace "friends ." with "friends."
+  - Explanation: This edit should replace "friends ." with "[MASK]" at source span [16,18) for R:ORTH.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-03170` `explicit_template` `t5_base_grammar` `wrong_correction`
+  - Edit: replace "! There" with "there"
+  - Explanation: This edit should replace "! There" with "there" at source span [4,6) for R:PRON.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-03751` `masked_target_template` `t5_base_grammar` `wrong_correction`
+  - Edit: replace "length" with "period"
+  - Explanation: This edit should replace "length" with "[MASK]" at source span [21,22) for R:NOUN.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-04100` `explicit_template` `gector_roberta_base` `correct_correction`
+  - Edit: insert ","
+  - Explanation: This edit should insert "," at source span [1,1) for M:PUNCT.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-05411` `masked_target_template` `gector_roberta_base` `correct_correction`
+  - Edit: insert "the"
+  - Explanation: This edit should insert "[MASK]" at source span [6,6) for M:DET.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+
+## High Reconstruction But Low Evidence Quality
+
+- `r10-faith-00260` `explicit_template` `coedit_large` `correct_correction`
+  - Edit: delete "of"
+  - Explanation: This edit should delete "of" at source span [3,4) for U:PREP.
+  - Human: alignment=correct, rule=correct, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-00011` `masked_target_template` `coedit_large` `correct_correction`
+  - Edit: replace "at" with "in"
+  - Explanation: This edit should replace "at" with "[MASK]" at source span [8,9) for R:PREP.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-01005` `wrong_target` `coedit_large` `correct_correction`
+  - Edit: delete "the"
+  - Explanation: This edit should delete "the".
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-00900` `explicit_template` `coedit_large` `overcorrection`
+  - Edit: replace "i" with "I"
+  - Explanation: This edit should replace "i" with "I" at source span [0,1) for R:ORTH.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-00271` `masked_target_template` `coedit_large` `overcorrection`
+  - Edit: replace "because" with "because,"
+  - Explanation: This edit should replace "because" with "[MASK]" at source span [6,7) for R:OTHER.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-00360` `explicit_template` `coedit_large` `wrong_correction`
+  - Edit: insert "the"
+  - Explanation: This edit should insert "the" at source span [10,10) for M:DET.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-00531` `masked_target_template` `coedit_large` `wrong_correction`
+  - Edit: replace "its name" with "It"
+  - Explanation: This edit should replace "its name" with "[MASK]" at source span [10,12) for M:PUNCT.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-01220` `explicit_template` `gector_roberta_base` `correct_correction`
+  - Edit: replace "at" with "in"
+  - Explanation: This edit should replace "at" with "in" at source span [8,9) for R:PREP.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-01821` `masked_target_template` `gector_roberta_base` `correct_correction`
+  - Edit: replace "be dissappearing" with "disappear"
+  - Explanation: This edit should replace "be dissappearing" with "[MASK]" at source span [18,20) for R:VERB.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-01870` `explicit_template` `gector_roberta_base` `overcorrection`
+  - Edit: insert ","
+  - Explanation: This edit should insert "," at source span [27,27) for M:PUNCT.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-02111` `masked_target_template` `gector_roberta_base` `overcorrection`
+  - Edit: insert "."
+  - Explanation: This edit should insert "[MASK]" at source span [20,20) for M:PUNCT[MASK]
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-01430` `explicit_template` `gector_roberta_base` `wrong_correction`
+  - Edit: insert "the"
+  - Explanation: This edit should insert "the" at source span [10,10) for M:DET.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-01491` `masked_target_template` `gector_roberta_base` `wrong_correction`
+  - Edit: replace "its" with ". Its"
+  - Explanation: This edit should replace "its" with "[MASK]" at source span [10,11) for M:PUNCT.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-02810` `explicit_template` `t5_base_grammar` `correct_correction`
+  - Edit: replace "ed" with "and"
+  - Explanation: This edit should replace "ed" with "and" at source span [70,71) for R:OTHER.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-03101` `masked_target_template` `t5_base_grammar` `correct_correction`
+  - Edit: insert "a"
+  - Explanation: This edit should insert "[MASK]" [MASK]t source span [17,17) for M:DET.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-02650` `explicit_template` `t5_base_grammar` `overcorrection`
+  - Edit: replace "chanched" with "changed"
+  - Explanation: This edit should replace "chanched" with "changed" at source span [2,3) for R:SPELL.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-03481` `masked_target_template` `t5_base_grammar` `overcorrection`
+  - Edit: replace "friends ." with "friends."
+  - Explanation: This edit should replace "friends ." with "[MASK]" at source span [16,18) for R:ORTH.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-03170` `explicit_template` `t5_base_grammar` `wrong_correction`
+  - Edit: replace "! There" with "there"
+  - Explanation: This edit should replace "! There" with "there" at source span [4,6) for R:PRON.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+- `r10-faith-03751` `masked_target_template` `t5_base_grammar` `wrong_correction`
+  - Edit: replace "length" with "period"
+  - Explanation: This edit should replace "length" with "[MASK]" at source span [21,22) for R:NOUN.
+  - Human: alignment=partially_correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=0.750
+- `r10-faith-04100` `explicit_template` `gector_roberta_base` `correct_correction`
+  - Edit: insert ","
+  - Explanation: This edit should insert "," at source span [1,1) for M:PUNCT.
+  - Human: alignment=correct, rule=not_applicable, evidence=not_provided, faithfulness=partially_faithful
+  - reverse_reconstruction=1.000
+
+## Invalid Or Stylistic Edits With Unfaithful Rationales
+
+- `r10-faith-00429` `generic` `coedit_large` `overcorrection`
+  - Edit: replace "normally" with "normally,"
+  - Explanation: The sentence has a grammar issue and should be improved.
+  - Human: alignment=incorrect, rule=not_applicable, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-00214` `rule_grounded_automatic` `coedit_large` `overcorrection`
+  - Edit: replace "computer" with "computer,"
+  - Explanation: Use the noun number or noun form required by the sentence. In this sentence, the evidence is around "computer".
+  - Human: alignment=incorrect, rule=incorrect, evidence=partially_correct, faithfulness=unfaithful
+- `r10-faith-00533` `gee_style_automatic` `coedit_large` `wrong_correction`
+  - Edit: replace "its name" with "It"
+  - Explanation: The phrase near span [10,12) violates M:PUNCT; use punctuation that matches the sentence structure.
+  - Human: alignment=incorrect, rule=incorrect, evidence=incorrect, faithfulness=unfaithful
+- `r10-faith-02533` `gee_style_automatic` `gector_roberta_base` `overcorrection`
+  - Edit: insert "those"
+  - Explanation: The phrase near span [12,12) violates M:DET; use an article or determiner licensed by the noun phrase.
+  - Human: alignment=partially_correct, rule=incorrect, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-02572` `rule_only` `gector_roberta_base` `overcorrection`
+  - Edit: replace "At last" with "Finally"
+  - Explanation: Apply the grammar rule indicated by the local context. The explanation intentionally omits the target edit.
+  - Human: alignment=incorrect, rule=not_applicable, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-02458` `swapped_across_sentence` `gector_roberta_base` `overcorrection`
+  - Edit: replace "go" with "been"
+  - Explanation: This edit should replace "community ," with "community," for R:ORTH.
+  - Human: alignment=incorrect, rule=incorrect, evidence=incorrect, faithfulness=unfaithful
+- `r10-faith-03963` `gee_style_automatic` `t5_base_grammar` `overcorrection`
+  - Edit: replace "folk" with "people"
+  - Explanation: The phrase near span [6,7) violates R:NOUN; use the noun number or noun form required by the sentence.
+  - Human: alignment=partially_correct, rule=incorrect, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-03148` `swapped_across_sentence` `t5_base_grammar` `overcorrection`
+  - Edit: insert "were"
+  - Explanation: This edit should replace "community ," with "community," for R:ORTH.
+  - Human: alignment=incorrect, rule=incorrect, evidence=incorrect, faithfulness=unfaithful
+- `r10-faith-03434` `rule_grounded_automatic` `t5_base_grammar` `wrong_correction`
+  - Edit: replace "ablished" with "established,"
+  - Explanation: Apply the grammar rule indicated by the local context. In this sentence, the evidence is around "ablished".
+  - Human: alignment=incorrect, rule=not_applicable, evidence=partially_correct, faithfulness=unfaithful
+- `r10-faith-03178` `swapped_across_sentence` `t5_base_grammar` `wrong_correction`
+  - Edit: replace "! There" with "there"
+  - Explanation: This edit should replace "community ," with "community," for R:ORTH.
+  - Human: alignment=incorrect, rule=incorrect, evidence=incorrect, faithfulness=unfaithful
+- `r10-faith-03176` `wrong_direction` `t5_base_grammar` `wrong_correction`
+  - Edit: replace "! There" with "there"
+  - Explanation: The sentence should change from "there" back to "! There".
+  - Human: alignment=incorrect, rule=not_applicable, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-04952` `rule_only` `gector_roberta_base` `overcorrection`
+  - Edit: replace "to" with "of"
+  - Explanation: Apply the grammar rule indicated by the local context. The explanation intentionally omits the target edit.
+  - Human: alignment=incorrect, rule=not_applicable, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-04957` `wrong_rule` `gector_roberta_base` `overcorrection`
+  - Edit: replace "to" with "of"
+  - Explanation: Use a comma because every grammar error here is punctuation-related.
+  - Human: alignment=incorrect, rule=incorrect, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-05113` `gee_style_automatic` `gector_roberta_base` `wrong_correction`
+  - Edit: insert ","
+  - Explanation: The phrase near span [13,13) violates M:OTHER; apply the grammar rule indicated by the local context.
+  - Human: alignment=incorrect, rule=not_applicable, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-04722` `rule_only` `gector_roberta_base` `wrong_correction`
+  - Edit: replace "have to" with "should"
+  - Explanation: Apply the grammar rule indicated by the local context. The explanation intentionally omits the target edit.
+  - Human: alignment=incorrect, rule=not_applicable, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-04895` `wrong_target` `gector_roberta_base` `wrong_correction`
+  - Edit: replace ", only rise" with "rising"
+  - Explanation: This edit should replace "the".
+  - Human: alignment=incorrect, rule=not_applicable, evidence=not_provided, faithfulness=unfaithful
+- `r10-faith-03074` `rule_grounded_automatic` `t5_base_grammar` `overcorrection`
+  - Edit: replace "such" with "is"
+  - Explanation: Apply the grammar rule indicated by the local context. In this sentence, the evidence is around "such".
+  - Human: alignment=incorrect, rule=not_applicable, evidence=not_provided, faithfulness=unfaithful
+
+## Interpretation
+
+High reconstruction with low rule/evidence quality remains the main failure mode. RuleFaith should use reconstruction only as an alignment signal and must train against rule/evidence failures separately.

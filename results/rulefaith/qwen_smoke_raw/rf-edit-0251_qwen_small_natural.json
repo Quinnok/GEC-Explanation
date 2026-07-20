@@ -1,0 +1,15 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nTechnology will have advanced and maybe the cars will fly above streets and computers will have totally changed .\n\nMODEL_PREDICTION:\nTechnology will have advanced, and maybe cars will fly above the streets, and computers will have totally changed.\n\nMODEL_EDIT:\noperation=replace\nspan=[11,12)\nsource_text=streets\ntarget_text=streets,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nReturn ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"The model has replaced the 'cars' with 'cars will fly above the streets' in the source text.\",\n  \"edit_validity\": \"Valid\",\n  \"rule_id\": \"11\",\n  \"rule_text\": \"Replace 'cars' with 'cars will fly above the streets'\",\n  \"evidence_spans\": [\n    {\"start\": 11, \"end\": 13}\n  ],\n  \"applicability_conditions\": [\n    {\n      \"condition\": \"The source text contains a reference to 'cars'.\"\n    },\n    {\n      \"condition\": \"The target text does not contain any references to 'cars'.\"\n    }\n  ],\n  \"rationale\": \"The model has correctly replaced the word 'cars' with 'cars will fly above the streets' to match the structure of the source text.\",\n  \"confidence\": 1,\n  \"abstain\": \"Abstain\",\n  \"abstain_reason\": \"The edit is correct and does not introduce any new information that would require further analysis.\"\n}\n```",
+  "request_id": "qwen-local-9df5a90e-e44f-4d3b-9102-9fb1c3f935fd",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 253,
+    "output_tokens": 226,
+    "total_tokens": 479
+  }
+}

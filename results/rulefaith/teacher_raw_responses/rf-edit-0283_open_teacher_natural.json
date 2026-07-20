@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Until dawn all of them had got out , so they sacred until they found a refuge .\nModel prediction: Until dawn, all of them had got out, so they were sacred until they found a refuge.\nCurrent edit: replacing \"dawn\" with \"dawn,\" at source token span [1,2).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"dawn\" is a grammatical rephrasing of the word \"sacrifice\".",
+  "request_id": "local-b8c2c300-0877-4063-8d5f-b29c1dc1f1be",
+  "teacher_model": "google/flan-t5-base"
+}

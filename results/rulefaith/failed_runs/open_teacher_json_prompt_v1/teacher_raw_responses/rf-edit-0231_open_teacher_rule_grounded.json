@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nEveryone should develop their awareness of public manner .\n\nMODEL_PREDICTION:\nThe goal is to develop their awareness of the public manner.\n\nMODEL_EDIT:\noperation=replace\nspan=[1,2)\nsource_text=should\ntarget_text=is to\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-b794fe5b-c319-4e99-ba9c-89a15e46649d",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "prompt": "SOURCE:\nTechnology has chanched people 's lives a lot . In fact we can think how different is our life compared either to our parents ' or our grandparents ' lives . For example my parents did n't watch tv , because there was n't any tv in the world when they were young.but that is n't the only difference : we can think about the mobile phone , the computer ed finally the internet.our grandparents could n't have imagined a strange machine like the computer in their lives .\n\nMODEL_PREDICTION:\nTechnology has changed people 's lives a lot . In fact , we can think about how different our lives are compared either to our parents ' or our grandparents ' lives . For example , my parents did n't watch TV , because there was n't any TV in the world when they were children . That is n't the only difference : we can think about the mobile phone , the computer and finally the internet.our grandparents could n't have imagined a strange machine like the computer in their lives .\n\nMODEL_EDIT:\noperation=insert\nspan=[14,14)\nsource_text=\ntarget_text=about\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: insert \"about\" at source token span [14,14). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Insert 'about' at source token span [14,14)\",\n  \"edit_validity\": \"invalid\",\n  \"rule_id\": null,\n  \"rule_text\": null,\n  \"evidence_spans\": [\n    {\n      \"text\": \"our grandparents could n't have imagined a strange machine like the computer in their lives.\",\n      \"start\": 14,\n      \"end\": 20,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [],\n  \"rationale\": \"The edit does not make sense grammatically or semantically within the context of the sentence.\",\n  \"confidence\": 1,\n  \"abstain\": false,\n  \"abstain_reason\": \"The edit is clearly incorrect and does not improve the sentence.\"\n}\n```",
+  "request_id": "qwen-local-7dbb9378-1a9a-4801-be24-db0b301bb235",
+  "teacher_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "usage": {
+    "input_tokens": 513,
+    "output_tokens": 177,
+    "total_tokens": 690
+  }
+}

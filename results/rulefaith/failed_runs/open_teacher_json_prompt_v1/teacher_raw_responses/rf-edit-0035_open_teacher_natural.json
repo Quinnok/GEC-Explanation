@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nA worldwide war is the only case in which we would see a dramatic change in peoples lives in the time length of 50 years from now .\n\nMODEL_PREDICTION:\nA worldwide war is the only case in which we will see a dramatic change in peoples ' lives in 50 years from now .\n\nMODEL_EDIT:\noperation=insert\nspan=[17,17)\nsource_text=\ntarget_text='\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) e) g) h) iii)",
+  "request_id": "local-bd8bc88a-3617-4f42-bac0-68f4185a0051",
+  "teacher_model": "google/flan-t5-small"
+}

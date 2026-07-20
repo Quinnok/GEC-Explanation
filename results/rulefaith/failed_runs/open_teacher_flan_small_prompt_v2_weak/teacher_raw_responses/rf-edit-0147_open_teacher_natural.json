@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Specializing in one particular subject does not suit our life in this era which is characterized by diversity and innovation \nModel prediction: Specializing in one particular subject does not suit our life in this era, which is characterized by diversity and innovation.\nCurrent edit: replacing \"era\" with \"era,\" at source token span [12,13).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i n't be able to do this if i can't find a way to do it.",
+  "request_id": "local-8aeb8176-4dcf-4865-8a83-d914c54bc97c",
+  "teacher_model": "google/flan-t5-small"
+}

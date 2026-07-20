@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: We should use of public transport because at the present there are a lot of cars in the world that pollute and unfortunately we are harming the environment and the world .\nModel prediction: We should use public transport because, at the present, there are a lot of cars in the world that pollute and, unfortunately, we are harming the environment and the world.\nCurrent edit: replacing \"because\" with \"because,\" at source token span [6,7).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"because\" is a contraction of the verb \"because\".",
+  "request_id": "local-7967b2ce-ba67-47f1-ada4-98ec90a7f361",
+  "teacher_model": "google/flan-t5-base"
+}

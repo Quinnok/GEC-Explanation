@@ -1,0 +1,15 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "model_version": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "prompt": "SOURCE:\nSo the school try learning the students a bit in every science exist . \n\nMODEL_PREDICTION:\nSo the school tries teaching the students a bit of every science that exists .\n\nMODEL_EDIT:\noperation=replace\nspan=[3,4)\nsource_text=try\ntarget_text=tries\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"try\" with \"tries\" at source token span [3,4). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'try' with 'tries' at source token span [3,4)\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": null,\n  \"rule_text\": null,\n  \"evidence_spans\": [\n    {\n      \"text\": \"the school try learning\",\n      \"start\": 3,\n      \"end\": 4,\n      \"role\": \"verb\"\n    }\n  ],\n  \"applicability_conditions\": [],\n  \"rationale\": \"The edit replaces the verb 'try' with 'tries', which is a natural and grammatically correct alternative.\",\n  \"confidence\": 100,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}\n```",
+  "request_id": "qwen-local-1915a691-1216-4652-98ef-2f9f9404a6ab",
+  "teacher_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "usage": {
+    "input_tokens": 345,
+    "output_tokens": 159,
+    "total_tokens": 504
+  }
+}

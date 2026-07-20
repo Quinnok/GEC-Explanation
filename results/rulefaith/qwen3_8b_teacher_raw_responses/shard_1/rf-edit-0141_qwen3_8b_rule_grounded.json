@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nI want to talk about nocive or bad products like alcohol , hair spray and cigarrets . \n\nMODEL_PREDICTION:\nI want to talk about harmful or bad products like alcohol, hair spray and cigarettes.\n\nMODEL_EDIT:\noperation=replace\nspan=[5,6)\nsource_text=nocive\ntarget_text=harmful\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"nocive\" with \"harmful\" at source token span [5,6). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'nocive' with 'harmful'\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"synonym_replacement\",\n  \"rule_text\": \"Use a more commonly understood synonym when the original word is obscure or less frequently used.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"nocive\",\n      \"start\": 5,\n      \"end\": 10,\n      \"role\": \"original\"\n    },\n    {\n      \"text\": \"harmful\",\n      \"start\": 5,\n      \"end\": 11,\n      \"role\": \"replacement\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the original word is obscure or less common\",\n    \"the replacement word is a direct synonym\",\n    \"the replacement improves clarity without altering meaning\"\n  ],\n  \"rationale\": \"The word 'nocive' is relatively obscure and may not be widely understood by all readers. Replacing it with 'harmful' enhances clarity and ensures the intended meaning is conveyed effectively to a broader audience.\",\n  \"confidence\": 0.9,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-f139089b-3d7f-4224-9c37-e2e498b12444",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 379,
+    "output_tokens": 259,
+    "total_tokens": 638
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nbecause they spent time unmeaningful subjects . \n\nMODEL_PREDICTION:\nThey spent time on unmeaningful subjects.\n\nMODEL_EDIT:\noperation=replace\nspan=[5,7)\nsource_text=subjects .\ntarget_text=subjects.\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) e) g) h) iii)",
+  "request_id": "local-37852162-d182-4606-b0c1-d791b45919cb",
+  "teacher_model": "google/flan-t5-small"
+}

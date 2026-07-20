@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nHe has ever been with me .\n\nMODEL_PREDICTION:\nHe has always been with me .\n\nMODEL_EDIT:\noperation=replace\nspan=[2,3)\nsource_text=ever\ntarget_text=always\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"ever\" with \"always\" at source token span [2,3). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'ever' with 'always' in the sentence.\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"grammar_tense_consistency\",\n  \"rule_text\": \"Use 'always' to indicate continuous or ongoing action over time, whereas 'ever' is used to ask about past experiences or occurrences.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"He has ever been with me\",\n      \"start\": 2,\n      \"end\": 6,\n      \"role\": \"source\"\n    },\n    {\n      \"text\": \"He has always been with me\",\n      \"start\": 2,\n      \"end\": 8,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The sentence uses the present perfect tense ('has been').\",\n    \"The context implies a continuous or ongoing state rather than a single occurrence.\"\n  ],\n  \"rationale\": \"The word 'ever' is typically used in questions or negative statements to imply a lack of experience, while 'always' correctly conveys the idea of continuous presence over time. Replacing 'ever' with 'always' makes the sentence grammatically accurate and semantically appropriate.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-0642b89d-d681-4f7d-892e-03ce7432c0bc",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 349,
+    "output_tokens": 286,
+    "total_tokens": 635
+  }
+}

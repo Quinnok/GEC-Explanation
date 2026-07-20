@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: One person if do n't have good health that means so many things they could lost . \nModel prediction: One person if they don't have good health, that means so many things they could lose.\nCurrent edit: replacing \"do\" with \"they\" at source token span [3,4).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i want to know what i'm doing. i need to know if i have good health and i don't have bad health.",
+  "request_id": "local-9eabd40e-2982-44cb-af54-d621eb9c77e0",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nI live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring of the environment is very important and in my village they take different actions to care for it .\n\nMODEL_PREDICTION:\nI live in San Miguel Almoloyan . This is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring for the environment is very important and in my village they take different actions to care for it .\n\nMODEL_EDIT:\noperation=replace\nspan=[25,26)\nsource_text=of\ntarget_text=for\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"of\" with \"for\" at source token span [25,26). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'of' with 'for' at source token span [25,26).\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"replace 'of' with 'for'\",\n  \"evidence_spans\": [\n    {\"text\": \"of\", \"start\": 25, \"end\": 26, \"role\": \"source_token\"}\n  ],\n  \"applicability_conditions\": [\"inconsistent_with_source\", \"inconsistent_with_target\"],\n  \"rationale\": \"The edit replaces 'of' with 'for' at the source token span [25,26).', which is inconsistent with the original sentence structure.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\"\n}\n```",
+  "request_id": "qwen-local-17b01104-7c65-42b0-9fc4-f79fa6f4d29f",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 423,
+    "output_tokens": 177,
+    "total_tokens": 600
+  }
+}

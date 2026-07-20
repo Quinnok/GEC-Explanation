@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Additionally , our city government has prohibited smoking in public area and under 18 years old and provides a free session of talks or presentations to increase the awareness of clean , safe , fresh environment to the city .\nModel prediction: Additionally , our city government has prohibited smoking in public areas and those under 18 years old and provides a free session of talks or presentations to increase the awareness of a clean , safe , fresh environment in the city .\nCurrent edit: replacing \"area\" with \"areas\" at source token span [10,11).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "Source: The city government has prohibited smoking in public areas and those under 18 years old and provides a free session of talks or presentations to increase the awareness of clean , safe , fresh environment to the city .",
+  "request_id": "local-151b5dc5-983e-48a7-ade6-fd3349ece5a6",
+  "teacher_model": "google/flan-t5-small"
+}

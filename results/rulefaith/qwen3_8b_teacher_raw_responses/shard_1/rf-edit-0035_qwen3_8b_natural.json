@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nA worldwide war is the only case in which we would see a dramatic change in peoples lives in the time length of 50 years from now .\n\nMODEL_PREDICTION:\nA worldwide war is the only case in which we will see a dramatic change in peoples ' lives in 50 years from now .\n\nMODEL_EDIT:\noperation=insert\nspan=[17,17)\nsource_text=\ntarget_text='\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: insert \"'\" at source token span [17,17). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Insert an apostrophe after 'peoples'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_apostrophe\",\n  \"rule_text\": \"An apostrophe is used to indicate possession or contraction.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"peoples\",\n      \"start\": 17,\n      \"end\": 23,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the word is a plural noun\",\n    \"the word is being used to refer to people in general\",\n    \"the word is not indicating possession\"\n  ],\n  \"rationale\": \"The word 'peoples' is a plural noun referring to groups of people, and does not require an apostrophe unless it is being used to indicate possession (e.g., 'peoples\\' homes'). In this context, the apostrophe is unnecessary and stylistically incorrect.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-9e3ddc6d-31f8-40f8-bbe1-d2bf9fb13ae6",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 387,
+    "output_tokens": 232,
+    "total_tokens": 619
+  }
+}

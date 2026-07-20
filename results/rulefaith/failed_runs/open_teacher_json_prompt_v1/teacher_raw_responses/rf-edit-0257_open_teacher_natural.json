@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nTechnology has chanched people 's lives a lot . In fact we can think how different is our life compared either to our parents ' or our grandparents ' lives . For example my parents did n't watch tv , because there was n't any tv in the world when they were young.but that is n't the only difference : we can think about the mobile phone , the computer ed finally the internet.our grandparents could n't have imagined a strange machine like the computer in their lives .\n\nMODEL_PREDICTION:\nTechnology has changed people's lives a lot. In fact, we can think how different our lives are compared to either our parents' or our grandparents' lives. For example, my parents didn't watch tv because there wasn't any TV in the world when they were young. But that isn't the only difference: we can think about the mobile phone, the computer, and finally the internet. Our grandparents couldn't have imagined a strange machine like the computer in their lives.\n\nMODEL_EDIT:\noperation=replace\nspan=[32,33)\nsource_text=example\ntarget_text=example,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "grammatical error correction model edits are grammatically correct and should not merely copy the source-target pair.",
+  "request_id": "local-11a56de1-c4ab-4f7a-b594-6d32f3cdc66d",
+  "teacher_model": "google/flan-t5-small"
+}

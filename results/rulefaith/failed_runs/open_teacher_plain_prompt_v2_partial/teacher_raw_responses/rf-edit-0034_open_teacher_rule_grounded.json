@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: image you salf you are wark in factory just to do one thing like pot taire on car if they fire you you will destroy , becouse u dont know more than pot taire in car . \nModel prediction: Imagine working in a factory just to do one thing , like potting taire on a car . If they fire you , you will destroy it , because you do know more than potting taire on a car .\nCurrent edit: replacing \"pot\" with \"potting\" at source token span [14,15).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a lord in a factory just to do one thing like pot taire on a car if they fire you you will destroy it , becouse u dont know more than potting taire in car .",
+  "request_id": "local-a6573d2c-ced5-4267-b45f-f78577c96b2c",
+  "teacher_model": "google/flan-t5-small"
+}

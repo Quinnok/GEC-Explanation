@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I want to talk about nocive or bad products like alcohol , hair spray and cigarrets . \nModel prediction: I want to talk about nocive or bad products like alcohol , hair spray and cigarettes .\nCurrent edit: replacing \"cigarrets\" with \"cigarettes\" at source token span [15,16).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i n't be able to talk about nocive or bad products like alcohol , hair spray and cigarrets .",
+  "request_id": "local-c0fa9695-71b8-4e5f-94a9-b5dcd700975d",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nFor example they can play football whenever they want but the olders can not . \n\nMODEL_PREDICTION:\nFor example, they can play football whenever they want, but the older ones can not.\n\nMODEL_EDIT:\noperation=replace\nspan=[1,2)\nsource_text=example\ntarget_text=example,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"example\" with \"example,\" at source token span [1,2). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Add a comma after 'example'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"PUNCTUATION_USAGE\",\n  \"rule_text\": \"A comma should be used after introductory examples or phrases to separate them from the main clause.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"For example\",\n      \"start\": 0,\n      \"end\": 9,\n      \"role\": \"introductory_phrase\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The phrase is introductory\",\n    \"It precedes a main clause\",\n    \"The phrase is followed by a comma\"\n  ],\n  \"rationale\": \"The addition of a comma after 'For example' is a stylistic choice to improve readability and clarity by separating the introductory phrase from the main clause. While not strictly required, it is commonly accepted in formal writing.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-96fb8731-3a0c-4af3-9e30-09792a236126",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 370,
+    "output_tokens": 219,
+    "total_tokens": 589
+  }
+}

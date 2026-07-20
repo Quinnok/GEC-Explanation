@@ -1,0 +1,39 @@
+created: "2026-07-19"
+input: "data/faithfulness_benchmark/edit_records.jsonl"
+output_dir: "data/rulefaith"
+results_dir: "results/rulefaith"
+target_total: 300
+random_seed: 20260719
+model_minimums:
+  gector_roberta_base: 100
+  t5_base_grammar: 100
+  coedit_large: 50
+model_targets:
+  gector_roberta_base: 120
+  t5_base_grammar: 120
+  coedit_large: 60
+split_fracs:
+  train: 0.70
+  dev: 0.15
+  test: 0.15
+exclude_obvious_detokenization_artifacts: true
+keep_orth_punct_analysis_subset: true
+orth_punct_analysis_cap: 30
+min_error_categories:
+  - subject_verb_agreement
+  - verb_tense
+  - verb_form
+  - articles_determiners
+  - noun_number
+  - prepositions
+  - pronouns
+  - word_order
+  - punctuation
+  - spelling_orthography
+  - lexical_choice
+  - clause_structure
+required_operations:
+  - replace
+  - insert
+  - delete
+

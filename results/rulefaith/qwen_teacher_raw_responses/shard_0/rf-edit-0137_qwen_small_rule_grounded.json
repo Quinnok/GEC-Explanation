@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nThus in concordance with the above I agree whole heartedly that in twenty years there will be fewer cars in use than there are today . \n\nMODEL_PREDICTION:\nThus, in concordance with the above, I agree wholeheartedly that in twenty years there will be fewer cars in use than there are today.\n\nMODEL_EDIT:\noperation=replace\nspan=[0,1)\nsource_text=Thus\ntarget_text=Thus,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"Thus\" with \"Thus,\" at source token span [0,1). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'Thus' with 'Thus,' at source token span [0,1).\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"replace_such\",\n  \"rule_text\": \"Replace 'Thus' with 'Thus,'\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"Thus\",\n      \"start\": 0,\n      \"end\": 1,\n      \"role\": \"source_token\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The edit is only replacing 'Thus' with 'Thus,' which is a common phrase.\"\n  ],\n  \"rationale\": \"This edit replaces the word 'Thus' with 'Thus,' which is a common phrase used in English.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit does not introduce any new meaning or ambiguity.\"\n}\n```",
+  "request_id": "qwen-local-b1fed815-38a7-4e35-988f-5d39dd2ebc42",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 378,
+    "output_tokens": 202,
+    "total_tokens": 580
+  }
+}

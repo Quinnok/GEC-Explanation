@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nWe should use of public transport because at the present there are a lot of cars in the world that pollute and unfortunately we are harming the environment and the world .\n\nMODEL_PREDICTION:\nWe should use public transport because, at the present, there are a lot of cars in the world that pollute and, unfortunately, we are harming the environment and the world.\n\nMODEL_EDIT:\noperation=replace\nspan=[22,23)\nsource_text=unfortunately\ntarget_text=unfortunately,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"unfortunately\" with \"unfortunately,\" at source token span [22,23). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"replace 'unfortunately' with 'unfortunately,' at source token span [22,23).\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"replace 'unfortunately' with 'unfortunately,'\",\n  \"evidence_spans\": [\n    {\"text\": \"Unfortunately\", \"start\": 22, \"end\": 23, \"role\": \"source\"}\n  ],\n  \"applicability_conditions\": [\"unfortunately\"],\n  \"rationale\": \"This edit replaces the word 'unfortunately' with 'unfortunately,' which is a valid replacement.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit maintains the original meaning while changing the word.\"\n}\n```",
+  "request_id": "qwen-local-d0aee4d8-4bc8-47ee-b2a8-32f1a2d6bbeb",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 394,
+    "output_tokens": 180,
+    "total_tokens": 574
+  }
+}

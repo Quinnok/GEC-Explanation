@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Computers have had a most significant impact on the people in the latter 1/2 of the 20th century .\nModel prediction: Computers have had a most significant impact on people in the latter half of the 20th century.\nCurrent edit: replacing \"1/2\" with \"half\" at source token span [13,14).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"half\" is a grammatical contraction of the verb \"half\".",
+  "request_id": "local-878559b1-a377-4d50-9868-531a4bda75ac",
+  "teacher_model": "google/flan-t5-base"
+}

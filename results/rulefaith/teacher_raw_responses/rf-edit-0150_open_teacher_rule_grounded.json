@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: If every people thinks to learn and understand lots of scientifc subjects , any person will do not do it and as a result of this any science is n't imporeved . \nModel prediction: If every person thinks to learn and understand lots of scientific subjects, any person will not do it and as a result of this any science isn't improved.\nCurrent edit: replacing \"scientifc\" with \"scientific\" at source token span [10,11).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The grammatical or usage rule is that if a word is used in a sentence, it must be in the present tense.",
+  "request_id": "local-07177f5a-930c-43f4-90de-12c253a2d4b8",
+  "teacher_model": "google/flan-t5-base"
+}

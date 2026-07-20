@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nAdditionally , our city government has prohibited smoking in public area and under 18 years old and provides a free session of talks or presentations to increase the awareness of clean , safe , fresh environment to the city .\n\nMODEL_PREDICTION:\nAdditionally , our city government has prohibited smoking in public areas and those under 18 years old and provides a free session of talks or presentations to increase the awareness of a clean , safe , fresh environment in the city .\n\nMODEL_EDIT:\noperation=replace\nspan=[10,11)\nsource_text=area\ntarget_text=areas\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "MODEL_EDIT: operation=replace span=[10,11] source_text=area target_text>areas CANDIDATE_TYPE: grammatical error correction model edits",
+  "request_id": "local-02eff8ee-44a4-43f2-8a45-dfe5b2a3e121",
+  "teacher_model": "google/flan-t5-small"
+}

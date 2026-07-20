@@ -1,0 +1,15 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nbecause they spent time unmeaningful subjects . \n\nMODEL_PREDICTION:\nThey spent time on unmeaningful subjects.\n\nMODEL_EDIT:\noperation=replace\nspan=[5,7)\nsource_text=subjects .\ntarget_text=subjects.\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"subjects .\" with \"subjects.\" at source token span [5,7). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'subjects.' with 'subjects' at source token span [5,7).\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"no_change\",\n  \"rule_text\": \"No change required.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"subjects.\",\n      \"start\": 5,\n      \"end\": 7,\n      \"role\": \"source\"\n    }\n  ],\n  \"applicability_conditions\": [],\n  \"rationale\": \"This edit does not introduce any new information or change the meaning of the sentence.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit does not alter the core meaning of the sentence.\"\n}\n```",
+  "request_id": "qwen-local-d87532e2-9d59-416d-bb6b-13e03091929e",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 334,
+    "output_tokens": 169,
+    "total_tokens": 503
+  }
+}

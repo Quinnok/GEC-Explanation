@@ -1,0 +1,21 @@
+{
+  "candidate_count": 160,
+  "candidate_type_counts": {
+    "natural": 80,
+    "rule_grounded": 80
+  },
+  "duplicate_candidate_count": 0,
+  "duplicate_candidate_ids": [],
+  "output": "data/rulefaith/teacher_candidates_qwen3_8b_pilot.jsonl",
+  "parse_status_counts": {
+    "parsed_json": 159,
+    "wrapped_non_json_response": 1
+  },
+  "provider_counts": {
+    "qwen3_8b": 160
+  },
+  "shard_files": [
+    "data/rulefaith/qwen3_8b_shards/teacher_candidates_qwen3_8b_pilot_shard_0.jsonl",
+    "data/rulefaith/qwen3_8b_shards/teacher_candidates_qwen3_8b_pilot_shard_1.jsonl"
+  ]
+}

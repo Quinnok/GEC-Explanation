@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nI want to talk about nocive or bad products like alcohol , hair spray and cigarrets . \n\nMODEL_PREDICTION:\nI want to talk about nocive or bad products like alcohol , hair spray and cigarettes .\n\nMODEL_EDIT:\noperation=replace\nspan=[15,16)\nsource_text=cigarrets\ntarget_text=cigarettes\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a grammatical error correction model",
+  "request_id": "local-e86b3b6b-d8cb-4677-87a4-40d2dc090fa3",
+  "teacher_model": "google/flan-t5-small"
+}

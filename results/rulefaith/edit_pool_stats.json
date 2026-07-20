@@ -1,0 +1,166 @@
+{
+  "audits": {
+    "near_duplicate_examples": [],
+    "near_duplicate_pair_count_at_0_92": 0,
+    "source_cross_split_count": 0,
+    "target_cross_split_count": 13,
+    "target_cross_split_examples": {
+      "about": [
+        "test",
+        "train"
+      ],
+      "can": [
+        "dev",
+        "train"
+      ],
+      "do": [
+        "dev",
+        "test",
+        "train"
+      ],
+      "example,": [
+        "dev",
+        "train"
+      ],
+      "for": [
+        "dev",
+        "test",
+        "train"
+      ],
+      "is": [
+        "test",
+        "train"
+      ],
+      "it": [
+        "dev",
+        "test",
+        "train"
+      ],
+      "people": [
+        "dev",
+        "train"
+      ],
+      "the": [
+        "test",
+        "train"
+      ],
+      "there": [
+        "test",
+        "train"
+      ],
+      "they": [
+        "test",
+        "train"
+      ],
+      "to": [
+        "dev",
+        "train"
+      ],
+      "when": [
+        "dev",
+        "train"
+      ]
+    }
+  },
+  "counts": {
+    "behavior": {
+      "correct_correction": 77,
+      "overcorrection": 151,
+      "wrong_correction": 72
+    },
+    "dataset": {
+      "EXPECT": 165,
+      "JFLEG": 135
+    },
+    "error_category": {
+      "articles_determiners": 27,
+      "clause_structure": 7,
+      "lexical_choice": 137,
+      "noun_number": 14,
+      "prepositions": 23,
+      "pronouns": 11,
+      "punctuation": 2,
+      "spelling_orthography": 39,
+      "subject_verb_agreement": 5,
+      "verb_form": 19,
+      "verb_tense": 11,
+      "word_order": 5
+    },
+    "error_type": {
+      "M:ADJ": 1,
+      "M:ADV": 1,
+      "M:DET": 13,
+      "M:NOUN:POSS": 1,
+      "M:OTHER": 10,
+      "M:PREP": 4,
+      "M:PUNCT": 1,
+      "M:VERB": 2,
+      "M:VERB:TENSE": 4,
+      "R:ADJ": 3,
+      "R:ADV": 2,
+      "R:CONTR": 2,
+      "R:DET": 4,
+      "R:MORPH": 4,
+      "R:NOUN": 36,
+      "R:NOUN:INFL": 1,
+      "R:NOUN:NUM": 14,
+      "R:ORTH": 1,
+      "R:OTHER": 69,
+      "R:PART": 2,
+      "R:PREP": 14,
+      "R:PRON": 8,
+      "R:SPELL": 34,
+      "R:VERB": 10,
+      "R:VERB:FORM": 5,
+      "R:VERB:SVA": 5,
+      "R:VERB:TENSE": 5,
+      "R:WO": 5,
+      "U:ADJ": 1,
+      "U:CONJ": 3,
+      "U:DET": 10,
+      "U:NOUN": 1,
+      "U:OTHER": 11,
+      "U:PREP": 5,
+      "U:PRON": 3,
+      "U:PUNCT": 1,
+      "U:VERB": 2,
+      "U:VERB:TENSE": 2
+    },
+    "model_family": {
+      "instruction-following text editor": 60,
+      "sequence-to-edit": 120,
+      "sequence-to-sequence": 120
+    },
+    "model_key": {
+      "coedit_large": 60,
+      "gector_roberta_base": 120,
+      "t5_base_grammar": 120
+    },
+    "operation": {
+      "delete": 33,
+      "insert": 30,
+      "replace": 237
+    },
+    "split": {
+      "dev": 39,
+      "test": 55,
+      "train": 206
+    }
+  },
+  "detokenization_artifacts_excluded": 251,
+  "excluded_records": 400,
+  "input_records": 700,
+  "minimums": {
+    "model_minimums": {
+      "coedit_large": 50,
+      "gector_roberta_base": 100,
+      "t5_base_grammar": 100
+    },
+    "model_targets": {
+      "coedit_large": 60,
+      "gector_roberta_base": 120,
+      "t5_base_grammar": 120
+    }
+  },
+  "selected_records": 300
+}

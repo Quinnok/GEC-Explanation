@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nComputers have had a most significant impact on the people in the latter 1/2 of the 20th century .\n\nMODEL_PREDICTION:\nUsing the Internet for the first time since the beginning of the 20th century.\n\nMODEL_EDIT:\noperation=replace\nspan=[7,8)\nsource_text=on\ntarget_text=for\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"on\" with \"for\" at source token span [7,8). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'on' with 'for' in the phrase 'have had a most significant impact on the people'\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"preposition_usage\",\n  \"rule_text\": \"Use 'for' to indicate the purpose or reason of an action, while 'on' is used for topics or subjects.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"have had a most significant impact on the people\",\n      \"start\": 7,\n      \"end\": 13,\n      \"role\": \"original\"\n    },\n    {\n      \"text\": \"have had a most significant impact for the people\",\n      \"start\": 7,\n      \"end\": 13,\n      \"role\": \"modified\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The preposition should indicate the purpose or reason of the impact\",\n    \"The phrase should involve an action directed towards a group or entity\"\n  ],\n  \"rationale\": \"The original sentence uses 'on' which typically indicates a topic or subject, but the intended meaning seems to be about the purpose or reason of the impact. Replacing 'on' with 'for' better conveys that the impact was directed towards the people for a specific purpose, making the sentence more semantically accurate.\",\n  \"confidence\": 0.85,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-794a9061-01b7-4943-aa4d-750b2907a450",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 381,
+    "output_tokens": 311,
+    "total_tokens": 692
+  }
+}

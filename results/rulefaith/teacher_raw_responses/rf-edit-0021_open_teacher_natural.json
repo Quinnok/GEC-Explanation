@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I was very fast , my best time was 5 5 seconds in 4 0 0 hundred meters is a good time in or country . \nModel prediction: I was very fast . My best time was 5 5 5 seconds in 4 0 0 hundred meters , which is a good time in the country .\nCurrent edit: replacing \"or\" with \"the\" at source token span [23,24).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The first sentence of a sentence is a grammatical error. The second sentence of the sentence is an error.",
+  "request_id": "local-a3382421-c672-4c95-809f-d0e1c1050f0c",
+  "teacher_model": "google/flan-t5-base"
+}

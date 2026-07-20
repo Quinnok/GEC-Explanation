@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: If in this society who will not to do study they never concept there opportunity or ca n't understand any ideas so most of the important that in this situation and I also very interestion and also prefer that for the study material . \nModel prediction: If in this society, who will not study, they never concept there opportunity or can't understand any ideas so most of the important that in this situation and I also very interested and also prefer that for the study material.\nCurrent edit: replacing \"material .\" with \"material.\" at source token span [42,44).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"material\" is a grammatical rephrasing of the verb \"material\".",
+  "request_id": "local-92fa90cd-fff2-4aa8-bcbe-ea35fbb66e08",
+  "teacher_model": "google/flan-t5-base"
+}

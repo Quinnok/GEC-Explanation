@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: I want to talk about nocive or bad products like alcohol , hair spray and cigarrets . \nModel prediction: I want to talk about harmful or bad products like alcohol, hair spray and cigarettes.\nCurrent edit: replacing \"nocive\" with \"harmful\" at source token span [5,6).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The grammatical or usage rule is that if a word is used in a sentence, it must be in the present tense.",
+  "request_id": "local-90508cfc-b4f4-435b-b60f-d23c9bac20fd",
+  "teacher_model": "google/flan-t5-base"
+}

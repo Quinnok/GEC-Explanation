@@ -1,0 +1,26 @@
+created: "2026-07-19"
+human_gold_metrics: "results/human_gold/main_metric_table.csv"
+human_gold_error_cases: "results/human_gold/error_cases.md"
+output_metrics: "results/rulefaith/verifier_metrics.json"
+output_calibration: "results/rulefaith/verifier_calibration.csv"
+output_error_cases: "results/rulefaith/verifier_error_cases.md"
+calibration_source: "Round 15 human-adjudicated stress-test labels"
+stress_test_gold: "annotation/round15/annotation_final_gold_v2.csv"
+primary_verifier: "rule_evidence_verifier"
+comparators:
+  - reverse_reconstruction
+  - target_masked_score
+  - leakage_adjusted_reconstruction
+  - surface_leak_score
+  - combined_proxy
+  - local_llm_judge
+gate_a:
+  edit_alignment_auroc_min: 0.75
+  rule_auroc_min: 0.65
+  evidence_auroc_min: 0.65
+  require_rule_above_reconstruction: true
+  require_evidence_above_reconstruction: true
+  target_masked_alignment_auroc_min: 0.75
+notes:
+  - "This calibration uses the adversarial Round 15 pressure-test set, not natural method outputs."
+  - "A pass here only permits method-pilot filtering; it does not prove final RuleFaith generation quality."

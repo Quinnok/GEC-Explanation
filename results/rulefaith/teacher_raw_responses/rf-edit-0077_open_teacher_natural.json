@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Additionally , our city government has prohibited smoking in public area and under 18 years old and provides a free session of talks or presentations to increase the awareness of clean , safe , fresh environment to the city .\nModel prediction: Additionally , our city government has prohibited smoking in public areas and those under 18 years old and provides a free session of talks or presentations to increase the awareness of a clean , safe , fresh environment in the city .\nCurrent edit: replacing \"area\" with \"areas\" at source token span [10,11).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"areas\" is a grammatical rephrasing of the verb area.",
+  "request_id": "local-49b4588a-2ea1-4478-896c-f2044af06bfd",
+  "teacher_model": "google/flan-t5-base"
+}

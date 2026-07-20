@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nI took the sun a very long time and then I went to a cafe and and I drank a drink .\n\nMODEL_PREDICTION:\nI took the sun for a very long time and then I went to a cafe and drank a drink .\n\nMODEL_EDIT:\noperation=delete\nspan=[15,16)\nsource_text=and\ntarget_text=\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a).",
+  "request_id": "local-00cb39e2-f0a2-464b-a288-6d2c3ab75db3",
+  "teacher_model": "google/flan-t5-small"
+}

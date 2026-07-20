@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\ni love my family especially my little sister , she has sixteen years old , i consider her my best friend because i usually tell her everything about my life .\n\nMODEL_PREDICTION:\nI love my family, especially my little sister. She is sixteen years old. I consider her my best friend because I usually tell her everything about my life.\n\nMODEL_EDIT:\noperation=replace\nspan=[3,4)\nsource_text=family\ntarget_text=family,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) id)",
+  "request_id": "local-c7cb3a48-23cf-4fd5-9c63-c8751c01277c",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nAdditionally , our city government has prohibited smoking in public area and under 18 years old and provides a free session of talks or presentations to increase the awareness of clean , safe , fresh environment to the city .\n\nMODEL_PREDICTION:\nAdditionally , our city government has prohibited smoking in public areas and those under 18 years old and provides a free session of talks or presentations to increase the awareness of a clean , safe , fresh environment in the city .\n\nMODEL_EDIT:\noperation=replace\nspan=[10,11)\nsource_text=area\ntarget_text=areas\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"area\" with \"areas\" at source token span [10,11). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'area' with 'areas' to correct subject-verb agreement.\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"subject_verb_agreement\",\n  \"rule_text\": \"A plural verb must agree with a plural subject.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"public area\",\n      \"start\": 10,\n      \"end\": 14,\n      \"role\": \"subject\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The subject is a noun phrase referring to multiple entities.\",\n    \"The verb following the subject is in the singular form.\"\n  ],\n  \"rationale\": \"The phrase 'public area' refers to multiple locations, thus requiring a plural form 'areas' to maintain subject-verb agreement with the verb 'has prohibited'.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-45ab4802-101f-44dd-a84a-d78848e790e0",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 427,
+    "output_tokens": 207,
+    "total_tokens": 634
+  }
+}

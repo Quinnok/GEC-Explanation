@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Variety of buses are provided by the government in order to meet people 's financial means .\nModel prediction: A variety of buses are provided by the government in order to meet people 's financial means .\nCurrent edit: replacing \"Variety\" with \"A variety\" at source token span [0,1).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i need to be a grammarian",
+  "request_id": "local-cbf50db7-c755-425c-afbe-3f5ad2ef1c26",
+  "teacher_model": "google/flan-t5-small"
+}

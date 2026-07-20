@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nComputers have had a most significant impact on the people in the latter 1/2 of the 20th century .\n\nMODEL_PREDICTION:\nComputers have had a most significant impact on people in the latter half of the 20th century.\n\nMODEL_EDIT:\noperation=delete\nspan=[8,9)\nsource_text=the\ntarget_text=\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: delete \"the\" at source token span [8,9). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Delete the article 'the' before 'latter half of the 20th century'.\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"article_redundancy\",\n  \"rule_text\": \"Articles like 'the' may be omitted when referring to general time periods or categories.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"the\",\n      \"start\": 8,\n      \"end\": 9,\n      \"role\": \"deleted\"\n    },\n    {\n      \"text\": \"latter half of the 20th century\",\n      \"start\": 9,\n      \"end\": 34,\n      \"role\": \"context\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"When referring to a general time period or category\",\n    \"When the noun phrase is non-specific or general in nature\"\n  ],\n  \"rationale\": \"The article 'the' is stylistically unnecessary before 'latter half of the 20th century' because it refers to a general time period rather than a specific instance. Removing 'the' makes the sentence more concise and natural in standard English usage.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-e119ae76-c548-433a-b3cf-c13ad2adff2b",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 379,
+    "output_tokens": 279,
+    "total_tokens": 658
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "prompt": "SOURCE:\nHe took the role of runner , the people responsible for exploring the maze and look for an exit out of this place .\n\nMODEL_PREDICTION:\nHe took the role of runner , the person responsible for exploring the maze and looking for an exit out of this place .\n\nMODEL_EDIT:\noperation=replace\nspan=[8,9)\nsource_text=people\ntarget_text=person\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"people\" with \"person\" at source token span [8,9). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'people' with 'person' at source token span [8,9)\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": null,\n  \"rule_text\": null,\n  \"evidence_spans\": [\n    {\n      \"text\": \"people\",\n      \"start\": 8,\n      \"end\": 9,\n      \"role\": \"source\"\n    }\n  ],\n  \"applicability_conditions\": [],\n  \"rationale\": \"The edit replaces 'people' with 'person' at the specified span, which is a direct replacement of words.\",\n  \"confidence\": 1,\n  \"abstain\": false,\n  \"abstain_reason\": \"The edit is clear and straightforward.\"\n}\n```",
+  "request_id": "qwen-local-6845e557-8245-4551-9344-b347919e1aa9",
+  "teacher_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "usage": {
+    "input_tokens": 365,
+    "output_tokens": 162,
+    "total_tokens": 527
+  }
+}

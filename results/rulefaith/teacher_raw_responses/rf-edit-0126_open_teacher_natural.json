@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: In the case of young people the best way is studying as hard as possible to get better grades so in the future they will have better chance to find better jobs . \nModel prediction: In the case of young people, the best way is to study as hard as possible to get better grades so in the future they will have a better chance to find better jobs.\nCurrent edit: replacing \"jobs .\" with \"jobs.\" at source token span [31,33).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word \"jobs\" is a grammatical contraction of the word \"students \".",
+  "request_id": "local-06bef1f0-50af-4c81-b897-f50c6eaad778",
+  "teacher_model": "google/flan-t5-base"
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nI live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring of the environment is very important and in my village they take different actions to care for it .\n\nMODEL_PREDICTION:\nI live in San Miguel Almoloyan, this is a village in the municipality of Almoloya de Juarez in the State of Mexico. Caring of the environment is very important, and in my village, they take different actions to care for it.\n\nMODEL_EDIT:\noperation=replace\nspan=[34,35)\nsource_text=village\ntarget_text=village,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "(A) - (B) (C) (D)",
+  "request_id": "local-09301ec8-f64f-40f8-a39f-88ab5b4b83cd",
+  "teacher_model": "google/flan-t5-small"
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\ni love my family especially my little sister , she has sixteen years old , i consider her my best friend because i usually tell her everything about my life .\n\nMODEL_PREDICTION:\nI love my family, especially my little sister. She is sixteen years old. I consider her my best friend because I usually tell her everything about my life.\n\nMODEL_EDIT:\noperation=replace\nspan=[7,8)\nsource_text=sister\ntarget_text=sister.\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"sister\" with \"sister.\" at source token span [7,8). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'sister' with 'sister.'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_after_sentence\",\n  \"rule_text\": \"A period should follow a complete sentence.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"sister\",\n      \"start\": 7,\n      \"end\": 12,\n      \"role\": \"token\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the sentence is a complete statement\",\n    \"the sentence ends with a noun or pronoun\",\n    \"no other punctuation is present at the end of the sentence\"\n  ],\n  \"rationale\": \"The word 'sister' at the end of the first sentence is followed by a comma, which is incorrect because the sentence is complete. Adding a period after 'sister' would properly terminate the sentence.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-516bbbfa-34c8-4631-b8b6-fac51cc743a5",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 402,
+    "output_tokens": 219,
+    "total_tokens": 621
+  }
+}

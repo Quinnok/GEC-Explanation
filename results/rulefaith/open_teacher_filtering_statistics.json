@@ -1,0 +1,31 @@
+{
+  "bucket_counts": {
+    "accepted": 0,
+    "refine": 0,
+    "rejected": 160
+  },
+  "bucket_rates": {
+    "accepted": 0.0,
+    "refine": 0.0,
+    "rejected": 1.0
+  },
+  "candidate_count": 160,
+  "candidate_type_counts": {
+    "natural": 80,
+    "rule_grounded": 80
+  },
+  "policy": {
+    "accepted": "parsed JSON, alignment proxy pass, explicit non-edit-copy rule, contextual evidence present",
+    "refine": "parsed JSON, alignment proxy pass, explicit rule, and at least one of non-edit-copy rule or contextual evidence",
+    "rejected": "all remaining candidates"
+  },
+  "provider_counts": {
+    "open_teacher": 160
+  },
+  "risk_reason_counts": {
+    "missing_rule_text": 160,
+    "non_json_or_wrapped": 160,
+    "rule_edit_copy": 160,
+    "weak_or_missing_contextual_evidence": 160
+  }
+}

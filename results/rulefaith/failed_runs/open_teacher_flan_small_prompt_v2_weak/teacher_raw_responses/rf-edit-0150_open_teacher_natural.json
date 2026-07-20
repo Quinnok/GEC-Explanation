@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: If every people thinks to learn and understand lots of scientifc subjects , any person will do not do it and as a result of this any science is n't imporeved . \nModel prediction: If every person thinks to learn and understand lots of scientific subjects, any person will not do it and as a result of this any science isn't improved.\nCurrent edit: replacing \"scientifc\" with \"scientific\" at source token span [10,11).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "If every person thinks to learn and understand lots of scientifc subjects, any person will do not do it and as a result of this any science isn't improved.",
+  "request_id": "local-be2c05c5-2716-4132-a59d-77938337b0c6",
+  "teacher_model": "google/flan-t5-small"
+}

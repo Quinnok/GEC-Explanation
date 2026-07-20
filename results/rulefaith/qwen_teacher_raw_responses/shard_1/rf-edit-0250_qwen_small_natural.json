@@ -1,0 +1,15 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nI live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring of the environment is very important and in my village they take different actions to care for it .\n\nMODEL_PREDICTION:\nI live in San Miguel Almoloyan, this is a village in the municipality of Almoloya de Juarez in the State of Mexico. Caring of the environment is very important, and in my village, they take different actions to care for it.\n\nMODEL_EDIT:\noperation=replace\nspan=[34,35)\nsource_text=village\ntarget_text=village,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"village\" with \"village,\" at source token span [34,35). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'village' with 'village' at source token span [34,35).\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"Replace 'village' with 'village' at source token span [34,35).\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"I live in San Miguel Almoloyan\",\n      \"start\": 34,\n      \"end\": 35,\n      \"role\": \"source\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"This edit replaces the word 'village' with 'village' at the specified source token span.\",\n    \"The edit does not affect the meaning or structure of the sentence.\"\n  ],\n  \"rationale\": \"The edit is valid because it replaces the word 'village' with 'village' at the specified source token span, which maintains the original sentence structure and meaning.\",\n  \"confidence\": \"high\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit does not introduce any new information or change the original sentence's meaning.\"\n}\n```",
+  "request_id": "qwen-local-842c6d3c-3517-4a3c-a65a-991d69e39563",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 425,
+    "output_tokens": 260,
+    "total_tokens": 685
+  }
+}

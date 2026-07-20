@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nBut such a high level of development of Egyptian civilization has a negative side as well as positive .\n\nMODEL_PREDICTION:\nThere is a high level of development of Egyptian civilization, but there is a negative side as well as a positive side.\n\nMODEL_EDIT:\noperation=replace\nspan=[9,10)\nsource_text=civilization\ntarget_text=civilization,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d)",
+  "request_id": "local-afb775e8-e400-4fd7-a17d-db0e994dd9fe",
+  "teacher_model": "google/flan-t5-small"
+}

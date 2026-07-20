@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: For example they can play football whenever they want but the olders can not . \nModel prediction: For example, they can play football whenever they want, but the older ones can not.\nCurrent edit: replacing \"example\" with \"example,\" at source token span [1,2).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The grammatical or usage rule is that if a word is used in a sentence, it must be in the present tense.",
+  "request_id": "local-b9565193-d6b4-4bc4-9c9e-26154c7e2cb0",
+  "teacher_model": "google/flan-t5-base"
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nIn the case of young people the best way is studying as hard as possible to get better grades so in the future they will have better chance to find better jobs . \n\nMODEL_PREDICTION:\nIn the case of young people, the best way is to study as hard as possible to get better grades so in the future they will have a better chance to find better jobs.\n\nMODEL_EDIT:\noperation=replace\nspan=[31,33)\nsource_text=jobs .\ntarget_text=jobs.\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"jobs .\" with \"jobs.\" at source token span [31,33). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Remove the period after 'jobs' and replace it with a period.\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_consistency\",\n  \"rule_text\": \"A period should not be preceded by a space unless it is part of a larger punctuation structure.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"jobs .\",\n      \"start\": 31,\n      \"end\": 33,\n      \"role\": \"original\"\n    },\n    {\n      \"text\": \"jobs.\",\n      \"start\": 31,\n      \"end\": 33,\n      \"role\": \"modified\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the sentence ends with a period\",\n    \"the period follows a word without preceding space\"\n  ],\n  \"rationale\": \"The original text has a space before the period after 'jobs', which is unnecessary and considered stylistically incorrect in standard English punctuation. Removing the space makes the punctuation more conventional.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-e4788085-83fc-4c9c-b0fe-05fa0c0bb8e3",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 411,
+    "output_tokens": 246,
+    "total_tokens": 657
+  }
+}

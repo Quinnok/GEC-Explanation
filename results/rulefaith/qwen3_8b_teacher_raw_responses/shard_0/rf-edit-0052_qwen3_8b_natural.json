@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nbecause they spent time unmeaningful subjects . \n\nMODEL_PREDICTION:\nbecause they spent time on important subjects .\n\nMODEL_EDIT:\noperation=replace\nspan=[4,5)\nsource_text=unmeaningful\ntarget_text=on important\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"unmeaningful\" with \"on important\" at source token span [4,5). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'unmeaningful' with 'on important'\",\n  \"edit_validity\": \"invalid\",\n  \"rule_id\": \"grammar_and_syntax\",\n  \"rule_text\": \"A preposition must follow a verb when indicating direction or relation.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"unmeaningful\",\n      \"start\": 4,\n      \"end\": 13,\n      \"role\": \"source\"\n    },\n    {\n      \"text\": \"on important\",\n      \"start\": 4,\n      \"end\": 18,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the sentence contains a verb followed by a noun phrase\",\n    \"the noun phrase indicates direction or relation\"\n  ],\n  \"rationale\": \"The original phrase 'spent time unmeaningful subjects' is grammatically incorrect because it lacks a preposition after the verb 'spent'. The replacement 'on important subjects' introduces a preposition ('on') which is necessary for proper syntax, but the edit incorrectly replaces the adjective 'unmeaningful' with the prepositional phrase 'on important', which is structurally invalid. The correct edit would be to add 'on' after 'spent time', not to replace 'unmeaningful' with 'on important'.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-7bac08e3-4055-4e7b-9085-768f960f0fb5",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 359,
+    "output_tokens": 307,
+    "total_tokens": 666
+  }
+}

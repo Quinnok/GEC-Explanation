@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Specializing in one particular subject does not suit our life in this era which is characterized by diversity and innovation \nModel prediction: Specializing in one particular subject does not suit our life in this era, which is characterized by diversity and innovation.\nCurrent edit: replacing \"era\" with \"era,\" at source token span [12,13).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The grammatical or usage rule is that a word must be spelled correctly.",
+  "request_id": "local-c6a55340-a4c4-41c3-bb36-6d1ceffc7c8c",
+  "teacher_model": "google/flan-t5-base"
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nComputers have had a most significant impact on the people in the latter 1/2 of the 20th century .\n\nMODEL_PREDICTION:\nUsing the Internet for the first time since the beginning of the 20th century.\n\nMODEL_EDIT:\noperation=replace\nspan=[12,14)\nsource_text=latter 1/2\ntarget_text=beginning\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"latter 1/2\" with \"beginning\" at source token span [12,14). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'latter 1/2' with 'beginning' to indicate the time period being referenced.\",\n  \"edit_validity\": \"invalid\",\n  \"rule_id\": \"semantic_inconsistency\",\n  \"rule_text\": \"Replacements must maintain semantic coherence and temporal consistency within the context.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"Computers have had a most significant impact on the people in the latter 1/2 of the 20th century.\",\n      \"start\": 12,\n      \"end\": 14,\n      \"role\": \"source\"\n    },\n    {\n      \"text\": \"Using the Internet for the first time since the beginning of the 20th century.\",\n      \"start\": 12,\n      \"end\": 14,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The replacement must refer to a time period that logically aligns with the original context.\",\n    \"The replacement must not introduce a contradiction in the timeline or meaning.\"\n  ],\n  \"rationale\": \"The phrase 'latter 1/2' refers to the second half of the 20th century, while 'beginning' refers to the early part of the century. These two phrases are semantically inconsistent and do not align with the original context of the sentence, which discusses the impact of computers during the latter half of the century. Replacing 'latter 1/2' with 'beginning' creates a logical inconsistency in the timeline.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-54e28093-079d-4b1e-bdf2-2f502e2c1309",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 396,
+    "output_tokens": 357,
+    "total_tokens": 753
+  }
+}

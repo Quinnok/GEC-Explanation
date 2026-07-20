@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nSpecializing in one particular subject does not suit our life in this era which is characterized by diversity and innovation \n\nMODEL_PREDICTION:\nSpecializing in one particular subject does not suit our life in this era, which is characterized by diversity and innovation.\n\nMODEL_EDIT:\noperation=replace\nspan=[12,13)\nsource_text=era\ntarget_text=era,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a).",
+  "request_id": "local-a1e680f4-5aea-44a3-b8f4-37455c61f959",
+  "teacher_model": "google/flan-t5-small"
+}

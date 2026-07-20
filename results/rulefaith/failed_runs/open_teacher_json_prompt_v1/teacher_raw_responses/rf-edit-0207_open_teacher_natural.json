@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nOne person if do n't have good health that means so many things they could lost . \n\nMODEL_PREDICTION:\nOne person if they don't have good health, that means so many things they could lose.\n\nMODEL_EDIT:\noperation=replace\nspan=[3,4)\nsource_text=do\ntarget_text=they\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "a) b) c) d) e) g) h) iii)",
+  "request_id": "local-96aa65e5-c66a-4314-abde-5887591cfc0a",
+  "teacher_model": "google/flan-t5-small"
+}

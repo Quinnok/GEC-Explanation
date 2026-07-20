@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Here was no promise of morning except that we looked up through the trees we saw how low the forest had swung . \nModel prediction: There was no promise of morning except when we looked up through the trees we saw how low the forest had swung .\nCurrent edit: replacing \"that\" with \"when\" at source token span [7,8).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "(A) a grammatical error correction model edits. (B) an atomic MODEL_EDIT. (C) A grammatically correct model edit.",
+  "request_id": "local-42202c1f-4e31-4721-b792-a9db842194d2",
+  "teacher_model": "google/flan-t5-small"
+}

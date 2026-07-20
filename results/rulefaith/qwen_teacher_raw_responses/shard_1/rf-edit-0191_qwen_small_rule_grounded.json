@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nStudents can focus on only a few subjects they are intwerested in and they will become an experts in those areas . \n\nMODEL_PREDICTION:\nStudents can focus on only a few subjects they are interested in and they will become experts in those areas.\n\nMODEL_EDIT:\noperation=delete\nspan=[16,17)\nsource_text=an\ntarget_text=\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: delete \"an\" at source token span [16,17). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Delete 'an' at the source token span [16,17)\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"delete_an\",\n  \"rule_text\": \"Delete 'an' at the source token span [16,17)\",\n  \"evidence_spans\": [\n    {\"text\": \"Students can focus on only a few subjects they are intwerested in and they will become experts in those areas.\", \"start\": 16, \"end\": 17, \"role\": \"source\"}\n  ],\n  \"applicability_conditions\": [\"valid\"],\n  \"rationale\": \"This edit removes the unnecessary 'an' before the subject 'intwerested' in the source text.\",\n  \"confidence\": \"acceptable_alternative\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit maintains the original meaning while simplifying the structure.\"\n}\n```",
+  "request_id": "qwen-local-9f056759-75b8-497b-a83c-9a81b2baa326",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 361,
+    "output_tokens": 204,
+    "total_tokens": 565
+  }
+}

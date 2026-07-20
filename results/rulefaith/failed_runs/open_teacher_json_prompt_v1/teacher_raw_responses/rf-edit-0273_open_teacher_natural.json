@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "SOURCE:\nIn the end I think if many people want the Monarchy to be ablished a general election should be called and then see if the Monarchy should be abolished .\n\nMODEL_PREDICTION:\nIn the end, I think if many people want the Monarchy to be abolished, a general election should be called and then see if the Monarchy should be abolished.\n\nMODEL_EDIT:\noperation=replace\nspan=[2,3)\nsource_text=end\ntarget_text=end,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.",
+  "provider": "open_teacher",
+  "raw_response": "grammatical error correction model edits",
+  "request_id": "local-3be0a4b5-4b34-4c28-ab79-4d78ec7b39c4",
+  "teacher_model": "google/flan-t5-small"
+}

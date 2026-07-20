@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: It is true that consumers preffer to buy a product that has a lower price , but when international companies that has already the certification begins to send its market , people will preffer to consume theirs because the difference between prices is probbably not going to affect them to much . \nModel prediction: It is true that consumers prefer to buy a product that has a lower price , but when international companies that have already the certification begin to send their market , people will prefer to consume theirs because the difference between prices is probably not going to affect them too much .\nCurrent edit: replacing \"its\" with \"their\" at source token span [28,29).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "Source: It is true that consumers preffer to buy a product that has a lower price , but when international companies that have already the certification begin to send its market , people will preffer not to consume theirs because the difference between prices is probbably not going to affect them to much .",
+  "request_id": "local-6cbc6975-cd56-4dfa-bf20-57405725ac21",
+  "teacher_model": "google/flan-t5-small"
+}

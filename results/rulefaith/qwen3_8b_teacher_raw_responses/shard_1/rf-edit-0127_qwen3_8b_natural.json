@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nI live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring of the environment is very important and in my village they take different actions to care for it .\n\nMODEL_PREDICTION:\nI live in San Miguel Almoloyan , this is a village in the municipality of Almoloya de Juarez in the State of Mexico . Caring for the environment is very important and in my village they take different actions to care for it.\n\nMODEL_EDIT:\noperation=replace\nspan=[25,26)\nsource_text=of\ntarget_text=for\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"of\" with \"for\" at source token span [25,26). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'of' with 'for' in the phrase 'Caring of the environment'\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"preposition_usage\",\n  \"rule_text\": \"The preposition 'for' is used to indicate purpose or relation to something, whereas 'of' indicates possession or composition.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"Caring of the environment\",\n      \"start\": 25,\n      \"end\": 29,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The phrase involves an action (caring) and its target (the environment)\",\n    \"The intended meaning is to express purpose or relation rather than possession or composition\"\n  ],\n  \"rationale\": \"The phrase 'Caring of the environment' is grammatically incorrect because 'of' does not convey the intended relationship between the action (caring) and its object (the environment). The correct preposition to use here is 'for', which indicates purpose or relation to something.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-454cc83b-d0ea-42b0-a8eb-951a0c19b83a",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 441,
+    "output_tokens": 258,
+    "total_tokens": 699
+  }
+}

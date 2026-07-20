@@ -1,0 +1,52 @@
+{
+  "calibration_source": "Round 15 human-adjudicated stress-test labels",
+  "config": "configs/rulefaith/verifier_calibration.yaml",
+  "gate_a": {
+    "caveats": [
+      "Gate A is calibrated on Round 15 pressure-test labels, not new natural explanations.",
+      "Evidence Macro-F1 remains low because positive evidence labels are sparse; AUROC passes the pre-registered threshold.",
+      "Target-masked reconstruction remains useful for edit alignment but not for rule/evidence correctness."
+    ],
+    "checks": {
+      "edit_alignment_auroc": {
+        "passed": true,
+        "threshold": 0.75,
+        "value": 0.75
+      },
+      "evidence_auroc": {
+        "passed": true,
+        "threshold": 0.65,
+        "value": 0.6666666666666666
+      },
+      "rule_auroc": {
+        "passed": true,
+        "threshold": 0.65,
+        "value": 0.7562582345191041
+      },
+      "target_masked_alignment_auroc": {
+        "passed": true,
+        "threshold": 0.75,
+        "value": 0.7582194010416666
+      }
+    },
+    "comparative_checks": {
+      "evidence_above_reconstruction": {
+        "delta": 0.2530381944444444,
+        "passed": true,
+        "primary": 0.6666666666666666,
+        "reconstruction": 0.4136284722222222
+      },
+      "rule_above_reconstruction": {
+        "delta": 0.3280632411067194,
+        "passed": true,
+        "primary": 0.7562582345191041,
+        "reconstruction": 0.4281949934123847
+      }
+    },
+    "status": "conditional_pass"
+  },
+  "human_gold_metrics": "results/human_gold/main_metric_table.csv",
+  "primary_verifier": "rule_evidence_verifier",
+  "selected_metric_rows": 35,
+  "status_note": "conditional_pass means verifier calibration is adequate for method-pilot filtering, not final generation proof."
+}

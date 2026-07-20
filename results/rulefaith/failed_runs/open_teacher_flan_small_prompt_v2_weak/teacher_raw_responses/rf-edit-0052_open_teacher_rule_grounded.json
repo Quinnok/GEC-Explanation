@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: because they spent time unmeaningful subjects . \nModel prediction: because they spent time on important subjects .\nCurrent edit: replacing \"unmeaningful\" with \"on important\" at source token span [4,5).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "a b c d i n't be able to use a word or phrase in a sentence",
+  "request_id": "local-6407d420-0043-4de8-882e-c2b881aaec9c",
+  "teacher_model": "google/flan-t5-small"
+}

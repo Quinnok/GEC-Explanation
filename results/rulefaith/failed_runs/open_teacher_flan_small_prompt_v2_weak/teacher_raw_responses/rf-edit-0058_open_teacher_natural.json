@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: Variety of buses are provided by the government in order to meet people 's financial means .\nModel prediction: A variety of buses are provided by the government in order to meet people 's financial means .\nCurrent edit: replacing \"Variety\" with \"A variety\" at source token span [0,1).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "i need to be able to see a map of the city. i want to see the city's population.",
+  "request_id": "local-627f3183-595e-414f-9cfb-4442e2cc643e",
+  "teacher_model": "google/flan-t5-small"
+}

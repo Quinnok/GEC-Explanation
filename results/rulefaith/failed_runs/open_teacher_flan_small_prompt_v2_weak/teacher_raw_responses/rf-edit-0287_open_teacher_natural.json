@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: we think that in the future the planet will be in a bad condition and the trees will be dissappearing , after that we will have wars .\nModel prediction: We think that in the future, the planet will be in a bad condition and the trees will be dissappearing. After that, we will have wars.\nCurrent edit: replacing \"future\" with \"future,\" at source token span [5,6).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "he will be able to help him in the future if he can't help him.",
+  "request_id": "local-bea86767-5747-416a-b02b-a56e37cafe7a",
+  "teacher_model": "google/flan-t5-small"
+}

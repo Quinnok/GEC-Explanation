@@ -1,0 +1,9 @@
+{
+  "candidate_type": "natural",
+  "model_version": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: In conclusion , I think that this type of food and atmosphere is very for us , because normally we speak about books , work and studies , whereas with this type of environment we can speak about ourselves , our family , our hobbies and everyone will get to know new something about other classmates .\nModel prediction: In conclusion, I think that this type of food and atmosphere is very good for us because normally, we speak about books, work, and studies, whereas with this type of environment, we can speak about ourselves, our family, our hobbies, and everyone will get to know something new about other classmates.\nCurrent edit: replacing \"normally\" with \"normally,\" at source token span [18,19).\nInstruction: Give a natural one-sentence explanation.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "They will be able to help them with the grammatical error correction model edits.",
+  "request_id": "local-2a34a7c9-3703-4f47-b1d3-74cae0512f36",
+  "teacher_model": "google/flan-t5-small"
+}

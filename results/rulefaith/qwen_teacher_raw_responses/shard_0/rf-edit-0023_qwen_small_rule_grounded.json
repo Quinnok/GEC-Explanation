@@ -1,0 +1,15 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "model_version": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "prompt": "SOURCE:\nBeacuse all those broad knowledge help they to understand their major in university as well as help they to make a correct choice in specializing study . \n\nMODEL_PREDICTION:\nBecause all this broad knowledge helps them to understand their major at university , as well as helps them to make a correct choice specializing in studies .\n\nMODEL_EDIT:\noperation=replace\nspan=[23,25)\nsource_text=in specializing\ntarget_text=specializing in\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"in specializing\" with \"specializing in\" at source token span [23,25). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen_small",
+  "raw_response": "```json\n{\n  \"edit_description\": \"Replace 'in specializing' with 'specializing in'\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"1\",\n  \"rule_text\": \"Replace 'in specializing' with 'specializing in'\",\n  \"evidence_spans\": \"[23,25)\",\n  \"applicability_conditions\": [\"in specializing\", \"specializing\"],\n  \"rationale\": \"This edit replaces the word 'in' with 'specializing', which is a common phrase used to indicate specialization.\",\n  \"confidence\": \"high\",\n  \"abstain\": \"false\",\n  \"abstain_reason\": \"The edit maintains the original meaning while using a more formal phrasing.\"\n}\n```",
+  "request_id": "qwen-local-85c11100-cb20-4500-a118-619b0454f478",
+  "teacher_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "usage": {
+    "input_tokens": 384,
+    "output_tokens": 156,
+    "total_tokens": 540
+  }
+}

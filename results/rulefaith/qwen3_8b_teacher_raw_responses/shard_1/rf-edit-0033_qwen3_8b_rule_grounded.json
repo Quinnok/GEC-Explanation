@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nI think about transport that the government should help the public transport , for example buses , train , the metro and more , for a single reason : the quality of life against the pollution .\n\nMODEL_PREDICTION:\nI think about transport that the government should help public transport , for example buses , trains , the metro and more , for a single reason : the quality of life against pollution .\n\nMODEL_EDIT:\noperation=delete\nspan=[34,35)\nsource_text=the\ntarget_text=\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: delete \"the\" at source token span [34,35). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Remove the article 'the' before 'pollution'.\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"article_redundancy\",\n  \"rule_text\": \"Avoid unnecessary articles before nouns that are clearly defined by context.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"the quality of life against pollution\",\n      \"start\": 34,\n      \"end\": 38,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The noun is preceded by a prepositional phrase that already defines its context.\",\n    \"The noun is part of a contrast or comparison.\"\n  ],\n  \"rationale\": \"The article 'the' before 'pollution' is unnecessary because the prepositional phrase 'against pollution' already provides sufficient context, making the article redundant and stylistically optional.\",\n  \"confidence\": 0.9,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-771aee3c-7548-40c7-8f30-701f271e18c2",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 407,
+    "output_tokens": 218,
+    "total_tokens": 625
+  }
+}

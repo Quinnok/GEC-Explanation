@@ -1,0 +1,9 @@
+{
+  "candidate_type": "rule_grounded",
+  "model_version": "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
+  "prompt": "Explain the grammar correction. Do not output the corrected sentence.\nExample source: The students goes to school.\nExample edit: replacing \"goes\" with \"go\"\nExample explanation: The plural subject \"students\" takes the base present-tense verb \"go\".\n\nSource: because they spent time unmeaningful subjects . \nModel prediction: because they spent time on important subjects .\nCurrent edit: replacing \"unmeaningful\" with \"on important\" at source token span [4,5).\nInstruction: Give one sentence that states the grammar or usage rule.\nExplanation:",
+  "provider": "open_teacher",
+  "raw_response": "The word 'no' is a contraction of the verb '' .",
+  "request_id": "local-dc52cb27-59b6-4742-a8e9-f2a498907ccb",
+  "teacher_model": "google/flan-t5-base"
+}
