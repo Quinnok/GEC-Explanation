@@ -65,6 +65,19 @@ Write one explanation candidate. The explanation should:
 
 Avoid making the entire explanation a direct copy of the edit. The edit_description field may identify the edit, but the rationale should contain rule or evidence grounding when possible.
 
+## Evidence-Span Requirements
+
+For Qwen3 and all future teacher/refinement prompts, evidence spans must obey these stricter rules:
+
+- Evidence spans must come from `SOURCE` only, never from `MODEL_PREDICTION`.
+- `start` and `end` are whitespace token offsets in `SOURCE`.
+- The span `text` must exactly equal `SOURCE.split()[start:end]`.
+- Do not put corrected target phrases, target-only words, or model-prediction spans in `evidence_spans`.
+- For grammar rules, cite the contextual trigger: subject, head noun, tense cue, antecedent, governor, collocation, clause relation, determiner environment, or another source-side condition.
+- Do not cite only the modified token unless the edit concerns spelling, capitalization, or punctuation.
+- If no reliable source evidence can be identified, output `evidence_spans=[]`, lower `confidence`, or set `abstain=true`.
+- If the edit appears wrong, optional, or stylistic, do not rationalize it as required grammar; mark `edit_validity` honestly.
+
 ## Required JSON Shape
 
 ```json

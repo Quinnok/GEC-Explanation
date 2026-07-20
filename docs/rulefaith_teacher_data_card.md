@@ -39,4 +39,5 @@ The outputs are natural explanation candidates for verifier filtering, refinemen
 - Cost estimates are recorded separately from actual API usage.
 - Qwen raw responses, parse failures, and quality reports are saved separately from FLAN-T5 outputs.
 - Current FLAN and Qwen2.5 candidates should be used as weak baselines, rejected examples, and refinement stress cases, not as SFT positives.
-- Qwen3-8B accepted/refine candidates may be used for RuleFaith refinement and preference construction only after manual spot-checking or an additional verifier quality gate.
+- Qwen3-8B prompt-v1 accepted/refine candidates may be used only for manual audit and refinement stress testing. Loop B showed that stricter evidence validation leaves only 24/160 candidates with contextual source evidence and flags 87/160 with prediction-only evidence; do not use v1 candidates as SFT positives.
+- Qwen3-8B prompt-v2 now requires source-only evidence spans with exact whitespace-token offsets. A 10-candidate smoke test produced 10/10 parsed JSON candidates and 0/10 prediction-only evidence, but only 3/10 had contextual source evidence; targeted evidence refinement is still required.

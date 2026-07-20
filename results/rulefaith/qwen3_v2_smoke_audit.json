@@ -1,0 +1,20 @@
+{
+  "candidate_id": "rf-edit-0251::qwen3_8b::natural",
+  "evidence_checks": {
+    "evidence_all_spans_source_index_match": true,
+    "evidence_contextual": true,
+    "evidence_contextual_source_count": 1,
+    "evidence_edit_token_only_count": 1,
+    "evidence_error_types": "",
+    "evidence_invalid_source_span_count": 0,
+    "evidence_span_index_match": true,
+    "evidence_text_found_in_prediction_only": false,
+    "evidence_text_found_in_source": true,
+    "evidence_valid_source_span_count": 1,
+    "missing_evidence": false,
+    "wrong_evidence_auto": false
+  },
+  "interpretation": "Prompt-v2 smoke test avoided prediction-only evidence and matched SOURCE token offsets; punctuation-only edit token is accepted as orthographic evidence.",
+  "parse_status": "parsed_json",
+  "prompt_version": "rulefaith_qwen3_8b_teacher_v2_source_evidence_no_think_json"
+}

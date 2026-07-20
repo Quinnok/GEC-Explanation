@@ -15,15 +15,25 @@
     "JFLEG": 56
   },
   "decision": "fix_evidence_verifier_and_evidence_prompt_before_targeted_refinement",
+  "evidence_error_type_counts": {
+    "index_text_mismatch": 121,
+    "invalid_indices": 24,
+    "missing_evidence": 1,
+    "prediction_only_text": 62,
+    "prediction_or_target_role": 29,
+    "text_not_in_source": 23
+  },
   "flag_counts": {
     "alignment_error": 55,
     "edit_copy": 121,
-    "evidence_contextual": 51,
+    "evidence_all_spans_source_index_match": 20,
+    "evidence_contextual": 24,
     "evidence_span_index_match": 48,
+    "evidence_text_found_in_prediction_only": 87,
     "evidence_text_found_in_source": 144,
     "generic_explanation": 1,
     "leakage_input_violation": 0,
-    "missing_evidence": 109,
+    "missing_evidence": 136,
     "missing_rule": 1,
     "possible_false_rationalization": 19,
     "rule_edit_copy": 0,
@@ -31,14 +41,16 @@
     "source_span_match": 160,
     "target_copy": 111,
     "target_present_in_prediction": 160,
-    "unsupported_confidence": 147,
+    "unsupported_confidence": 145,
     "validity_error_auto": 28,
-    "wrong_evidence_auto": 108
+    "wrong_evidence_auto": 141
   },
-  "generated_at": "2026-07-20T11:49:43.814205+00:00",
-  "git_commit": "9fd12b9",
+  "generated_at": "2026-07-20T12:05:05.418672+00:00",
+  "git_commit": "a8549e5",
   "hard_failures": {
+    "evidence_all_spans_index_mismatch_count": 140,
     "evidence_index_mismatch_count": 112,
+    "evidence_prediction_only_count": 87,
     "input_leakage_detected": false,
     "possible_false_rationalization_count": 19,
     "source_span_mismatches": 0,
@@ -63,9 +75,9 @@
     "replace": 124
   },
   "selected_bucket_counts": {
-    "accepted": 25,
-    "refine": 39,
-    "rejected": 16
+    "accepted": 31,
+    "refine": 34,
+    "rejected": 15
   },
   "selected_coverage": {
     "behavior": [
@@ -95,23 +107,25 @@
   },
   "selected_flag_counts": {
     "alignment_error": 15,
-    "edit_copy": 71,
-    "evidence_contextual": 26,
-    "evidence_span_index_match": 8,
-    "evidence_text_found_in_source": 71,
+    "edit_copy": 73,
+    "evidence_all_spans_source_index_match": 0,
+    "evidence_contextual": 1,
+    "evidence_span_index_match": 5,
+    "evidence_text_found_in_prediction_only": 64,
+    "evidence_text_found_in_source": 69,
     "generic_explanation": 0,
     "leakage_input_violation": 0,
-    "missing_evidence": 54,
-    "missing_rule": 1,
-    "possible_false_rationalization": 19,
+    "missing_evidence": 79,
+    "missing_rule": 0,
+    "possible_false_rationalization": 16,
     "rule_edit_copy": 0,
-    "semantic_distortion_auto": 28,
+    "semantic_distortion_auto": 25,
     "source_span_match": 80,
-    "target_copy": 69,
+    "target_copy": 66,
     "target_present_in_prediction": 80,
-    "unsupported_confidence": 78,
-    "validity_error_auto": 28,
-    "wrong_evidence_auto": 69
+    "unsupported_confidence": 79,
+    "validity_error_auto": 25,
+    "wrong_evidence_auto": 80
   },
   "selected_manual_audit_count": 80
 }

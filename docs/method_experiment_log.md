@@ -183,3 +183,71 @@ Validation:
 - `pytest -q` was attempted but unavailable: `pytest: command not found`.
 
 Decision: revise evidence verifier and evidence-generation prompt before targeted refinement. Do not treat Qwen3 accepted/refine candidates as SFT positives yet.
+
+## 2026-07-20 Loop B Evidence Gate Repair
+
+Objective: tighten Qwen3 evidence-span validation and create a blind human audit package before targeted refinement.
+
+Code/config changes:
+
+- Updated `experiments/rulefaith/build_qwen3_manual_audit.py` with stricter source-only evidence diagnostics.
+- Updated `experiments/rulefaith/generate_teacher_candidates.py` Qwen prompt with source-only evidence-span requirements.
+- Updated `configs/rulefaith/qwen3_8b_teacher.yaml` prompt version to `rulefaith_qwen3_8b_teacher_v2_source_evidence_no_think_json`.
+
+Outputs:
+
+- `annotation/rulefaith_qwen3_audit/manual_audit_form.csv`
+- `annotation/rulefaith_qwen3_audit/manual_audit_key.csv`
+- `annotation/rulefaith_qwen3_audit/guidelines.md`
+- Updated `results/rulefaith/qwen3_manual_audit.csv`
+- Updated `results/rulefaith/qwen3_manual_audit_summary.json`
+- Updated `results/rulefaith/qwen3_manual_audit_cases.md`
+
+Verified results:
+
+- 160 candidates audited.
+- 80 blind rows selected for human audit.
+- 0/160 generator input leakage flags.
+- 160/160 source edit spans match the source tokenization.
+- 160/160 target texts are present in predictions when applicable.
+- 48/160 candidates have at least one source-index-matched evidence span.
+- 20/160 candidates have all evidence spans source-index matched.
+- 24/160 candidates have contextual source evidence.
+- 87/160 candidates include prediction-only evidence.
+- 141/160 candidates receive an automatic wrong-evidence flag.
+- Evidence error types: index_text_mismatch 121, prediction_only_text 62, prediction_or_target_role 29, invalid_indices 24, text_not_in_source 23, missing_evidence 1.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/build_qwen3_manual_audit.py experiments/rulefaith/generate_teacher_candidates.py` passed.
+- `python3 -m unittest experiments.tests.test_qwen3_manual_audit` passed, 8 tests.
+
+Decision: keep Qwen3-8B as the primary local teacher branch, but treat v1 candidates as audit/refinement material only. Regenerate or refine with prompt v2 before training data construction.
+
+Prompt-v2 smoke tests:
+
+- Command: `HF_HUB_DISABLE_XET=1 .venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --qwen-model Qwen/Qwen3-8B --qwen-provider-name qwen3_8b --qwen-config configs/rulefaith/qwen3_8b_teacher.yaml --limit 1 --candidate-types natural --output results/rulefaith/qwen3_v2_smoke_candidates.jsonl --stats results/rulefaith/qwen3_v2_smoke_stats.json --parse-failures results/rulefaith/qwen3_v2_smoke_parse_failures.jsonl --raw-dir results/rulefaith/qwen3_v2_smoke_raw --resume`
+- Output: `results/rulefaith/qwen3_v2_smoke_candidates.jsonl`
+- Audit: `results/rulefaith/qwen3_v2_smoke_audit.json`
+- Candidate count: 1
+- Parse status: parsed JSON
+- Latency: 22.9837 seconds after model load
+- Evidence source-index match: true
+- Prediction-only evidence: false
+- Interpretation: promising smoke result only; not enough to claim prompt-v2 solves evidence grounding.
+
+Smoke10:
+
+- Command: `HF_HUB_DISABLE_XET=1 .venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --qwen-model Qwen/Qwen3-8B --qwen-provider-name qwen3_8b --qwen-config configs/rulefaith/qwen3_8b_teacher.yaml --limit 10 --candidate-types natural --output results/rulefaith/qwen3_v2_smoke10_candidates.jsonl --stats results/rulefaith/qwen3_v2_smoke10_stats.json --parse-failures results/rulefaith/qwen3_v2_smoke10_parse_failures.jsonl --raw-dir results/rulefaith/qwen3_v2_smoke10_raw --resume`
+- Output: `results/rulefaith/qwen3_v2_smoke10_candidates.jsonl`
+- Audit: `results/rulefaith/qwen3_v2_smoke10_audit.json`
+- Candidate count: 10
+- Parse status: 10/10 parsed JSON
+- Source span match: 10/10
+- Target present in prediction: 10/10
+- At least one evidence span source-index matched: 6/10
+- All evidence spans source-index matched: 4/10
+- Contextual source evidence: 3/10
+- Prediction-only evidence: 0/10
+- Wrong-evidence automatic flag: 6/10
+- Interpretation: prompt-v2 removed prediction-only evidence in this smoke sample, but it still under-produces contextual source evidence. Targeted evidence refinement or a stronger prompt is needed before scaling.

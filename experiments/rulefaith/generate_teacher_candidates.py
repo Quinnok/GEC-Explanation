@@ -218,6 +218,12 @@ def qwen_user_prompt(row: Dict[str, Any], candidate_type: str) -> str:
         + "\n\n"
         + exact_edit
         + " Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. "
+        "Evidence spans must come from SOURCE only, never from MODEL_PREDICTION. "
+        "The evidence_spans start/end values are whitespace token offsets in SOURCE, and the text must exactly equal SOURCE tokens[start:end]. "
+        "Do not put corrected target phrases, target-only words, or MODEL_PREDICTION spans in evidence_spans. "
+        "For grammar rules, cite contextual triggers such as subject, head noun, tense cue, antecedent, governor, or collocation; do not cite only the modified token unless the edit is spelling, capitalization, or punctuation. "
+        "If no reliable source evidence can be identified, set evidence_spans=[] and lower confidence or abstain. "
+        "If the edit appears wrong, optional, or stylistic, do not rationalize it as required grammar; mark edit_validity honestly. "
         "Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. "
         "Do not include hidden reasoning, chain-of-thought, or <think> blocks. "
         "Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. "

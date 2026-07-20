@@ -23,9 +23,13 @@ DEFAULT_EDIT_POOL = ROOT / "data" / "rulefaith" / "edit_pool.jsonl"
 DEFAULT_CSV = ROOT / "results" / "rulefaith" / "qwen3_manual_audit.csv"
 DEFAULT_SUMMARY = ROOT / "results" / "rulefaith" / "qwen3_manual_audit_summary.json"
 DEFAULT_CASES = ROOT / "results" / "rulefaith" / "qwen3_manual_audit_cases.md"
+DEFAULT_BLIND_FORM = ROOT / "annotation" / "rulefaith_qwen3_audit" / "manual_audit_form.csv"
+DEFAULT_BLIND_KEY = ROOT / "annotation" / "rulefaith_qwen3_audit" / "manual_audit_key.csv"
+DEFAULT_GUIDELINES = ROOT / "annotation" / "rulefaith_qwen3_audit" / "guidelines.md"
 
 FORBIDDEN_GENERATOR_FIELDS = {"reference", "behavior", "model_behavior", "human_label", "final_label", "gold_label"}
-GENERIC_EVIDENCE_ROLES = {"", "source", "target", "source_text", "target_text", "original", "modified", "edit"}
+GENERIC_EVIDENCE_ROLES = {"", "source", "source_text", "original", "edit", "error", "error_span"}
+PREDICTION_EVIDENCE_ROLES = {"target", "target_text", "modified", "correction", "corrected", "corrected_span"}
 GENERIC_PHRASES = [
     "grammar issue",
     "grammar problem",
@@ -113,8 +117,15 @@ CSV_FIELDS = [
     "source_span_match",
     "target_present_in_prediction",
     "evidence_span_index_match",
+    "evidence_all_spans_source_index_match",
     "evidence_text_found_in_source",
+    "evidence_text_found_in_prediction_only",
     "evidence_contextual",
+    "evidence_valid_source_span_count",
+    "evidence_invalid_source_span_count",
+    "evidence_contextual_source_count",
+    "evidence_edit_token_only_count",
+    "evidence_error_types",
     "missing_evidence",
     "wrong_evidence_auto",
     "missing_rule",
@@ -141,6 +152,52 @@ CSV_FIELDS = [
     "human_unsupported_confidence",
     "human_notes",
     "human_decision",
+]
+
+BLIND_FORM_FIELDS = [
+    "candidate_id",
+    "dataset",
+    "sample_id",
+    "model_key",
+    "source",
+    "model_prediction",
+    "operation",
+    "edit_start",
+    "edit_end",
+    "source_text",
+    "target_text",
+    "edit_description",
+    "edit_validity",
+    "rule_text",
+    "evidence_spans_json",
+    "rationale",
+    "confidence",
+    "human_alignment_error",
+    "human_validity_error",
+    "human_wrong_rule",
+    "human_inapplicable_rule",
+    "human_missing_evidence",
+    "human_wrong_evidence",
+    "human_generic_explanation",
+    "human_edit_copy",
+    "human_semantic_distortion",
+    "human_unsupported_confidence",
+    "human_notes",
+    "human_decision",
+]
+
+BLIND_KEY_FIELDS = [
+    "candidate_id",
+    "bucket",
+    "audit_priority",
+    "candidate_type",
+    "dataset",
+    "model_key",
+    "behavior",
+    "operation",
+    "error_type",
+    "risk_count",
+    "risk_reasons",
 ]
 
 
@@ -179,15 +236,16 @@ def write_text(path: Path, text: str, overwrite: bool) -> None:
     path.write_text(text, encoding="utf-8")
 
 
-def write_csv(path: Path, rows: Iterable[dict[str, Any]], overwrite: bool) -> None:
+def write_csv(path: Path, rows: Iterable[dict[str, Any]], overwrite: bool, fieldnames: list[str] | None = None) -> None:
     if path.exists() and not overwrite:
         raise FileExistsError(f"{path} exists; pass --overwrite to replace it")
     path.parent.mkdir(parents=True, exist_ok=True)
+    fields = fieldnames or CSV_FIELDS
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=CSV_FIELDS)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for row in rows:
-            writer.writerow({field: row.get(field, "") for field in CSV_FIELDS})
+            writer.writerow({field: row.get(field, "").strip() if isinstance(row.get(field, ""), str) else row.get(field, "") for field in fields})
 
 
 def git_commit() -> str:
@@ -203,6 +261,19 @@ def normalize(text: Any) -> str:
 
 def content_tokens(text: str) -> list[str]:
     return re.findall(r"[a-z0-9']+", normalize(text))
+
+
+def normalized_ws_tokens(text: str) -> list[str]:
+    return [normalize(token) for token in str(text or "").split() if normalize(token)]
+
+
+def token_sequence_found(needle: str, haystack_tokens: list[str]) -> bool:
+    needle_tokens = normalized_ws_tokens(needle)
+    if not needle_tokens:
+        return False
+    if len(needle_tokens) > len(haystack_tokens):
+        return False
+    return any(haystack_tokens[i : i + len(needle_tokens)] == needle_tokens for i in range(len(haystack_tokens) - len(needle_tokens) + 1))
 
 
 def text_contains(text: str, needle: Any) -> bool:
@@ -246,50 +317,124 @@ def target_present_in_prediction(prediction: str, edit: dict[str, Any]) -> bool:
     return target_text in normalize(prediction)
 
 
-def evidence_checks(source: str, edit: dict[str, Any], spans: Any) -> dict[str, Any]:
+def edit_token_can_be_contextual(edit: dict[str, Any]) -> bool:
+    error_type = normalize(edit.get("error_type", ""))
+    source_text = normalize(edit.get("source_text", ""))
+    target_text = normalize(edit.get("target_text", ""))
+    if not source_text:
+        return False
+    source_content = "".join(content_tokens(source_text))
+    target_content = "".join(content_tokens(target_text))
+    if source_content and source_content == target_content and source_text != target_text:
+        return True
+    if error_type.startswith(("r:orth", "m:orth", "u:orth", "r:spell", "m:spell", "u:spell")):
+        return True
+    return "punct" in error_type or "capital" in error_type
+
+
+def evidence_checks(source: str, prediction: str, edit: dict[str, Any], spans: Any) -> dict[str, Any]:
     if not isinstance(spans, list) or not spans:
         return {
             "evidence_span_index_match": False,
+            "evidence_all_spans_source_index_match": False,
             "evidence_text_found_in_source": False,
+            "evidence_text_found_in_prediction_only": False,
             "evidence_contextual": False,
+            "evidence_valid_source_span_count": 0,
+            "evidence_invalid_source_span_count": 0,
+            "evidence_contextual_source_count": 0,
+            "evidence_edit_token_only_count": 0,
+            "evidence_error_types": "missing_evidence",
             "missing_evidence": True,
             "wrong_evidence_auto": False,
         }
 
-    source_norm = normalize(source)
     source_tokens = source.split()
+    normalized_source_tokens = normalized_ws_tokens(source)
+    normalized_prediction_tokens = normalized_ws_tokens(prediction)
     edit_source = normalize(edit.get("source_text", ""))
     edit_target = normalize(edit.get("target_text", ""))
-    any_index_match = False
-    any_text_found = False
-    any_contextual = False
-    any_wrong_explicit = False
+    allow_edit_token_evidence = edit_token_can_be_contextual(edit)
+    valid_source_span_count = 0
+    invalid_source_span_count = 0
+    contextual_source_count = 0
+    edit_token_only_count = 0
+    prediction_only_count = 0
+    text_found_count = 0
+    errors: Counter[str] = Counter()
 
     for span in spans:
         if not isinstance(span, dict):
-            any_wrong_explicit = True
+            errors["malformed_span"] += 1
+            invalid_source_span_count += 1
             continue
         text = normalize(span.get("text", ""))
         role = normalize(span.get("role", ""))
         start = span.get("start")
         end = span.get("end")
-        if text and text in source_norm:
-            any_text_found = True
-        if isinstance(start, int) and isinstance(end, int) and 0 <= start <= end <= len(source_tokens):
-            indexed_text = normalize(" ".join(source_tokens[start:end]))
-            if text and indexed_text == text:
-                any_index_match = True
-        if text and role not in GENERIC_EVIDENCE_ROLES and text not in {edit_source, edit_target}:
-            any_contextual = True
-        if text and text not in source_norm and not any(token in source_norm for token in content_tokens(text)):
-            any_wrong_explicit = True
+        if not text:
+            errors["empty_text"] += 1
+            invalid_source_span_count += 1
+            continue
 
+        text_in_source = token_sequence_found(text, normalized_source_tokens)
+        text_in_prediction = token_sequence_found(text, normalized_prediction_tokens)
+        if text_in_source:
+            text_found_count += 1
+
+        index_valid = isinstance(start, int) and isinstance(end, int) and 0 <= start <= end <= len(source_tokens)
+        index_match = False
+        if index_valid:
+            indexed_text = normalize(" ".join(source_tokens[start:end]))
+            index_match = indexed_text == text
+        else:
+            errors["invalid_indices"] += 1
+
+        if index_match:
+            valid_source_span_count += 1
+        else:
+            invalid_source_span_count += 1
+            if index_valid:
+                errors["index_text_mismatch"] += 1
+
+        edit_token_only = text in {edit_source, edit_target} or role in (GENERIC_EVIDENCE_ROLES | PREDICTION_EVIDENCE_ROLES)
+        if edit_token_only:
+            edit_token_only_count += 1
+
+        prediction_only = text_in_prediction and not text_in_source
+        if prediction_only or role in PREDICTION_EVIDENCE_ROLES:
+            prediction_only_count += 1
+            if prediction_only:
+                errors["prediction_only_text"] += 1
+            else:
+                errors["prediction_or_target_role"] += 1
+
+        if not text_in_source and not any(token in set(normalized_source_tokens) for token in content_tokens(text)):
+            errors["text_not_in_source"] += 1
+
+        contextual = text_in_source and index_match and not prediction_only and (not edit_token_only or allow_edit_token_evidence)
+        if contextual:
+            contextual_source_count += 1
+
+    any_index_match = valid_source_span_count > 0
+    all_index_match = valid_source_span_count == len(spans) and len(spans) > 0
+    any_text_found = text_found_count > 0
+    any_prediction_only = prediction_only_count > 0
+    any_contextual = contextual_source_count > 0
+    wrong_evidence = bool(errors) or any_prediction_only or invalid_source_span_count > 0
     return {
         "evidence_span_index_match": any_index_match,
+        "evidence_all_spans_source_index_match": all_index_match,
         "evidence_text_found_in_source": any_text_found,
+        "evidence_text_found_in_prediction_only": any_prediction_only,
         "evidence_contextual": any_contextual,
+        "evidence_valid_source_span_count": valid_source_span_count,
+        "evidence_invalid_source_span_count": invalid_source_span_count,
+        "evidence_contextual_source_count": contextual_source_count,
+        "evidence_edit_token_only_count": edit_token_only_count,
+        "evidence_error_types": ";".join(sorted(errors)) if errors else "",
         "missing_evidence": not any_contextual,
-        "wrong_evidence_auto": any_wrong_explicit or (not any_index_match and any_text_found),
+        "wrong_evidence_auto": wrong_evidence,
     }
 
 
@@ -397,7 +542,7 @@ def annotate_row(row: dict[str, Any], bucket: str, pool_by_id: dict[str, dict[st
     parsed = row.get("parsed_output") or {}
     if not isinstance(parsed, dict):
         parsed = {}
-    evidence = evidence_checks(row.get("source", ""), edit, parsed.get("evidence_spans", []))
+    evidence = evidence_checks(row.get("source", ""), row.get("model_prediction", ""), edit, parsed.get("evidence_spans", []))
     missing_rule_flag = missing_rule(parsed.get("rule_text", ""))
     rule_copy_flag = rule_edit_copy(parsed.get("rule_text", ""), edit)
     target_copy_flag = target_copy(parsed, edit)
@@ -443,8 +588,12 @@ def annotate_row(row: dict[str, Any], bucket: str, pool_by_id: dict[str, dict[st
         risk_reasons.append("target_missing_from_prediction")
     if not flags["evidence_span_index_match"]:
         risk_reasons.append("evidence_span_index_mismatch")
+    if not flags["evidence_all_spans_source_index_match"]:
+        risk_reasons.append("evidence_not_all_source_index_matched")
     if not flags["evidence_text_found_in_source"]:
         risk_reasons.append("evidence_text_not_found_in_source")
+    if flags["evidence_text_found_in_prediction_only"]:
+        risk_reasons.append("evidence_prediction_only_text")
     for flag_name in [
         "missing_evidence",
         "wrong_evidence_auto",
@@ -555,7 +704,9 @@ def summarize(rows: list[dict[str, Any]], args: argparse.Namespace) -> dict[str,
         "source_span_match",
         "target_present_in_prediction",
         "evidence_span_index_match",
+        "evidence_all_spans_source_index_match",
         "evidence_text_found_in_source",
+        "evidence_text_found_in_prediction_only",
         "evidence_contextual",
         "missing_evidence",
         "wrong_evidence_auto",
@@ -588,6 +739,8 @@ def summarize(rows: list[dict[str, Any]], args: argparse.Namespace) -> dict[str,
         "source_span_mismatches": len(rows) - flag_counts["source_span_match"],
         "target_prediction_mismatches": len(rows) - flag_counts["target_present_in_prediction"],
         "evidence_index_mismatch_count": len(rows) - flag_counts["evidence_span_index_match"],
+        "evidence_all_spans_index_mismatch_count": len(rows) - flag_counts["evidence_all_spans_source_index_match"],
+        "evidence_prediction_only_count": flag_counts["evidence_text_found_in_prediction_only"],
         "possible_false_rationalization_count": flag_counts["possible_false_rationalization"],
     }
     if hard_failures["input_leakage_detected"]:
@@ -619,6 +772,14 @@ def summarize(rows: list[dict[str, Any]], args: argparse.Namespace) -> dict[str,
         "operation_counts": dict(Counter(row["operation"] for row in rows)),
         "flag_counts": flag_counts,
         "selected_flag_counts": selected_flag_counts,
+        "evidence_error_type_counts": dict(
+            Counter(
+                error
+                for row in rows
+                for error in str(row.get("evidence_error_types", "")).split(";")
+                if error
+            )
+        ),
         "selected_coverage": strata,
         "hard_failures": hard_failures,
         "decision": decision,
@@ -648,6 +809,7 @@ def cases_markdown(rows: list[dict[str, Any]], summary: dict[str, Any]) -> str:
         f"- Selected for manual audit: {summary['selected_manual_audit_count']}",
         f"- Bucket counts: `{summary['bucket_counts']}`",
         f"- Flag counts: `{summary['flag_counts']}`",
+        f"- Evidence error type counts: `{summary.get('evidence_error_type_counts', {})}`",
         f"- Decision: `{summary['decision']}`",
         "",
         "## High-Risk Selected Cases",
@@ -662,8 +824,8 @@ def cases_markdown(rows: list[dict[str, Any]], summary: dict[str, Any]) -> str:
                 "",
                 f"- Bucket: `{row['bucket']}`; dataset: `{row['dataset']}`; model: `{row['model_key']}`; behavior: `{row['behavior']}`; operation: `{row['operation']}`",
                 f"- Risks: `{row['risk_reasons']}`",
-                f"- Source: {row['source']}",
-                f"- Prediction: {row['model_prediction']}",
+                f"- Source: {str(row['source']).strip()}",
+                f"- Prediction: {str(row['model_prediction']).strip()}",
                 f"- Edit: `{row['operation']}` `{row['source_text']}` -> `{row['target_text']}` at {row['edit_start']}:{row['edit_end']}",
                 f"- Rule: {row['rule_text']}",
                 f"- Evidence: `{row['evidence_spans_json']}`",
@@ -683,6 +845,62 @@ def cases_markdown(rows: list[dict[str, Any]], summary: dict[str, Any]) -> str:
         ]
     )
     return "\n".join(lines)
+
+
+def blind_guidelines(summary: dict[str, Any]) -> str:
+    return "\n".join(
+        [
+            "# Qwen3-8B RuleFaith Manual Audit Guidelines",
+            "",
+            "You are auditing model-generated explanation candidates for edit-level GEC explanations.",
+            "",
+            "## Scope",
+            "",
+            f"- Audit rows: {summary['selected_manual_audit_count']}",
+            "- Each row evaluates one model-produced atomic edit and one Qwen3-8B explanation candidate.",
+            "- The file is blind: it does not show accepted/refine/rejected bucket labels or automatic risk flags.",
+            "- These explanations are teacher-generated candidates, not human gold.",
+            "",
+            "## What To Check",
+            "",
+            "Fill each issue column with `yes`, `no`, or `uncertain`.",
+            "",
+            "- `human_alignment_error`: yes if the explanation describes a different edit, wrong operation, wrong source text, wrong target text, or wrong direction.",
+            "- `human_validity_error`: yes if the explanation says or implies the model edit is valid when the edit is invalid, unnecessary, or only stylistic.",
+            "- `human_wrong_rule`: yes if the stated linguistic rule is false.",
+            "- `human_inapplicable_rule`: yes if the rule is true in general but does not justify this edit in this sentence.",
+            "- `human_missing_evidence`: yes if no sentence-specific contextual evidence is provided.",
+            "- `human_wrong_evidence`: yes if the cited evidence span, token index, trigger, subject, antecedent, governor, or contextual relation is wrong.",
+            "- `human_generic_explanation`: yes if the explanation could apply to many unrelated sentences and does not identify this case's concrete trigger.",
+            "- `human_edit_copy`: yes if the explanation mainly copies the source-target edit without rule or evidence grounding.",
+            "- `human_semantic_distortion`: yes if the explanation changes the intended meaning or rationalizes a semantically wrong correction.",
+            "- `human_unsupported_confidence`: yes if the confidence is high despite missing evidence, weak rule support, invalid edit, or uncertainty.",
+            "",
+            "## Evidence Rules",
+            "",
+            "- Evidence spans must refer to text in the original SOURCE, not the model prediction.",
+            "- The `start` and `end` fields are whitespace-token offsets in SOURCE.",
+            "- A target phrase that only appears in MODEL_PREDICTION is not source evidence.",
+            "- The modified token alone is usually not enough evidence for grammar rules.",
+            "- For spelling, capitalization, and punctuation, the edited token itself may be sufficient only if the explanation explicitly concerns that orthographic property.",
+            "- Subject-verb agreement should cite the subject and verb.",
+            "- Article/determiner explanations should cite the head noun and definiteness/countability/number cue when available.",
+            "- Tense explanations should cite the time cue or relevant event context when available.",
+            "- Preposition explanations should cite the governing verb/adjective/noun or collocation when available.",
+            "",
+            "## Decision",
+            "",
+            "Use `human_decision`:",
+            "",
+            "- `accept`: explanation is aligned and has no serious rule/evidence/validity issue.",
+            "- `refine`: explanation is useful but needs targeted repair.",
+            "- `reject`: explanation is misleading, wrong, too generic, or mostly edit-copy.",
+            "- `abstain`: there is not enough information to judge or the edit itself is too ambiguous.",
+            "",
+            "Keep notes concise. Do not use automatic labels or previous audit outputs while filling the blind form.",
+            "",
+        ]
+    )
 
 
 def load_all_rows(args: argparse.Namespace) -> list[tuple[str, dict[str, Any]]]:
@@ -713,6 +931,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--csv-output", type=Path, default=DEFAULT_CSV)
     parser.add_argument("--summary-output", type=Path, default=DEFAULT_SUMMARY)
     parser.add_argument("--cases-output", type=Path, default=DEFAULT_CASES)
+    parser.add_argument("--blind-form-output", type=Path, default=DEFAULT_BLIND_FORM)
+    parser.add_argument("--blind-key-output", type=Path, default=DEFAULT_BLIND_KEY)
+    parser.add_argument("--guidelines-output", type=Path, default=DEFAULT_GUIDELINES)
     parser.add_argument("--manual-sample-size", type=int, default=80)
     parser.add_argument("--seed", type=int, default=20260720)
     parser.add_argument("--overwrite", action="store_true")
@@ -742,8 +963,12 @@ def main() -> int:
     )
 
     summary = summarize(annotated, args)
+    selected_rows = [row for row in annotated if row["selected_for_manual_audit"]]
     write_csv(resolve(args.csv_output), annotated, args.overwrite)
+    write_csv(resolve(args.blind_form_output), selected_rows, args.overwrite, BLIND_FORM_FIELDS)
+    write_csv(resolve(args.blind_key_output), selected_rows, args.overwrite, BLIND_KEY_FIELDS)
     write_json(resolve(args.summary_output), summary, args.overwrite)
+    write_text(resolve(args.guidelines_output), blind_guidelines(summary), args.overwrite)
     write_text(resolve(args.cases_output), cases_markdown(annotated, summary), args.overwrite)
     print(
         json.dumps(
@@ -754,6 +979,8 @@ def main() -> int:
                 "csv_output": str(resolve(args.csv_output)),
                 "summary_output": str(resolve(args.summary_output)),
                 "cases_output": str(resolve(args.cases_output)),
+                "blind_form_output": str(resolve(args.blind_form_output)),
+                "guidelines_output": str(resolve(args.guidelines_output)),
             },
             ensure_ascii=False,
             sort_keys=True,
