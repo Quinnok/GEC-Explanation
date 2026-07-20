@@ -1,0 +1,79 @@
+annotation/rulefaith_qwen3_audit_canonicalized/guidelines.md
+  s_266f859e6122f5::t_6f4931f0e28307 1-48
+annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_form.csv
+  s_266f859e6122f5::t_f6a33cc45aa6ab 1-81
+annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_key.csv
+  s_266f859e6122f5::t_c13ec9e0791188 1-81
+data/rulefaith/filtering/qwen3_8b_accepted_canonicalized.jsonl
+  s_266f859e6122f5::t_4ddd24df7f73d5 1-41
+data/rulefaith/filtering/qwen3_8b_refine_canonicalized.jsonl
+  s_266f859e6122f5::t_1c012f1f3d5e95 1-63
+data/rulefaith/filtering/qwen3_8b_rejected_canonicalized.jsonl
+  s_266f859e6122f5::t_a43f73f23d0bdd 1-56
+docs/failed_experiments.md
+  s_266f859e6122f5::t_8f81f8631214e7 11
+docs/method_decision_log.md
+  s_266f859e6122f5::t_acaf62f4ea6cf9 15-16
+experiments/rulefaith/canonicalize_evidence_spans.py
+  s_266f859e6122f5::t_b0ff4fb6100e1a 1-299
+experiments/rulefaith/refine_qwen3_evidence.py
+  s_266f859e6122f5::t_6d8192973e5daf 1-626
+experiments/tests/test_evidence_span_canonicalizer.py
+  s_266f859e6122f5::t_e305f81a039b42 1-52
+experiments/tests/test_qwen3_evidence_refinement.py
+  s_266f859e6122f5::t_824f951e7433af 1-58
+results/rulefaith/qwen3_8b_accepted_evidence_canonicalization_audit.md
+  s_266f859e6122f5::t_d451c67e57f273 1-331
+results/rulefaith/qwen3_8b_accepted_evidence_canonicalization_stats.json
+  s_266f859e6122f5::t_d1a8ad6bd48420 1-33
+results/rulefaith/qwen3_8b_refine_evidence_canonicalization_audit.md
+  s_266f859e6122f5::t_c11ae9fb563253 1-467
+results/rulefaith/qwen3_8b_refine_evidence_canonicalization_stats.json
+  s_266f859e6122f5::t_bbc7c63638b2ff 1-32
+results/rulefaith/qwen3_8b_rejected_evidence_canonicalization_audit.md
+  s_266f859e6122f5::t_fff480260e383d 1-435
+results/rulefaith/qwen3_8b_rejected_evidence_canonicalization_stats.json
+  s_266f859e6122f5::t_0a55c7a1299318 1-32
+results/rulefaith/qwen3_manual_audit_after_canonicalization.csv
+  s_266f859e6122f5::t_8500f93ed01a71 1-161
+results/rulefaith/qwen3_manual_audit_after_canonicalization_summary.json
+  s_266f859e6122f5::t_7a217f4be9da63 1-127
+results/rulefaith/qwen3_v2_smoke10_evidence_canonicalization_audit.md
+  s_266f859e6122f5::t_fae9d01789d6e8 1-67
+results/rulefaith/qwen3_v2_smoke10_evidence_canonicalization_stats.json
+  s_266f859e6122f5::t_67493ebe0d020f 1-31
+results/rulefaith/qwen3_v2_smoke10_evidence_canonicalized_candidates.jsonl
+  s_266f859e6122f5::t_9bfe6095e765ab 1-10
+results/rulefaith/qwen3_v2_smoke10_evidence_refined_candidates.jsonl
+  s_266f859e6122f5::t_256721dc4d35ad 1-7
+results/rulefaith/qwen3_v2_smoke10_evidence_refinement_dryrun_audit.md
+  s_266f859e6122f5::t_e9098cefcde082 1-30
+results/rulefaith/qwen3_v2_smoke10_evidence_refinement_dryrun_stats.json
+  s_266f859e6122f5::t_99e905b8b417d1 1-51
+results/rulefaith/qwen3_v2_smoke10_evidence_refinement_raw/rf-edit-0074_qwen3_8b_natural_evidence_refined.json
+  s_266f859e6122f5::t_15ff811b82b5a3 1-15
+results/rulefaith/qwen3_v2_smoke10_evidence_refinement_raw/rf-edit-0167_qwen3_8b_natural_evidence_refined.json
+  s_266f859e6122f5::t_bb1c491be52297 1-15
+results/rulefaith/qwen3_v2_smoke10_evidence_refinement_raw/rf-edit-0248_qwen3_8b_natural_evidence_refined.json
+  s_266f859e6122f5::t_0abbf7bc5671be 1-15
+results/rulefaith/qwen3_v2_smoke10_evidence_refinement_stats.json
+  s_266f859e6122f5::t_023dd6da905227 1-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "841317b91ceb0f4e4375428e0d134c684777df20",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
