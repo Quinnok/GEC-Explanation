@@ -1,0 +1,53 @@
+{
+  "decision": "revise_refinement_prompt_before_scaling",
+  "dry_run": false,
+  "full_after_replacing_selected": {
+    "contextual_source_evidence": 3,
+    "missing_evidence": 7,
+    "prediction_only_evidence": 0,
+    "wrong_evidence_auto": 0
+  },
+  "generated_at": "2026-07-20T12:36:47+00:00",
+  "git_commit": "4831728",
+  "improvement_counts": {
+    "evidence_contextual_improved": 0,
+    "prediction_only_evidence_regressed": 0,
+    "wrong_evidence_fixed": 6
+  },
+  "input_count": 10,
+  "input_file": "/Users/bytedance/Documents/GEC可解释性/results/rulefaith/qwen3_v2_smoke10_candidates.jsonl",
+  "original_full": {
+    "contextual_source_evidence": 3,
+    "missing_evidence": 7,
+    "prediction_only_evidence": 0,
+    "wrong_evidence_auto": 6
+  },
+  "output_file": "/Users/bytedance/Documents/GEC可解释性/results/rulefaith/qwen3_v2_smoke10_evidence_refined_candidates.jsonl",
+  "parse_status_counts": {
+    "parsed_json": 7
+  },
+  "prompt_version": "rulefaith_qwen3_evidence_refine_v2_compact_source_only_json",
+  "refined_count": 7,
+  "selected_after": {
+    "contextual_source_evidence": 0,
+    "missing_evidence": 7,
+    "prediction_only_evidence": 0,
+    "wrong_evidence_auto": 0
+  },
+  "selected_before": {
+    "contextual_source_evidence": 0,
+    "missing_evidence": 7,
+    "prediction_only_evidence": 0,
+    "wrong_evidence_auto": 6
+  },
+  "selected_for_refinement_count": 7,
+  "selected_original_candidate_ids": [
+    "rf-edit-0276::qwen3_8b::natural",
+    "rf-edit-0277::qwen3_8b::natural",
+    "rf-edit-0074::qwen3_8b::natural",
+    "rf-edit-0016::qwen3_8b::natural",
+    "rf-edit-0167::qwen3_8b::natural",
+    "rf-edit-0231::qwen3_8b::natural",
+    "rf-edit-0248::qwen3_8b::natural"
+  ]
+}

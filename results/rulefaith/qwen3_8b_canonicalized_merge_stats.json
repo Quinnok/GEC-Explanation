@@ -1,0 +1,21 @@
+{
+  "candidate_count": 160,
+  "candidate_type_counts": {
+    "evidence_canonicalized": 160
+  },
+  "duplicate_candidate_count": 0,
+  "duplicate_candidate_ids": [],
+  "output": "data/rulefaith/teacher_candidates_qwen3_8b_canonicalized.jsonl",
+  "parse_status_counts": {
+    "parsed_json": 159,
+    "wrapped_non_json_response": 1
+  },
+  "provider_counts": {
+    "rulefaith_deterministic_evidence_canonicalizer": 160
+  },
+  "shard_files": [
+    "data/rulefaith/filtering/qwen3_8b_accepted_canonicalized.jsonl",
+    "data/rulefaith/filtering/qwen3_8b_refine_canonicalized.jsonl",
+    "data/rulefaith/filtering/qwen3_8b_rejected_canonicalized.jsonl"
+  ]
+}

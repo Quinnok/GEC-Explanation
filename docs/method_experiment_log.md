@@ -251,3 +251,77 @@ Smoke10:
 - Prediction-only evidence: 0/10
 - Wrong-evidence automatic flag: 6/10
 - Interpretation: prompt-v2 removed prediction-only evidence in this smoke sample, but it still under-produces contextual source evidence. Targeted evidence refinement or a stronger prompt is needed before scaling.
+
+## 2026-07-20 Loop C Targeted Evidence Refinement Smoke
+
+Objective: test whether evidence-only repair can improve Qwen3 prompt-v2 evidence grounding on the 10-candidate smoke sample.
+
+Model-only refinement:
+
+- Script: `experiments/rulefaith/refine_qwen3_evidence.py`
+- Input: `results/rulefaith/qwen3_v2_smoke10_candidates.jsonl`
+- Output: `results/rulefaith/qwen3_v2_smoke10_evidence_refined_candidates.jsonl`
+- Audit: `results/rulefaith/qwen3_v2_smoke10_evidence_refinement_audit.md`
+- Selected for refinement: 7/10 candidates.
+- Parse status after compact prompt v2: 7/7 parsed JSON.
+- Selected-before contextual evidence: 0/7.
+- Selected-after contextual evidence: 0/7.
+- Selected-before wrong-evidence flags: 6/7.
+- Selected-after wrong-evidence flags: 0/7.
+- Prediction-only evidence regression: 0/7.
+
+Interpretation: compact model-only refinement is JSON-stable and removes invalid evidence spans, but it mostly clears evidence rather than adding contextual source evidence. This does not support using model-only refinement as the evidence repair mechanism.
+
+Deterministic canonicalization:
+
+- Script: `experiments/rulefaith/canonicalize_evidence_spans.py`
+- Output: `results/rulefaith/qwen3_v2_smoke10_evidence_canonicalized_candidates.jsonl`
+- Audit: `results/rulefaith/qwen3_v2_smoke10_evidence_canonicalization_audit.md`
+- Contextual source evidence: 3/10 -> 8/10.
+- Missing evidence: 7/10 -> 2/10.
+- Prediction-only evidence: 0/10 -> 0/10.
+- Wrong-evidence automatic flags: 6/10 -> 0/10.
+- Actions: 7 exact index corrections, 1 ambiguous index correction, 1 dropped unlocatable span.
+
+Interpretation: many Qwen3 prompt-v2 evidence failures are span-offset failures. Evidence-span canonicalization should be added before RuleFaith scoring and before deciding which candidates need model refinement.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/canonicalize_evidence_spans.py experiments/rulefaith/refine_qwen3_evidence.py` passed.
+- `python3 -m unittest discover -s experiments/tests` passed, 23 tests.
+
+Full Qwen3 bucket canonicalization:
+
+- Accepted bucket: contextual source evidence 0/41 -> 15/41; wrong-evidence flags 39/41 -> 5/41.
+- Refine bucket: contextual source evidence 10/63 -> 19/63; wrong-evidence flags 52/63 -> 16/63.
+- Rejected bucket: contextual source evidence 14/56 -> 48/56; wrong-evidence flags 50/56 -> 8/56.
+- Outputs:
+  - `data/rulefaith/filtering/qwen3_8b_accepted_canonicalized.jsonl`
+  - `data/rulefaith/filtering/qwen3_8b_refine_canonicalized.jsonl`
+  - `data/rulefaith/filtering/qwen3_8b_rejected_canonicalized.jsonl`
+
+Strict post-canonicalization audit:
+
+- Command: `python3 experiments/rulefaith/build_qwen3_manual_audit.py --accepted data/rulefaith/filtering/qwen3_8b_accepted_canonicalized.jsonl --refine data/rulefaith/filtering/qwen3_8b_refine_canonicalized.jsonl --rejected data/rulefaith/filtering/qwen3_8b_rejected_canonicalized.jsonl --csv-output results/rulefaith/qwen3_manual_audit_after_canonicalization.csv --summary-output results/rulefaith/qwen3_manual_audit_after_canonicalization_summary.json --cases-output results/rulefaith/qwen3_manual_audit_after_canonicalization_cases.md --blind-form-output annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_form.csv --blind-key-output annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_key.csv --guidelines-output annotation/rulefaith_qwen3_audit_canonicalized/guidelines.md --overwrite`
+- Candidate count: 160.
+- All evidence spans source-index matched: 20/160 -> 155/160.
+- Contextual source evidence: 24/160 -> 82/160.
+- Missing evidence: 136/160 -> 78/160.
+- Prediction-only evidence: 87/160 -> 29/160.
+- Wrong-evidence automatic flags: 141/160 -> 29/160.
+- Selected manual-audit rows: 80.
+
+Interpretation: the previous Qwen3 prefilter was substantially distorted by span-offset errors. Canonicalized candidates should be re-prefiltered before any 20-edit refinement probe or positive-data construction.
+
+Canonicalized prefilter rerun:
+
+- Merged file: `data/rulefaith/teacher_candidates_qwen3_8b_canonicalized.jsonl`
+- Diagnostics: `results/rulefaith/qwen3_8b_canonicalized_diagnostic_metrics.json`
+- Filter stats: `results/rulefaith/qwen3_8b_canonicalized_filtering_statistics.json`
+- Candidate count: 160.
+- Parse JSON rate: 0.9938.
+- Alignment proxy pass rate: 0.6375.
+- Old diagnostic contextual-evidence rate: 0.3125.
+- New prefilter buckets: accepted 34, refine 67, rejected 59.
+
+Interpretation: deterministic canonicalization improves strict evidence-span checks, but the old prefilter is still limited by its rough alignment/contextual-evidence heuristics. Positive selection should not rely on this prefilter alone; use the post-canonicalization strict audit and human blind audit.

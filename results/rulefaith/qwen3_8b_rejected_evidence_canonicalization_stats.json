@@ -1,0 +1,32 @@
+{
+  "action_counts": {
+    "corrected_ambiguous_indices": 4,
+    "corrected_indices": 34,
+    "dropped_prediction_only_span": 11,
+    "kept_unverified_span": 11
+  },
+  "after": {
+    "contextual_source_evidence": 48,
+    "missing_evidence": 8,
+    "prediction_only_evidence": 8,
+    "wrong_evidence_auto": 8
+  },
+  "before": {
+    "contextual_source_evidence": 14,
+    "missing_evidence": 42,
+    "prediction_only_evidence": 19,
+    "wrong_evidence_auto": 50
+  },
+  "canonicalized_count": 56,
+  "decision": "keep_canonicalizer_as_span_normalization_step_before_model_refinement",
+  "generated_at": "2026-07-20T12:41:18+00:00",
+  "git_commit": "4831728",
+  "improvement_counts": {
+    "evidence_contextual_improved": 34,
+    "prediction_only_evidence_regressed": 0,
+    "wrong_evidence_fixed": 42
+  },
+  "input_count": 56,
+  "input_file": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/filtering/qwen3_8b_rejected.jsonl",
+  "output_file": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/filtering/qwen3_8b_rejected_canonicalized.jsonl"
+}

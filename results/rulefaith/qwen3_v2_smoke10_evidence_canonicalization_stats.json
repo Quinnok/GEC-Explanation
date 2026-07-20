@@ -1,0 +1,31 @@
+{
+  "action_counts": {
+    "corrected_ambiguous_indices": 1,
+    "corrected_indices": 7,
+    "dropped_unlocatable_span": 1
+  },
+  "after": {
+    "contextual_source_evidence": 8,
+    "missing_evidence": 2,
+    "prediction_only_evidence": 0,
+    "wrong_evidence_auto": 0
+  },
+  "before": {
+    "contextual_source_evidence": 3,
+    "missing_evidence": 7,
+    "prediction_only_evidence": 0,
+    "wrong_evidence_auto": 6
+  },
+  "canonicalized_count": 10,
+  "decision": "keep_canonicalizer_as_span_normalization_step_before_model_refinement",
+  "generated_at": "2026-07-20T12:38:08+00:00",
+  "git_commit": "4831728",
+  "improvement_counts": {
+    "evidence_contextual_improved": 5,
+    "prediction_only_evidence_regressed": 0,
+    "wrong_evidence_fixed": 6
+  },
+  "input_count": 10,
+  "input_file": "/Users/bytedance/Documents/GEC可解释性/results/rulefaith/qwen3_v2_smoke10_candidates.jsonl",
+  "output_file": "/Users/bytedance/Documents/GEC可解释性/results/rulefaith/qwen3_v2_smoke10_evidence_canonicalized_candidates.jsonl"
+}

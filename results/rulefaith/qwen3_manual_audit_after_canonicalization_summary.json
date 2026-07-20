@@ -1,0 +1,127 @@
+{
+  "behavior_counts": {
+    "correct_correction": 36,
+    "overcorrection": 86,
+    "wrong_correction": 38
+  },
+  "bucket_counts": {
+    "accepted": 41,
+    "refine": 63,
+    "rejected": 56
+  },
+  "candidate_count": 160,
+  "dataset_counts": {
+    "EXPECT": 104,
+    "JFLEG": 56
+  },
+  "decision": "fix_evidence_verifier_and_evidence_prompt_before_targeted_refinement",
+  "evidence_error_type_counts": {
+    "missing_evidence": 5,
+    "prediction_or_target_role": 29
+  },
+  "flag_counts": {
+    "alignment_error": 58,
+    "edit_copy": 112,
+    "evidence_all_spans_source_index_match": 155,
+    "evidence_contextual": 82,
+    "evidence_span_index_match": 155,
+    "evidence_text_found_in_prediction_only": 29,
+    "evidence_text_found_in_source": 155,
+    "generic_explanation": 1,
+    "leakage_input_violation": 0,
+    "missing_evidence": 78,
+    "missing_rule": 1,
+    "possible_false_rationalization": 19,
+    "rule_edit_copy": 0,
+    "semantic_distortion_auto": 28,
+    "source_span_match": 160,
+    "target_copy": 102,
+    "target_present_in_prediction": 160,
+    "unsupported_confidence": 131,
+    "validity_error_auto": 28,
+    "wrong_evidence_auto": 29
+  },
+  "generated_at": "2026-07-20T12:41:27.571481+00:00",
+  "git_commit": "4831728",
+  "hard_failures": {
+    "evidence_all_spans_index_mismatch_count": 5,
+    "evidence_index_mismatch_count": 5,
+    "evidence_prediction_only_count": 29,
+    "input_leakage_detected": false,
+    "possible_false_rationalization_count": 19,
+    "source_span_mismatches": 0,
+    "target_prediction_mismatches": 0
+  },
+  "input_files": {
+    "accepted": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/filtering/qwen3_8b_accepted_canonicalized.jsonl",
+    "edit_pool": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/edit_pool.jsonl",
+    "refine": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/filtering/qwen3_8b_refine_canonicalized.jsonl",
+    "rejected": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/filtering/qwen3_8b_rejected_canonicalized.jsonl"
+  },
+  "interpretation": "This is an automatic pre-audit for Qwen3-8B teacher candidates. Rows marked for manual audit should be judged by humans before these candidates are used as positives.",
+  "manual_audit_target_size": 80,
+  "model_key_counts": {
+    "coedit_large": 56,
+    "gector_roberta_base": 52,
+    "t5_base_grammar": 52
+  },
+  "operation_counts": {
+    "delete": 18,
+    "insert": 18,
+    "replace": 124
+  },
+  "selected_bucket_counts": {
+    "accepted": 25,
+    "refine": 37,
+    "rejected": 18
+  },
+  "selected_coverage": {
+    "behavior": [
+      "correct_correction",
+      "overcorrection",
+      "wrong_correction"
+    ],
+    "bucket": [
+      "accepted",
+      "refine",
+      "rejected"
+    ],
+    "dataset": [
+      "EXPECT",
+      "JFLEG"
+    ],
+    "model_key": [
+      "coedit_large",
+      "gector_roberta_base",
+      "t5_base_grammar"
+    ],
+    "operation": [
+      "delete",
+      "insert",
+      "replace"
+    ]
+  },
+  "selected_flag_counts": {
+    "alignment_error": 17,
+    "edit_copy": 71,
+    "evidence_all_spans_source_index_match": 75,
+    "evidence_contextual": 20,
+    "evidence_span_index_match": 75,
+    "evidence_text_found_in_prediction_only": 24,
+    "evidence_text_found_in_source": 75,
+    "generic_explanation": 0,
+    "leakage_input_violation": 0,
+    "missing_evidence": 60,
+    "missing_rule": 1,
+    "possible_false_rationalization": 19,
+    "rule_edit_copy": 0,
+    "semantic_distortion_auto": 28,
+    "source_span_match": 80,
+    "target_copy": 66,
+    "target_present_in_prediction": 80,
+    "unsupported_confidence": 76,
+    "validity_error_auto": 28,
+    "wrong_evidence_auto": 24
+  },
+  "selected_manual_audit_count": 80
+}
