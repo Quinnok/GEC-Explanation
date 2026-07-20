@@ -1,0 +1,55 @@
+annotation/rulefaith_qwen3_audit_canonicalized/handoff_manifest.json
+  s_266f859e6122f5::t_c256bded496383 1-39
+annotation/rulefaith_qwen3_audit_canonicalized/handoff_manifest.md
+  s_266f859e6122f5::t_6d4fe27265b27c 1-33
+annotation/rulefaith_qwen3_audit_canonicalized/handoff_package/README_FOR_AUDITOR.md
+  s_266f859e6122f5::t_81d0a53ef58e36 1-51
+annotation/rulefaith_qwen3_audit_canonicalized/handoff_package/guidelines.md
+  s_266f859e6122f5::t_508c1f2e9ba739 1-48
+annotation/rulefaith_qwen3_audit_canonicalized/handoff_package/manual_audit_form.csv
+  s_266f859e6122f5::t_aaf373e3489030 1-81
+docs/current_status.md
+  s_266f859e6122f5::t_e35f901445d177 11,15,25,29,36,41,49
+docs/method_decision_log.md
+  s_266f859e6122f5::t_2637e17895007f 17
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_2be54463ab1648 390-431
+docs/method_loop_state.md
+  s_266f859e6122f5::t_ea6a9e4e332944 15,42,46
+docs/method_open_issues.md
+  s_266f859e6122f5::t_98568ea08c3df8 11
+docs/next_actions.md
+  s_266f859e6122f5::t_b9db772144cb69 7,11,13-15
+docs/research_decisions.md
+  s_266f859e6122f5::t_a2eeddca91c047 14
+docs/rulefaith_loop_E_qwen3_human_audit_handoff.md
+  s_266f859e6122f5::t_b74a52a43e83d7 1-100
+experiments/rulefaith/prepare_qwen3_audit_handoff.py
+  s_266f859e6122f5::t_d0e8c8dfb72d26 1-252
+experiments/rulefaith/validate_qwen3_human_audit.py
+  s_266f859e6122f5::t_9cd134d4eadca8 1-234
+experiments/tests/test_qwen3_human_audit_tools.py
+  s_266f859e6122f5::t_f388dd8d8fdfe0 1-83
+results/rulefaith/qwen3_human_audit_validation_report.md
+  s_266f859e6122f5::t_432230e9b2b64a 1-70
+results/rulefaith/qwen3_human_audit_validation_summary.json
+  s_266f859e6122f5::t_2998b2b3fb77bc 1-107
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "473b5a7d3e191020574af1ec9c474a10f00c7a94",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
