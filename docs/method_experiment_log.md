@@ -325,3 +325,65 @@ Canonicalized prefilter rerun:
 - New prefilter buckets: accepted 34, refine 67, rejected 59.
 
 Interpretation: deterministic canonicalization improves strict evidence-span checks, but the old prefilter is still limited by its rough alignment/contextual-evidence heuristics. Positive selection should not rely on this prefilter alone; use the post-canonicalization strict audit and human blind audit.
+
+## 2026-07-20 Loop D Evidence Refinement Probe20
+
+Objective: test whether targeted Qwen3 evidence refinement can repair the remaining evidence-risk candidates after deterministic evidence-span canonicalization.
+
+Probe construction:
+
+- Script: `experiments/rulefaith/build_evidence_refinement_probe.py`
+- Input: `data/rulefaith/teacher_candidates_qwen3_8b_canonicalized.jsonl`
+- Output: `data/rulefaith/qwen3_evidence_refinement_probe20.jsonl`
+- Eligible evidence-risk candidates: 89 candidates across 49 unique edit groups.
+- Selected probe: 20 candidates across 20 unique edit groups.
+- Breakdown:
+  - dataset: EXPECT 18, JFLEG 2
+  - model: CoEdIT 9, T5 6, GECToR 5
+  - operation: replace 13, insert 5, delete 2
+  - original candidate type: natural 9, rule-grounded 11
+  - split: train 15, test 5
+
+Qwen3 targeted refinement:
+
+- Script: `experiments/rulefaith/refine_qwen3_evidence.py`
+- Input: `data/rulefaith/qwen3_evidence_refinement_probe20.jsonl`
+- Output: `results/rulefaith/qwen3_evidence_refinement_probe20_refined_candidates.jsonl`
+- Raw responses: `results/rulefaith/qwen3_evidence_refinement_probe20_raw/`
+- Parse status: 20/20 parsed JSON.
+- Selected-before contextual source evidence: 7/20.
+- Selected-after contextual source evidence: 2/20.
+- Selected-before missing evidence: 13/20.
+- Selected-after missing evidence: 18/20.
+- Selected-before prediction-only evidence: 20/20.
+- Selected-after prediction-only evidence: 0/20.
+- Selected-before wrong-evidence flags: 20/20.
+- Selected-after wrong-evidence flags: 0/20.
+
+Refined-output canonicalization:
+
+- Script: `experiments/rulefaith/canonicalize_evidence_spans.py`
+- Output: `results/rulefaith/qwen3_evidence_refinement_probe20_refined_canonicalized_candidates.jsonl`
+- Contextual source evidence stayed 2/20 after canonicalization.
+- Missing evidence stayed 18/20 after canonicalization.
+- No prediction-only or wrong-evidence flags were reintroduced.
+
+Comparison:
+
+- Script: `experiments/rulefaith/compare_evidence_refinement_probe.py`
+- Output: `results/rulefaith/qwen3_evidence_refinement_probe20_comparison.json`
+- Markdown: `results/rulefaith/qwen3_evidence_refinement_probe20_comparison.md`
+- Aligned triples: 20/20.
+- Transition counts:
+  - contextual 0 -> 0 -> 0 and wrong 1 -> 0 -> 0: 13 cases
+  - contextual 1 -> 0 -> 0 and wrong 1 -> 0 -> 0: 5 cases
+  - contextual 1 -> 1 -> 1 and wrong 1 -> 0 -> 0: 2 cases
+
+Interpretation: this Qwen3 evidence-only repair prompt mostly clears risky evidence spans instead of adding source-grounded contextual evidence. It removes automatic wrong-evidence flags but worsens the actual evidence-grounding objective.
+
+Decision: reject this evidence-refinement prompt for scaling. Keep deterministic canonicalization as preprocessing, but do not use Qwen3 refined probe outputs as positives. Hand off the canonicalized blind audit package before constructing SFT or preference data.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/build_evidence_refinement_probe.py experiments/rulefaith/compare_evidence_refinement_probe.py experiments/rulefaith/refine_qwen3_evidence.py experiments/rulefaith/canonicalize_evidence_spans.py` passed.
+- `python3 -m unittest experiments.tests.test_evidence_refinement_probe_selection experiments.tests.test_qwen3_evidence_refinement experiments.tests.test_evidence_span_canonicalizer` passed, 9 tests.

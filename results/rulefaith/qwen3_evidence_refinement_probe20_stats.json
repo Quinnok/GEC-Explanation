@@ -1,0 +1,83 @@
+{
+  "decision": "run_targeted_qwen3_refinement_probe_before_scaling",
+  "eligible_candidate_count": 89,
+  "eligible_edit_group_count": 49,
+  "eligible_evidence_flags": {
+    "contextual_source_evidence": 11,
+    "missing_evidence": 78,
+    "prediction_only_evidence": 29,
+    "wrong_evidence_auto": 29
+  },
+  "generated_at": "2026-07-20T13:02:48+00:00",
+  "git_commit": "841317b",
+  "input_count": 160,
+  "input_evidence_flags": {
+    "contextual_source_evidence": 82,
+    "missing_evidence": 78,
+    "prediction_only_evidence": 29,
+    "wrong_evidence_auto": 29
+  },
+  "input_file": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/teacher_candidates_qwen3_8b_canonicalized.jsonl",
+  "limit": 20,
+  "output_file": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/qwen3_evidence_refinement_probe20.jsonl",
+  "seed": 20260720,
+  "selected_breakdown": {
+    "dataset": {
+      "EXPECT": 18,
+      "JFLEG": 2
+    },
+    "model_family": {
+      "instruction-following text editor": 9,
+      "sequence-to-edit": 5,
+      "sequence-to-sequence": 6
+    },
+    "model_key": {
+      "coedit_large": 9,
+      "gector_roberta_base": 5,
+      "t5_base_grammar": 6
+    },
+    "operation": {
+      "delete": 2,
+      "insert": 5,
+      "replace": 13
+    },
+    "original_candidate_type": {
+      "natural": 9,
+      "rule_grounded": 11
+    },
+    "rulefaith_split": {
+      "test": 5,
+      "train": 15
+    }
+  },
+  "selected_candidate_count": 20,
+  "selected_candidate_ids": [
+    "rf-edit-0277::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0191::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0051::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0163::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0114::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0267::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0127::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0074::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0125::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0248::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0035::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0165::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0058::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0250::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0217::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0268::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0257::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0251::qwen3_8b::natural::evidence_canonicalized",
+    "rf-edit-0284::qwen3_8b::rule_grounded::evidence_canonicalized",
+    "rf-edit-0242::qwen3_8b::rule_grounded::evidence_canonicalized"
+  ],
+  "selected_edit_group_count": 20,
+  "selected_evidence_flags": {
+    "contextual_source_evidence": 7,
+    "missing_evidence": 13,
+    "prediction_only_evidence": 20,
+    "wrong_evidence_auto": 20
+  }
+}

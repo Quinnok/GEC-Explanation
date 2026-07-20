@@ -1,0 +1,1922 @@
+{
+  "cases": [
+    {
+      "base_candidate_id": "rf-edit-0277::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0277::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.85,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 12,
+            "role": "target",
+            "start": 11,
+            "text": "streets"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0277::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "Nouns that refer to specific or general things should be preceded by articles like 'the' or 'a'.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0277::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0277::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Nouns that refer to specific or general things should be preceded by articles like 'the' or 'a'.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0277::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0277::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Nouns that refer to specific or general things should be preceded by articles like 'the' or 'a'.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0191::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0191::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 2,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 2,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "JFLEG",
+        "evidence_spans": [
+          {
+            "end": 21,
+            "role": "original",
+            "start": 12,
+            "text": "and they will become an experts in those areas"
+          },
+          {
+            "end": 18,
+            "role": "modified",
+            "start": 16,
+            "text": "an experts"
+          }
+        ],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0191::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "Articles like 'a' or 'an' may be omitted when the noun they precede is clearly defined or when the context makes the noun's presence clear.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0191::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "JFLEG",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0191::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Articles like 'a' or 'an' may be omitted when the noun they precede is clearly defined or when the context makes the noun's presence clear.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0191::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "JFLEG",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0191::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Articles like 'a' or 'an' may be omitted when the noun they precede is clearly defined or when the context makes the noun's presence clear.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0051::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0051::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 28,
+            "role": "target",
+            "start": 24,
+            "text": "Caring of the environment"
+          }
+        ],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0051::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "The preposition 'for' is used to indicate purpose or relation to something, whereas 'of' indicates possession or composition.",
+        "rulefaith_split": "test"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0051::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0051::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "The preposition 'for' is used to indicate purpose or relation to something, whereas 'of' indicates possession or composition.",
+        "rulefaith_split": "test"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0051::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0051::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "The preposition 'for' is used to indicate purpose or relation to something, whereas 'of' indicates possession or composition.",
+        "rulefaith_split": "test"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0163::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0163::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.85,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 8,
+            "role": "target",
+            "start": 7,
+            "text": "on"
+          }
+        ],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0163::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "Use 'for' to indicate the purpose or reason of an action, while 'on' typically indicates a topic or subject.",
+        "rulefaith_split": "test"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0163::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0163::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Use 'for' to indicate the purpose or reason of an action, while 'on' typically indicates a topic or subject.",
+        "rulefaith_split": "test"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0163::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0163::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Use 'for' to indicate the purpose or reason of an action, while 'on' typically indicates a topic or subject.",
+        "rulefaith_split": "test"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0114::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0114::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.9,
+        "dataset": "JFLEG",
+        "evidence_spans": [
+          {
+            "end": 8,
+            "role": "target",
+            "start": 7,
+            "text": "understand"
+          }
+        ],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0114::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "Use noun forms in parallel structures for consistency and grammatical correctness.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0114::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "JFLEG",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0114::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Use noun forms in parallel structures for consistency and grammatical correctness.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0114::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "JFLEG",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0114::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Use noun forms in parallel structures for consistency and grammatical correctness.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0267::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0267::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 18,
+            "role": "target",
+            "start": 17,
+            "text": "positive"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0267::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "Nouns that are countable and not previously mentioned in the sentence should be preceded by an article (a/an).",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0267::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0267::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Nouns that are countable and not previously mentioned in the sentence should be preceded by an article (a/an).",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0267::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0267::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Nouns that are countable and not previously mentioned in the sentence should be preceded by an article (a/an).",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0127::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0127::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 28,
+            "role": "target",
+            "start": 24,
+            "text": "Caring of the environment"
+          }
+        ],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0127::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "The preposition 'for' is used to indicate purpose or relation to something, whereas 'of' indicates possession or composition.",
+        "rulefaith_split": "test"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0127::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0127::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "The preposition 'for' is used to indicate purpose or relation to something, whereas 'of' indicates possession or composition.",
+        "rulefaith_split": "test"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0127::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0127::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "The preposition 'for' is used to indicate purpose or relation to something, whereas 'of' indicates possession or composition.",
+        "rulefaith_split": "test"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0074::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0074::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 38,
+            "role": "target",
+            "start": 34,
+            "text": "many automobile companies launcing"
+          }
+        ],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0074::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "A subject must agree with its verb in number (singular/plural).",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0074::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0074::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "A subject must agree with its verb in number (singular/plural).",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0074::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0074::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "A subject must agree with its verb in number (singular/plural).",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0125::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0125::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 25,
+            "role": "target",
+            "start": 20,
+            "text": "either to our parents '"
+          }
+        ],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0125::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "When comparing two items in a list, the conjunction 'either' is often redundant if the list is already clear without it.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0125::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0125::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "When comparing two items in a list, the conjunction 'either' is often redundant if the list is already clear without it.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0125::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0125::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "When comparing two items in a list, the conjunction 'either' is often redundant if the list is already clear without it.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0248::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0248::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 2,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 2,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 16,
+            "role": "original",
+            "start": 10,
+            "text": "its name is \" Lemon \""
+          },
+          {
+            "end": 16,
+            "role": "modified",
+            "start": 10,
+            "text": "its name is \" Lemon \""
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0248::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "Use a pronoun reference that clearly refers to the previously mentioned noun.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0248::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.15,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0248::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Use a pronoun reference that clearly refers to the previously mentioned noun.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0248::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.15,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0248::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Use a pronoun reference that clearly refers to the previously mentioned noun.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0035::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0035::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 17,
+            "role": "target",
+            "start": 16,
+            "text": "peoples"
+          }
+        ],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0035::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "Use an apostrophe to indicate possession in plural nouns.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0035::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0035::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Use an apostrophe to indicate possession in plural nouns.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0035::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0035::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Use an apostrophe to indicate possession in plural nouns.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0165::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0165::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 18,
+            "role": "target",
+            "start": 14,
+            "text": "as well as positive"
+          }
+        ],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0165::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "Use of indefinite articles ('a', 'an') before singular countable nouns.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0165::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0165::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Use of indefinite articles ('a', 'an') before singular countable nouns.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0165::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0165::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Use of indefinite articles ('a', 'an') before singular countable nouns.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0058::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0058::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": true,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 1,
+            "role": "modified",
+            "start": 0,
+            "text": "Variety"
+          }
+        ],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0058::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "Use of definite or indefinite articles for noun phrases",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0058::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0058::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Use of definite or indefinite articles for noun phrases",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0058::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "gector_roberta_base",
+        "original_candidate_id": "rf-edit-0058::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Use of definite or indefinite articles for noun phrases",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0250::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0250::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 1,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": false,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.9,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 35,
+            "role": "target",
+            "start": 34,
+            "text": "village"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0250::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "Use a comma to separate independent clauses when they are joined by a coordinating conjunction.",
+        "rulefaith_split": "test"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0250::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0250::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Use a comma to separate independent clauses when they are joined by a coordinating conjunction.",
+        "rulefaith_split": "test"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0250::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0250::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Use a comma to separate independent clauses when they are joined by a coordinating conjunction.",
+        "rulefaith_split": "test"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0217::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0217::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 2,
+          "evidence_edit_token_only_count": 2,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 2,
+          "missing_evidence": false,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 14,
+            "role": "error",
+            "start": 13,
+            "text": "ablished"
+          },
+          {
+            "end": 14,
+            "role": "correction",
+            "start": 13,
+            "text": "ablished"
+          }
+        ],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0217::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "Correct spelling of words with common misspellings.",
+        "rulefaith_split": "test"
+      },
+      "refined": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0217::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 1,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": false,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 14,
+            "role": "error",
+            "start": 13,
+            "text": "ablished"
+          }
+        ],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0217::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Correct spelling of words with common misspellings.",
+        "rulefaith_split": "test"
+      },
+      "refined_canonicalized": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0217::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 1,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": false,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 14,
+            "role": "error",
+            "start": 13,
+            "text": "ablished"
+          }
+        ],
+        "model_key": "t5_base_grammar",
+        "original_candidate_id": "rf-edit-0217::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Correct spelling of words with common misspellings.",
+        "rulefaith_split": "test"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0268::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0268::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 1,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": false,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 70,
+            "role": "target",
+            "start": 69,
+            "text": "computer"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0268::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "A comma should be used to separate items in a list when the list contains three or more items.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0268::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0268::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "A comma should be used to separate items in a list when the list contains three or more items.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0268::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0268::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "A comma should be used to separate items in a list when the list contains three or more items.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0257::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0257::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 2,
+          "evidence_edit_token_only_count": 2,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 2,
+          "missing_evidence": false,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 33,
+            "role": "source",
+            "start": 32,
+            "text": "example"
+          },
+          {
+            "end": 33,
+            "role": "target",
+            "start": 32,
+            "text": "example"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0257::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "A comma should follow 'example' when it is used as a standalone sentence or introductory phrase.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0257::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0257::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "A comma should follow 'example' when it is used as a standalone sentence or introductory phrase.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0257::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0257::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "A comma should follow 'example' when it is used as a standalone sentence or introductory phrase.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0251::qwen3_8b::natural::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0251::qwen3_8b::natural::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 1,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": false,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.95,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 12,
+            "role": "modified",
+            "start": 11,
+            "text": "streets"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0251::qwen3_8b::natural",
+        "original_candidate_type": "natural",
+        "rule_text": "A comma should be used to separate independent clauses or items in a list when clarity is needed.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0251::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0251::qwen3_8b::natural::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "A comma should be used to separate independent clauses or items in a list when clarity is needed.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0251::qwen3_8b::natural::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0251::qwen3_8b::natural::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "A comma should be used to separate independent clauses or items in a list when clarity is needed.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0284::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0284::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 1,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": false,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 0.9,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 8,
+            "role": "modified",
+            "start": 7,
+            "text": "city"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0284::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "Use semicolons to separate independent clauses when the second clause is a result or explanation of the first.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0284::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.2,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0284::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Use semicolons to separate independent clauses when the second clause is a result or explanation of the first.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0284::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": false,
+          "evidence_contextual": false,
+          "evidence_contextual_source_count": 0,
+          "evidence_edit_token_only_count": 0,
+          "evidence_error_types": "missing_evidence",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": false,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": false,
+          "evidence_valid_source_span_count": 0,
+          "missing_evidence": true,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.2,
+        "dataset": "EXPECT",
+        "evidence_spans": [],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0284::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Use semicolons to separate independent clauses when the second clause is a result or explanation of the first.",
+        "rulefaith_split": "train"
+      }
+    },
+    {
+      "base_candidate_id": "rf-edit-0242::qwen3_8b::rule_grounded::evidence_canonicalized",
+      "baseline": {
+        "abstain": false,
+        "candidate_id": "rf-edit-0242::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 2,
+          "evidence_edit_token_only_count": 2,
+          "evidence_error_types": "prediction_or_target_role",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": true,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 2,
+          "missing_evidence": false,
+          "wrong_evidence_auto": true
+        },
+        "confidence": 1.0,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 5,
+            "role": "error",
+            "start": 4,
+            "text": "partyies"
+          },
+          {
+            "end": 14,
+            "role": "corrected",
+            "start": 13,
+            "text": "parties"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0242::qwen3_8b::rule_grounded",
+        "original_candidate_type": "rule_grounded",
+        "rule_text": "Correct misspelled words to their standard form.",
+        "rulefaith_split": "train"
+      },
+      "refined": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0242::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "candidate_type": "evidence_refined",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 1,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": false,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 5,
+            "role": "error",
+            "start": 4,
+            "text": "partyies"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0242::qwen3_8b::rule_grounded::evidence_canonicalized",
+        "original_candidate_type": "evidence_canonicalized",
+        "rule_text": "Correct misspelled words to their standard form.",
+        "rulefaith_split": "train"
+      },
+      "refined_canonicalized": {
+        "abstain": true,
+        "candidate_id": "rf-edit-0242::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined::evidence_canonicalized",
+        "candidate_type": "evidence_canonicalized",
+        "checks": {
+          "evidence_all_spans_source_index_match": true,
+          "evidence_contextual": true,
+          "evidence_contextual_source_count": 1,
+          "evidence_edit_token_only_count": 1,
+          "evidence_error_types": "",
+          "evidence_invalid_source_span_count": 0,
+          "evidence_span_index_match": true,
+          "evidence_text_found_in_prediction_only": false,
+          "evidence_text_found_in_source": true,
+          "evidence_valid_source_span_count": 1,
+          "missing_evidence": false,
+          "wrong_evidence_auto": false
+        },
+        "confidence": 0.4,
+        "dataset": "EXPECT",
+        "evidence_spans": [
+          {
+            "end": 5,
+            "role": "error",
+            "start": 4,
+            "text": "partyies"
+          }
+        ],
+        "model_key": "coedit_large",
+        "original_candidate_id": "rf-edit-0242::qwen3_8b::rule_grounded::evidence_canonicalized::evidence_refined",
+        "original_candidate_type": "evidence_refined",
+        "rule_text": "Correct misspelled words to their standard form.",
+        "rulefaith_split": "train"
+      }
+    }
+  ],
+  "counts": {
+    "aligned_triples": 20,
+    "baseline": 20,
+    "refined": 20,
+    "refined_canonicalized": 20
+  },
+  "coverage": {
+    "missing_refined_candidate_ids": [],
+    "missing_refined_canonicalized_candidate_ids": []
+  },
+  "flag_counts": {
+    "canonicalized_only": {
+      "all_spans_source_index_match": 20,
+      "contextual_source_evidence": 7,
+      "missing_evidence": 13,
+      "prediction_only_evidence": 20,
+      "wrong_evidence_auto": 20
+    },
+    "qwen3_refined": {
+      "all_spans_source_index_match": 2,
+      "contextual_source_evidence": 2,
+      "missing_evidence": 18,
+      "prediction_only_evidence": 0,
+      "wrong_evidence_auto": 0
+    },
+    "qwen3_refined_then_canonicalized": {
+      "all_spans_source_index_match": 2,
+      "contextual_source_evidence": 2,
+      "missing_evidence": 18,
+      "prediction_only_evidence": 0,
+      "wrong_evidence_auto": 0
+    }
+  },
+  "generated_at": "2026-07-20T13:10:44+00:00",
+  "git_commit": "841317b",
+  "transition_counts": {
+    "ctx:0->0->0;wrong:1->0->0": 13,
+    "ctx:1->0->0;wrong:1->0->0": 5,
+    "ctx:1->1->1;wrong:1->0->0": 2
+  }
+}
