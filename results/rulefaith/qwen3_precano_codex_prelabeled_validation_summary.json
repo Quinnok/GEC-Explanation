@@ -1,0 +1,57 @@
+{
+  "allow_incomplete": false,
+  "completed_row_count": 80,
+  "decision": "ready_to_merge_completed_audit",
+  "decision_counts": {
+    "refine": 46,
+    "reject": 34
+  },
+  "generated_at": "2026-07-20T19:17:09+00:00",
+  "git_commit": "ebb7b3d",
+  "incomplete_candidate_ids": [],
+  "incomplete_row_count": 0,
+  "is_complete": true,
+  "issue_counts": {
+    "human_alignment_error": {
+      "no": 65,
+      "yes": 15
+    },
+    "human_edit_copy": {
+      "no": 7,
+      "yes": 73
+    },
+    "human_generic_explanation": {
+      "no": 80
+    },
+    "human_inapplicable_rule": {
+      "no": 55,
+      "yes": 25
+    },
+    "human_missing_evidence": {
+      "no": 1,
+      "yes": 79
+    },
+    "human_semantic_distortion": {
+      "no": 55,
+      "yes": 25
+    },
+    "human_unsupported_confidence": {
+      "yes": 80
+    },
+    "human_validity_error": {
+      "no": 55,
+      "yes": 25
+    },
+    "human_wrong_evidence": {
+      "yes": 80
+    },
+    "human_wrong_rule": {
+      "no": 55,
+      "yes": 25
+    }
+  },
+  "merged_output": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled_merged_with_key.csv",
+  "row_count": 80,
+  "uncertain_without_notes_candidate_ids": [],
+  "uncertain_without_notes_count": 0
+}

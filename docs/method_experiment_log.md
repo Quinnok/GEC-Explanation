@@ -498,3 +498,56 @@ Validation:
 Interpretation: the prelabelled audit copy reinforces that the canonicalized Qwen3 pool is useful as a repair/risk source, not a positive training source. The next verifier/refiner loop should focus on missing contextual evidence, edit-copy penalties, unsupported confidence, and false rationalization.
 
 Decision: keep the real-human audit gate open. Use Codex prelabels only for internal triage and prompt/verifier debugging.
+
+## 2026-07-21 Loop G Complete Qwen3 Codex Audit Forms
+
+Objective: fill all current Qwen3 audit packages with explicit Codex-completed forms, without overwriting the original blank blind forms or misrepresenting AI labels as human labels.
+
+Generated:
+
+- `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_completed_by_codex.csv`
+- `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_completed_by_codex_merged_with_key.csv`
+- `annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled.csv`
+- `annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled_merged_with_key.csv`
+- `annotation/rulefaith_qwen3_audit/manual_audit_completed_by_codex.csv`
+- `annotation/rulefaith_qwen3_audit/manual_audit_completed_by_codex_merged_with_key.csv`
+- `annotation/qwen3_codex_annotation_data_card.md`
+- `results/rulefaith/qwen3_precano_codex_prelabeled_audit_summary.json`
+- `results/rulefaith/qwen3_precano_codex_prelabeled_audit_report.md`
+- `results/rulefaith/qwen3_precano_codex_prelabeled_validation_summary.json`
+- `results/rulefaith/qwen3_precano_codex_prelabeled_validation_report.md`
+- `results/rulefaith/qwen3_precano_codex_prelabeled_breakdown.json`
+- `results/rulefaith/qwen3_precano_codex_prelabeled_breakdown.md`
+- `results/rulefaith/qwen3_canonicalized_codex_completed_validation_summary.json`
+- `results/rulefaith/qwen3_canonicalized_codex_completed_validation_report.md`
+- `results/rulefaith/qwen3_precano_codex_completed_validation_summary.json`
+- `results/rulefaith/qwen3_precano_codex_completed_validation_report.md`
+
+Commands:
+
+- `python3 experiments/rulefaith/prefill_qwen3_audit_codex.py --form annotation/rulefaith_qwen3_audit/manual_audit_form.csv --diagnostics results/rulefaith/qwen3_manual_audit.csv --output annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled.csv --summary-output results/rulefaith/qwen3_precano_codex_prelabeled_audit_summary.json --report-output results/rulefaith/qwen3_precano_codex_prelabeled_audit_report.md --overwrite`
+- `python3 experiments/rulefaith/validate_qwen3_human_audit.py --form annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled.csv --key annotation/rulefaith_qwen3_audit/manual_audit_key.csv --merged-output annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled_merged_with_key.csv --summary-output results/rulefaith/qwen3_precano_codex_prelabeled_validation_summary.json --report-output results/rulefaith/qwen3_precano_codex_prelabeled_validation_report.md --overwrite`
+- `python3 experiments/rulefaith/summarize_qwen3_prelabeled_audit.py --merged annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled_merged_with_key.csv --json-output results/rulefaith/qwen3_precano_codex_prelabeled_breakdown.json --md-output results/rulefaith/qwen3_precano_codex_prelabeled_breakdown.md --overwrite`
+
+Verified results:
+
+- Canonicalized audit: 80/80 rows complete, validation status `ready_to_merge_completed_audit`, decisions 44 `refine`, 36 `reject`.
+- Pre-canonicalization audit: 80/80 rows complete, validation status `ready_to_merge_completed_audit`, decisions 46 `refine`, 34 `reject`.
+- No direct accepts in either Codex-completed audit package.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/prefill_qwen3_audit_codex.py experiments/rulefaith/summarize_qwen3_prelabeled_audit.py experiments/rulefaith/validate_qwen3_human_audit.py` passed.
+- `python3 -m unittest discover -s experiments/tests` passed, 29 tests.
+- `git diff --check` passed.
+- Both Codex-completed audit CSVs have 80 rows and 0 blank `human_*` cells.
+- Secret-pattern scan over `annotation`, `docs`, `results`, and `experiments` produced no matches.
+- `python3 -m pytest -q` could not run because `pytest` is not installed in the current shell.
+
+Round10 boundary:
+
+- `annotation/round10/annotation_form.csv` and `annotation/round10/adjudication_template.csv` remain blank historical templates.
+- Usable stress-test labels are already finalized under `annotation/round15/`.
+- These templates were not overwritten with Codex labels.
+
+Decision: current Qwen3 audit blanks are filled by Codex-completed counterparts. Use them for internal triage only; do not use them as human evidence.

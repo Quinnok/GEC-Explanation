@@ -1,0 +1,57 @@
+{
+  "abstain_count": 0,
+  "accept_count": 0,
+  "decision": "usable_as_ai_assisted_prelabelling_only_not_human_audit",
+  "decision_counts": {
+    "refine": 46,
+    "reject": 34
+  },
+  "diagnostics": "/Users/bytedance/Documents/GEC可解释性/results/rulefaith/qwen3_manual_audit.csv",
+  "generated_at": "2026-07-20T19:17:09+00:00",
+  "git_commit": "ebb7b3d",
+  "input_form": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit/manual_audit_form.csv",
+  "issue_counts": {
+    "human_alignment_error": {
+      "no": 65,
+      "yes": 15
+    },
+    "human_edit_copy": {
+      "no": 7,
+      "yes": 73
+    },
+    "human_generic_explanation": {
+      "no": 80
+    },
+    "human_inapplicable_rule": {
+      "no": 55,
+      "yes": 25
+    },
+    "human_missing_evidence": {
+      "no": 1,
+      "yes": 79
+    },
+    "human_semantic_distortion": {
+      "no": 55,
+      "yes": 25
+    },
+    "human_unsupported_confidence": {
+      "yes": 80
+    },
+    "human_validity_error": {
+      "no": 55,
+      "yes": 25
+    },
+    "human_wrong_evidence": {
+      "yes": 80
+    },
+    "human_wrong_rule": {
+      "no": 55,
+      "yes": 25
+    }
+  },
+  "label_source": "codex_ai_assisted_prelabelling_not_human_gold",
+  "output": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit/manual_audit_codex_prelabeled.csv",
+  "refine_count": 46,
+  "reject_count": 34,
+  "row_count": 80
+}
