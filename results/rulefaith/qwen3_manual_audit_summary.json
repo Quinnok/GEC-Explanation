@@ -1,0 +1,117 @@
+{
+  "behavior_counts": {
+    "correct_correction": 36,
+    "overcorrection": 86,
+    "wrong_correction": 38
+  },
+  "bucket_counts": {
+    "accepted": 41,
+    "refine": 63,
+    "rejected": 56
+  },
+  "candidate_count": 160,
+  "dataset_counts": {
+    "EXPECT": 104,
+    "JFLEG": 56
+  },
+  "decision": "fix_evidence_verifier_and_evidence_prompt_before_targeted_refinement",
+  "flag_counts": {
+    "alignment_error": 55,
+    "edit_copy": 121,
+    "evidence_contextual": 51,
+    "evidence_span_index_match": 48,
+    "evidence_text_found_in_source": 144,
+    "generic_explanation": 1,
+    "leakage_input_violation": 0,
+    "missing_evidence": 109,
+    "missing_rule": 1,
+    "possible_false_rationalization": 19,
+    "rule_edit_copy": 0,
+    "semantic_distortion_auto": 28,
+    "source_span_match": 160,
+    "target_copy": 111,
+    "target_present_in_prediction": 160,
+    "unsupported_confidence": 147,
+    "validity_error_auto": 28,
+    "wrong_evidence_auto": 108
+  },
+  "generated_at": "2026-07-20T11:49:43.814205+00:00",
+  "git_commit": "9fd12b9",
+  "hard_failures": {
+    "evidence_index_mismatch_count": 112,
+    "input_leakage_detected": false,
+    "possible_false_rationalization_count": 19,
+    "source_span_mismatches": 0,
+    "target_prediction_mismatches": 0
+  },
+  "input_files": {
+    "accepted": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/filtering/qwen3_8b_accepted.jsonl",
+    "edit_pool": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/edit_pool.jsonl",
+    "refine": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/filtering/qwen3_8b_refine.jsonl",
+    "rejected": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/filtering/qwen3_8b_rejected.jsonl"
+  },
+  "interpretation": "This is an automatic pre-audit for Qwen3-8B teacher candidates. Rows marked for manual audit should be judged by humans before these candidates are used as positives.",
+  "manual_audit_target_size": 80,
+  "model_key_counts": {
+    "coedit_large": 56,
+    "gector_roberta_base": 52,
+    "t5_base_grammar": 52
+  },
+  "operation_counts": {
+    "delete": 18,
+    "insert": 18,
+    "replace": 124
+  },
+  "selected_bucket_counts": {
+    "accepted": 25,
+    "refine": 39,
+    "rejected": 16
+  },
+  "selected_coverage": {
+    "behavior": [
+      "correct_correction",
+      "overcorrection",
+      "wrong_correction"
+    ],
+    "bucket": [
+      "accepted",
+      "refine",
+      "rejected"
+    ],
+    "dataset": [
+      "EXPECT",
+      "JFLEG"
+    ],
+    "model_key": [
+      "coedit_large",
+      "gector_roberta_base",
+      "t5_base_grammar"
+    ],
+    "operation": [
+      "delete",
+      "insert",
+      "replace"
+    ]
+  },
+  "selected_flag_counts": {
+    "alignment_error": 15,
+    "edit_copy": 71,
+    "evidence_contextual": 26,
+    "evidence_span_index_match": 8,
+    "evidence_text_found_in_source": 71,
+    "generic_explanation": 0,
+    "leakage_input_violation": 0,
+    "missing_evidence": 54,
+    "missing_rule": 1,
+    "possible_false_rationalization": 19,
+    "rule_edit_copy": 0,
+    "semantic_distortion_auto": 28,
+    "source_span_match": 80,
+    "target_copy": 69,
+    "target_present_in_prediction": 80,
+    "unsupported_confidence": 78,
+    "validity_error_auto": 28,
+    "wrong_evidence_auto": 69
+  },
+  "selected_manual_audit_count": 80
+}

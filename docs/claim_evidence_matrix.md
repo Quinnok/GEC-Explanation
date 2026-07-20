@@ -45,3 +45,13 @@ Last updated: 2026-07-19
 | Edit reconstruction is useful for edit alignment but insufficient for rule/evidence faithfulness. | Against Round 15 labels, reverse reconstruction has Faithfulness Macro-F1 0.789 and Edit Alignment Macro-F1 0.767, but Rule Macro-F1 0.431 and Evidence Macro-F1 0.426. Error cases show high reconstruction with `not_applicable` rules and `not_provided` evidence. | Supported for stress-test set | Stress-test labels are template-heavy and adversarial, not a natural explanation sample. |
 | Current Rule/Evidence verifier is promising but not enough for a solved RuleFaith claim. | Round 15 rule/evidence verifier: Rule Macro-F1 0.558, Evidence Macro-F1 0.470, Faithfulness Macro-F1 0.695. | Supported as limitation | Needs stronger rule/evidence model and balanced natural explanations. |
 | The paper should be reframed as human-grounded metric stress testing rather than a solved counterfactual simulator or RuleFaith method. | `docs/post_human_eval_idea_decision.md` records this decision after Round 15 metrics; L2 simulator remains weak and L3 verifier remains noisy. | Supported for paper revision | A later GPT-5.5 natural-explanation validation set could reopen RuleFaith as the primary method line. |
+
+## RuleFaith Method Claims
+
+Status values in this method subsection use: `unsupported`, `partially_supported`, `supported`, `rejected`.
+
+| Claim | Required Evidence | Current Evidence | Status | Remaining Risk |
+|---|---|---|---|---|
+| Qwen3-8B is a usable local open-teacher candidate source. | Natural teacher candidates without input leakage, with valid edit spans and enough rule/evidence content for refinement. | Loop A audit over 160 candidates found 0 input-leakage flags, 160/160 source-span matches, and 160/160 target-present checks. | partially_supported | Evidence grounding is weak and candidates require manual audit. |
+| Qwen3-8B candidates are ready for SFT positives. | Human audit showing accepted/refine rows have reliable alignment, rule correctness, evidence grounding, and low false-rationalization risk. | Loop A selected 80 rows for human audit, but automatic checks found 109/160 missing contextual evidence and 19 possible false rationalizations. | unsupported | Must fix evidence verifier/prompt and complete manual audit. |
+| Evidence grounding must be evaluated separately from edit alignment. | Cases where edit spans align but evidence spans are missing/wrong. | Loop A: source spans match all 160 candidates, but evidence span index match holds for only 48/160 and contextual evidence for 51/160. | supported | Automatic evidence flags need human validation. |

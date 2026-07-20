@@ -146,3 +146,40 @@ Interpretation: verifier calibration is adequate for method-pilot filtering, but
   - `results/rulefaith/qwen_open_teacher_comparison.tex`
 
 Interpretation: Qwen3-8B should replace Qwen2.5 as the primary local open-teacher branch. It still needs verifier-guided refinement and manual spot-checking before any student SFT/preference training.
+## 2026-07-20 Loop A Qwen3-8B Candidate Audit
+
+Objective: audit Qwen3-8B accepted/refine/rejected candidates before targeted refinement or SFT positives.
+
+Inputs:
+
+- `data/rulefaith/filtering/qwen3_8b_accepted.jsonl`
+- `data/rulefaith/filtering/qwen3_8b_refine.jsonl`
+- `data/rulefaith/filtering/qwen3_8b_rejected.jsonl`
+- `data/rulefaith/edit_pool.jsonl`
+
+Outputs:
+
+- `results/rulefaith/qwen3_manual_audit.csv`
+- `results/rulefaith/qwen3_manual_audit_summary.json`
+- `results/rulefaith/qwen3_manual_audit_cases.md`
+
+Verified results:
+
+- 160 candidates audited.
+- 80 rows selected for stratified manual audit.
+- 0/160 generator input leakage flags.
+- 160/160 source edit spans match the source tokenization.
+- 160/160 target texts are present in predictions when applicable.
+- 48/160 evidence spans match source token indices.
+- 51/160 have contextual evidence under automatic checks.
+- 109/160 are missing contextual evidence.
+- 19/160 are possible false rationalizations.
+- 28/160 have edit-validity risk.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/build_qwen3_manual_audit.py` passed.
+- `python3 -m unittest discover -s experiments/tests` passed, 12 tests.
+- `pytest -q` was attempted but unavailable: `pytest: command not found`.
+
+Decision: revise evidence verifier and evidence-generation prompt before targeted refinement. Do not treat Qwen3 accepted/refine candidates as SFT positives yet.
