@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nIf every people thinks to learn and understand lots of scientifc subjects , any person will do not do it and as a result of this any science is n't imporeved . \n\nMODEL_PREDICTION:\nIf everybody thinks about learning and understanding lots of scientific subjects , people will not do it and , as a result of this , any science will n't improve .\n\nMODEL_EDIT:\noperation=replace\nspan=[7,8)\nsource_text=understand\ntarget_text=understanding\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"understand\" with \"understanding\" at source token span [7,8). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'understand' with 'ing' form 'understanding'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"noun_phrase_consistency\",\n  \"rule_text\": \"Use noun forms in parallel structures for consistency and grammatical correctness.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"understand\",\n      \"start\": 7,\n      \"end\": 12,\n      \"role\": \"target\"\n    },\n    {\n      \"text\": \"learning\",\n      \"start\": 9,\n      \"end\": 15,\n      \"role\": \"context\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"Parallel structure in a sentence\",\n    \"Noun phrases used for consistency\",\n    \"Verbs converted to nouns for grammatical parallelism\"\n  ],\n  \"rationale\": \"The verb 'understand' is replaced with its noun form 'understanding' to maintain parallelism with 'learning', which is already in the noun form. This creates a more consistent and grammatically balanced structure in the sentence.\",\n  \"confidence\": 0.9,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-7e32e31b-13a4-4390-a628-a8fcde65f171",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 411,
+    "output_tokens": 258,
+    "total_tokens": 669
+  }
+}

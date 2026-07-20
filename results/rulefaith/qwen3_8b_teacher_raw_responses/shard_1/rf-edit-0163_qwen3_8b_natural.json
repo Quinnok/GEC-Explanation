@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nComputers have had a most significant impact on the people in the latter 1/2 of the 20th century .\n\nMODEL_PREDICTION:\nUsing the Internet for the first time since the beginning of the 20th century.\n\nMODEL_EDIT:\noperation=replace\nspan=[7,8)\nsource_text=on\ntarget_text=for\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"on\" with \"for\" at source token span [7,8). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'on' with 'for' in the phrase 'have had a most significant impact on the people'\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"preposition_usage\",\n  \"rule_text\": \"Use 'for' to indicate the purpose or reason of an action, while 'on' typically indicates a topic or subject.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"on\",\n      \"start\": 7,\n      \"end\": 9,\n      \"role\": \"target\"\n    },\n    {\n      \"text\": \"for\",\n      \"start\": 7,\n      \"end\": 9,\n      \"role\": \"source\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The sentence involves an action or effect that is being attributed to a specific group or entity.\",\n    \"The preposition should reflect the relationship between the action and its recipient.\"\n  ],\n  \"rationale\": \"The original sentence uses 'on' which implies a surface-level interaction, but the intended meaning is about the impact being directed towards the people. Replacing 'on' with 'for' better conveys that the impact was experienced by the people, aligning with the intended meaning.\",\n  \"confidence\": 0.85,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-06bec938-ed40-47fb-ba10-f4f9500d1ed7",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 379,
+    "output_tokens": 291,
+    "total_tokens": 670
+  }
+}

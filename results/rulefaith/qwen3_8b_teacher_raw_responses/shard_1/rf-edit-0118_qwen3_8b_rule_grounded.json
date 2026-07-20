@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nHere was no promise of morning except that we looked up through the trees we saw how low the forest had swung . \n\nMODEL_PREDICTION:\nThere was no promise of morning except when we looked up through the trees we saw how low the forest had swung .\n\nMODEL_EDIT:\noperation=replace\nspan=[7,8)\nsource_text=that\ntarget_text=when\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"that\" with \"when\" at source token span [7,8). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'that' with 'when' to connect the clauses\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"subordinating_conjunction_usage\",\n  \"rule_text\": \"Use 'when' to introduce a time clause, and 'that' to introduce a subordinate clause expressing a fact or condition.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"except that we looked up through the trees we saw how low the forest had swung\",\n      \"start\": 7,\n      \"end\": 12,\n      \"role\": \"clause\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The clause following 'except' expresses a time-related condition\",\n    \"The clause is not stating a factual condition but rather a temporal event\"\n  ],\n  \"rationale\": \"The original sentence uses 'that' to introduce a subordinate clause, which may imply a factual condition. However, replacing 'that' with 'when' better conveys that the observation of the forest's height occurs at a specific time, aligning with the context of the sentence. This makes the sentence more natural and grammatically appropriate in this context.\",\n  \"confidence\": 0.9,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-da3cb53e-282d-49cc-a779-b09bfb422cde",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 384,
+    "output_tokens": 276,
+    "total_tokens": 660
+  }
+}

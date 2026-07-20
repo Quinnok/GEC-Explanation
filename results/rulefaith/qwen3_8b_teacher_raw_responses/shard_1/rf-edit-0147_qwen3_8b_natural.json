@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nSpecializing in one particular subject does not suit our life in this era which is characterized by diversity and innovation \n\nMODEL_PREDICTION:\nSpecializing in one particular subject does not suit our life in this era, which is characterized by diversity and innovation.\n\nMODEL_EDIT:\noperation=replace\nspan=[12,13)\nsource_text=era\ntarget_text=era,\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"era\" with \"era,\" at source token span [12,13). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Adding a comma after 'era'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"comma_usage_rule\",\n  \"rule_text\": \"A comma should be used to separate a dependent clause from the main clause when the dependent clause comes before the main clause.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"which is characterized by diversity and innovation\",\n      \"start\": 13,\n      \"end\": 34,\n      \"role\": \"dependent_clause\"\n    },\n    {\n      \"text\": \"Specializing in one particular subject does not suit our life in this era\",\n      \"start\": 0,\n      \"end\": 12,\n      \"role\": \"main_clause\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the dependent clause comes immediately after the main clause\",\n    \"the dependent clause is non-restrictive\"\n  ],\n  \"rationale\": \"The comma after 'era' is stylistically appropriate to separate the dependent clause 'which is characterized by diversity and innovation' from the main clause. While not strictly required in all contexts, it improves readability and adheres to standard punctuation conventions for clarity.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-3956a36a-e257-4357-8f50-24ecf6c925c8",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 384,
+    "output_tokens": 280,
+    "total_tokens": 664
+  }
+}

@@ -1,0 +1,5 @@
+model,provider,n,parse_json_rate,alignment_proxy_pass_rate,missing_rule_text_rate,rule_edit_copy_rate,contextual_evidence_rate,high_risk_rate,accepted,refine,rejected
+FLAN/open,open_teacher,160,0.0,1.0,1.0,1.0,0.0,1.0,0,0,160
+Qwen2.5-0.5B,qwen_small,160,0.975,0.7688,0.025,0.8875,0.0375,0.9938,1,15,144
+Qwen2.5-1.5B probe,qwen_small,20,1.0,1.0,1.0,1.0,0.35,1.0,0,0,20
+Qwen3-8B,qwen3_8b,160,0.9938,0.6562,0.0063,0.0063,0.3875,0.7438,41,63,56

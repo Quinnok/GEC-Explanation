@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nI hope my house will win the champion next year .\n\nMODEL_PREDICTION:\nI hope my house will win the championship next year .\n\nMODEL_EDIT:\noperation=replace\nspan=[7,8)\nsource_text=champion\ntarget_text=championship\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"champion\" with \"championship\" at source token span [7,8). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'champion' with 'championship'\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"noun_phrase_consistency\",\n  \"rule_text\": \"Use the correct noun form when referring to a title or award.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"champion\",\n      \"start\": 7,\n      \"end\": 13,\n      \"role\": \"error\"\n    },\n    {\n      \"text\": \"championship\",\n      \"start\": 7,\n      \"end\": 13,\n      \"role\": \"correction\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the context refers to a competition or contest\",\n    \"the subject is a team, individual, or entity competing for a title\"\n  ],\n  \"rationale\": \"The word 'champion' is an adjective or noun form that refers to the winner, while 'championship' is the correct noun form to describe the title or prize being won. Using 'championship' makes the sentence grammatically accurate and semantically precise in the context of winning a title.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-9521953a-e084-4fbd-968e-31a2456785ef",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 361,
+    "output_tokens": 267,
+    "total_tokens": 628
+  }
+}

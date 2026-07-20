@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nVariety of buses are provided by the government in order to meet people 's financial means .\n\nMODEL_PREDICTION:\nA variety of buses are provided by the government in order to meet people 's financial means .\n\nMODEL_EDIT:\noperation=replace\nspan=[0,1)\nsource_text=Variety\ntarget_text=A variety\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"Variety\" with \"A variety\" at source token span [0,1). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'Variety' with 'A variety'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"article_usage\",\n  \"rule_text\": \"Use of definite or indefinite articles for noun phrases\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"Variety\",\n      \"start\": 0,\n      \"end\": 1,\n      \"role\": \"modified\"\n    },\n    {\n      \"text\": \"A variety\",\n      \"start\": 0,\n      \"end\": 1,\n      \"role\": \"replacement\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the noun phrase requires an article for grammatical correctness\",\n    \"the noun phrase is countable and needs an article\"\n  ],\n  \"rationale\": \"The original sentence begins with 'Variety', which is a non-count noun and does not require an article. Adding 'A' before 'variety' makes the noun phrase grammatically complete and more natural in standard English usage.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-0aba227c-16d0-442a-beb5-4f9c5e2def84",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 378,
+    "output_tokens": 245,
+    "total_tokens": 623
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nwhich play an important role to giving tough competition to the government . as a result of this consumer gets more benefits , like lower faire , privacy , freedom and safe travelling.in addition many automobile companies launcing new cars at affordable prices , which encourages people to use more and more private vechile .\n\nMODEL_PREDICTION:\nwhich play an important role in giving tough competition to the government . As a result of this , consumers get more benefits , like lower faire , privacy , freedom and safe journeys . In addition , many automobile companies are launcing new cars at affordable prices , which encourages people to use more and more private vegetables .\n\nMODEL_EDIT:\noperation=insert\nspan=[37,37)\nsource_text=\ntarget_text=are\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: insert \"are\" at source token span [37,37). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Insert 'are' before 'launcing' to form the correct verb phrase 'are launcing'.\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"subject_verb_agreement\",\n  \"rule_text\": \"The subject and verb must agree in number (singular/plural).\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"many automobile companies launcing\",\n      \"start\": 37,\n      \"end\": 45,\n      \"role\": \"source\"\n    },\n    {\n      \"text\": \"many automobile companies are launcing\",\n      \"start\": 37,\n      \"end\": 45,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The subject is plural ('many automobile companies')\",\n    \"The verb must be plural ('are')\",\n    \"The verb phrase must correctly match the subject\"\n  ],\n  \"rationale\": \"The subject 'many automobile companies' is plural, so the verb must also be plural. The original sentence used 'launcing' without a helping verb, which is incorrect. Inserting 'are' before 'launcing' ensures subject-verb agreement.\",\n  \"confidence\": 1.0,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-025ec99b-0796-4718-ba7c-7fe535a23789",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 455,
+    "output_tokens": 290,
+    "total_tokens": 745
+  }
+}

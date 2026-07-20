@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nAdditionally , people now continue to destroy more agricultures and forest in order to satisfy all their needs , which will distory the ecosystem diversity and biodiversity especially the endangered species .\n\nMODEL_PREDICTION:\nAdditionally, people now continue to destroy more agriculture and forest in order to satisfy all their needs, which will discredit the ecosystem diversity and biodiversity, especially the endangered species.\n\nMODEL_EDIT:\noperation=replace\nspan=[8,9)\nsource_text=agricultures\ntarget_text=agriculture\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"agricultures\" with \"agriculture\" at source token span [8,9). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'agricultures' with 'agriculture'\",\n  \"edit_validity\": \"invalid\",\n  \"rule_id\": \"noun_pluralization\",\n  \"rule_text\": \"the word 'agriculture' is uncountable and does not have a plural form\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"agricultures\",\n      \"start\": 8,\n      \"end\": 14,\n      \"role\": \"error\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the context refers to agriculture as a general concept\",\n    \"the subject is not referring to multiple distinct types of agriculture\"\n  ],\n  \"rationale\": \"The word 'agriculture' is an uncountable noun and does not have a plural form. Therefore, 'agricultures' is incorrect and should be replaced with 'agriculture'.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-c8e34705-3100-4e65-9e7f-5cbac3da352d",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 414,
+    "output_tokens": 222,
+    "total_tokens": 636
+  }
+}

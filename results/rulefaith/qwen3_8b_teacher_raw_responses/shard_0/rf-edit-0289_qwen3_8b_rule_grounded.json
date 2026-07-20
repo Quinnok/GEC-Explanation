@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nWhat a wonderful day ! There is April now and finally spring has come .\n\nMODEL_PREDICTION:\nWhat a wonderful day ! It is April now, and finally, spring has come.\n\nMODEL_EDIT:\noperation=replace\nspan=[10,11)\nsource_text=finally\ntarget_text=finally,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"finally\" with \"finally,\" at source token span [10,11). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Add a comma after 'finally'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_comma_after_interjection\",\n  \"rule_text\": \"When using an interjection like 'finally', a comma should follow it when it is part of a compound sentence.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"finally\",\n      \"start\": 10,\n      \"end\": 14,\n      \"role\": \"modified_text\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the word 'finally' is used as an interjection\",\n    \"it is part of a compound sentence structure\",\n    \"the sentence contains a coordinating conjunction such as 'and'\"\n  ],\n  \"rationale\": \"The addition of a comma after 'finally' improves clarity and adheres to standard punctuation rules when 'finally' functions as an interjection within a compound sentence.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-f23b8e3b-ad00-46b5-a49c-5ba9118e1800",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 373,
+    "output_tokens": 227,
+    "total_tokens": 600
+  }
+}

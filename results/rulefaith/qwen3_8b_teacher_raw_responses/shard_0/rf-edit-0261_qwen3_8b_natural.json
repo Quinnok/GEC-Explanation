@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nComputers have had a most significant impact on the people in the latter 1/2 of the 20th century .\n\nMODEL_PREDICTION:\nComputers have had a most significant impact on people in the latter half of the 20th century.\n\nMODEL_EDIT:\noperation=replace\nspan=[13,14)\nsource_text=1/2\ntarget_text=half\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"1/2\" with \"half\" at source token span [13,14). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace '1/2' with 'half'\",\n  \"edit_validity\": \"acceptable_alternative\",\n  \"rule_id\": \"preference_for_full_words_over_numbers\",\n  \"rule_text\": \"In formal writing, full words are preferred over numerical expressions when clarity and style are prioritized.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"1/2\",\n      \"start\": 13,\n      \"end\": 14,\n      \"role\": \"source\"\n    },\n    {\n      \"text\": \"half\",\n      \"start\": 13,\n      \"end\": 14,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the context involves general time references\",\n    \"the phrase is not part of a mathematical or technical expression\",\n    \"the goal is to enhance readability and formality\"\n  ],\n  \"rationale\": \"The phrase 'latter 1/2 of the 20th century' uses a fraction to refer to a period, which may be considered less formal or clear compared to using the full word 'half'. Replacing '1/2' with 'half' improves readability and aligns with stylistic preferences in formal writing.\",\n  \"confidence\": 0.85,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-c0bd3378-a727-4926-80fa-53bd2c81bf45",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 391,
+    "output_tokens": 293,
+    "total_tokens": 684
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nEveryone should develop their awareness of public manner .\n\nMODEL_PREDICTION:\nThe goal is to develop their awareness of the public manner.\n\nMODEL_EDIT:\noperation=replace\nspan=[7,9)\nsource_text=manner .\ntarget_text=manner.\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"manner .\" with \"manner.\" at source token span [7,9). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Remove the space before the period in 'manner .'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_spacing\",\n  \"rule_text\": \"A period should follow a word without a preceding space.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"manner .\",\n      \"start\": 7,\n      \"end\": 9,\n      \"role\": \"error\"\n    },\n    {\n      \"text\": \"manner.\",\n      \"start\": 7,\n      \"end\": 8,\n      \"role\": \"correct\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the period follows a word\",\n    \"the word is not followed by another word or punctuation\",\n    \"the sentence ends with the word\"\n  ],\n  \"rationale\": \"The original text contains an unnecessary space before the period, which is not standard in written English. Removing the space aligns with conventional punctuation rules.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-977ac108-3e9f-4c9a-9fc0-9a1dbfae0676",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 360,
+    "output_tokens": 237,
+    "total_tokens": 597
+  }
+}

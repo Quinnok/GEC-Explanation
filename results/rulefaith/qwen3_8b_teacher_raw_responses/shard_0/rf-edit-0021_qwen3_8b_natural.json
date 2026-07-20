@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nI was very fast , my best time was 5 5 seconds in 4 0 0 hundred meters is a good time in or country . \n\nMODEL_PREDICTION:\nI was very fast . My best time was 5 5 5 seconds in 4 0 0 hundred meters , which is a good time in the country .\n\nMODEL_EDIT:\noperation=replace\nspan=[23,24)\nsource_text=or\ntarget_text=the\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"or\" with \"the\" at source token span [23,24). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'or' with 'the' to correct the definite article usage.\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"article_usage\",\n  \"rule_text\": \"Use 'the' before a noun when referring to a specific or previously mentioned entity.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"or country\",\n      \"start\": 23,\n      \"end\": 27,\n      \"role\": \"error\"\n    },\n    {\n      \"text\": \"the country\",\n      \"start\": 23,\n      \"end\": 27,\n      \"role\": \"correction\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The noun refers to a specific entity.\",\n    \"The noun has been previously mentioned or is understood from context.\"\n  ],\n  \"rationale\": \"The phrase 'in or country' is grammatically incorrect because 'or' is a conjunction, not an article. The correct article to use before 'country' is 'the', as it refers to a specific country (likely the speaker's own country) in the context.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-701a9d76-a9b7-4fe5-84c5-b8f813960d6b",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 406,
+    "output_tokens": 267,
+    "total_tokens": 673
+  }
+}

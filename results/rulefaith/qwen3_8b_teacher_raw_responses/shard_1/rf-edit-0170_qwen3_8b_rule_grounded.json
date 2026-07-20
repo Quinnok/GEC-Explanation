@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nThey were planning to steal a very precious thing from Museum tonight .\n\nMODEL_PREDICTION:\nThen, they were planning to steal a very precious thing from the museum tonight.\n\nMODEL_EDIT:\noperation=insert\nspan=[10,10)\nsource_text=\ntarget_text=the\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: insert \"the\" at source token span [10,10). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Inserting 'the' before 'museum' to specify which museum is being referred to.\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"article_usage\",\n  \"rule_text\": \"Definite articles ('the') should be used when referring to specific, known entities.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"Museum\",\n      \"start\": 10,\n      \"end\": 13,\n      \"role\": \"noun\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The noun refers to a specific entity known to the reader or listener.\",\n    \"The noun is a singular countable noun.\"\n  ],\n  \"rationale\": \"The noun 'Museum' in the original sentence is used without an article, which makes it unclear which specific museum is being referenced. Adding 'the' clarifies that the sentence is referring to a particular, known museum.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-eadfd659-4480-400c-bba5-1cc1a79bba2f",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 364,
+    "output_tokens": 228,
+    "total_tokens": 592
+  }
+}

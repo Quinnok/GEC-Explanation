@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nI took the sun a very long time and then I went to a cafe and and I drank a drink .\n\nMODEL_PREDICTION:\nI took the sun for a very long time and then I went to a cafe and drank a drink .\n\nMODEL_EDIT:\noperation=delete\nspan=[15,16)\nsource_text=and\ntarget_text=\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: delete \"and\" at source token span [15,16). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Remove the redundant 'and' before 'drank a drink'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"redundant_conjunction_removal\",\n  \"rule_text\": \"Avoid using redundant conjunctions when the preceding clause already contains a conjunction or when the structure is clear without it.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"and\",\n      \"start\": 15,\n      \"end\": 16,\n      \"role\": \"redundant_conjunction\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The sentence contains multiple actions connected by conjunctions.\",\n    \"The conjunction is not necessary for clarity or grammatical correctness.\"\n  ],\n  \"rationale\": \"The word 'and' before 'drank a drink' is redundant because the previous clause ends with 'cafe', and the sequence of actions is already clear without it. Removing it improves the flow and conciseness of the sentence.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-5009c716-099c-47e7-b1bd-5cee93c5d4be",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 378,
+    "output_tokens": 242,
+    "total_tokens": 620
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nTechnology will have advanced and maybe the cars will fly above streets and computers will have totally changed .\n\nMODEL_PREDICTION:\nTechnology will have advanced, and maybe cars will fly above the streets, and computers will have totally changed.\n\nMODEL_EDIT:\noperation=replace\nspan=[11,12)\nsource_text=streets\ntarget_text=streets,\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"streets\" with \"streets,\" at source token span [11,12). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Adding a comma after 'streets' in the phrase 'fly above streets'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"punctuation_comma_usage\",\n  \"rule_text\": \"Use commas to separate independent clauses or to set off non-restrictive clauses.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"and maybe cars will fly above streets, and computers will have totally changed\",\n      \"start\": 11,\n      \"end\": 12,\n      \"role\": \"target\"\n    },\n    {\n      \"text\": \"and maybe cars will fly above streets and computers will have totally changed\",\n      \"start\": 11,\n      \"end\": 12,\n      \"role\": \"source\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the sentence contains multiple independent clauses\",\n    \"the clauses are joined by coordinating conjunctions such as 'and'\"\n  ],\n  \"rationale\": \"The addition of a comma after 'streets' improves readability by separating the independent clause 'cars will fly above streets' from the following clause 'computers will have totally changed'. While not strictly required, it is a stylistic choice that enhances clarity and adheres to standard punctuation conventions.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-7953fb8d-9538-485f-aa3c-ced68de5b0e2",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 385,
+    "output_tokens": 297,
+    "total_tokens": 682
+  }
+}

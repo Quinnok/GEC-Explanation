@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nTechnology will have advanced and maybe the cars will fly above streets and computers will have totally changed .\n\nMODEL_PREDICTION:\nTechnology will have advanced, and maybe cars will fly above the streets, and computers will have totally changed.\n\nMODEL_EDIT:\noperation=insert\nspan=[11,11)\nsource_text=\ntarget_text=the\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: insert \"the\" at source token span [11,11). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Inserting 'the' before 'streets'\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"article_usage\",\n  \"rule_text\": \"Nouns that refer to specific or general things should be preceded by articles like 'the' or 'a' when necessary.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"streets\",\n      \"start\": 11,\n      \"end\": 15,\n      \"role\": \"noun\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"the noun refers to a specific set of streets\",\n    \"the noun is not a proper noun\",\n    \"the noun is not countable or requires an article\"\n  ],\n  \"rationale\": \"The noun 'streets' in this context likely refers to a general concept rather than a specific set of streets, but the insertion of 'the' makes the sentence more natural and grammatically polished by providing a definite reference.\",\n  \"confidence\": 0.9,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-5ff54c88-da2f-42fc-856c-8a7d948bea8b",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 373,
+    "output_tokens": 236,
+    "total_tokens": 609
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nIf every people thinks to learn and understand lots of scientifc subjects , any person will do not do it and as a result of this any science is n't imporeved . \n\nMODEL_PREDICTION:\nIf every person thinks to learn and understand lots of scientific subjects, any person will not do it and as a result of this any science isn't improved.\n\nMODEL_EDIT:\noperation=replace\nspan=[10,11)\nsource_text=scientifc\ntarget_text=scientific\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"scientifc\" with \"scientific\" at source token span [10,11). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Correcting the spelling of 'scientifc' to 'scientific'\",\n  \"edit_validity\": \"valid\",\n  \"rule_id\": \"spelling_error\",\n  \"rule_text\": \"Ensure correct spelling of words, particularly academic and technical terms.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"scientifc\",\n      \"start\": 10,\n      \"end\": 11,\n      \"role\": \"error\"\n    },\n    {\n      \"text\": \"scientific\",\n      \"start\": 10,\n      \"end\": 15,\n      \"role\": \"corrected\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The word is used in an academic or technical context\",\n    \"The word refers to a field of study or knowledge\"\n  ],\n  \"rationale\": \"The word 'scientifc' contains a spelling error. The correct spelling is 'scientific', which is the standard form used in academic and technical contexts. This correction ensures clarity and correctness in the sentence.\",\n  \"confidence\": 1.0,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-accb5160-211d-439e-850d-e40612478f1d",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 412,
+    "output_tokens": 249,
+    "total_tokens": 661
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "natural",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nI think about transport that the government should help the public transport , for example buses , train , the metro and more , for a single reason : the quality of life against the pollution .\n\nMODEL_PREDICTION:\nI think about transport that the government should help public transport , for example buses , trains , the metro and more , for a single reason : the quality of life against pollution .\n\nMODEL_EDIT:\noperation=delete\nspan=[34,35)\nsource_text=the\ntarget_text=\n\nCANDIDATE_TYPE:\nnatural\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: delete \"the\" at source token span [34,35). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Delete the article 'the' before 'pollution'.\",\n  \"edit_validity\": \"stylistic\",\n  \"rule_id\": \"article_redundancy\",\n  \"rule_text\": \"Articles like 'the' may be omitted when they are redundant or when the noun phrase is clearly understood without them.\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"the quality of life against pollution\",\n      \"start\": 34,\n      \"end\": 39,\n      \"role\": \"original\"\n    },\n    {\n      \"text\": \"quality of life against pollution\",\n      \"start\": 34,\n      \"end\": 39,\n      \"role\": \"modified\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The noun phrase is part of a list or parallel structure.\",\n    \"The noun phrase is clearly understood without the article.\"\n  ],\n  \"rationale\": \"The article 'the' before 'pollution' is stylistically unnecessary because it is already clear from context that the comparison is between quality of life and pollution, without requiring a definite article. Removing 'the' makes the sentence more concise and natural.\",\n  \"confidence\": 0.9,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-c165921b-01da-443a-9af8-615e3c0cf983",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 405,
+    "output_tokens": 277,
+    "total_tokens": 682
+  }
+}

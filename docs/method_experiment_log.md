@@ -112,3 +112,37 @@ Interpretation: verifier calibration is adequate for method-pilot filtering, but
 - FLAN-T5-base prefilter:
   - Conservative prefilter: 0 accepted, 0 refine, 160 rejected.
 - Interpretation: current open teachers are useful as direct baselines, negative candidates, and refinement stress cases, but not as positive teacher data for RuleFaith SFT/preference training.
+
+## Qwen3-8B Teacher Pilot Addendum
+
+- Date: 2026-07-20
+- Model: `Qwen/Qwen3-8B`
+- Provider name: `qwen3_8b`
+- Config: `configs/rulefaith/qwen3_8b_teacher.yaml`
+- Runner: `experiments/rulefaith/run_qwen3_8b_teacher_pilot.sh`
+- Thinking mode: disabled via Qwen chat template when supported; decoded `<think>...</think>` blocks are stripped defensively.
+- Dependency update:
+  - `transformers==5.14.1`
+  - `huggingface_hub==1.24.0`
+  - `tokenizers==0.22.2`
+- Validation and generation commands:
+  - `.venv311/bin/python -m py_compile experiments/rulefaith/generate_teacher_candidates.py experiments/rulefaith/diagnose_teacher_candidates.py experiments/rulefaith/filter_teacher_candidates.py experiments/rulefaith/merge_teacher_candidate_shards.py`
+  - `HF_HUB_DISABLE_XET=1 .venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --qwen-model Qwen/Qwen3-8B --qwen-provider-name qwen3_8b --qwen-config configs/rulefaith/qwen3_8b_teacher.yaml --limit 0 --output results/rulefaith/qwen3_8b_limit0_candidates.jsonl --stats results/rulefaith/qwen3_8b_limit0_stats.json --parse-failures results/rulefaith/qwen3_8b_limit0_parse_failures.jsonl --raw-dir results/rulefaith/qwen3_8b_limit0_raw`
+  - `HF_HUB_DISABLE_XET=1 .venv311/bin/python experiments/rulefaith/generate_teacher_candidates.py --provider qwen_small --qwen-model Qwen/Qwen3-8B --qwen-provider-name qwen3_8b --qwen-config configs/rulefaith/qwen3_8b_teacher.yaml --limit 1 --candidate-types natural --output results/rulefaith/qwen3_8b_smoke_candidates.jsonl --stats results/rulefaith/qwen3_8b_smoke_stats.json --parse-failures results/rulefaith/qwen3_8b_smoke_parse_failures.jsonl --raw-dir results/rulefaith/qwen3_8b_smoke_raw`
+  - `HF_HUB_DISABLE_XET=1 RULEFAITH_QWEN3_SHARDS=2 bash experiments/rulefaith/run_qwen3_8b_teacher_pilot.sh`
+  - `.venv311/bin/python experiments/rulefaith/diagnose_teacher_candidates.py --input data/rulefaith/teacher_candidates_qwen3_8b_pilot.jsonl --json-output results/rulefaith/qwen3_8b_teacher_diagnostic_metrics.json --md-output results/rulefaith/qwen3_8b_teacher_diagnostic_cases.md`
+  - `.venv311/bin/python experiments/rulefaith/filter_teacher_candidates.py --candidates data/rulefaith/teacher_candidates_qwen3_8b_pilot.jsonl --diagnostics results/rulefaith/qwen3_8b_teacher_diagnostic_metrics.json --output-dir data/rulefaith/filtering --stats results/rulefaith/qwen3_8b_filtering_statistics.json --prefix qwen3_8b`
+- Qwen3-8B full pilot:
+  - Output: `data/rulefaith/teacher_candidates_qwen3_8b_pilot.jsonl`
+  - Candidates: 160 for 80 edits, 80 natural and 80 rule-grounded.
+  - Parse JSON rate: 0.9938.
+  - Alignment proxy pass: 0.6562.
+  - Missing rule text rate: 0.0063.
+  - Rule edit-copy rate: 0.0063.
+  - Contextual evidence rate: 0.3875.
+  - Conservative prefilter: 41 accepted, 63 refine, 56 rejected.
+- Comparison table:
+  - `results/rulefaith/qwen_open_teacher_comparison.csv`
+  - `results/rulefaith/qwen_open_teacher_comparison.tex`
+
+Interpretation: Qwen3-8B should replace Qwen2.5 as the primary local open-teacher branch. It still needs verifier-guided refinement and manual spot-checking before any student SFT/preference training.

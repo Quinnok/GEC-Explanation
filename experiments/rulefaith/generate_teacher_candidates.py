@@ -219,6 +219,7 @@ def qwen_user_prompt(row: Dict[str, Any], candidate_type: str) -> str:
         + exact_edit
         + " Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. "
         "Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. "
+        "Do not include hidden reasoning, chain-of-thought, or <think> blocks. "
         "Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. "
         "Every evidence_spans item must include text, start, end, and role. "
         "applicability_conditions must be a list of strings. abstain must be true or false. "
@@ -247,6 +248,10 @@ def extract_json_object(text: str) -> Tuple[Optional[Dict[str, Any]], str]:
         return None, "extracted_json_not_object"
     except json.JSONDecodeError as exc:
         return None, f"json_decode_error:{exc.msg}"
+
+
+def strip_thinking_blocks(text: str) -> str:
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE).strip()
 
 
 def normalize_edit_validity(value: Any) -> str:
@@ -578,6 +583,7 @@ def generate_qwen_small(args: argparse.Namespace, config: Dict[str, Any], rows: 
 
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     model_id = args.qwen_model or config.get("teacher_model", "Qwen/Qwen2.5-0.5B-Instruct")
+    provider_name = args.qwen_provider_name or config.get("provider_name") or "qwen_small"
     candidate_types = args.candidate_types or list(config.get("candidate_types", ["natural", "rule_grounded"]))
     local_files_only = bool(config.get("local_files_only", False))
     trust_remote_code = bool(config.get("trust_remote_code", False))
@@ -609,7 +615,7 @@ def generate_qwen_small(args: argparse.Namespace, config: Dict[str, Any], rows: 
     for row in rows:
         for candidate_type in candidate_types:
             base_id = row.get("rulefaith_pool_id") or row.get("edit_id")
-            candidate_id = f"{base_id}::qwen_small::{candidate_type}"
+            candidate_id = f"{base_id}::{provider_name}::{candidate_type}"
             if candidate_id in seen:
                 continue
             prompts.append((row, candidate_type, qwen_user_prompt(row, candidate_type)))
@@ -620,7 +626,15 @@ def generate_qwen_small(args: argparse.Namespace, config: Dict[str, Any], rows: 
             {"role": "user", "content": prompt},
         ]
         started = time.time()
-        chat_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        try:
+            chat_text = tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=bool(config.get("enable_thinking", False)),
+            )
+        except TypeError:
+            chat_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         inputs = tokenizer([chat_text], return_tensors="pt", truncation=True, max_length=int(config.get("max_input_length", 1024)))
         inputs = {key: value.to(device) for key, value in inputs.items()}
         generate_kwargs: Dict[str, Any] = {
@@ -635,12 +649,12 @@ def generate_qwen_small(args: argparse.Namespace, config: Dict[str, Any], rows: 
         with torch.inference_mode():
             output_ids = model.generate(**inputs, **generate_kwargs)
         generated_ids = output_ids[0][inputs["input_ids"].shape[-1] :]
-        raw = tokenizer.decode(generated_ids, skip_special_tokens=True)
+        raw = strip_thinking_blocks(tokenizer.decode(generated_ids, skip_special_tokens=True))
         latency = time.time() - started
         parsed, parse_error = extract_json_object(raw)
         parsed_output, parse_status = coerce_candidate(parsed, raw, row, candidate_type)
         base_id = row.get("rulefaith_pool_id") or row.get("edit_id")
-        candidate_id = f"{base_id}::qwen_small::{candidate_type}"
+        candidate_id = f"{base_id}::{provider_name}::{candidate_type}"
         request_id = f"qwen-local-{uuid.uuid4()}"
         usage = {
             "input_tokens": int(inputs["input_ids"].shape[-1]),
@@ -651,7 +665,7 @@ def generate_qwen_small(args: argparse.Namespace, config: Dict[str, Any], rows: 
             args.raw_dir,
             candidate_id,
             {
-                "provider": "qwen_small",
+                "provider": provider_name,
                 "teacher_model": model_id,
                 "model_version": revision,
                 "candidate_type": candidate_type,
@@ -660,11 +674,12 @@ def generate_qwen_small(args: argparse.Namespace, config: Dict[str, Any], rows: 
                 "raw_response": raw,
                 "request_id": request_id,
                 "usage": usage,
+                "enable_thinking": bool(config.get("enable_thinking", False)),
             },
         )
         record = candidate_record(
             row=row,
-            provider="qwen_small",
+            provider=provider_name,
             teacher_model=model_id,
             model_version=revision,
             prompt_version=config.get("prompt_version", "rulefaith_qwen_small_teacher_v1_json"),
@@ -862,6 +877,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--candidate-types", nargs="*", default=None)
     parser.add_argument("--open-model", default=None)
     parser.add_argument("--qwen-model", default=None)
+    parser.add_argument("--qwen-provider-name", default=None)
+    parser.add_argument("--qwen-config", type=Path, default=QWEN_CONFIG)
     parser.add_argument("--num-shards", type=int, default=1)
     parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--resume", action="store_true")
@@ -875,6 +892,7 @@ def main() -> int:
     args.stats = args.stats if args.stats.is_absolute() else ROOT / args.stats
     args.parse_failures = args.parse_failures if args.parse_failures.is_absolute() else ROOT / args.parse_failures
     args.raw_dir = args.raw_dir if args.raw_dir.is_absolute() else ROOT / args.raw_dir
+    args.qwen_config = args.qwen_config if args.qwen_config.is_absolute() else ROOT / args.qwen_config
 
     if args.num_shards < 1:
         raise ValueError("--num-shards must be >= 1")
@@ -895,7 +913,7 @@ def main() -> int:
 
     if args.provider in {"qwen_small", "all"}:
         try:
-            records.extend(generate_qwen_small(args, load_yaml(QWEN_CONFIG), rows))
+            records.extend(generate_qwen_small(args, load_yaml(args.qwen_config), rows))
         except Exception as exc:
             blocked.append(f"qwen_small_failed:{exc}")
 

@@ -1,0 +1,16 @@
+{
+  "candidate_type": "rule_grounded",
+  "device": "mps",
+  "enable_thinking": false,
+  "model_version": "b968826d9c46dd6066d109eabc6255188de91218",
+  "prompt": "SOURCE:\nThird the butt it in hte front of the door of store to make the poeple see it even if it is not good \n\nMODEL_PREDICTION:\nThird, they put it in front of the door of the store to make the people see it, even if it is not good.\n\nMODEL_EDIT:\noperation=replace\nspan=[1,2)\nsource_text=the\ntarget_text=they\n\nCANDIDATE_TYPE:\nrule_grounded\n\nWrite one explanation candidate as JSON with keys: edit_description, edit_validity, rule_id, rule_text, evidence_spans, applicability_conditions, rationale, confidence, abstain, abstain_reason. The rationale should be specific to the edit and should not merely copy the source-target pair.\n\nThe only edit to explain is: replace \"the\" with \"they\" at source token span [1,2). Do not explain any other change in the sentence. If the edit is only punctuation, capitalization, or spacing, say that directly. Return ONLY one valid JSON object. Do not use markdown, code fences, bullets, or extra commentary. Do not include hidden reasoning, chain-of-thought, or <think> blocks. Use exact lowercase edit_validity values: valid, acceptable_alternative, invalid, stylistic, uncertain. Every evidence_spans item must include text, start, end, and role. applicability_conditions must be a list of strings. abstain must be true or false. If the model edit appears invalid or optional, say so honestly in edit_validity and rationale.",
+  "provider": "qwen3_8b",
+  "raw_response": "{\n  \"edit_description\": \"Replace 'the' with 'they' at the beginning of the sentence.\",\n  \"edit_validity\": \"invalid\",\n  \"rule_id\": \"subject_verb_agreement\",\n  \"rule_text\": \"The subject and verb in a sentence must agree in number (singular/plural).\",\n  \"evidence_spans\": [\n    {\n      \"text\": \"Third the butt it in hte front of the door of store to make the poeple see it even if it is not good\",\n      \"start\": 5,\n      \"end\": 8,\n      \"role\": \"source\"\n    },\n    {\n      \"text\": \"Third, they put it in front of the door of the store to make the people see it, even if it is not good.\",\n      \"start\": 5,\n      \"end\": 8,\n      \"role\": \"target\"\n    }\n  ],\n  \"applicability_conditions\": [\n    \"The sentence contains a subject-verb agreement error.\",\n    \"The subject is plural and the verb is singular, or vice versa.\"\n  ],\n  \"rationale\": \"The original sentence begins with 'Third the', which is grammatically incorrect because 'the' is a determiner, not a subject. Replacing 'the' with 'they' introduces a subject ('they') that does not logically match the context of the sentence. The intended meaning is unclear, and the subject 'they' is not established in the sentence, making this replacement invalid.\",\n  \"confidence\": 0.95,\n  \"abstain\": false,\n  \"abstain_reason\": \"\"\n}",
+  "request_id": "qwen-local-ff7fbad0-f6d8-4d8c-a13e-5f8d55cd09cf",
+  "teacher_model": "Qwen/Qwen3-8B",
+  "usage": {
+    "input_tokens": 392,
+    "output_tokens": 340,
+    "total_tokens": 732
+  }
+}
