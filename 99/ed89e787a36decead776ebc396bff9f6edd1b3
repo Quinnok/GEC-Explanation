@@ -1,0 +1,65 @@
+configs/rulefaith/README.md
+  s_266f859e6122f5::t_2205160fed9738 7
+configs/rulefaith/qwen3_8b_teacher.yaml
+  s_266f859e6122f5::t_49a3c9f7d642d5 1-45
+experiments/rulefaith/README.md
+  s_266f859e6122f5::t_b8de991604679c 12-19
+experiments/rulefaith/generate_teacher_candidates.py
+  s_266f859e6122f5::t_a50a0810a40ddb 222,253-256,586,618,629-637,652,657,668,677,682,880-881,895,916
+experiments/rulefaith/run_qwen3_8b_teacher_pilot.sh
+  s_266f859e6122f5::t_a7401ee06a13ac 1-67
+requirements.txt
+  s_266f859e6122f5::t_d0e93d803e4a96 3,15,18
+results/rulefaith/qwen3_8b_limit0_stats.json
+  s_266f859e6122f5::t_20b6fa91da08e4 1-19
+results/rulefaith/qwen3_8b_smoke_candidates.jsonl
+  s_266f859e6122f5::t_129c7510f48d37 1
+results/rulefaith/qwen3_8b_smoke_raw/rf-edit-0251_qwen3_8b_natural.json
+  s_266f859e6122f5::t_7ec6a24c61994c 1-16
+results/rulefaith/qwen3_8b_smoke_stats.json
+  s_266f859e6122f5::t_e3f2585866b554 1-27
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0034_qwen3_8b_natural.json
+  s_266f859e6122f5::t_e8364f17e45e52 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0077_qwen3_8b_natural.json
+  s_266f859e6122f5::t_be0fc5861f538a 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0098_qwen3_8b_natural.json
+  s_266f859e6122f5::t_220edd8836a57e 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0137_qwen3_8b_rule_grounded.json
+  s_266f859e6122f5::t_3ae97bb6150d37 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0199_qwen3_8b_natural.json
+  s_266f859e6122f5::t_6c37552de1dd98 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0251_qwen3_8b_natural.json
+  s_266f859e6122f5::t_f7da842556eef7 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0257_qwen3_8b_rule_grounded.json
+  s_266f859e6122f5::t_05c87cc7e5fb4a 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0277_qwen3_8b_natural.json
+  s_266f859e6122f5::t_5e6d43b620bed1 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_0/rf-edit-0284_qwen3_8b_natural.json
+  s_266f859e6122f5::t_daaa7f6fe8a1b0 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_1/rf-edit-0158_qwen3_8b_rule_grounded.json
+  s_266f859e6122f5::t_00f17bdc794562 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_1/rf-edit-0248_qwen3_8b_natural.json
+  s_266f859e6122f5::t_8535a06206f48d 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_1/rf-edit-0253_qwen3_8b_rule_grounded.json
+  s_266f859e6122f5::t_417a137a8486c5 1-16
+results/rulefaith/qwen3_8b_teacher_raw_responses/shard_1/rf-edit-0273_qwen3_8b_natural.json
+  s_266f859e6122f5::t_175f1ce33e0660 1-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "99ed89e787a36decead776ebc396bff9f6edd1b3",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
