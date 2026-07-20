@@ -429,3 +429,72 @@ Validation:
 - Current blank form validation returns `waiting_for_human_completion`.
 
 Decision: all non-human handoff work is complete. Qwen3 positive-data construction is now blocked on the real human audit.
+
+## 2026-07-21 Loop F Codex-Assisted Qwen3 Audit Prelabelling
+
+Objective: fill a separate copy of the canonicalized Qwen3 blind audit form with Codex-assisted prelabels so internal verifier/refiner debugging can continue without overwriting or misrepresenting the real-human audit package.
+
+Important boundary:
+
+- These labels are AI-assisted pseudo-labels generated from automatic diagnostics.
+- They are not human labels, not human gold, and must not be reported as human evaluation.
+- They must not be used to construct SFT positives or preference positives without real human confirmation.
+
+Implemented:
+
+- `experiments/rulefaith/prefill_qwen3_audit_codex.py`
+- `experiments/rulefaith/summarize_qwen3_prelabeled_audit.py`
+- `experiments/tests/test_qwen3_codex_prelabelling.py`
+
+Inputs:
+
+- `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_form.csv`
+- `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_key.csv`
+- `results/rulefaith/qwen3_manual_audit_after_canonicalization.csv`
+
+Outputs:
+
+- `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_codex_prelabeled.csv`
+- `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_codex_prelabeled_merged_with_key.csv`
+- `results/rulefaith/qwen3_codex_prelabeled_audit_summary.json`
+- `results/rulefaith/qwen3_codex_prelabeled_audit_report.md`
+- `results/rulefaith/qwen3_codex_prelabeled_validation_summary.json`
+- `results/rulefaith/qwen3_codex_prelabeled_validation_report.md`
+- `results/rulefaith/qwen3_codex_prelabeled_breakdown.json`
+- `results/rulefaith/qwen3_codex_prelabeled_breakdown.md`
+- `docs/rulefaith_loop_F_codex_audit_prelabelling.md`
+
+Commands:
+
+- `python3 experiments/rulefaith/prefill_qwen3_audit_codex.py --overwrite`
+- `python3 experiments/rulefaith/validate_qwen3_human_audit.py --form annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_codex_prelabeled.csv --key annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_key.csv --merged-output annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_codex_prelabeled_merged_with_key.csv --summary-output results/rulefaith/qwen3_codex_prelabeled_validation_summary.json --report-output results/rulefaith/qwen3_codex_prelabeled_validation_report.md --overwrite`
+- `python3 experiments/rulefaith/summarize_qwen3_prelabeled_audit.py --overwrite`
+
+Verified results:
+
+- Rows filled: 80/80.
+- Validation status: `ready_to_merge_completed_audit`.
+- Decision counts: 44 `refine`, 36 `reject`, 0 `accept`, 0 `abstain`.
+- Main issue counts:
+  - `human_edit_copy`: 71
+  - `human_missing_evidence`: 60
+  - `human_unsupported_confidence`: 79
+  - `human_wrong_rule`: 28
+  - `human_inapplicable_rule`: 28
+  - `human_validity_error`: 28
+  - `human_semantic_distortion`: 28
+  - `human_wrong_evidence`: 24
+  - `human_alignment_error`: 17
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/prefill_qwen3_audit_codex.py experiments/rulefaith/summarize_qwen3_prelabeled_audit.py experiments/rulefaith/validate_qwen3_human_audit.py` passed.
+- `python3 -m unittest experiments.tests.test_qwen3_codex_prelabelling experiments.tests.test_qwen3_human_audit_tools` passed, 5 tests.
+- `python3 -m unittest discover -s experiments/tests` passed, 29 tests.
+- `git diff --check` passed.
+- `python3 -m pytest -q` could not run because `pytest` is not installed in the current shell.
+- Secret-pattern scan produced only a false positive on the text `risk-coverage`; no actual API key/token assignment was found.
+
+Interpretation: the prelabelled audit copy reinforces that the canonicalized Qwen3 pool is useful as a repair/risk source, not a positive training source. The next verifier/refiner loop should focus on missing contextual evidence, edit-copy penalties, unsupported confidence, and false rationalization.
+
+Decision: keep the real-human audit gate open. Use Codex prelabels only for internal triage and prompt/verifier debugging.

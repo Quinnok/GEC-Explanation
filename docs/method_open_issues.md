@@ -1,6 +1,6 @@
 # RuleFaith-GEC Method Open Issues
 
-Last updated: 2026-07-20
+Last updated: 2026-07-21
 
 ## P0
 
@@ -8,7 +8,7 @@ Last updated: 2026-07-20
 |---|---|---|---|
 | GPT-5.5 API key is not visible in the environment. | Round 18 GPT-5.5 teacher generation cannot run. | `OPENAI_API_KEY` or compatible API credentials, plus budget confirmation. | Open |
 | GPT-5.5 teacher pilot has not run. | No strong natural teacher candidates for RuleFaith filtering or distillation. | API-backed 80-edit pilot after credentials are available. | Blocked |
-| Qwen3-8B accepted/refine candidates have not been manually spot-checked. | Student SFT/preference training could still learn weak evidence grounding or alignment errors. | Loop E prepared `annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip` with 80 blind rows and validation tooling. Complete the real-human audit before constructing positives. | Blocked on human auditor |
+| Qwen3-8B accepted/refine candidates have not been manually spot-checked. | Student SFT/preference training could still learn weak evidence grounding or alignment errors. | Loop E prepared `annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip` with 80 blind rows and validation tooling. Loop F generated Codex-assisted prelabels, but these are not human labels. Complete the real-human audit before constructing positives. | Blocked on human auditor |
 | Qwen3-8B evidence spans are not reliable enough for positives. | Teacher candidates may cite plausible text with incorrect source token indices, prediction-only target phrases, or non-contextual evidence. | Loop B strict audit: all-spans source index match 20/160, contextual source evidence 24/160, prediction-only evidence 87/160. Loop C full-pool canonicalization improves all-spans source-index match 20/160 -> 155/160 and contextual source evidence 24/160 -> 82/160. Loop D targeted Qwen3 refinement worsened contextual evidence 7/20 -> 2/20. | Open |
 | Natural explanation test data does not exist yet. | Cannot prove method improves real generated explanations. | New balanced natural-explanation set and human evaluation. | Open |
 
@@ -27,5 +27,6 @@ Last updated: 2026-07-20
 | Large student model download may exceed 10GB. | Requires user confirmation before Round 23/24. | Student model selection report. | Open |
 | `pdflatex`/`latexmk` unavailable in current shell. | Paper compile gate cannot be rerun after method-paper rewrite. | Restore TinyTeX/pdfTeX PATH or install a pdfTeX-compatible LaTeX toolchain. | Open |
 | Agreement-inherited Round 15 labels lack blind audit. | Calibration labels may include shared bias. | Optional audit or robust sensitivity analysis. | Open |
+| Codex-assisted Qwen3 prelabels are pseudo-labels. | They can speed internal debugging but cannot support paper claims or replace the real-human audit. | Loop F prelabel validation completed 80/80 rows with 44 refine and 36 reject. | Use only for triage |
 | Thirteen target strings cross RuleFaith train/dev/test split. | Student/verifier evaluation could exploit target lexical shortcuts. | Target-masked evaluation and leakage-aware analysis. | Open |
 | JFLEG multi-reference equivalence remains partial. | Some valid alternatives may be mislabeled as wrong or overcorrection. | Accept-if-any-reference alignment or manual audit before final claims. | Open |

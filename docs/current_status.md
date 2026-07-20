@@ -1,6 +1,6 @@
 # Current Status
 
-Last updated: 2026-07-20
+Last updated: 2026-07-21
 
 ## Current Branch
 
@@ -8,11 +8,11 @@ Last updated: 2026-07-20
 
 ## Current Commit
 
-Loop E human-audit handoff commit; use `git log --oneline -1` as the authoritative hash. The loop started from `e21c0cf`.
+Loop F Codex-assisted audit prelabel commit; use `git log --oneline -1` as the authoritative hash. The loop started from `473b5a7`.
 
 ## Current Method Version
 
-RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, and human-audit handoff packaging.
+RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, human-audit handoff packaging, and Codex-assisted prelabelling of the 80-row blind audit form for internal triage only.
 
 ## Completed Loops
 
@@ -23,22 +23,23 @@ RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministi
 - Loop C / targeted evidence refinement showed that model-only evidence repair is JSON-stable but mostly clears evidence instead of adding contextual evidence; deterministic span canonicalization improves smoke10 and full-pool evidence scores.
 - Loop D / 20-edit evidence refinement probe confirmed that targeted Qwen3 evidence repair after canonicalization is not ready to scale: 20/20 parsed, but contextual source evidence dropped from 7/20 to 2/20.
 - Loop E / Qwen3 human-audit handoff packaged the canonicalized 80-row blind audit form, produced checksums, and added validation/merge tooling for the completed human audit.
+- Loop F / Codex-assisted prelabelling filled a separate copy of the 80-row blind audit form from automatic diagnostics, validated it, and generated breakdown reports. These labels are AI-assisted pseudo-labels, not real human audit labels.
 
 ## Running Loops
 
-- No long-running command is active. The Qwen3 canonicalized human-audit package is ready; the next loop is blocked until a real human auditor completes the form.
+- No long-running command is active. The Qwen3 canonicalized human-audit package is still ready for a real human auditor. A Codex-assisted prelabel copy is available for internal verifier/refiner debugging only.
 
 ## Blocked Loops
 
 - GPT-5.5 teacher generation is blocked until API credentials and budget are available.
 - Natural explanation human evaluation is blocked until a new blinded package is prepared and real annotators are available.
 - Student training is blocked until teacher candidates pass the stricter evidence gate, manual audit, and refinement.
-- Qwen3 positive-data construction is blocked until `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_form.csv` is completed by a real human auditor and passes `experiments/rulefaith/validate_qwen3_human_audit.py`.
+- Qwen3 positive-data construction is blocked until `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_form.csv` is completed by a real human auditor and passes `experiments/rulefaith/validate_qwen3_human_audit.py`. The Codex prelabels must not be used as human gold or final positive labels.
 - Full `pytest` verification is blocked because `pytest` is not installed in the current shell; `python3 -m unittest discover -s experiments/tests` passes.
 
 ## Best Verified Result
 
-The Qwen3-8B pilot produced 160 parsed teacher candidates with no generator-input leakage detected by the audit. Source edit spans and target presence in predictions passed for all 160 candidates. Prompt-v2 smoke10 generated 10/10 parsed candidates with 0/10 prediction-only evidence, but only 3/10 contextual source evidence. Deterministic evidence-span canonicalization on smoke10 improved contextual source evidence from 3/10 to 8/10 and reduced wrong-evidence automatic flags from 6/10 to 0/10. Full-pool canonicalization improved all-spans source-index match from 20/160 to 155/160, contextual source evidence from 24/160 to 82/160, and wrong-evidence flags from 141/160 to 29/160. Canonicalized prefilter buckets are accepted 34, refine 67, rejected 59. The Loop D 20-edit probe parsed 20/20 Qwen3 refined outputs, but contextual source evidence dropped from 7/20 to 2/20 and missing evidence rose from 13/20 to 18/20, so this refinement prompt is rejected for scaling. A canonicalized blind 80-row audit package is ready at `annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip`; the hidden key is excluded from the zip.
+The Qwen3-8B pilot produced 160 parsed teacher candidates with no generator-input leakage detected by the audit. Source edit spans and target presence in predictions passed for all 160 candidates. Prompt-v2 smoke10 generated 10/10 parsed candidates with 0/10 prediction-only evidence, but only 3/10 contextual source evidence. Deterministic evidence-span canonicalization on smoke10 improved contextual source evidence from 3/10 to 8/10 and reduced wrong-evidence automatic flags from 6/10 to 0/10. Full-pool canonicalization improved all-spans source-index match from 20/160 to 155/160, contextual source evidence from 24/160 to 82/160, and wrong-evidence flags from 141/160 to 29/160. Canonicalized prefilter buckets are accepted 34, refine 67, rejected 59. The Loop D 20-edit probe parsed 20/20 Qwen3 refined outputs, but contextual source evidence dropped from 7/20 to 2/20 and missing evidence rose from 13/20 to 18/20, so this refinement prompt is rejected for scaling. A canonicalized blind 80-row audit package is ready at `annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip`; the hidden key is excluded from the zip. The Codex prelabel copy covers 80/80 rows, with 44 `refine` and 36 `reject` decisions, and is usable only as AI-assisted triage.
 
 ## Largest Scientific Risk
 
@@ -46,4 +47,4 @@ Evidence grounding remains incomplete after canonicalization: 78/160 candidates 
 
 ## Next Highest-Value Action
 
-Send `annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip` to a real human auditor. When the completed CSV returns, save it as `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_completed.csv` and run `experiments/rulefaith/validate_qwen3_human_audit.py` without `--allow-incomplete`.
+Use `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_codex_prelabeled_merged_with_key.csv` for internal error triage and verifier/refiner debugging only. For paper-quality evidence, still send `annotation/rulefaith_qwen3_audit_canonicalized/qwen3_canonicalized_human_audit_package.zip` to a real human auditor, save the completed CSV as `annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_completed.csv`, and run `experiments/rulefaith/validate_qwen3_human_audit.py` without `--allow-incomplete`.

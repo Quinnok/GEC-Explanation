@@ -1,6 +1,6 @@
 # RuleFaith-GEC Method Loop State
 
-Last updated: 2026-07-20
+Last updated: 2026-07-21
 
 ## Current Branch
 
@@ -12,7 +12,7 @@ Stress-test paper frozen at commit `4519543060cbaff49806fd9963412f4ca4ab83c0`.
 
 ## Current Round
 
-Loop E Qwen3 human-audit handoff: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has stricter evidence-span diagnostics, deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, and a packaged 80-row blind human audit handoff.
+Loop F Qwen3 Codex-assisted audit prelabelling: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has stricter evidence-span diagnostics, deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, a packaged 80-row blind human audit handoff, and a separate Codex-assisted prelabel copy for internal triage.
 
 ## Highest-Priority Problem
 
@@ -23,6 +23,7 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - `OPENAI_API_KEY` is not visible in the current environment, so GPT-5.5 teacher generation cannot run yet.
 - `openai` Python SDK is not visible in the current environment; installation attempts were interrupted by very slow package download, so the GPT branch remains optional-import guarded.
 - Qwen3-8B accepted 41/160 candidates under the conservative RuleFaith prefilter. Loop B found no generator input leakage and 160/160 source-span matches, but only 20/160 candidates had all evidence spans source-index matched, 24/160 had contextual source evidence, and 87/160 included prediction-only evidence. Loop C smoke10 canonicalization improved contextual evidence from 3/10 to 8/10, but model-only refinement did not add contextual evidence. Full-pool canonicalization improved contextual source evidence from 24/160 to 82/160 and wrong-evidence flags from 141/160 to 29/160. Loop D 20-edit targeted Qwen3 refinement parsed 20/20 outputs but worsened contextual source evidence from 7/20 to 2/20, confirming that this refiner mostly removes evidence rather than grounding it.
+- Codex-assisted prelabels cover the 80-row blind audit form and validate cleanly, but they are pseudo-labels and cannot satisfy the real-human audit gate.
 - Student model training may require GPU/model downloads and later user confirmation if a model exceeds 10GB.
 - New natural explanation human evaluation will require real annotators later.
 
@@ -40,7 +41,8 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Loop C targeted evidence refinement: compact Qwen3 evidence-only repair parsed 7/7 selected smoke outputs but improved contextual evidence 0/7 -> 0/7, mostly clearing evidence spans. Deterministic evidence-span canonicalization on smoke10 improved contextual source evidence 3/10 -> 8/10 and wrong-evidence flags 6/10 -> 0/10 without prediction-only regression. Full-pool post-canonicalization strict audit improved all-spans source-index match 20/160 -> 155/160, contextual source evidence 24/160 -> 82/160, and wrong-evidence flags 141/160 -> 29/160. Canonicalized prefilter buckets are accepted 34, refine 67, rejected 59.
 - Loop D evidence refinement probe20: selected 20 evidence-risk candidates across 20 unique edits from the canonicalized pool and ran Qwen3 targeted repair. Outputs parsed 20/20, but contextual evidence fell 7/20 -> 2/20 and missing evidence rose 13/20 -> 18/20. Refined-output canonicalization did not recover contextual evidence.
 - Loop E Qwen3 human-audit handoff: packaged `qwen3_canonicalized_human_audit_package.zip` with only README, guidelines, and blind form; excluded `manual_audit_key.csv`; added validation/merge tooling for the completed human audit.
+- Loop F Codex-assisted audit prelabelling: generated `manual_audit_codex_prelabeled.csv`, merged it with the hidden key, and summarized 44 `refine` and 36 `reject` decisions for internal triage only.
 
 ## Next Internal Action
 
-Wait for the completed real-human audit. After it returns, validate and merge it with `experiments/rulefaith/validate_qwen3_human_audit.py`, then revise the evidence verifier/refinement strategy. Do not enter SFT or preference construction until this quality gate is closed.
+Use the Codex prelabels to prioritize verifier/refiner fixes, especially missing evidence, edit-copy, unsupported confidence, and false-rationalization risks. In parallel, still wait for the completed real-human audit before claiming human evidence or constructing SFT/preference positives.

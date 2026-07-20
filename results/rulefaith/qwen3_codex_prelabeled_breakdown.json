@@ -1,0 +1,185 @@
+{
+  "decision_by_group": {
+    "audit_priority": {
+      "risk": {
+        "refine": 44,
+        "reject": 31
+      },
+      "stratum:behavior=correct_correction": {
+        "reject": 1
+      },
+      "stratum:behavior=overcorrection": {
+        "reject": 1
+      },
+      "stratum:behavior=wrong_correction": {
+        "reject": 1
+      },
+      "stratum:model_key=coedit_large": {
+        "reject": 1
+      },
+      "stratum:model_key=t5_base_grammar": {
+        "reject": 1
+      }
+    },
+    "behavior": {
+      "correct_correction": {
+        "refine": 17,
+        "reject": 4
+      },
+      "overcorrection": {
+        "refine": 15,
+        "reject": 16
+      },
+      "wrong_correction": {
+        "refine": 12,
+        "reject": 16
+      }
+    },
+    "bucket": {
+      "accepted": {
+        "refine": 15,
+        "reject": 10
+      },
+      "refine": {
+        "refine": 28,
+        "reject": 9
+      },
+      "rejected": {
+        "refine": 1,
+        "reject": 17
+      }
+    },
+    "candidate_type": {
+      "evidence_canonicalized": {
+        "refine": 44,
+        "reject": 36
+      }
+    },
+    "dataset": {
+      "EXPECT": {
+        "refine": 28,
+        "reject": 20
+      },
+      "JFLEG": {
+        "refine": 16,
+        "reject": 16
+      }
+    },
+    "error_type": {
+      "M:DET": {
+        "refine": 5,
+        "reject": 2
+      },
+      "M:NOUN:POSS": {
+        "refine": 2
+      },
+      "M:OTHER": {
+        "refine": 2,
+        "reject": 2
+      },
+      "M:PUNCT": {
+        "refine": 2
+      },
+      "M:VERB:TENSE": {
+        "reject": 2
+      },
+      "R:ADJ": {
+        "refine": 1,
+        "reject": 1
+      },
+      "R:ADV": {
+        "refine": 2
+      },
+      "R:DET": {
+        "reject": 2
+      },
+      "R:MORPH": {
+        "refine": 2
+      },
+      "R:NOUN": {
+        "refine": 2,
+        "reject": 1
+      },
+      "R:OTHER": {
+        "refine": 7,
+        "reject": 4
+      },
+      "R:PREP": {
+        "refine": 10,
+        "reject": 2
+      },
+      "R:PRON": {
+        "refine": 2
+      },
+      "R:SPELL": {
+        "reject": 8
+      },
+      "R:VERB:FORM": {
+        "refine": 2,
+        "reject": 4
+      },
+      "R:VERB:SVA": {
+        "reject": 2
+      },
+      "R:WO": {
+        "refine": 2
+      },
+      "U:CONJ": {
+        "reject": 3
+      },
+      "U:DET": {
+        "refine": 3,
+        "reject": 3
+      }
+    },
+    "model_key": {
+      "coedit_large": {
+        "refine": 10,
+        "reject": 4
+      },
+      "gector_roberta_base": {
+        "refine": 22,
+        "reject": 19
+      },
+      "t5_base_grammar": {
+        "refine": 12,
+        "reject": 13
+      }
+    },
+    "operation": {
+      "delete": {
+        "refine": 3,
+        "reject": 6
+      },
+      "insert": {
+        "refine": 9,
+        "reject": 6
+      },
+      "replace": {
+        "refine": 32,
+        "reject": 24
+      }
+    }
+  },
+  "decision_counts": {
+    "refine": 44,
+    "reject": 36
+  },
+  "generated_at": "2026-07-20T19:13:11+00:00",
+  "git_commit": "473b5a7",
+  "input": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_audit_canonicalized/manual_audit_codex_prelabeled_merged_with_key.csv",
+  "issue_yes_counts": {
+    "human_alignment_error": 17,
+    "human_edit_copy": 71,
+    "human_generic_explanation": 0,
+    "human_inapplicable_rule": 28,
+    "human_missing_evidence": 60,
+    "human_semantic_distortion": 28,
+    "human_unsupported_confidence": 79,
+    "human_validity_error": 28,
+    "human_wrong_evidence": 24,
+    "human_wrong_rule": 28
+  },
+  "label_source": "codex_ai_assisted_prelabelling_not_human_gold",
+  "row_count": 80
+}
