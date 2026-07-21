@@ -669,3 +669,158 @@ Interpretation:
 Field-aware selection recovers a useful target-masked validation pool from the repaired Qwen3 candidates without relaxing hard failures. The result should not be treated as positive SFT/preference data, because it is automatic and rule correctness remains unverified.
 
 Decision: use the 45 accepted and 13 refine candidates for target-masked validation. Keep all pseudo-label and human-evidence boundaries explicit.
+
+## 2026-07-21 Loop J Target-Masked RuleFaith Validation
+
+Objective: validate the field-aware Qwen3 candidate pool under a target-masked condition so rule/rationale quality is not rewarded merely for copying the target edit string.
+
+Implemented:
+
+- `experiments/rulefaith/validate_qwen3_target_masked.py`
+- `experiments/tests/test_qwen3_target_masked_validation.py`
+
+Dependency fix:
+
+- Installed `pytest` with `python3 -m pip install --user pytest`.
+
+Inputs:
+
+- `data/rulefaith/filtering/qwen3_field_aware_rulefaith_accepted.jsonl`
+- `data/rulefaith/filtering/qwen3_field_aware_rulefaith_refine.jsonl`
+
+Outputs:
+
+- `data/rulefaith/filtering/qwen3_target_masked_rulefaith_validated.jsonl`
+- `data/rulefaith/filtering/qwen3_target_masked_rulefaith_refine.jsonl`
+- `data/rulefaith/filtering/qwen3_target_masked_rulefaith_rejected.jsonl`
+- `results/rulefaith/qwen3_target_masked_validation_stats.json`
+- `results/rulefaith/qwen3_target_masked_validation_report.md`
+- `results/rulefaith/qwen3_target_masked_validation.csv`
+- `docs/rulefaith_loop_J_target_masked_validation.md`
+
+Commands:
+
+- `python3 -m pip install --user pytest`
+- `python3 -m py_compile experiments/rulefaith/validate_qwen3_target_masked.py`
+- `python3 -m unittest experiments.tests.test_qwen3_target_masked_validation`
+- `python3 experiments/rulefaith/validate_qwen3_target_masked.py --overwrite`
+
+Verified results:
+
+- Input candidates: 58.
+- Field-aware input buckets: 45 accepted, 13 refine.
+- Target-masked buckets: 47 validated, 8 refine, 3 rejected.
+- Previous accepted bucket: 39 validated, 5 refine, 1 rejected.
+- Previous refine bucket: 8 validated, 3 refine, 2 rejected.
+- Score mean/min/max: 0.8543 / 0.0 / 1.0.
+- Failure counts: 7 target-dependent quality texts, 2 masked grammar-signal failures, 1 generic-after-mask case, and 6 rule-category mismatches.
+- Warning counts: 13 rationale edit-copy cases and 21 cases where specific evidence is not mentioned in rule/rationale.
+
+Interpretation:
+
+Target-masked validation is a useful second automatic gate. It catches target-copy dependence and obvious category shortcuts missed by field-aware selection. It does not certify human rule correctness, so the 47 validated candidates should be used as an audit pool rather than training positives.
+
+Decision: run a rule-plausibility and evidence-sufficiency audit over the 47 target-masked validated candidates before constructing SFT or preference data.
+
+## 2026-07-21 Loop K Rule Plausibility and Evidence Sufficiency Audit
+
+Objective: audit the 47 target-masked validated Qwen3 candidates for rule plausibility and evidence sufficiency before any positive-data construction.
+
+Implemented:
+
+- `experiments/rulefaith/audit_qwen3_rule_plausibility.py`
+- `experiments/tests/test_qwen3_rule_plausibility_audit.py`
+
+Inputs:
+
+- `data/rulefaith/filtering/qwen3_target_masked_rulefaith_validated.jsonl`
+
+Outputs:
+
+- `data/rulefaith/filtering/qwen3_rule_plausibility_ready_for_human_spotcheck.jsonl`
+- `data/rulefaith/filtering/qwen3_rule_plausibility_needs_refinement.jsonl`
+- `data/rulefaith/filtering/qwen3_rule_plausibility_reject.jsonl`
+- `results/rulefaith/qwen3_rule_plausibility_audit_stats.json`
+- `results/rulefaith/qwen3_rule_plausibility_audit_report.md`
+- `results/rulefaith/qwen3_rule_plausibility_audit.csv`
+- `docs/rulefaith_loop_K_rule_plausibility_audit.md`
+
+Commands:
+
+- `python3 -m py_compile experiments/rulefaith/audit_qwen3_rule_plausibility.py`
+- `python3 -m unittest experiments.tests.test_qwen3_rule_plausibility_audit`
+- `python3 experiments/rulefaith/audit_qwen3_rule_plausibility.py --overwrite`
+
+Verified results:
+
+- Input candidates: 47.
+- Ready for human/stronger validation: 25.
+- Needs refinement: 16.
+- Rejected: 6.
+- Evidence sufficiency: 41 sufficient, 6 insufficient.
+- Rule plausibility: 47 plausible under current deterministic checks.
+- Output integrity: 25 ready JSONL rows, 16 refinement JSONL rows, 6 rejected JSONL rows, and 47 CSV data rows.
+- Main reasons: evidence not mentioned in rule/rationale (14), rationale edit-copy (8), unsupported high confidence (6), missing required specific source evidence (5), and missing noun-number context (1).
+
+Interpretation:
+
+The staged automatic RuleFaith funnel now narrows Qwen3 candidates from 160 repaired outputs to 25 ready-for-spotcheck candidates. The largest remaining automatic failure is evidence integration, not JSON format or target leakage.
+
+Decision: build a blind validation package for the 25 ready candidates and targeted repair inputs for the 16 refinement candidates. Keep all labels marked as automatic until real human or stronger validation is complete.
+
+## 2026-07-21 Loop L Ready-Candidate Blind Validation Package
+
+Objective: package the 25 ready Qwen3 candidates for blind validation and prepare targeted repair input for the 16 needs-refinement candidates.
+
+Implemented:
+
+- `experiments/rulefaith/prepare_qwen3_validation_package.py`
+- `experiments/tests/test_qwen3_validation_package.py`
+
+Inputs:
+
+- `data/rulefaith/filtering/qwen3_rule_plausibility_ready_for_human_spotcheck.jsonl`
+- `data/rulefaith/filtering/qwen3_rule_plausibility_needs_refinement.jsonl`
+
+Outputs:
+
+- `annotation/rulefaith_qwen3_ready_validation/guidelines.md`
+- `annotation/rulefaith_qwen3_ready_validation/README.md`
+- `annotation/rulefaith_qwen3_ready_validation/ready_validation_form.csv`
+- `annotation/rulefaith_qwen3_ready_validation/ready_validation_key.csv`
+- `annotation/rulefaith_qwen3_ready_validation/repair_instructions.csv`
+- `annotation/rulefaith_qwen3_ready_validation/handoff_manifest.json`
+- `annotation/rulefaith_qwen3_ready_validation/handoff_manifest.md`
+- `annotation/rulefaith_qwen3_ready_validation/rulefaith_qwen3_ready_validation_package.zip`
+- `results/rulefaith/qwen3_ready_validation_package_summary.json`
+- `results/rulefaith/qwen3_ready_validation_package_report.md`
+- `docs/rulefaith_loop_L_ready_validation_package.md`
+
+Commands:
+
+- `python3 -m py_compile experiments/rulefaith/prepare_qwen3_validation_package.py`
+- `python3 -m unittest experiments.tests.test_qwen3_validation_package`
+- `python3 experiments/rulefaith/prepare_qwen3_validation_package.py --overwrite`
+
+Verified results:
+
+- Blind validation form rows: 25.
+- Hidden key rows: 25.
+- Repair instruction rows: 16.
+- Blind form excludes `candidate_id`, `model_key`, `model_family`, `dataset`, `automatic_decision`, and `automatic_reasons`.
+- Zip SHA256: `4907c29a702a367d90afcde68b41756f2f9109ef3175e2bc361ef1080052e5ca`.
+
+Interpretation:
+
+The local Qwen3 teacher pool now has a reproducible validation handoff. The package supports a future human or stronger-model validation step, but it does not itself provide human evidence.
+
+Decision: run targeted repair on the 16 needs-refinement candidates using the generated repair instructions, then re-run target-masked and rule/evidence gates.
+
+Validation after Loops J--L:
+
+- `python3 -m py_compile experiments/rulefaith/validate_qwen3_target_masked.py experiments/rulefaith/audit_qwen3_rule_plausibility.py experiments/rulefaith/prepare_qwen3_validation_package.py` passed.
+- `python3 -m unittest discover -s experiments/tests` passed, 47 tests.
+- `python3 -m pytest -q` passed, 47 tests.
+- `git diff --check` passed.
+- Output integrity check passed for target-masked buckets, rule-plausibility buckets, blind form, hidden key, and repair instructions.
+- Secret-pattern scan over `annotation`, `docs`, `results`, `experiments`, and `data` produced no matches.

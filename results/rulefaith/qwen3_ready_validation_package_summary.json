@@ -1,0 +1,12 @@
+{
+  "blind_form": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_ready_validation/ready_validation_form.csv",
+  "created_at": "2026-07-21T06:00:10+00:00",
+  "git_commit": "6ac504d",
+  "hidden_key": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_ready_validation/ready_validation_key.csv",
+  "label_source": "automatic_rulefaith_filtering_ready_for_blind_validation_not_human_gold",
+  "needs_refinement_count": 16,
+  "ready_candidate_count": 25,
+  "repair_instructions": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_ready_validation/repair_instructions.csv",
+  "zip_path": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_ready_validation/rulefaith_qwen3_ready_validation_package.zip",
+  "zip_sha256": "4907c29a702a367d90afcde68b41756f2f9109ef3175e2bc361ef1080052e5ca"
+}

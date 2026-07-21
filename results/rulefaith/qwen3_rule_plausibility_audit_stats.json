@@ -1,0 +1,62 @@
+{
+  "by_dataset": {
+    "EXPECT": {
+      "needs_refinement": 16,
+      "ready_for_human_spotcheck": 16,
+      "reject": 5
+    },
+    "JFLEG": {
+      "ready_for_human_spotcheck": 9,
+      "reject": 1
+    }
+  },
+  "by_model_key": {
+    "coedit_large": {
+      "needs_refinement": 9,
+      "ready_for_human_spotcheck": 7,
+      "reject": 5
+    },
+    "gector_roberta_base": {
+      "needs_refinement": 3,
+      "ready_for_human_spotcheck": 9
+    },
+    "t5_base_grammar": {
+      "needs_refinement": 4,
+      "ready_for_human_spotcheck": 9,
+      "reject": 1
+    }
+  },
+  "candidate_count": 47,
+  "decision": "use_ready_bucket_for_blind_human_or_stronger_validation_package_only",
+  "decision_counts": {
+    "needs_refinement": 16,
+    "ready_for_human_spotcheck": 25,
+    "reject": 6
+  },
+  "decision_rates": {
+    "needs_refinement": 0.3404,
+    "ready_for_human_spotcheck": 0.5319,
+    "reject": 0.1277
+  },
+  "evidence_sufficiency_counts": {
+    "insufficient": 6,
+    "sufficient": 41
+  },
+  "generated_at": "2026-07-21T05:57:21+00:00",
+  "git_commit": "6ac504d",
+  "policy": {
+    "needs_refinement": "rule/evidence mostly usable but explanation needs targeted repair before human package or positive construction",
+    "ready_for_human_spotcheck": "target-masked validated candidate with plausible rule, sufficient source evidence, evidence mentioned in rule/rationale, no rationale edit-copy, and no unsupported high confidence",
+    "reject": "implausible rule or insufficient evidence after target-masked validation"
+  },
+  "reason_counts": {
+    "evidence_not_mentioned_in_rule_or_rationale": 14,
+    "missing_required_evidence:noun_number_context": 1,
+    "missing_required_evidence:specific_source_evidence": 5,
+    "rationale_edit_copy": 8,
+    "unsupported_high_confidence": 6
+  },
+  "rule_plausibility_counts": {
+    "plausible": 47
+  }
+}

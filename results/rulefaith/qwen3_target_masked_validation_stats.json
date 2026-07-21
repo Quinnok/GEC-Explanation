@@ -1,0 +1,84 @@
+{
+  "by_dataset": {
+    "EXPECT": {
+      "refine": 5,
+      "rejected": 3,
+      "validated": 37
+    },
+    "JFLEG": {
+      "refine": 3,
+      "validated": 10
+    }
+  },
+  "by_model_key": {
+    "coedit_large": {
+      "refine": 2,
+      "validated": 21
+    },
+    "gector_roberta_base": {
+      "refine": 4,
+      "validated": 12
+    },
+    "t5_base_grammar": {
+      "refine": 2,
+      "rejected": 3,
+      "validated": 14
+    }
+  },
+  "by_previous_field_aware_bucket": {
+    "accepted": {
+      "refine": 5,
+      "rejected": 1,
+      "validated": 39
+    },
+    "refine": {
+      "refine": 3,
+      "rejected": 2,
+      "validated": 8
+    }
+  },
+  "candidate_count": 58,
+  "decision": "use_target_masked_validated_bucket_for_manual_or_stronger_validation_only",
+  "failure_counts": {
+    "generic_after_target_mask": 1,
+    "masked_rule_lacks_grammar_signal": 2,
+    "rule_category_mismatch:noun_number_explained_as_subject_verb_agreement": 2,
+    "rule_category_mismatch:orthography_rule_lacks_spelling_signal": 2,
+    "rule_category_mismatch:pronoun_rule_lacks_pronoun_signal": 1,
+    "rule_category_mismatch:verb_rule_lacks_verb_signal": 1,
+    "target_dependent_quality_text": 7
+  },
+  "field_aware_input_bucket_counts": {
+    "accepted": 45,
+    "refine": 13
+  },
+  "generated_at": "2026-07-21T05:53:57+00:00",
+  "git_commit": "6ac504d",
+  "policy": {
+    "refine": "target-masked quality is partial or has non-hard warnings such as rationale edit-copy",
+    "rejected": "target-masked quality fails because rule/evidence/genericness/target-dependence hard risks remain",
+    "validated": "masked quality score >= 0.75 with grammar signal, specific source evidence, no genericness, no target-dependence, and no rule/rationale edit-copy hard failure"
+  },
+  "score_max": 1.0,
+  "score_mean": 0.8543,
+  "score_min": 0.0,
+  "target_masked_bucket_counts": {
+    "refine": 8,
+    "rejected": 3,
+    "validated": 47
+  },
+  "target_masked_bucket_rates": {
+    "refine": 0.1379,
+    "rejected": 0.0517,
+    "validated": 0.8103
+  },
+  "target_masked_label_counts": {
+    "fail": 3,
+    "partial": 8,
+    "pass": 47
+  },
+  "warning_counts": {
+    "rationale_edit_copy": 13,
+    "specific_evidence_not_mentioned_in_rule_or_rationale": 21
+  }
+}

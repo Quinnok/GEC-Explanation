@@ -12,7 +12,7 @@ Loop F Codex-assisted audit prelabel commit; use `git log --oneline -1` as the a
 
 ## Current Method Version
 
-RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, human-audit handoff packaging, Codex-assisted completion of both Qwen3 audit forms, structured source-evidence repair, and field-aware RuleFaith selection for internal target-masked validation only.
+RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, human-audit handoff packaging, Codex-assisted completion of both Qwen3 audit forms, structured source-evidence repair, field-aware RuleFaith selection, target-masked validation, rule-plausibility/evidence-sufficiency audit, and blind validation package generation for internal triage only.
 
 ## Completed Loops
 
@@ -27,6 +27,9 @@ RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministi
 - Loop G / Complete Qwen3 Codex audit coverage added `completed_by_codex` forms for both canonicalized and pre-canonicalization Qwen3 audit packages and documented the label-source boundary in `annotation/qwen3_codex_annotation_data_card.md`.
 - Loop H / Structured evidence repair added deterministic source-context evidence spans, improved automatic contextual evidence from 82/160 to 160/160, and introduced a stricter RuleFaith selection gate that keeps 58 candidates in `refine` and rejects 102.
 - Loop I / Field-aware RuleFaith selection separated required `edit_description` copy from leakage in `rule_text` and `rationale`, yielding 45 accepted, 13 refine, and 102 rejected candidates for target-masked validation.
+- Loop J / Target-masked validation hid target strings from rule/rationale/conditions, added rule-category mismatch checks, and produced 47 validated, 8 refine, and 3 rejected candidates from the 58-candidate field-aware pool.
+- Loop K / Rule plausibility and evidence sufficiency audit checked the 47 target-masked validated candidates and produced 25 ready-for-spotcheck, 16 needs-refinement, and 6 rejected candidates.
+- Loop L / Ready-candidate validation packaging produced a 25-row blind validation form, 25-row hidden key, 16-row targeted repair instruction file, and handoff zip.
 
 ## Running Loops
 
@@ -38,16 +41,16 @@ RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministi
 - Natural explanation human evaluation is blocked until a new blinded package is prepared and real annotators are available.
 - Student training is blocked until teacher candidates pass the stricter evidence gate, manual audit, and refinement.
 - Qwen3 positive-data construction remains blocked for human-evidence claims. Codex-completed forms and field-aware automatic selection exist, but they must not be used as human gold or final positive labels.
-- Full `pytest` verification is blocked because `pytest` is not installed in the current shell; `python3 -m unittest discover -s experiments/tests` passes.
+- Full `pytest` verification is now available after installing `pytest` with `python3 -m pip install --user pytest`.
 
 ## Best Verified Result
 
-The Qwen3-8B pilot produced 160 parsed teacher candidates with no generator-input leakage detected by the audit. Source edit spans and target presence in predictions passed for all 160 candidates. Deterministic evidence-span canonicalization improved all-spans source-index match from 20/160 to 155/160, contextual source evidence from 24/160 to 82/160, and wrong-evidence flags from 141/160 to 29/160. The Loop D 20-edit Qwen3 model-refinement probe was rejected because contextual source evidence dropped from 7/20 to 2/20. Codex-completed canonicalized audit decisions are 44 `refine` and 36 `reject`; pre-canonicalization audit decisions are 46 `refine` and 34 `reject`. Loop H structured evidence repair improves automatic contextual source evidence from 82/160 to 160/160, removes 29 prediction-only/wrong-evidence flags, and raises strict specific-source-evidence coverage from 10/160 to 124/160. Loop I field-aware selection fixes an over-strict leakage policy by allowing required edit-copy in `edit_description` while still penalizing `rule_text` and `rationale` leakage: previous strict buckets were 0 accepted, 58 refine, 102 rejected; field-aware buckets are 45 accepted, 13 refine, 102 rejected.
+The Qwen3-8B pilot produced 160 parsed teacher candidates with no generator-input leakage detected by the audit. Source edit spans and target presence in predictions passed for all 160 candidates. Deterministic evidence-span canonicalization improved all-spans source-index match from 20/160 to 155/160, contextual source evidence from 24/160 to 82/160, and wrong-evidence flags from 141/160 to 29/160. The Loop D 20-edit Qwen3 model-refinement probe was rejected because contextual source evidence dropped from 7/20 to 2/20. Codex-completed canonicalized audit decisions are 44 `refine` and 36 `reject`; pre-canonicalization audit decisions are 46 `refine` and 34 `reject`. Loop H structured evidence repair improves automatic contextual source evidence from 82/160 to 160/160, removes 29 prediction-only/wrong-evidence flags, and raises strict specific-source-evidence coverage from 10/160 to 124/160. Loop I field-aware selection fixes an over-strict leakage policy by allowing required edit-copy in `edit_description` while still penalizing `rule_text` and `rationale` leakage: previous strict buckets were 0 accepted, 58 refine, 102 rejected; field-aware buckets are 45 accepted, 13 refine, 102 rejected. Loop J target-masked validation over the 58 field-aware candidates produces 47 validated, 8 refine, and 3 rejected candidates, while flagging 7 target-dependent explanations and 6 rule-category mismatches. Loop K rule/evidence audit over the 47 target-masked validated candidates produces 25 ready-for-spotcheck, 16 needs-refinement, and 6 rejected candidates. Loop L packages the 25 ready candidates into a blind validation form and the 16 refinement candidates into targeted repair instructions.
 
 ## Largest Scientific Risk
 
-Structured repair and field-aware selection fix two instrumentation bottlenecks but do not prove linguistic rule correctness. The largest remaining risks are alignment errors (58/160), rationale edit-copy among active refine candidates (13/160), possible false rationalization (19/160), edit-validity risk (28/160), and unvalidated rule quality in the 45 accepted candidates.
+Structured repair, field-aware selection, target-masked validation, and rule/evidence audit fix several instrumentation bottlenecks but do not prove linguistic rule correctness. The largest remaining risks are alignment errors (58/160), possible false rationalization (19/160), edit-validity risk (28/160), 14 ready-pool-adjacent evidence-integration failures, and the lack of human or stronger validation for the 25 ready candidates.
 
 ## Next Highest-Value Action
 
-Run target-masked validation over `data/rulefaith/filtering/qwen3_field_aware_rulefaith_accepted.jsonl` and `data/rulefaith/filtering/qwen3_field_aware_rulefaith_refine.jsonl`. Do not promote repaired candidates to positives until target-masked and human or stronger validation evidence exists.
+Implement targeted repair for the 16 candidates in `annotation/rulefaith_qwen3_ready_validation/repair_instructions.csv`. Do not promote repaired candidates to positives until human or stronger validation evidence exists.

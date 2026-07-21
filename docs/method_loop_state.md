@@ -12,7 +12,7 @@ Stress-test paper frozen at commit `4519543060cbaff49806fd9963412f4ca4ab83c0`.
 
 ## Current Round
 
-Loop I field-aware RuleFaith selection: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has Codex-completed audit forms, deterministic structured evidence repair, and a field-aware selection gate that produces a 45-candidate target-masked validation pool.
+Loop L ready-candidate validation package: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has Codex-completed audit forms, deterministic structured evidence repair, field-aware selection, target-masked validation, a 25-candidate ready-for-spotcheck pool, and a blind validation handoff package.
 
 ## Highest-Priority Problem
 
@@ -26,6 +26,9 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Codex-completed audit forms cover both Qwen3 blind audit packages and validate cleanly, but they are pseudo-labels and cannot satisfy the real-human audit gate.
 - Structured evidence repair fixes automatic source-evidence coverage but leaves alignment, edit-copy, false-rationalization, and validity risks.
 - Field-aware selection separates required `edit_description` copy from leakage, but the 45 accepted candidates are not SFT positives and still need target-masked and human/stronger validation.
+- Target-masked validation reduces target-copy and rule-category shortcuts, but the 47 validated candidates are not SFT positives and still need rule plausibility plus human/stronger validation.
+- Rule/evidence audit reduces the target-masked validated pool to 25 ready-for-spotcheck candidates, but they remain automatic candidates until human or stronger validation.
+- The ready validation package hides model/system identity and automatic decisions, but no validator labels have been filled yet.
 - Student model training may require GPU/model downloads and later user confirmation if a model exceeds 10GB.
 - New natural explanation human evaluation will require real annotators later.
 
@@ -47,7 +50,10 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Loop G Qwen3 Codex audit completion: generated explicit `manual_audit_completed_by_codex.csv` files for both canonicalized and pre-canonicalization Qwen3 packages. The pre-canonicalization package has 46 `refine` and 34 `reject`; the canonicalized package has 44 `refine` and 36 `reject`.
 - Loop H structured evidence repair: automatic contextual evidence 82/160 -> 160/160, specific source evidence 10/160 -> 124/160, prediction-only evidence 29/160 -> 0/160, wrong-evidence flags 29/160 -> 0/160. Strict RuleFaith buckets are 0 accepted, 58 refine, 102 rejected.
 - Loop I field-aware RuleFaith selection: previous strict buckets were 0 accepted, 58 refine, 102 rejected. After excluding schema-required `edit_description` copy from leakage failure while retaining hard alignment/validity/rule/evidence gates, buckets are 45 accepted, 13 refine, 102 rejected.
+- Loop J target-masked validation: over the 45 field-aware accepted and 13 field-aware refine candidates, target-masked buckets are 47 validated, 8 refine, and 3 rejected. The validator flags 7 target-dependent explanations, 2 grammar-signal failures, 1 generic-after-mask case, and 6 rule-category mismatches.
+- Loop K rule/evidence audit: over 47 target-masked validated candidates, decisions are 25 ready-for-human-spotcheck, 16 needs-refinement, and 6 reject. The main reasons are evidence not mentioned in rule/rationale (14), rationale edit-copy (8), unsupported high confidence (6), and missing required evidence (6).
+- Loop L ready validation package: 25 blind validation rows, 25 hidden key rows, 16 repair-instruction rows, and zip SHA256 `4907c29a702a367d90afcde68b41756f2f9109ef3175e2bc361ef1080052e5ca`.
 
 ## Next Internal Action
 
-Run target-masked validation over the 45 field-aware accepted and 13 field-aware refine candidates. Do not claim human evidence or construct SFT/preference positives from these pseudo-labels.
+Implement targeted repair for the 16 needs-refinement candidates and re-run the target-masked plus rule/evidence gates. Do not claim human evidence or construct SFT/preference positives from these pseudo-labels.
