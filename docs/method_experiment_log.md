@@ -237,6 +237,53 @@ Validation:
 
 - `python3 -m py_compile experiments/rulefaith/score_rulefaith_ready_candidates.py experiments/tests/test_rulefaith_ready_candidate_scorer.py` passed.
 - Full unit and pytest suites are run after integration in the associated commit.
+
+## Loop Q: Natural Explanation Blind Validation Package
+
+- Date: 2026-07-21
+- Script: `python3 experiments/rulefaith/build_natural_validation_package.py --overwrite`
+- Purpose: create a real-human-ready blinded evaluation package comparing Qwen3 direct explanations with RuleFaith deployable top-1 outputs.
+- Inputs:
+  - `data/rulefaith/teacher_candidates_qwen3_8b_pilot.jsonl`
+  - `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex_merged_with_key.csv`
+  - `results/rulefaith/rulefaith_ready_candidate_scores.csv`
+- Outputs:
+  - `annotation/rulefaith_natural/form_annotator_a.csv`
+  - `annotation/rulefaith_natural/form_annotator_b.csv`
+  - `annotation/rulefaith_natural/adjudication_form.csv`
+  - `annotation/rulefaith_natural/guidelines.md`
+  - `annotation/rulefaith_natural/data_card.md`
+  - `annotation/rulefaith_natural/hidden_system_key.csv`
+  - `annotation/rulefaith_natural/manifest.json`
+  - `annotation/rulefaith_natural/rulefaith_natural_validation_handoff.zip`
+
+Verified package statistics:
+
+| Quantity | Value |
+|---|---:|
+| Annotation rows | 46 |
+| Edit groups | 23 |
+| Systems per group | 2 |
+| Qwen3 direct natural rows | 22 |
+| Qwen3 direct rule-grounded fallback rows | 1 |
+| RuleFaith deployable top-1 rows | 23 |
+| EXPECT rows | 36 |
+| JFLEG rows | 10 |
+
+Package safety:
+
+- Public forms do not contain system identity, source candidate IDs, RuleFaith scores, or pseudo-validation labels.
+- `hidden_system_key.csv` is generated for analysis but excluded from the handoff zip.
+- Annotator A and B forms are independently shuffled with fixed seeds.
+- Label columns are empty.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/build_natural_validation_package.py experiments/tests/test_rulefaith_natural_validation_package.py` passed.
+- `python3 -m unittest experiments.tests.test_rulefaith_natural_validation_package -v` passed.
+- Full unit and pytest suites are run after integration in the associated commit.
+
+Interpretation: this package closes the immediate engineering blocker for real-human natural explanation evaluation, but it does not create human results by itself.
 ## 2026-07-20 Loop A Qwen3-8B Candidate Audit
 
 Objective: audit Qwen3-8B accepted/refine/rejected candidates before targeted refinement or SFT positives.

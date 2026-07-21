@@ -4,17 +4,17 @@ Last updated: 2026-07-21
 
 ## Next Highest-Priority Loop
 
-Use the 17 Codex-pseudo-accepted Qwen3 candidates for a minimal internal RuleFaith smoke test and prepare a real-human natural explanation validation package for paper-quality evidence. The same-setting teacher and selection baselines have been filled in under `results/rulefaith/` and `results/paper_assets/`; the first deployable scorer exists but is not strong enough to replace simple rule-grounded selection.
+Send the natural explanation blind validation package to two independent annotators and collect completed forms. The package is ready at `annotation/rulefaith_natural/rulefaith_natural_validation_handoff.zip`.
 
 ## Required Work
 
-1. Use `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex.csv` only as internal pseudo-validation.
-2. Use `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex_merged_with_key.csv` to trace provisional accepts/refines/rejects back to candidate IDs.
-3. Build a small RuleFaith smoke set from the 17 pseudo-accepted candidates plus matched refine/reject contrasts.
-4. Do not report Codex pseudo-labels as human labels.
-5. Prepare a blinded natural-explanation validation package before making final method-paper claims.
-6. Treat `results/rulefaith/rulefaith_teacher_baselines.csv` as the current answer to the baseline question: FLAN-T5-base, Qwen2.5-0.5B, Qwen2.5-1.5B probe, and Qwen3-8B direct teacher baselines were all evaluated in the same candidate-generation setting.
-7. Treat `results/rulefaith/rulefaith_selection_baselines.csv` as a small internal selection diagnostic only; it uses Codex/AI pseudo-validation, not human labels.
+1. Send only `annotation/rulefaith_natural/rulefaith_natural_validation_handoff.zip` to annotators.
+2. Do not send `annotation/rulefaith_natural/hidden_system_key.csv`.
+3. After receiving completed A/B forms, validate that item IDs are unchanged, labels are legal, and no metadata columns changed.
+4. Compute agreement for edit alignment, edit validity, rule correctness, evidence correctness, overall faithfulness, learner helpfulness, fluency, and preference.
+5. Create an adjudication file for disagreements and preserve raw A/B labels.
+6. Do not report Codex pseudo-labels as human labels.
+7. Treat `results/rulefaith/rulefaith_teacher_baselines.csv` as the current answer to the baseline question: FLAN-T5-base, Qwen2.5-0.5B, Qwen2.5-1.5B probe, and Qwen3-8B direct teacher baselines were all evaluated in the same candidate-generation setting.
 8. Treat `results/rulefaith/rulefaith_ready_selector_metrics.json` as a revision signal: the deployable scorer beats first/highest-confidence selectors but remains below the rule-grounded simple selector.
 
 ## Do Not Do Yet
