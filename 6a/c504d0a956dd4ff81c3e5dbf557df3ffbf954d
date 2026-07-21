@@ -1,0 +1,53 @@
+data/rulefaith/filtering/qwen3_field_aware_rulefaith_accepted.jsonl
+  s_266f859e6122f5::t_de85c9ce3b59cf 1-45
+data/rulefaith/filtering/qwen3_field_aware_rulefaith_refine.jsonl
+  s_266f859e6122f5::t_68bc2dec582f9b 1-13
+data/rulefaith/filtering/qwen3_field_aware_rulefaith_rejected.jsonl
+  s_266f859e6122f5::t_e40f558b2def4d 1-102
+docs/current_status.md
+  s_266f859e6122f5::t_22479510240065 15,29,33,40,45,49,53
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_299e34aa1ff958 24
+docs/method_decision_log.md
+  s_266f859e6122f5::t_fb62bb06df5d36 21
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_caba29ac95dbdf 622-671
+docs/method_loop_state.md
+  s_266f859e6122f5::t_4893fba54bc96a 15,28,49,53
+docs/method_open_issues.md
+  s_266f859e6122f5::t_0dee5ab9711cd5 13,33
+docs/next_actions.md
+  s_266f859e6122f5::t_988b1f8bf995f4 7,11-15,25
+docs/research_decisions.md
+  s_266f859e6122f5::t_9897cf1fc54a71 18
+docs/rulefaith_loop_I_field_aware_selection.md
+  s_266f859e6122f5::t_659aaeaddafbfe 1-104
+experiments/rulefaith/select_qwen3_field_aware_rulefaith.py
+  s_266f859e6122f5::t_b63ad62eb1456f 1-342
+experiments/tests/test_qwen3_field_aware_selection.py
+  s_266f859e6122f5::t_45fa1f30feafd8 1-74
+results/rulefaith/qwen3_field_aware_rulefaith_selection.csv
+  s_266f859e6122f5::t_514bc2e93e8cbf 1-161
+results/rulefaith/qwen3_field_aware_rulefaith_selection_report.md
+  s_266f859e6122f5::t_3b7b0636d19836 1-144
+results/rulefaith/qwen3_field_aware_rulefaith_selection_stats.json
+  s_266f859e6122f5::t_188e6d5284bce8 1-51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6ac504d0a956dd4ff81c3e5dbf557df3ffbf954d",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
