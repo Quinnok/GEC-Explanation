@@ -1,0 +1,51 @@
+annotation/rulefaith_natural/README.md
+  s_266f859e6122f5::t_0af5ace3b77120 1-12
+annotation/rulefaith_natural/adjudication_form.csv
+  s_266f859e6122f5::t_1ee07e1f5756a4 1-47
+annotation/rulefaith_natural/data_card.md
+  s_266f859e6122f5::t_e1300c6391173c 1-31
+annotation/rulefaith_natural/form_annotator_a.csv
+  s_266f859e6122f5::t_78b42942bc81e9 1-47
+annotation/rulefaith_natural/form_annotator_b.csv
+  s_266f859e6122f5::t_3c3e8c16d7c91b 1-47
+annotation/rulefaith_natural/guidelines.md
+  s_266f859e6122f5::t_11856112bdf615 1-27
+annotation/rulefaith_natural/hidden_system_key.csv
+  s_266f859e6122f5::t_1d843b70042973 1-47
+annotation/rulefaith_natural/manifest.json
+  s_266f859e6122f5::t_6f285f7f42f451 1-67
+annotation/rulefaith_natural/manifest.md
+  s_266f859e6122f5::t_506c3de59723db 1-8
+docs/claim_evidence_matrix.md
+  s_266f859e6122f5::t_30dccb8dbabb0f 66
+docs/current_status.md
+  s_266f859e6122f5::t_8ad2e4d0c651c8 37,53,61
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_d4937981dc7b05 240-286
+docs/method_loop_state.md
+  s_266f859e6122f5::t_155f924d1dda54 15,61,65
+docs/next_actions.md
+  s_266f859e6122f5::t_cee468abf60521 7,11-17
+experiments/rulefaith/build_natural_validation_package.py
+  s_266f859e6122f5::t_ba281dc18db10a 1-485
+experiments/tests/test_rulefaith_natural_validation_package.py
+  s_266f859e6122f5::t_d5ab020146bef9 1-65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "761cb766b23f91cde82443e8aa6e37ea28e52514",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
