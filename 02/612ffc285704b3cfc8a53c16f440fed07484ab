@@ -1,0 +1,63 @@
+data/rulefaith/filtering/qwen3_structured_evidence_repaired_accepted.jsonl
+  s_266f859e6122f5::t_f3081b4818fe15 1-101
+data/rulefaith/filtering/qwen3_structured_evidence_repaired_rejected.jsonl
+  s_266f859e6122f5::t_ef1d086373a252 1-59
+data/rulefaith/filtering/qwen3_structured_rulefaith_refine.jsonl
+  s_266f859e6122f5::t_7d54143a2bd8e3 1-58
+data/rulefaith/filtering/qwen3_structured_rulefaith_rejected.jsonl
+  s_266f859e6122f5::t_d293c773807c72 1-102
+docs/current_status.md
+  s_266f859e6122f5::t_b32faaa53015b0 15,28,32,44,48,52
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_c1b5114aa42a23 23
+docs/method_decision_log.md
+  s_266f859e6122f5::t_05bb1fdf317ac1 20
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_faf9d4fc746960 554-621
+docs/method_loop_state.md
+  s_266f859e6122f5::t_62575def23bc23 15,27,47,51
+docs/method_open_issues.md
+  s_266f859e6122f5::t_2d4641e4040470 13,32
+docs/next_actions.md
+  s_266f859e6122f5::t_7a78d8ede6664c 7,11-15,24
+docs/research_decisions.md
+  s_266f859e6122f5::t_bc6a07302e0e5f 17
+docs/rulefaith_loop_H_structured_evidence_repair.md
+  s_266f859e6122f5::t_d4e8490cf9c688 1-117
+experiments/rulefaith/repair_qwen3_structured_evidence.py
+  s_266f859e6122f5::t_4750a0af32bb76 1-642
+experiments/tests/test_qwen3_structured_evidence_repair.py
+  s_266f859e6122f5::t_22e6880d4823dc 1-177
+results/rulefaith/qwen3_structured_evidence_repair_before_after.csv
+  s_266f859e6122f5::t_5c7113a22f24f3 1-161
+results/rulefaith/qwen3_structured_evidence_repair_report.md
+  s_266f859e6122f5::t_c63711876016d3 1-230
+results/rulefaith/qwen3_structured_evidence_repair_stats.json
+  s_266f859e6122f5::t_ac689df35fd340 1-106
+results/rulefaith/qwen3_structured_evidence_repaired_candidates.jsonl
+  s_266f859e6122f5::t_d77f02ce570487 1-160
+results/rulefaith/qwen3_structured_evidence_repaired_diagnostic_metrics.json
+  s_266f859e6122f5::t_f28044523b173e 1-2754
+results/rulefaith/qwen3_structured_evidence_repaired_diagnostic_report.md
+  s_266f859e6122f5::t_ed6649a176033b 1-49
+results/rulefaith/qwen3_structured_evidence_repaired_filtering_statistics.json
+  s_266f859e6122f5::t_333d12e3bfe46b 1-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "02612ffc285704b3cfc8a53c16f440fed07484ab",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
