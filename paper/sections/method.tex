@@ -1,26 +1,33 @@
-\section{Method}
+\section{RuleFaith-GEC}
 
-We evaluate explanations with three layers. L1 measures edit correspondence and leakage, L2 measures counterfactual edit simulatability, and L3 measures rule/evidence grounding.
+RuleFaith-GEC generates and filters edit-level explanations through a sequence of explicit verification gates. Given a source sentence \(x\), a GEC model prediction \(\hat{y}\), and one model-produced atomic edit \(e\), the system produces a structured explanation candidate \(r\):
+\[
+r = G(x,\hat{y},e).
+\]
+Each candidate contains an edit description, an edit-validity judgment, a rule claim, evidence spans from the source sentence, applicability conditions, a rationale, confidence, and an optional abstention decision.
 
 \input{../results/paper_assets/framework_figure}
 
-\paragraph{Edit extraction.}
-Given a source sentence and a model prediction, we extract edit-level structures with ERRANT. Each edit records source span boundaries, source text, target text, operation, and ERRANT error type. A deterministic token-diff extractor is retained only as a diagnostic contrast for boundary checks; it is not the current extraction method for the real pilot.
+\paragraph{Candidate generation.}
+For each edit, a local teacher model produces multiple candidate styles, including natural, rule-grounded, evidence-grounded, concise, and uncertainty-aware explanations. The generator receives only the source, model prediction, atomic edit fields, and source-token span. It does not receive the reference correction, human labels, or the automatically inferred behavior category.
 
-\paragraph{Explanation conditions and negatives.}
-To avoid reducing evaluation to answer copying, explanations are evaluated under multiple conditions: explicit-edit templates, implicit explanations, masked-target explanations, rule-only explanations, FLAN/open-model explanations, and minimal sufficient explanations. Additional controls include source-only, explanation-only, shuffled explanation, and raw edit string inputs. Hard negatives include wrong span, wrong source token, wrong target, wrong operation, wrong direction, wrong error type, wrong rule, wrong evidence, within-sentence swaps, cross-sentence swaps, generic explanations, and explanations that are faithful to a wrong model edit.
+\paragraph{Edit validity gate.}
+Before justifying an edit, RuleFaith asks whether the edit itself is valid, an acceptable alternative, invalid, stylistic, or uncertain. This gate is essential for wrong corrections and overcorrections. An explanation may be faithful to an invalid model edit, but it must not falsely present the invalid edit as grammatically required.
 
-\paragraph{L1: Edit correspondence.}
-The reconstructor predicts whether the edit is reconstructable and, if so, outputs span boundaries, source text, target text, operation, and error type. A simple structured baseline can extract explicit phrases such as ``replace A with B'' from explanations. This score is never interpreted alone as faithfulness: it is reported with masked-target, shuffled, source-only, explanation-only, and raw-edit controls to estimate leakage.
+\paragraph{Edit alignment verifier.}
+The alignment verifier checks whether the explanation corresponds to the current atomic edit rather than another edit in the same prediction. It evaluates span, source text, target text, operation, and direction. Reverse reconstruction is used here as an alignment diagnostic: if \(R(x,r)\) cannot recover the observed edit, the explanation is unlikely to identify the edit. However, reconstructability alone is not treated as evidence of rule correctness.
 
-\paragraph{L2: Counterfactual Edit Simulatability.}
-For each eligible edit, we create two families of counterfactual source variants. Error-irrelevant variants change entities, topics, modifiers, temporal context, or non-error phrases while intending to preserve the model's original edit opportunity. Rule-relevant variants alter grammatical conditions such as subject number, tense cues, article licensing, countability, pronoun antecedents, preposition government, comparison structure, or clause context. We rerun the original GEC model on each counterfactual source. The label is the model's actual edit behavior after rerun: preserve, change target, change span, change operation, cancel, or introduce a competing edit. A simulator predicts this label from the source, explanation, edit, and counterfactual description.
+\paragraph{Rule and evidence verifiers.}
+The rule verifier extracts or inspects the stated grammatical claim and tests whether it is plausible for the current edit type and source context. The evidence verifier checks whether cited evidence spans are source-located, sentence-specific, and sufficient for the rule. Source and target edit tokens are not automatically counted as contextual evidence; for instance, subject--verb agreement should cite the relevant subject, and article edits should cite the head noun or noun phrase context.
 
-\paragraph{L3: Rule and evidence grounding.}
-We extract a rule claim and evidence span from the explanation. The verifier checks compatibility with ERRANT type, EXPECT evidence labels when available, source tokens, target text, and edit direction. Evidence deletion and substitution tests probe whether the explanation depends on the cited evidence rather than a generic grammar statement.
+\paragraph{Leakage and specificity controls.}
+RuleFaith separates required edit description from harmful answer copying. The edit-description field may state the observed operation, but the rule text and rationale are penalized when they merely copy the target or raw edit string. Target-masked validation removes the target string from rule, rationale, and condition fields and rechecks whether the remaining explanation still contains a grammar signal and source-specific evidence. Generic explanations that could fit any sentence are routed to refinement or rejection.
 
-\paragraph{Scoring.}
-For L1, the reconstructed edit \(\tilde{e}\) is compared with the model-produced edit \(e\) using span exact match, span precision/recall/F1, source text match, target text match, operation accuracy, error type accuracy, and full edit exact match. For L2, we report counterfactual behavior accuracy, macro-F1 over preserve/change/cancel/retarget labels, and grouped bootstrap confidence intervals by source sentence. For L3, we report rule consistency, evidence span F1, contradiction rejection, and negative rejection rates by negative type.
+\paragraph{Targeted repair.}
+When a candidate fails a dimension, RuleFaith creates a dimension-specific repair instruction. Alignment failures ask the generator to explain only the current edit. Validity failures require the explanation to distinguish an invalid or stylistic edit from a necessary correction. Rule failures request a rule that applies to the edit and avoids vague claims such as ``more natural''. Evidence failures request concrete source spans such as the subject, head noun, antecedent, governor, complement, or tense cue. The current pilot uses deterministic targeted repair for evidence integration and rationale edit-copy failures, then re-runs target-masked and rule/evidence gates.
 
-\paragraph{Reranking application.}
-To test whether the diagnostics can support an actual downstream decision, we score multiple explanation candidates for each edit and select a top-ranked explanation. We compare random selection, length heuristics, surface score, a local open-source FLAN-T5 judge, reconstruction score, counterfactual score, rule/evidence score, and a combined reranker. This application is evaluated with automatic pairwise ranking accuracy, MRR, top-1 automatic faithfulness, and reward-hacking indicators such as template and edit-copy selection rates.
+\paragraph{Selection and abstention.}
+Candidates are scored with separate alignment, validity, rule, evidence, specificity, leakage, and genericness terms. The system selects high-scoring candidates, sends repairable candidates through another verification pass, and rejects or abstains when no candidate has adequate rule and evidence support. The abstention output states that a reliable explanation cannot be generated for the displayed edit rather than supplying a fluent but unsupported rationale.
+
+\paragraph{Relation to the stress-test metrics.}
+The earlier L1/L2/L3 diagnostics remain part of the method infrastructure. L1 reconstruction evaluates edit correspondence and leakage. L2 counterfactual reruns test observable behavior under controlled source changes. L3 rule/evidence checks evaluate grammatical support. RuleFaith uses these diagnostics as gates for generation and repair, not as standalone claims that an explanation reveals the internal causal mechanism of the GEC model.

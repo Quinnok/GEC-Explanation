@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Stage & Input & Kept & Refine & Reject \\
+\midrule
+Field-aware gate & 160 & 58 & 13 & 102 \\
+Target-masked validation & 58 & 47 & 8 & 3 \\
+Rule/evidence audit & 47 & 25 & 16 & 6 \\
+Targeted repair & 16 & 16 & 0 & 0 \\
+Codex pseudo-validation & 41 & 17 & 13 & 11 \\
+\bottomrule
+\end{tabular}
+\caption{Qwen3-8B RuleFaith method-pilot funnel. The final row uses Codex/AI pseudo-validation for internal triage, not human-gold evidence.}
+\label{tab:rulefaith-qwen3-funnel}
+\end{table}

@@ -893,3 +893,47 @@ Validation after Loops J--L:
 - `git diff --check` passed.
 - Output integrity check passed for target-masked buckets, rule-plausibility buckets, blind form, hidden key, and repair instructions.
 - Secret-pattern scan over `annotation`, `docs`, `results`, `experiments`, and `data` produced no matches.
+
+## 2026-07-21 Loop N Codex Ready-Candidate Pseudo-Validation
+
+Objective: fill the 41-row Qwen3 v2 ready validation package with explicitly marked Codex/AI pseudo-validation labels so the internal RuleFaith loop can continue without claiming human evidence.
+
+Implemented:
+
+- `experiments/rulefaith/complete_qwen3_ready_validation_codex.py`
+- `experiments/tests/test_qwen3_ready_validation_codex.py`
+
+Command:
+
+- `python3 experiments/rulefaith/complete_qwen3_ready_validation_codex.py --overwrite`
+
+Outputs:
+
+- `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex.csv`
+- `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex_merged_with_key.csv`
+- `results/rulefaith/qwen3_ready_validation_codex_summary.json`
+- `results/rulefaith/qwen3_ready_validation_codex_cases.md`
+- `docs/rulefaith_loop_N_codex_ready_validation.md`
+
+Verified results:
+
+- Candidate count: 41.
+- Overall decisions: 17 `accept`, 13 `refine`, 11 `reject`.
+- Edit alignment: 38 `pass`, 3 `partial`.
+- Edit validity: 27 `valid`, 4 `acceptable_alternative`, 4 `stylistic`, 6 `invalid`.
+- Rule plausibility: 22 `plausible`, 9 `weak`, 10 `implausible`.
+- Evidence sufficiency: 22 `sufficient`, 18 `partial`, 1 `insufficient`.
+
+Interpretation:
+
+The pseudo-validation shows that automatic target-masked and rule/evidence gates are useful but still over-admit linguistically weak candidates. The 17 accepts can seed a small internal smoke test, while the 13 refine and 11 reject rows should drive the next repair and verifier-hardening loop.
+
+Validation after Loop N:
+
+- Installed user-local TinyTeX under `/Users/bytedance/Library/TinyTeX` after no system `pdflatex`, `latexmk`, or `tectonic` pdfTeX-compatible path was available.
+- Installed LaTeX dependencies with `tlmgr`: `newtx`, `xpatch`, `xstring`, `mweights`, `carlisle`, `fontaxes`, `placeins`, `caption`, `algorithms`, `tex-gyre`, and `courier`.
+- `python3 -m py_compile experiments/rulefaith/complete_qwen3_ready_validation_codex.py experiments/rulefaith/generate_rulefaith_paper_assets.py` passed.
+- `python3 -m unittest discover -s experiments/tests` passed, 54 tests.
+- `python3 -m pytest -q` passed, 54 tests.
+- `git diff --check` passed.
+- `pdflatex -interaction=nonstopmode main.tex` passed twice under TinyTeX and generated `paper/main.pdf` with 8 pages.

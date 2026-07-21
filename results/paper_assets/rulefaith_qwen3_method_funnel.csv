@@ -1,0 +1,6 @@
+stage,input,kept,revise,reject,evidence
+Field-aware gate,160,58,13,102,Automatic field-aware RuleFaith gate
+Target-masked validation,58,47,8,3,Automatic target-masked gate
+Rule/evidence audit,47,25,16,6,Automatic rule/evidence audit
+Targeted repair,16,16,0,0,Deterministic repair plus revalidation
+Codex pseudo-validation,41,17,13,11,"AI pseudo-validation, not human gold"

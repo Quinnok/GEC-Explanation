@@ -1,0 +1,79 @@
+{
+  "accepted_candidate_ids": [
+    "rf-edit-0016::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0023::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0023::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0033::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0051::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0051::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0127::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0127::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0191::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0199::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0199::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0264::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0264::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0292::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0255::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0255::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0284::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired::targeted_repaired"
+  ],
+  "candidate_count": 41,
+  "generated_at": "2026-07-21T06:12:52+00:00",
+  "git_commit": "bf23fe5",
+  "label_source": "codex_ai_pseudo_validation",
+  "paper_use_boundary": "These labels are Codex/AI pseudo-validation for internal triage. They must not be reported as human validation or human gold.",
+  "refine_candidate_ids": [
+    "rf-edit-0016::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0062::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0062::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0191::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0267::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0268::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0284::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0165::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0165::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0265::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0267::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0277::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0277::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired::targeted_repaired"
+  ],
+  "rejected_candidate_ids": [
+    "rf-edit-0163::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0163::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0225::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0265::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired",
+    "rf-edit-0058::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0058::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0138::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0138::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0276::qwen3_8b::natural::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0276::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired::targeted_repaired",
+    "rf-edit-0035::qwen3_8b::rule_grounded::evidence_canonicalized::structured_evidence_repaired::targeted_repaired"
+  ],
+  "validator_edit_alignment_counts": {
+    "partial": 3,
+    "pass": 38
+  },
+  "validator_edit_validity_counts": {
+    "acceptable_alternative": 4,
+    "invalid": 6,
+    "stylistic": 4,
+    "valid": 27
+  },
+  "validator_evidence_sufficiency_counts": {
+    "insufficient": 1,
+    "partial": 18,
+    "sufficient": 22
+  },
+  "validator_overall_decision_counts": {
+    "accept": 17,
+    "refine": 13,
+    "reject": 11
+  },
+  "validator_rule_plausibility_counts": {
+    "implausible": 10,
+    "plausible": 22,
+    "weak": 9
+  }
+}

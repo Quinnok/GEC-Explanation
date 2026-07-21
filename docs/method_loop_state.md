@@ -12,7 +12,7 @@ Stress-test paper frozen at commit `4519543060cbaff49806fd9963412f4ca4ab83c0`.
 
 ## Current Round
 
-Loop M targeted repair and validation package v2: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has Codex-completed audit forms, deterministic structured evidence repair, field-aware selection, target-masked validation, targeted repair, and a 41-candidate blind validation handoff package.
+Loop N Codex ready-candidate pseudo-validation: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has Codex-completed audit forms, deterministic structured evidence repair, field-aware selection, target-masked validation, targeted repair, a 41-candidate blind validation handoff package, and an explicitly marked Codex/AI pseudo-validation copy.
 
 ## Highest-Priority Problem
 
@@ -28,8 +28,8 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Field-aware selection separates required `edit_description` copy from leakage, but the 45 accepted candidates are not SFT positives and still need target-masked and human/stronger validation.
 - Target-masked validation reduces target-copy and rule-category shortcuts, but the 47 validated candidates are not SFT positives and still need rule plausibility plus human/stronger validation.
 - Rule/evidence audit reduces the target-masked validated pool to 25 ready-for-spotcheck candidates, but they remain automatic candidates until human or stronger validation.
-- The ready validation package hides model/system identity and automatic decisions, but no validator labels have been filled yet.
-- Validation package v2 contains 41 candidates after adding 16 successfully repaired candidates; no v2 repair rows remain.
+- The ready validation package hides model/system identity and automatic decisions. Loop N filled a separate Codex/AI pseudo-validation copy, but this is not human validation.
+- Validation package v2 contains 41 candidates after adding 16 successfully repaired candidates; no v2 repair rows remain. Codex pseudo-validation marks 17 accept, 13 refine, and 11 reject.
 - Student model training may require GPU/model downloads and later user confirmation if a model exceeds 10GB.
 - New natural explanation human evaluation will require real annotators later.
 
@@ -55,7 +55,8 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Loop K rule/evidence audit: over 47 target-masked validated candidates, decisions are 25 ready-for-human-spotcheck, 16 needs-refinement, and 6 reject. The main reasons are evidence not mentioned in rule/rationale (14), rationale edit-copy (8), unsupported high confidence (6), and missing required evidence (6).
 - Loop L ready validation package: 25 blind validation rows, 25 hidden key rows, 16 repair-instruction rows, and zip SHA256 `4907c29a702a367d90afcde68b41756f2f9109ef3175e2bc361ef1080052e5ca`.
 - Loop M targeted repair and package v2: repaired 16/16 refinement candidates; rationale edit-copy 8 -> 0; evidence mentioned 8 -> 16; 16/16 pass target-masked and rule/evidence re-audit; validation package v2 has 41 blind rows and zip SHA256 `31ce8d7735d57107b9271dd1202ba0cde4d1c0acbed489ec11c8e3d18938799d`.
+- Loop N Codex ready-candidate pseudo-validation: filled `ready_validation_completed_by_codex.csv` for all 41 v2 candidates. Decisions are 17 `accept`, 13 `refine`, and 11 `reject`; rule plausibility labels are 22 `plausible`, 9 `weak`, and 10 `implausible`; evidence sufficiency labels are 22 `sufficient`, 18 `partial`, and 1 `insufficient`.
 
 ## Next Internal Action
 
-Validate the 41-candidate v2 blind package with real annotators or explicitly documented Codex/AI pseudo-validation. Do not claim human evidence or construct SFT/preference positives from these pseudo-labels.
+Use the 17 Codex-pseudo-accepted candidates as provisional seeds for a small internal RuleFaith smoke test only. Prepare a real-human natural explanation validation package before any paper-quality method claim or final SFT/preference construction.

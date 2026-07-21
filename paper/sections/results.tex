@@ -6,3 +6,11 @@
 The structured explicit baseline reconstructs explicit explanations with 99.7\% Full Edit Exact Match and 99.9\% Faithfulness Macro-F1. The same baseline reaches 100.0\% Full Edit Exact Match on raw edit strings, which is an expected answer-leakage upper control rather than a desirable explanation setting.
 
 Leakage controls expose the limits of direct edit copying. Source-only input yields 0.0\% Full Edit Exact Match, explanation-only input yields 99.7\%, implicit explanations yield 0.0\%, and masked-target explanations yield 11.7\% Target Match. The surface keyword baseline obtains 75.2\% Faithfulness Macro-F1 on source-plus-explanation inputs but does not reconstruct structured edits.
+
+\subsection{RuleFaith Qwen3 Method Pilot}
+
+\input{../results/paper_assets/rulefaith_qwen3_method_funnel}
+
+Table~\ref{tab:rulefaith-qwen3-funnel} summarizes the current RuleFaith method pilot over Qwen3-8B teacher candidates. Field-aware gating keeps 58 of 160 candidates for target-masked validation while rejecting 102 candidates for hard failures such as alignment risk, missing source-specific evidence, possible false rationalization, or validity risk. Target-masked validation keeps 47 of those 58 candidates and rejects 3, exposing target-dependent explanations and rule-category mismatches. A rule/evidence audit then identifies 25 ready candidates, 16 repairable candidates, and 6 rejects. Deterministic targeted repair fixes the 16 repairable candidates under the automatic gates, producing a 41-row blind validation package.
+
+Codex/AI pseudo-validation of the 41-row package accepts 17 candidates, sends 13 to further refinement, and rejects 11. The pseudo-validation rejects candidates that passed automatic gates but still contain implausible rules, invalid-edit rationalizations, or insufficient evidence. We therefore treat the Qwen3 pilot as evidence for the RuleFaith repair-and-selection workflow, not as final proof that the generated explanations are human-validated positives.
