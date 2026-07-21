@@ -4,7 +4,7 @@ Last updated: 2026-07-21
 
 ## Next Highest-Priority Loop
 
-Use the 17 Codex-pseudo-accepted Qwen3 candidates for a minimal internal RuleFaith smoke test and prepare a real-human natural explanation validation package for paper-quality evidence. The same-setting teacher and selection baselines have been filled in under `results/rulefaith/` and `results/paper_assets/`.
+Use the 17 Codex-pseudo-accepted Qwen3 candidates for a minimal internal RuleFaith smoke test and prepare a real-human natural explanation validation package for paper-quality evidence. The same-setting teacher and selection baselines have been filled in under `results/rulefaith/` and `results/paper_assets/`; the first deployable scorer exists but is not strong enough to replace simple rule-grounded selection.
 
 ## Required Work
 
@@ -15,6 +15,7 @@ Use the 17 Codex-pseudo-accepted Qwen3 candidates for a minimal internal RuleFai
 5. Prepare a blinded natural-explanation validation package before making final method-paper claims.
 6. Treat `results/rulefaith/rulefaith_teacher_baselines.csv` as the current answer to the baseline question: FLAN-T5-base, Qwen2.5-0.5B, Qwen2.5-1.5B probe, and Qwen3-8B direct teacher baselines were all evaluated in the same candidate-generation setting.
 7. Treat `results/rulefaith/rulefaith_selection_baselines.csv` as a small internal selection diagnostic only; it uses Codex/AI pseudo-validation, not human labels.
+8. Treat `results/rulefaith/rulefaith_ready_selector_metrics.json` as a revision signal: the deployable scorer beats first/highest-confidence selectors but remains below the rule-grounded simple selector.
 
 ## Do Not Do Yet
 
@@ -30,3 +31,4 @@ Use the 17 Codex-pseudo-accepted Qwen3 candidates for a minimal internal RuleFai
 - Do not expose `ready_validation_key.csv` to blind validators.
 - Do not call Codex-filled validation human labels.
 - Do not hide the 11 rejects from the method narrative; they show why automatic gates are insufficient.
+- Do not tune the deployable scorer thresholds on Codex pseudo-labels; use a blinded natural-explanation package or preregistered dev split before revising thresholds.

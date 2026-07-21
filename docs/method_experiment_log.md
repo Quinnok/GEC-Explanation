@@ -197,6 +197,46 @@ Validation:
 
 - `python3 -m py_compile experiments/rulefaith/evaluate_rulefaith_baselines.py experiments/tests/test_rulefaith_baseline_evaluation.py` passed.
 - Full unit and pytest suites are run after paper integration in the associated commit.
+
+## Loop P: Deployable Ready-Pool Selector Diagnostic
+
+- Date: 2026-07-21
+- Script: `python3 experiments/rulefaith/score_rulefaith_ready_candidates.py --overwrite`
+- Purpose: replace the previous pseudo-validator upper-bound row with a non-oracle scorer that can run without reading `validator_*` pseudo labels.
+- Inputs:
+  - `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex_merged_with_key.csv`
+- Outputs:
+  - `results/rulefaith/rulefaith_ready_candidate_scores.csv`
+  - `results/rulefaith/rulefaith_ready_selector_metrics.json`
+  - `results/rulefaith/rulefaith_ready_selector_metrics.csv`
+  - `results/rulefaith/rulefaith_ready_selector_cases.md`
+  - `results/paper_assets/rulefaith_ready_selector_metrics.tex`
+  - `docs/rulefaith_loop_P_deployable_selector.md`
+
+Scorer features:
+
+- edit-description alignment proxy;
+- rule/category grammar signal;
+- source-located and source-specific evidence span counts;
+- evidence mention in rule/rationale;
+- target-copy and rationale edit-copy penalties;
+- genericness penalty;
+- invalid/stylistic edit false-rationalization penalty;
+- confidence support check.
+
+Verified results against Codex/AI pseudo-validation only:
+
+| Strategy | Edit Groups | Coverage | Accept Rate | Non-Reject Rate | Mean Utility | Pairwise Accuracy |
+|---|---:|---:|---:|---:|---:|---:|
+| RuleFaith deployable score top-1 | 23 | 1.000 | 0.391 | 0.739 | 0.565 | 0.500 |
+| RuleFaith deployable score selective | 23 | 0.783 | 0.389 | 0.778 | 0.583 | 0.500 |
+
+Interpretation: the scorer is useful engineering infrastructure, but not yet a final method result. It improves over first-candidate and highest-confidence selectors from Loop O, but does not beat the rule-grounded simple selector's 0.435 accept rate. The score also assigns high values to several pseudo-rejects and flags several pseudo-accepts as false rationalization, showing disagreement between automatic feature scoring and Codex/AI pseudo-validation. Do not tune thresholds on these pseudo labels.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/score_rulefaith_ready_candidates.py experiments/tests/test_rulefaith_ready_candidate_scorer.py` passed.
+- Full unit and pytest suites are run after integration in the associated commit.
 ## 2026-07-20 Loop A Qwen3-8B Candidate Audit
 
 Objective: audit Qwen3-8B accepted/refine/rejected candidates before targeted refinement or SFT positives.

@@ -1,0 +1,3 @@
+strategy,edit_groups,covered_groups,coverage,accept_rate,non_reject_rate,mean_utility,pairwise_accuracy
+RuleFaith deployable score top-1,23,23,1.000,0.391,0.739,0.565,0.500
+RuleFaith deployable score selective,23,18,0.783,0.389,0.778,0.583,0.500

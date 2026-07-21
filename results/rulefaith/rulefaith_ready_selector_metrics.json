@@ -1,0 +1,84 @@
+{
+  "candidate_count": 41,
+  "config": {
+    "accept_threshold": 0.74,
+    "refine_threshold": 0.56,
+    "selector_threshold": 0.74
+  },
+  "edit_group_count": 23,
+  "generated_at": "2026-07-21T11:31:09.556808+00:00",
+  "git_commit": "a2c0301",
+  "input": "/Users/bytedance/Documents/GEC可解释性/annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex_merged_with_key.csv",
+  "label_boundary": "Codex/AI pseudo-validation labels are diagnostic only and are not used by the scorer.",
+  "pairwise_accuracy": 0.5,
+  "pairwise_comparisons": 4,
+  "pseudo_label_counts": {
+    "accept": 17,
+    "refine": 13,
+    "reject": 11
+  },
+  "score_bucket_counts": {
+    "accept": 28,
+    "refine": 9,
+    "reject": 4
+  },
+  "score_by_pseudo_label": {
+    "accept": {
+      "bucket_counts": {
+        "accept": 11,
+        "refine": 5,
+        "reject": 1
+      },
+      "max_score": 0.97,
+      "mean_score": 0.8076,
+      "min_score": 0.42,
+      "n": 17
+    },
+    "refine": {
+      "bucket_counts": {
+        "accept": 10,
+        "refine": 1,
+        "reject": 2
+      },
+      "max_score": 0.97,
+      "mean_score": 0.8218,
+      "min_score": 0.5172,
+      "n": 13
+    },
+    "reject": {
+      "bucket_counts": {
+        "accept": 7,
+        "refine": 3,
+        "reject": 1
+      },
+      "max_score": 0.97,
+      "mean_score": 0.837,
+      "min_score": 0.52,
+      "n": 11
+    }
+  },
+  "selective_selection": {
+    "accept_rate": 0.3889,
+    "accept_selected": 7,
+    "coverage": 0.7826,
+    "covered_groups": 18,
+    "edit_groups": 23,
+    "mean_utility": 0.5833,
+    "non_reject_rate": 0.7778,
+    "refine_selected": 7,
+    "reject_selected": 4,
+    "strategy": "RuleFaith deployable score selective"
+  },
+  "top1_selection": {
+    "accept_rate": 0.3913,
+    "accept_selected": 9,
+    "coverage": 1.0,
+    "covered_groups": 23,
+    "edit_groups": 23,
+    "mean_utility": 0.5652,
+    "non_reject_rate": 0.7391,
+    "refine_selected": 8,
+    "reject_selected": 6,
+    "strategy": "RuleFaith deployable score top-1"
+  }
+}
