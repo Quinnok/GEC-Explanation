@@ -1,0 +1,87 @@
+annotation/rulefaith_qwen3_ready_validation_v2/README.md
+  s_266f859e6122f5::t_f11353c0be9fe4 1-14
+annotation/rulefaith_qwen3_ready_validation_v2/guidelines.md
+  s_266f859e6122f5::t_751debb2c9543e 1-36
+annotation/rulefaith_qwen3_ready_validation_v2/handoff_manifest.json
+  s_266f859e6122f5::t_d5243578dedcf0 1-43
+annotation/rulefaith_qwen3_ready_validation_v2/handoff_manifest.md
+  s_266f859e6122f5::t_02c5c126fa33cc 1-16
+annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_form.csv
+  s_266f859e6122f5::t_afe7f477582591 1-42
+annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_key.csv
+  s_266f859e6122f5::t_245c86fce700db 1-42
+annotation/rulefaith_qwen3_ready_validation_v2/repair_instructions.csv
+  s_266f859e6122f5::t_cb52f041535f46 1
+data/rulefaith/filtering/qwen3_targeted_repaired_rule_plausibility_ready_for_human_spotcheck.jsonl
+  s_266f859e6122f5::t_3eb96ec67f46e7 1-16
+data/rulefaith/filtering/qwen3_targeted_repaired_target_masked_validated.jsonl
+  s_266f859e6122f5::t_86748e3649e90b 1-16
+docs/current_status.md
+  s_266f859e6122f5::t_f0bd41ee0e8acc 15,33,49,53,57
+docs/method_claim_evidence_matrix.md
+  s_266f859e6122f5::t_60c310586d21c1 28
+docs/method_decision_log.md
+  s_266f859e6122f5::t_6f309601ce5154 25
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_1c3c684602778c 819-887
+docs/method_loop_state.md
+  s_266f859e6122f5::t_a9760331e3f103 15,32,57,61
+docs/method_open_issues.md
+  s_266f859e6122f5::t_1691b20e9086b4 36
+docs/next_actions.md
+  s_266f859e6122f5::t_66be77b47f4cd8 7,11-15,29
+docs/research_decisions.md
+  s_266f859e6122f5::t_6cdb4571b63ec7 22
+docs/rulefaith_loop_M_targeted_repair_and_validation_v2.md
+  s_266f859e6122f5::t_7d75927f6bb0a7 1-113
+experiments/rulefaith/prepare_qwen3_validation_package.py
+  s_266f859e6122f5::t_8abe35de518bbd 88,103,108-124,385,396-397
+experiments/rulefaith/repair_qwen3_needs_refinement.py
+  s_266f859e6122f5::t_0e2587baa71007 1-257
+experiments/tests/test_qwen3_targeted_repair.py
+  s_266f859e6122f5::t_eb2d40c6aea51d 1-53
+experiments/tests/test_qwen3_validation_package.py
+  s_266f859e6122f5::t_cb58c5ad062a6c 2,44-53
+results/rulefaith/qwen3_ready_validation_package_v2_report.md
+  s_266f859e6122f5::t_965e71abf3af9b 1-8
+results/rulefaith/qwen3_ready_validation_package_v2_summary.json
+  s_266f859e6122f5::t_761aefde4aae2f 1-12
+results/rulefaith/qwen3_targeted_repair_before_after.csv
+  s_266f859e6122f5::t_71520afdd91ea8 1-17
+results/rulefaith/qwen3_targeted_repair_report.md
+  s_266f859e6122f5::t_5a1fefd32965f8 1-78
+results/rulefaith/qwen3_targeted_repair_stats.json
+  s_266f859e6122f5::t_82a2a4a245722f 1-16
+results/rulefaith/qwen3_targeted_repaired_candidates.jsonl
+  s_266f859e6122f5::t_944e44c6cb728c 1-16
+results/rulefaith/qwen3_targeted_repaired_rule_plausibility.csv
+  s_266f859e6122f5::t_0ac20778b655bd 1-17
+results/rulefaith/qwen3_targeted_repaired_rule_plausibility_report.md
+  s_266f859e6122f5::t_69dbfd762da2c1 1-111
+results/rulefaith/qwen3_targeted_repaired_rule_plausibility_stats.json
+  s_266f859e6122f5::t_fdd6bc0593acec 1-40
+results/rulefaith/qwen3_targeted_repaired_target_masked.csv
+  s_266f859e6122f5::t_bedef6a53ac8a6 1-17
+results/rulefaith/qwen3_targeted_repaired_target_masked_report.md
+  s_266f859e6122f5::t_ea74cbd0e0ef22 1-125
+results/rulefaith/qwen3_targeted_repaired_target_masked_stats.json
+  s_266f859e6122f5::t_7190277d9fc195 1-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "bf23fe57108cecc99df81afae8e48ae724db69b0",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
