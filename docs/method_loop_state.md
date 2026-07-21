@@ -12,7 +12,7 @@ Stress-test paper frozen at commit `4519543060cbaff49806fd9963412f4ca4ab83c0`.
 
 ## Current Round
 
-Loop N Codex ready-candidate pseudo-validation: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has Codex-completed audit forms, deterministic structured evidence repair, field-aware selection, target-masked validation, targeted repair, a 41-candidate blind validation handoff package, and an explicitly marked Codex/AI pseudo-validation copy.
+Loop O baseline result fill-in: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has Codex-completed audit forms, deterministic structured evidence repair, field-aware selection, target-masked validation, targeted repair, a 41-candidate blind validation handoff package, an explicitly marked Codex/AI pseudo-validation copy, and generated same-setting baseline/selection tables for the paper draft.
 
 ## Highest-Priority Problem
 
@@ -56,6 +56,7 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Loop L ready validation package: 25 blind validation rows, 25 hidden key rows, 16 repair-instruction rows, and zip SHA256 `4907c29a702a367d90afcde68b41756f2f9109ef3175e2bc361ef1080052e5ca`.
 - Loop M targeted repair and package v2: repaired 16/16 refinement candidates; rationale edit-copy 8 -> 0; evidence mentioned 8 -> 16; 16/16 pass target-masked and rule/evidence re-audit; validation package v2 has 41 blind rows and zip SHA256 `31ce8d7735d57107b9271dd1202ba0cde4d1c0acbed489ec11c8e3d18938799d`.
 - Loop N Codex ready-candidate pseudo-validation: filled `ready_validation_completed_by_codex.csv` for all 41 v2 candidates. Decisions are 17 `accept`, 13 `refine`, and 11 `reject`; rule plausibility labels are 22 `plausible`, 9 `weak`, and 10 `implausible`; evidence sufficiency labels are 22 `sufficient`, 18 `partial`, and 1 `insufficient`.
+- Loop O baseline result fill-in: generated `results/rulefaith/rulefaith_teacher_baselines.csv`, `results/rulefaith/rulefaith_method_gate_funnel.csv`, `results/rulefaith/rulefaith_selection_baselines.csv`, and paper tables under `results/paper_assets/`. Same-setting teacher baselines show FLAN-T5-base accepted 0/160, Qwen2.5-0.5B accepted 1/160, Qwen2.5-1.5B probe accepted 0/20, and Qwen3-8B accepted 41/160. On the 41-row pseudo-validation pool, rule-grounded candidate selection is the best simple non-oracle selector with 0.435 accept rate and 0.739 non-reject rate, while a pseudo-validator selective upper-bound covers 11/23 edit groups.
 
 ## Next Internal Action
 

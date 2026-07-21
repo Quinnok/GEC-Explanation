@@ -1,0 +1,9 @@
+strategy,edit_groups,covered_groups,abstained_groups,coverage,accept_selected,refine_selected,reject_selected,accept_rate,non_reject_rate,mean_utility,label_source
+Random candidate (expected),23,23,0,1.000,9.5,7.0,6.5,0.413,0.717,0.565,codex_ai_pseudo_validation_expected_value
+First candidate,23,23,0,1.000,8.0,8.0,7.0,0.348,0.696,0.522,codex_ai_pseudo_validation
+Natural candidate,23,23,0,1.000,9.0,7.0,7.0,0.391,0.696,0.543,codex_ai_pseudo_validation
+Rule-grounded candidate,23,23,0,1.000,10.0,7.0,6.0,0.435,0.739,0.587,codex_ai_pseudo_validation
+Highest confidence,23,23,0,1.000,8.0,8.0,7.0,0.348,0.696,0.522,codex_ai_pseudo_validation
+Longest rationale,23,23,0,1.000,8.0,9.0,6.0,0.348,0.739,0.543,codex_ai_pseudo_validation
+Shortest rationale,23,23,0,1.000,10.0,6.0,7.0,0.435,0.696,0.565,codex_ai_pseudo_validation
+Pseudo-validator selective accept,23,11,12,0.478,11.0,0.0,0.0,1.000,1.000,1.000,codex_ai_pseudo_validation_upper_bound

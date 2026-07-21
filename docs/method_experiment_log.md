@@ -146,6 +146,57 @@ Interpretation: verifier calibration is adequate for method-pilot filtering, but
   - `results/rulefaith/qwen_open_teacher_comparison.tex`
 
 Interpretation: Qwen3-8B should replace Qwen2.5 as the primary local open-teacher branch. It still needs verifier-guided refinement and manual spot-checking before any student SFT/preference training.
+
+## Loop O: Same-Setting Baseline Result Fill-In
+
+- Date: 2026-07-21
+- Script: `python3 experiments/rulefaith/evaluate_rulefaith_baselines.py --overwrite`
+- Purpose: fill the method-pilot paper with baseline results already produced in the same repository setting, without copying unrelated external numbers.
+- Inputs:
+  - `results/rulefaith/open_teacher_diagnostic_metrics.json`
+  - `results/rulefaith/open_teacher_filtering_statistics.json`
+  - `results/rulefaith/qwen_teacher_diagnostic_metrics.json`
+  - `results/rulefaith/qwen_filtering_statistics.json`
+  - `results/rulefaith/qwen15_probe_diagnostic_metrics.json`
+  - `results/rulefaith/qwen15_probe_filtering_statistics.json`
+  - `results/rulefaith/qwen3_8b_teacher_diagnostic_metrics.json`
+  - `results/rulefaith/qwen3_8b_filtering_statistics.json`
+  - `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex_merged_with_key.csv`
+- Outputs:
+  - `results/rulefaith/rulefaith_teacher_baselines.csv`
+  - `results/rulefaith/rulefaith_method_gate_funnel.csv`
+  - `results/rulefaith/rulefaith_selection_baselines.csv`
+  - `results/rulefaith/rulefaith_selection_baselines.json`
+  - `results/paper_assets/rulefaith_open_teacher_baselines.tex`
+  - `results/paper_assets/rulefaith_selection_baselines.tex`
+  - `docs/rulefaith_loop_O_baseline_results.md`
+
+Verified teacher-baseline results:
+
+| System | N | Parse JSON | Rule edit-copy | Contextual evidence | Accepted | Refine | Rejected |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| FLAN-T5-base direct | 160 | 0.000 | 1.000 | 0.000 | 0 | 0 | 160 |
+| Qwen2.5-0.5B direct | 160 | 0.975 | 0.887 | 0.037 | 1 | 15 | 144 |
+| Qwen2.5-1.5B probe | 20 | 1.000 | 1.000 | 0.350 | 0 | 0 | 20 |
+| Qwen3-8B direct | 160 | 0.994 | 0.006 | 0.388 | 41 | 63 | 56 |
+
+Verified candidate-selection diagnostics on the 41-row Codex/AI pseudo-validation pool:
+
+| Strategy | Edit Groups | Coverage | Accept Rate | Non-Reject Rate | Mean Utility |
+|---|---:|---:|---:|---:|---:|
+| Random candidate expected value | 23 | 1.000 | 0.413 | 0.717 | 0.565 |
+| First candidate | 23 | 1.000 | 0.348 | 0.696 | 0.522 |
+| Rule-grounded candidate | 23 | 1.000 | 0.435 | 0.739 | 0.587 |
+| Highest confidence | 23 | 1.000 | 0.348 | 0.696 | 0.522 |
+| Longest rationale | 23 | 1.000 | 0.348 | 0.739 | 0.543 |
+| Pseudo-validator selective accept | 23 | 0.478 | 1.000 | 1.000 | 1.000 |
+
+Interpretation: Qwen3-8B is the strongest currently completed local open teacher. Qwen2.5 results should be reported as weak baselines and negative/refinement sources, not as positive teacher data. Simple top-1 selection heuristics are weak under pseudo-validation; the selective row is an upper-bound diagnostic and must not be reported as deployable human evidence.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/evaluate_rulefaith_baselines.py experiments/tests/test_rulefaith_baseline_evaluation.py` passed.
+- Full unit and pytest suites are run after paper integration in the associated commit.
 ## 2026-07-20 Loop A Qwen3-8B Candidate Audit
 
 Objective: audit Qwen3-8B accepted/refine/rejected candidates before targeted refinement or SFT positives.

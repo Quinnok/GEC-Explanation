@@ -4,7 +4,7 @@ Last updated: 2026-07-21
 
 ## Next Highest-Priority Loop
 
-Use the 17 Codex-pseudo-accepted Qwen3 candidates for a minimal internal RuleFaith smoke test and prepare a real-human natural explanation validation package for paper-quality evidence.
+Use the 17 Codex-pseudo-accepted Qwen3 candidates for a minimal internal RuleFaith smoke test and prepare a real-human natural explanation validation package for paper-quality evidence. The same-setting teacher and selection baselines have been filled in under `results/rulefaith/` and `results/paper_assets/`.
 
 ## Required Work
 
@@ -13,6 +13,8 @@ Use the 17 Codex-pseudo-accepted Qwen3 candidates for a minimal internal RuleFai
 3. Build a small RuleFaith smoke set from the 17 pseudo-accepted candidates plus matched refine/reject contrasts.
 4. Do not report Codex pseudo-labels as human labels.
 5. Prepare a blinded natural-explanation validation package before making final method-paper claims.
+6. Treat `results/rulefaith/rulefaith_teacher_baselines.csv` as the current answer to the baseline question: FLAN-T5-base, Qwen2.5-0.5B, Qwen2.5-1.5B probe, and Qwen3-8B direct teacher baselines were all evaluated in the same candidate-generation setting.
+7. Treat `results/rulefaith/rulefaith_selection_baselines.csv` as a small internal selection diagnostic only; it uses Codex/AI pseudo-validation, not human labels.
 
 ## Do Not Do Yet
 

@@ -9,8 +9,14 @@ Leakage controls expose the limits of direct edit copying. Source-only input yie
 
 \subsection{RuleFaith Qwen3 Method Pilot}
 
+\input{../results/paper_assets/rulefaith_open_teacher_baselines}
+
+Table~\ref{tab:rulefaith-open-teacher-baselines} compares open-teacher baselines under the same 80-edit RuleFaith pilot setting. FLAN-T5-base fails to produce parseable structured explanations under the strict JSON protocol and is rejected by the conservative prefilter. Qwen2.5-0.5B is parseable but mostly copies the edit in the rule field: 144 of 160 candidates are rejected and only one candidate is accepted. A Qwen2.5-1.5B probe over 20 non-punctuation candidates remains structurally parseable but still lacks usable explicit rule text under the same prompt. Qwen3-8B is therefore the first local open-teacher branch that produces a non-trivial candidate pool in this setting, with 41 accepted, 63 refine, and 56 rejected candidates. This result justifies using Qwen3-8B as the current local teacher, while treating Qwen2.5 outputs as weak baselines or negative/refinement examples rather than positive distillation data.
+
 \input{../results/paper_assets/rulefaith_qwen3_method_funnel}
 
 Table~\ref{tab:rulefaith-qwen3-funnel} summarizes the current RuleFaith method pilot over Qwen3-8B teacher candidates. Field-aware gating keeps 58 of 160 candidates for target-masked validation while rejecting 102 candidates for hard failures such as alignment risk, missing source-specific evidence, possible false rationalization, or validity risk. Target-masked validation keeps 47 of those 58 candidates and rejects 3, exposing target-dependent explanations and rule-category mismatches. A rule/evidence audit then identifies 25 ready candidates, 16 repairable candidates, and 6 rejects. Deterministic targeted repair fixes the 16 repairable candidates under the automatic gates, producing a 41-row blind validation package.
 
 Codex/AI pseudo-validation of the 41-row package accepts 17 candidates, sends 13 to further refinement, and rejects 11. The pseudo-validation rejects candidates that passed automatic gates but still contain implausible rules, invalid-edit rationalizations, or insufficient evidence. We therefore treat the Qwen3 pilot as evidence for the RuleFaith repair-and-selection workflow, not as final proof that the generated explanations are human-validated positives.
+
+A companion selection diagnostic over the 23 edit groups in the same 41-row package shows that simple top-1 rules are weak: first-candidate and highest-confidence selection each reach only 0.348 accept rate under Codex/AI pseudo-validation, while the best simple non-oracle rule-grounded selector reaches 0.435 accept rate and 0.739 non-reject rate. A pseudo-validator selective upper bound covers only 11 of 23 edit groups, supporting the design choice that RuleFaith needs explicit verification and abstention rather than a length, confidence, or first-candidate heuristic.

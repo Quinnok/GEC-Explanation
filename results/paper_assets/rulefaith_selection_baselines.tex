@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Strategy & Cov. & Accept & Non-rej. & Utility \\
+\midrule
+Random candidate (expected) & 1.000 & 0.413 & 0.717 & 0.565 \\
+First candidate & 1.000 & 0.348 & 0.696 & 0.522 \\
+Natural candidate & 1.000 & 0.391 & 0.696 & 0.543 \\
+Rule-grounded candidate & 1.000 & 0.435 & 0.739 & 0.587 \\
+Highest confidence & 1.000 & 0.348 & 0.696 & 0.522 \\
+Longest rationale & 1.000 & 0.348 & 0.739 & 0.543 \\
+Pseudo-validator selective accept & 0.478 & 1.000 & 1.000 & 1.000 \\
+\bottomrule
+\end{tabular}
+\caption{Selection baselines on 23 edit groups and 41 Qwen3 candidates. Accept/refine/reject labels are Codex/AI pseudo-validation for internal method triage; the selective row is an upper-bound diagnostic, not a deployable human result.}
+\label{tab:rulefaith-selection-baselines}
+\end{table}

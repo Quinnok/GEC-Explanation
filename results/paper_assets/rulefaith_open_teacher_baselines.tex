@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrrrr}
+\toprule
+System & $N$ & Parse & Align & Missing rule & Edit-copy & Evidence & Accept & Reject \\
+\midrule
+FLAN-T5-base direct & 160 & 0.000 & 1.000 & 1.000 & 1.000 & 0.000 & 0 & 160 \\
+Qwen2.5-0.5B direct & 160 & 0.975 & 0.769 & 0.025 & 0.887 & 0.037 & 1 & 144 \\
+Qwen2.5-1.5B probe & 20 & 1.000 & 1.000 & 1.000 & 1.000 & 0.350 & 0 & 20 \\
+Qwen3-8B direct & 160 & 0.994 & 0.656 & 0.006 & 0.006 & 0.388 & 41 & 56 \\
+\bottomrule
+\end{tabular}
+\caption{Open-teacher candidate quality under the same 80-edit RuleFaith pilot setting. Rates are automatic diagnostics; accepted/refine/rejected counts come from the frozen conservative prefilter and are not human labels.}
+\label{tab:rulefaith-open-teacher-baselines}
+\end{table*}

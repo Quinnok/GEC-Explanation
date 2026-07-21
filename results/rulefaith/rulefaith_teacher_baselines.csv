@@ -1,0 +1,5 @@
+system,n,parse_json_rate,alignment_proxy_pass_rate,missing_rule_text_rate,rule_edit_copy_rate,contextual_evidence_rate,high_risk_rate,accepted,refine,rejected,accepted_rate,non_rejected_rate,label_source
+FLAN-T5-base direct,160,0.000,1.000,1.000,1.000,0.000,1.000,0,0,160,0.000,0.000,automatic_prefilter
+Qwen2.5-0.5B direct,160,0.975,0.769,0.025,0.887,0.037,0.994,1,15,144,0.006,0.100,automatic_prefilter
+Qwen2.5-1.5B probe,20,1.000,1.000,1.000,1.000,0.350,1.000,0,0,20,0.000,0.000,automatic_prefilter_probe20
+Qwen3-8B direct,160,0.994,0.656,0.006,0.006,0.388,0.744,41,63,56,0.256,0.650,automatic_prefilter
