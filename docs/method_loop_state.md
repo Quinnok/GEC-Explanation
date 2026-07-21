@@ -12,7 +12,7 @@ Stress-test paper frozen at commit `4519543060cbaff49806fd9963412f4ca4ab83c0`.
 
 ## Current Round
 
-Loop H structured evidence repair: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has Codex-completed audit forms and deterministic structured evidence repair, but no candidate is direct-positive under the strict RuleFaith gate.
+Loop I field-aware RuleFaith selection: verifier calibration conditionally passed on the Round 15 human-adjudicated pressure-test set. FLAN-T5 and Qwen2.5 open-teacher pilots were too weak for positive distillation data, while the Qwen3-8B no-thinking pilot produced the first non-trivial local open-teacher candidate pool. The Qwen3 pool now has Codex-completed audit forms, deterministic structured evidence repair, and a field-aware selection gate that produces a 45-candidate target-masked validation pool.
 
 ## Highest-Priority Problem
 
@@ -25,6 +25,7 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Qwen3-8B accepted 41/160 candidates under the conservative RuleFaith prefilter. Loop B found no generator input leakage and 160/160 source-span matches, but only 20/160 candidates had all evidence spans source-index matched, 24/160 had contextual source evidence, and 87/160 included prediction-only evidence. Loop C smoke10 canonicalization improved contextual evidence from 3/10 to 8/10, but model-only refinement did not add contextual evidence. Full-pool canonicalization improved contextual source evidence from 24/160 to 82/160 and wrong-evidence flags from 141/160 to 29/160. Loop D 20-edit targeted Qwen3 refinement parsed 20/20 outputs but worsened contextual source evidence from 7/20 to 2/20, confirming that this refiner mostly removes evidence rather than grounding it.
 - Codex-completed audit forms cover both Qwen3 blind audit packages and validate cleanly, but they are pseudo-labels and cannot satisfy the real-human audit gate.
 - Structured evidence repair fixes automatic source-evidence coverage but leaves alignment, edit-copy, false-rationalization, and validity risks.
+- Field-aware selection separates required `edit_description` copy from leakage, but the 45 accepted candidates are not SFT positives and still need target-masked and human/stronger validation.
 - Student model training may require GPU/model downloads and later user confirmation if a model exceeds 10GB.
 - New natural explanation human evaluation will require real annotators later.
 
@@ -45,7 +46,8 @@ Move from human-grounded metric stress testing to a method that produces and sel
 - Loop F Codex-assisted audit prelabelling: generated `manual_audit_codex_prelabeled.csv`, merged it with the hidden key, and summarized 44 `refine` and 36 `reject` decisions for internal triage only.
 - Loop G Qwen3 Codex audit completion: generated explicit `manual_audit_completed_by_codex.csv` files for both canonicalized and pre-canonicalization Qwen3 packages. The pre-canonicalization package has 46 `refine` and 34 `reject`; the canonicalized package has 44 `refine` and 36 `reject`.
 - Loop H structured evidence repair: automatic contextual evidence 82/160 -> 160/160, specific source evidence 10/160 -> 124/160, prediction-only evidence 29/160 -> 0/160, wrong-evidence flags 29/160 -> 0/160. Strict RuleFaith buckets are 0 accepted, 58 refine, 102 rejected.
+- Loop I field-aware RuleFaith selection: previous strict buckets were 0 accepted, 58 refine, 102 rejected. After excluding schema-required `edit_description` copy from leakage failure while retaining hard alignment/validity/rule/evidence gates, buckets are 45 accepted, 13 refine, 102 rejected.
 
 ## Next Internal Action
 
-Use the 58 strict `refine` candidates for an alignment/leakage-aware refinement loop. Do not claim human evidence or construct SFT/preference positives from these pseudo-labels.
+Run target-masked validation over the 45 field-aware accepted and 13 field-aware refine candidates. Do not claim human evidence or construct SFT/preference positives from these pseudo-labels.

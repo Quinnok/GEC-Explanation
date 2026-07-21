@@ -1,0 +1,51 @@
+{
+  "active_refine_reason_counts": {
+    "generic_explanation": 1,
+    "rationale_edit_copy": 13
+  },
+  "bucket_counts": {
+    "accepted": 45,
+    "refine": 13,
+    "rejected": 102
+  },
+  "bucket_rates": {
+    "accepted": 0.2812,
+    "refine": 0.0813,
+    "rejected": 0.6375
+  },
+  "candidate_count": 160,
+  "decision": "use_field_aware_gate_for_target_masked_validation_pool",
+  "field_leakage_counts": {
+    "edit_description_edit_copy": 108,
+    "edit_description_target_copy": 100,
+    "rationale_edit_copy": 26,
+    "rationale_target_copy": 86,
+    "rule_text_target_copy": 40
+  },
+  "generated_at": "2026-07-21T04:56:54+00:00",
+  "git_commit": "02612ff",
+  "hard_reason_counts": {
+    "alignment_error": 58,
+    "missing_rule": 1,
+    "no_specific_source_evidence": 36,
+    "parse_not_json": 1,
+    "possible_false_rationalization": 19,
+    "validity_error_auto": 28
+  },
+  "policy": {
+    "accepted": "passes parse/alignment/validity/rule/evidence/specific-source hard gates; no rationale edit-copy, genericness, or unsupported-confidence refine risk",
+    "allowed_copy": "edit_description may mention the atomic edit because it is the structured edit-description field; this is reported but not treated as leakage by itself",
+    "refine": "passes hard gates but has rationale edit-copy, genericness, or unsupported-confidence risk",
+    "rejected": "fails parse/alignment/validity/false-rationalization/rule/evidence/specific-source hard gate"
+  },
+  "previous_strict_bucket_counts": {
+    "accepted": 0,
+    "refine": 58,
+    "rejected": 102
+  },
+  "refine_trigger_counts_all_rows": {
+    "generic_explanation": 1,
+    "rationale_edit_copy": 26,
+    "unsupported_confidence": 70
+  }
+}

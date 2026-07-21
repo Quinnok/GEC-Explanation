@@ -619,3 +619,53 @@ Validation:
 - `python3 -m pytest -q` could not run because `pytest` is not installed in the current shell.
 
 Decision: keep structured evidence repair, keep strict RuleFaith selection, and use the 58 strict `refine` candidates for the next alignment/leakage-aware loop.
+
+## 2026-07-21 Loop I Field-Aware RuleFaith Selection
+
+Objective: fix an over-strict leakage policy that treated required structured `edit_description` text as the same kind of leakage as rule/rationale answer copying.
+
+Implemented:
+
+- `experiments/rulefaith/select_qwen3_field_aware_rulefaith.py`
+- `experiments/tests/test_qwen3_field_aware_selection.py`
+
+Outputs:
+
+- `data/rulefaith/filtering/qwen3_field_aware_rulefaith_accepted.jsonl`
+- `data/rulefaith/filtering/qwen3_field_aware_rulefaith_refine.jsonl`
+- `data/rulefaith/filtering/qwen3_field_aware_rulefaith_rejected.jsonl`
+- `results/rulefaith/qwen3_field_aware_rulefaith_selection_stats.json`
+- `results/rulefaith/qwen3_field_aware_rulefaith_selection_report.md`
+- `results/rulefaith/qwen3_field_aware_rulefaith_selection.csv`
+- `docs/rulefaith_loop_I_field_aware_selection.md`
+
+Commands:
+
+- `python3 -m py_compile experiments/rulefaith/select_qwen3_field_aware_rulefaith.py`
+- `python3 -m unittest experiments.tests.test_qwen3_field_aware_selection`
+- `python3 experiments/rulefaith/select_qwen3_field_aware_rulefaith.py --overwrite`
+
+Verified results:
+
+- Candidate count: 160.
+- Previous strict buckets: 0 accepted, 58 refine, 102 rejected.
+- Field-aware buckets: 45 accepted, 13 refine, 102 rejected.
+- Output integrity: 45 accepted JSONL rows, 13 refine JSONL rows, 102 rejected JSONL rows, and 160 CSV data rows.
+- Field leakage counts: `edit_description_edit_copy` 108, `edit_description_target_copy` 100, `rationale_edit_copy` 26, `rationale_target_copy` 86, `rule_text_target_copy` 40.
+- Active refine reasons: `rationale_edit_copy` 13 and `generic_explanation` 1.
+- Hard failure reasons remain: `alignment_error` 58, `validity_error_auto` 28, `possible_false_rationalization` 19, `no_specific_source_evidence` 36, `missing_rule` 1, and `parse_not_json` 1.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/select_qwen3_field_aware_rulefaith.py experiments/rulefaith/repair_qwen3_structured_evidence.py` passed.
+- `python3 -m unittest discover -s experiments/tests` passed, 38 tests.
+- `git diff --check` passed.
+- Output integrity check passed for all three JSONL buckets and the 160-row CSV.
+- Secret-pattern scan over `annotation`, `docs`, `results`, `experiments`, and `data` produced no matches.
+- `python3 -m pytest -q` could not run because `pytest` is not installed in the current shell.
+
+Interpretation:
+
+Field-aware selection recovers a useful target-masked validation pool from the repaired Qwen3 candidates without relaxing hard failures. The result should not be treated as positive SFT/preference data, because it is automatic and rule correctness remains unverified.
+
+Decision: use the 45 accepted and 13 refine candidates for target-masked validation. Keep all pseudo-label and human-evidence boundaries explicit.
