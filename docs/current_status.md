@@ -12,7 +12,7 @@ Loop F Codex-assisted audit prelabel commit; use `git log --oneline -1` as the a
 
 ## Current Method Version
 
-RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, human-audit handoff packaging, and Codex-assisted completion of both Qwen3 audit forms for internal triage only.
+RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministic evidence-span canonicalization, a 20-edit canonicalization-plus-refinement probe, human-audit handoff packaging, Codex-assisted completion of both Qwen3 audit forms, and structured source-evidence repair for internal triage only.
 
 ## Completed Loops
 
@@ -25,10 +25,11 @@ RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministi
 - Loop E / Qwen3 human-audit handoff packaged the canonicalized 80-row blind audit form, produced checksums, and added validation/merge tooling for the completed human audit.
 - Loop F / Codex-assisted prelabelling filled a separate copy of the 80-row blind audit form from automatic diagnostics, validated it, and generated breakdown reports. These labels are AI-assisted pseudo-labels, not real human audit labels.
 - Loop G / Complete Qwen3 Codex audit coverage added `completed_by_codex` forms for both canonicalized and pre-canonicalization Qwen3 audit packages and documented the label-source boundary in `annotation/qwen3_codex_annotation_data_card.md`.
+- Loop H / Structured evidence repair added deterministic source-context evidence spans, improved automatic contextual evidence from 82/160 to 160/160, and introduced a stricter RuleFaith selection gate that keeps 58 candidates in `refine` and rejects 102.
 
 ## Running Loops
 
-- No long-running command is active. Both Qwen3 audit packages now have validated Codex-completed forms for internal verifier/refiner debugging.
+- No long-running command is active. The structured evidence repair loop completed and produced strict RuleFaith buckets for the repaired Qwen3 candidates.
 
 ## Blocked Loops
 
@@ -40,12 +41,12 @@ RuleFaith-GEC method line, Qwen3-8B local open-teacher pilot, after deterministi
 
 ## Best Verified Result
 
-The Qwen3-8B pilot produced 160 parsed teacher candidates with no generator-input leakage detected by the audit. Source edit spans and target presence in predictions passed for all 160 candidates. Prompt-v2 smoke10 generated 10/10 parsed candidates with 0/10 prediction-only evidence, but only 3/10 contextual source evidence. Deterministic evidence-span canonicalization on smoke10 improved contextual source evidence from 3/10 to 8/10 and reduced wrong-evidence automatic flags from 6/10 to 0/10. Full-pool canonicalization improved all-spans source-index match from 20/160 to 155/160, contextual source evidence from 24/160 to 82/160, and wrong-evidence flags from 141/160 to 29/160. Canonicalized prefilter buckets are accepted 34, refine 67, rejected 59. The Loop D 20-edit probe parsed 20/20 Qwen3 refined outputs, but contextual source evidence dropped from 7/20 to 2/20 and missing evidence rose from 13/20 to 18/20, so this refinement prompt is rejected for scaling. Codex-completed canonicalized audit decisions are 44 `refine` and 36 `reject`; pre-canonicalization audit decisions are 46 `refine` and 34 `reject`. No Qwen3 candidate is accepted directly under the Codex conservative audit.
+The Qwen3-8B pilot produced 160 parsed teacher candidates with no generator-input leakage detected by the audit. Source edit spans and target presence in predictions passed for all 160 candidates. Deterministic evidence-span canonicalization improved all-spans source-index match from 20/160 to 155/160, contextual source evidence from 24/160 to 82/160, and wrong-evidence flags from 141/160 to 29/160. The Loop D 20-edit Qwen3 model-refinement probe was rejected because contextual source evidence dropped from 7/20 to 2/20. Codex-completed canonicalized audit decisions are 44 `refine` and 36 `reject`; pre-canonicalization audit decisions are 46 `refine` and 34 `reject`. Loop H structured evidence repair improves automatic contextual source evidence from 82/160 to 160/160, removes 29 prediction-only/wrong-evidence flags, and raises strict specific-source-evidence coverage from 10/160 to 124/160. However, strict RuleFaith selection still has 0 accepted, 58 refine, and 102 rejected because alignment, edit-copy, false-rationalization, and validity risks remain.
 
 ## Largest Scientific Risk
 
-Evidence grounding remains incomplete after canonicalization: 78/160 candidates still lack contextual source evidence, 29/160 retain prediction-only/wrong-evidence risk, and model-only Qwen3 repair can remove evidence rather than ground it. Canonicalization does not prove linguistic rule correctness.
+Structured repair fixes automatic source-evidence coverage but does not prove linguistic rule correctness. The largest remaining risks are alignment errors (58/160), edit-copy risk (112/160), possible false rationalization (19/160), and edit-validity risk (28/160).
 
 ## Next Highest-Value Action
 
-Use the Codex-completed audit forms to prioritize the next verifier/refiner revision around missing evidence, edit-copy, unsupported confidence, wrong-rule, and false-rationalization risks. Do not use them as paper-quality human evidence.
+Use `data/rulefaith/filtering/qwen3_structured_rulefaith_refine.jsonl` for the next alignment/leakage-aware refinement loop. Do not promote repaired candidates to positives until target-masked and human or stronger validation evidence exists.

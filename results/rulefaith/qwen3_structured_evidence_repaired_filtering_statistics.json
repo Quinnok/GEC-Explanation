@@ -1,0 +1,30 @@
+{
+  "bucket_counts": {
+    "accepted": 101,
+    "refine": 0,
+    "rejected": 59
+  },
+  "bucket_rates": {
+    "accepted": 0.6312,
+    "refine": 0.0,
+    "rejected": 0.3688
+  },
+  "candidate_count": 160,
+  "candidate_type_counts": {
+    "structured_evidence_repaired": 160
+  },
+  "policy": {
+    "accepted": "parsed JSON, alignment proxy pass, explicit non-edit-copy rule, contextual evidence present",
+    "refine": "parsed JSON, alignment proxy pass, explicit rule, and at least one of non-edit-copy rule or contextual evidence",
+    "rejected": "all remaining candidates"
+  },
+  "provider_counts": {
+    "rulefaith_structured_evidence_repair": 160
+  },
+  "risk_reason_counts": {
+    "alignment_proxy_fail": 58,
+    "missing_rule_text": 1,
+    "non_json_or_wrapped": 1,
+    "rule_edit_copy": 1
+  }
+}

@@ -551,3 +551,71 @@ Round10 boundary:
 - These templates were not overwritten with Codex labels.
 
 Decision: current Qwen3 audit blanks are filled by Codex-completed counterparts. Use them for internal triage only; do not use them as human evidence.
+
+## 2026-07-21 Loop H Structured Evidence Repair
+
+Objective: convert the Codex audit failure mode around missing/wrong evidence into an executable deterministic repair pass and test it on the full canonicalized Qwen3 pool.
+
+Implemented:
+
+- `experiments/rulefaith/repair_qwen3_structured_evidence.py`
+- `experiments/tests/test_qwen3_structured_evidence_repair.py`
+
+Outputs:
+
+- `results/rulefaith/qwen3_structured_evidence_repaired_candidates.jsonl`
+- `results/rulefaith/qwen3_structured_evidence_repair_stats.json`
+- `results/rulefaith/qwen3_structured_evidence_repair_report.md`
+- `results/rulefaith/qwen3_structured_evidence_repair_before_after.csv`
+- `results/rulefaith/qwen3_structured_evidence_repaired_diagnostic_metrics.json`
+- `results/rulefaith/qwen3_structured_evidence_repaired_diagnostic_report.md`
+- `results/rulefaith/qwen3_structured_evidence_repaired_filtering_statistics.json`
+- `data/rulefaith/filtering/qwen3_structured_evidence_repaired_accepted.jsonl`
+- `data/rulefaith/filtering/qwen3_structured_evidence_repaired_refine.jsonl`
+- `data/rulefaith/filtering/qwen3_structured_evidence_repaired_rejected.jsonl`
+- `data/rulefaith/filtering/qwen3_structured_rulefaith_accepted.jsonl`
+- `data/rulefaith/filtering/qwen3_structured_rulefaith_refine.jsonl`
+- `data/rulefaith/filtering/qwen3_structured_rulefaith_rejected.jsonl`
+- `docs/rulefaith_loop_H_structured_evidence_repair.md`
+
+Commands:
+
+- `python3 experiments/rulefaith/repair_qwen3_structured_evidence.py --overwrite`
+- `python3 experiments/rulefaith/diagnose_teacher_candidates.py --input results/rulefaith/qwen3_structured_evidence_repaired_candidates.jsonl --json-output results/rulefaith/qwen3_structured_evidence_repaired_diagnostic_metrics.json --md-output results/rulefaith/qwen3_structured_evidence_repaired_diagnostic_report.md`
+- `python3 experiments/rulefaith/filter_teacher_candidates.py --candidates results/rulefaith/qwen3_structured_evidence_repaired_candidates.jsonl --diagnostics results/rulefaith/qwen3_structured_evidence_repaired_diagnostic_metrics.json --output-dir data/rulefaith/filtering --stats results/rulefaith/qwen3_structured_evidence_repaired_filtering_statistics.json --prefix qwen3_structured_evidence_repaired`
+
+Verified results:
+
+- Candidate count: 160.
+- Automatic contextual evidence: 82/160 -> 160/160.
+- Missing evidence: 78/160 -> 0/160.
+- Prediction-only evidence: 29/160 -> 0/160.
+- Wrong-evidence automatic flag: 29/160 -> 0/160.
+- Unsupported confidence: 131/160 -> 70/160.
+- Specific source evidence: 10/160 -> 124/160.
+- Generic-context-only after repair: 36/160.
+- Alignment errors unchanged: 58/160.
+- Edit-copy risk unchanged: 112/160.
+- Possible false rationalization unchanged: 19/160.
+- Edit-validity risk unchanged: 28/160.
+
+Selection results:
+
+- Old conservative prefilter after repair: 101 accepted, 0 refine, 59 rejected.
+- Strict RuleFaith gate after repair: 0 accepted, 58 refine, 102 rejected.
+
+Interpretation:
+
+Structured source-evidence repair is useful as a preprocessing/refiner-input step and should replace model-only evidence repair for this failure mode. It should not be used as final selection, because source evidence coverage alone hides alignment, leakage, and false-rationalization risks.
+
+Validation:
+
+- `python3 -m py_compile experiments/rulefaith/repair_qwen3_structured_evidence.py` passed.
+- `python3 -m unittest experiments.tests.test_qwen3_structured_evidence_repair` passed, 6 tests.
+- `python3 -m unittest discover -s experiments/tests` passed, 35 tests.
+- `git diff --check` passed.
+- Output integrity check passed: 160 repaired candidates, 58 strict refine candidates, 102 strict rejected candidates.
+- Secret-pattern scan over `annotation`, `docs`, `results`, `experiments`, and `data` produced no matches.
+- `python3 -m pytest -q` could not run because `pytest` is not installed in the current shell.
+
+Decision: keep structured evidence repair, keep strict RuleFaith selection, and use the 58 strict `refine` candidates for the next alignment/leakage-aware loop.

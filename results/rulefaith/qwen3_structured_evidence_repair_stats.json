@@ -1,0 +1,106 @@
+{
+  "action_counts": {
+    "added_determiner_head_noun": 24,
+    "added_left_clause_context": 4,
+    "added_left_context": 68,
+    "added_modified_token_evidence": 64,
+    "added_noun_left_context": 26,
+    "added_noun_right_context": 28,
+    "added_preposition_complement": 12,
+    "added_preposition_governor": 12,
+    "added_pronoun_context": 4,
+    "added_right_clause_context": 4,
+    "added_right_context": 60,
+    "added_sva_subject": 2,
+    "added_sva_verb": 2,
+    "added_verb_left_context": 12,
+    "added_verb_right_context": 12,
+    "kept_existing_valid_source_spans": 147
+  },
+  "after_flag_counts": {
+    "alignment_error": 58,
+    "edit_copy": 112,
+    "evidence_contextual": 160,
+    "evidence_text_found_in_prediction_only": 0,
+    "missing_evidence": 0,
+    "possible_false_rationalization": 19,
+    "rule_edit_copy": 0,
+    "unsupported_confidence": 70,
+    "validity_error_auto": 28,
+    "wrong_evidence_auto": 0
+  },
+  "before_flag_counts": {
+    "alignment_error": 58,
+    "edit_copy": 112,
+    "evidence_contextual": 82,
+    "evidence_text_found_in_prediction_only": 29,
+    "missing_evidence": 78,
+    "possible_false_rationalization": 19,
+    "rule_edit_copy": 0,
+    "unsupported_confidence": 131,
+    "validity_error_auto": 28,
+    "wrong_evidence_auto": 29
+  },
+  "candidate_count": 160,
+  "decision": "keep_structured_evidence_repair_for_refiner_inputs_not_final_scoring",
+  "delta_flag_counts": {
+    "alignment_error": 0,
+    "edit_copy": 0,
+    "evidence_contextual": 78,
+    "evidence_text_found_in_prediction_only": -29,
+    "missing_evidence": -78,
+    "possible_false_rationalization": 0,
+    "rule_edit_copy": 0,
+    "unsupported_confidence": -61,
+    "validity_error_auto": 0,
+    "wrong_evidence_auto": -29
+  },
+  "generated_at": "2026-07-21T04:02:53+00:00",
+  "git_commit": "f734e26",
+  "improvement_counts": {
+    "evidence_contextual_improved": 78,
+    "prediction_only_evidence_regressed": 0,
+    "wrong_evidence_fixed": 29
+  },
+  "input": "/Users/bytedance/Documents/GEC可解释性/data/rulefaith/teacher_candidates_qwen3_8b_canonicalized.jsonl",
+  "label_source": "deterministic_structured_evidence_repair_not_human_gold",
+  "limitations": [
+    "This repair adds source-grounded candidate evidence spans but does not prove linguistic rule correctness.",
+    "These labels and repairs are automatic and must not be reported as human evaluation.",
+    "False-rationalization and invalid-edit risks require a separate edit-validity/rule verifier."
+  ],
+  "repaired_count": 160,
+  "specific_source_evidence": {
+    "after": 124,
+    "after_generic_context_only": 36,
+    "before": 10,
+    "delta": 114
+  },
+  "strict_selection": {
+    "bucket_counts": {
+      "accepted": 0,
+      "refine": 58,
+      "rejected": 102
+    },
+    "bucket_rates": {
+      "accepted": 0.0,
+      "refine": 0.3625,
+      "rejected": 0.6375
+    },
+    "policy": {
+      "accepted": "parsed JSON, no alignment/validity/rule/evidence hard failures, specific source evidence present, and no edit-copy/unsupported-confidence refine risk",
+      "refine": "passes hard gates but has edit-copy, genericness, or unsupported-confidence risk",
+      "rejected": "parse, alignment, validity, false-rationalization, rule, wrong-evidence, missing-evidence, or no-specific-evidence hard failure"
+    },
+    "reason_counts": {
+      "alignment_error": 58,
+      "edit_copy": 58,
+      "generic_explanation": 1,
+      "missing_rule": 1,
+      "no_specific_source_evidence": 36,
+      "parse_not_json": 1,
+      "possible_false_rationalization": 19,
+      "validity_error_auto": 28
+    }
+  }
+}
