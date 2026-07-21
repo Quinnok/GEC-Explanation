@@ -1,0 +1,51 @@
+docs/claim_evidence_matrix.md
+  s_266f859e6122f5::t_3c68d91ff2b2e3 56,64
+docs/current_status.md
+  s_266f859e6122f5::t_f3e4707e29fd0f 35,51,59
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_32682d0668e192 149-199
+docs/method_loop_state.md
+  s_266f859e6122f5::t_81d70810b56d7c 15,59
+docs/next_actions.md
+  s_266f859e6122f5::t_6fc29741f8b3b6 7,16-17
+docs/rulefaith_loop_O_baseline_results.md
+  s_266f859e6122f5::t_7dc011b1d8d565 1-69
+experiments/rulefaith/evaluate_rulefaith_baselines.py
+  s_266f859e6122f5::t_42c84c82be15f9 1-593
+experiments/tests/test_rulefaith_baseline_evaluation.py
+  s_266f859e6122f5::t_a4f4a963d86830 1-47
+paper/sections/experimental_setup.tex
+  s_266f859e6122f5::t_c47099f4bcb964 16
+paper/sections/results.tex
+  s_266f859e6122f5::t_d5b17699f783ff 12-15,21-22
+results/paper_assets/rulefaith_open_teacher_baselines.tex
+  s_266f859e6122f5::t_b22a97d9f0c9b0 1-16
+results/paper_assets/rulefaith_selection_baselines.tex
+  s_266f859e6122f5::t_d6222c8251813d 1-19
+results/rulefaith/rulefaith_method_gate_funnel.csv
+  s_266f859e6122f5::t_0ae399bbf75c00 1-7
+results/rulefaith/rulefaith_selection_baselines.csv
+  s_266f859e6122f5::t_c97a05b45d527b 1-9
+results/rulefaith/rulefaith_selection_baselines.json
+  s_266f859e6122f5::t_a73683c076ffec 1-254
+results/rulefaith/rulefaith_teacher_baselines.csv
+  s_266f859e6122f5::t_3b6c4f2a2edf82 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "a2c030187ff19bfff7ece81107a7d9f718dba2c7",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
