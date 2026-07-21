@@ -1,0 +1,75 @@
+annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex.csv
+  s_266f859e6122f5::t_5752f71d0cde57 1-42
+annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_completed_by_codex_merged_with_key.csv
+  s_266f859e6122f5::t_121943409b52ef 1-42
+docs/claim_evidence_matrix.md
+  s_266f859e6122f5::t_e95019e2939062 61-62
+docs/current_status.md
+  s_266f859e6122f5::t_3742c0cf669a7e 15,34,45,50,54,58
+docs/method_decision_log.md
+  s_266f859e6122f5::t_7b62fc10eb12fd 26
+docs/method_experiment_log.md
+  s_266f859e6122f5::t_a36e276419c124 896-939
+docs/method_loop_state.md
+  s_266f859e6122f5::t_a5d081f1c83203 15,31-32,58,62
+docs/method_open_issues.md
+  s_266f859e6122f5::t_33a17dcf785ef0 13,36
+docs/next_actions.md
+  s_266f859e6122f5::t_42fea32f0764ac 7,11-15,20,30
+docs/research_decisions.md
+  s_266f859e6122f5::t_45ba986869550a 23
+docs/rulefaith_loop_N_codex_ready_validation.md
+  s_266f859e6122f5::t_8de14d60954270 1-52
+experiments/rulefaith/complete_qwen3_ready_validation_codex.py
+  s_266f859e6122f5::t_526011ea0c7c91 1-537
+experiments/rulefaith/generate_rulefaith_paper_assets.py
+  s_266f859e6122f5::t_f537a9d67b6761 1-145
+experiments/tests/test_qwen3_ready_validation_codex.py
+  s_266f859e6122f5::t_5c8cafd08b3121 1-40
+experiments/tests/test_rulefaith_paper_assets.py
+  s_266f859e6122f5::t_4588d44c566af4 1-21
+paper/main.tex
+  s_266f859e6122f5::t_8678c0e15587d4 24-25
+paper/sections/abstract.tex
+  s_266f859e6122f5::t_8ffd9abb7fc319 2
+paper/sections/analysis.tex
+  s_266f859e6122f5::t_156ad748f1ce5a 10-11
+paper/sections/conclusion.tex
+  s_266f859e6122f5::t_af1851b12a922e 3
+paper/sections/experimental_setup.tex
+  s_266f859e6122f5::t_ef9ef0cc294f26 15-17
+paper/sections/introduction.tex
+  s_266f859e6122f5::t_9090ba6751f795 3,5,7,9,11,13-21
+paper/sections/limitations.tex
+  s_266f859e6122f5::t_7b356fbabbe689 3
+paper/sections/method.tex
+  s_266f859e6122f5::t_7abfb6b0d3a2b2 1,3-7,11-12,14-15,17-18,20-21,23-24,26-27,29-33
+paper/sections/results.tex
+  s_266f859e6122f5::t_1250ceefbb6ca2 9-16
+results/paper_assets/rulefaith_qwen3_method_funnel.csv
+  s_266f859e6122f5::t_a91044259c091a 1-6
+results/paper_assets/rulefaith_qwen3_method_funnel.tex
+  s_266f859e6122f5::t_4466435465fbef 1-17
+results/rulefaith/qwen3_ready_validation_codex_cases.md
+  s_266f859e6122f5::t_7217d923cd7c7f 1-55
+results/rulefaith/qwen3_ready_validation_codex_summary.json
+  s_266f859e6122f5::t_1389f0ce3ea137 1-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "dcfe6f0dc654e6aa1ca015ddafe2a7c432178225",
+  "prompts": {},
+  "sessions": {
+    "s_266f859e6122f5": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f79fe-77ea-7ee0-bdfc-1bddeb07ffed",
+        "model": "unknown"
+      },
+      "human_author": "Codex <codex@example.local>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
