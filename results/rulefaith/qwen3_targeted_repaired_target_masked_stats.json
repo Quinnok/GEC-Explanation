@@ -1,0 +1,53 @@
+{
+  "by_dataset": {
+    "EXPECT": {
+      "validated": 16
+    }
+  },
+  "by_model_key": {
+    "coedit_large": {
+      "validated": 9
+    },
+    "gector_roberta_base": {
+      "validated": 3
+    },
+    "t5_base_grammar": {
+      "validated": 4
+    }
+  },
+  "by_previous_field_aware_bucket": {
+    "accepted": {
+      "validated": 8
+    },
+    "refine": {
+      "validated": 8
+    }
+  },
+  "candidate_count": 16,
+  "decision": "use_target_masked_validated_bucket_for_manual_or_stronger_validation_only",
+  "failure_counts": {},
+  "field_aware_input_bucket_counts": {
+    "accepted": 8,
+    "refine": 8
+  },
+  "generated_at": "2026-07-21T06:04:15+00:00",
+  "git_commit": "0120b1f",
+  "policy": {
+    "refine": "target-masked quality is partial or has non-hard warnings such as rationale edit-copy",
+    "rejected": "target-masked quality fails because rule/evidence/genericness/target-dependence hard risks remain",
+    "validated": "masked quality score >= 0.75 with grammar signal, specific source evidence, no genericness, no target-dependence, and no rule/rationale edit-copy hard failure"
+  },
+  "score_max": 1.0,
+  "score_mean": 1.0,
+  "score_min": 1.0,
+  "target_masked_bucket_counts": {
+    "validated": 16
+  },
+  "target_masked_bucket_rates": {
+    "validated": 1.0
+  },
+  "target_masked_label_counts": {
+    "pass": 16
+  },
+  "warning_counts": {}
+}

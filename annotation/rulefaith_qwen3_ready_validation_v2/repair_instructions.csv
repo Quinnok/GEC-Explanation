@@ -1,0 +1,1 @@
+repair_item_id,candidate_id,source,model_prediction,operation,source_text,target_text,rule_text,evidence_spans_json,rationale,automatic_reasons,repair_instruction

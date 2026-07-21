@@ -85,7 +85,7 @@ def resolve(path: Path) -> Path:
     return path if path.is_absolute() else ROOT / path
 
 
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
+def read_jsonl(path: Path, allow_empty: bool = False) -> list[dict[str, Any]]:
     if not path.exists():
         raise FileNotFoundError(path)
     rows: list[dict[str, Any]] = []
@@ -100,8 +100,25 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
             if not isinstance(row, dict):
                 raise ValueError(f"JSONL row is not an object in {path}:{lineno}")
             rows.append(row)
-    if not rows:
+    if not rows and not allow_empty:
         raise ValueError(f"Input file is empty: {path}")
+    return rows
+
+
+def read_many_jsonl(paths: list[Path], allow_empty: bool = False) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for path in paths:
+        for row in read_jsonl(path, allow_empty=allow_empty):
+            candidate_id = str(row.get("candidate_id", ""))
+            if not candidate_id:
+                raise ValueError(f"Missing candidate_id in {path}")
+            if candidate_id in seen:
+                raise ValueError(f"Duplicate candidate_id across ready inputs: {candidate_id}")
+            seen.add(candidate_id)
+            rows.append(row)
+    if not rows and not allow_empty:
+        raise ValueError("All input JSONL files are empty")
     return rows
 
 
@@ -365,7 +382,7 @@ def report(summary: dict[str, Any]) -> str:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Prepare a blind validation package for Qwen3 RuleFaith ready candidates.")
-    parser.add_argument("--ready", type=Path, default=DEFAULT_READY)
+    parser.add_argument("--ready", type=Path, nargs="*", default=[DEFAULT_READY])
     parser.add_argument("--refine", type=Path, default=DEFAULT_REFINE)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--summary-output", type=Path, default=DEFAULT_SUMMARY)
@@ -376,8 +393,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    ready = read_jsonl(resolve(args.ready))
-    refine = read_jsonl(resolve(args.refine))
+    ready = read_many_jsonl([resolve(path) for path in args.ready])
+    refine = read_jsonl(resolve(args.refine), allow_empty=True)
     output_dir = resolve(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 

@@ -4,15 +4,15 @@ Last updated: 2026-07-21
 
 ## Next Highest-Priority Loop
 
-Implement targeted repair for the 16 Qwen3 candidates in the ready-validation package.
+Validate the 41-candidate Qwen3 ready package or explicitly create a Codex/AI pseudo-validation copy.
 
 ## Required Work
 
-1. Use `annotation/rulefaith_qwen3_ready_validation/repair_instructions.csv`.
-2. Generate revised explanations that explicitly integrate evidence, remove rationale edit-copy, and reduce unsupported high confidence.
-3. Re-run target-masked validation and rule/evidence audit on repaired candidates.
-4. Merge successful repairs into a separate validation candidate pool.
-5. Do not promote any candidate to SFT positive data until human/stronger validation support it.
+1. Use `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_form.csv`.
+2. Keep `annotation/rulefaith_qwen3_ready_validation_v2/ready_validation_key.csv` hidden from blind validators.
+3. If Codex fills the form, write `label_source=codex_ai_pseudo_validation_not_human_gold`.
+4. Merge labels through the hidden key only after validation.
+5. Do not promote any candidate to SFT positive data until validation support exists.
 
 ## Do Not Do Yet
 
@@ -26,3 +26,4 @@ Implement targeted repair for the 16 Qwen3 candidates in the ready-validation pa
 - Do not treat target-masked `validated=47` as final positives; it is still an automatic heuristic pool.
 - Do not treat rule-plausibility `ready_for_human_spotcheck=25` as final positives; it is only ready for blind validation.
 - Do not expose `ready_validation_key.csv` to blind validators.
+- Do not call Codex-filled validation human labels.

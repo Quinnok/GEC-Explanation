@@ -1,4 +1,5 @@
 import csv
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -39,6 +40,16 @@ class Qwen3ValidationPackageTest(unittest.TestCase):
                 loaded = list(csv.DictReader(handle))
         self.assertEqual(len(loaded), 1)
         self.assertEqual(loaded[0]["validation_item_id"], "rfq3-ready-0001")
+
+    def test_read_many_rejects_duplicate_candidate_ids(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            first = Path(tmp) / "a.jsonl"
+            second = Path(tmp) / "b.jsonl"
+            row = {"candidate_id": "dup"}
+            first.write_text(json.dumps(row) + "\n", encoding="utf-8")
+            second.write_text(json.dumps(row) + "\n", encoding="utf-8")
+            with self.assertRaises(ValueError):
+                package.read_many_jsonl([first, second])
 
 
 if __name__ == "__main__":

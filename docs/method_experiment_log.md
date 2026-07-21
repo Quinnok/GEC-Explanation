@@ -816,6 +816,75 @@ The local Qwen3 teacher pool now has a reproducible validation handoff. The pack
 
 Decision: run targeted repair on the 16 needs-refinement candidates using the generated repair instructions, then re-run target-masked and rule/evidence gates.
 
+## 2026-07-21 Loop M Targeted Repair and Validation Package V2
+
+Objective: repair the 16 needs-refinement Qwen3 candidates, re-run automatic gates, and regenerate a larger blind validation package.
+
+Implemented:
+
+- `experiments/rulefaith/repair_qwen3_needs_refinement.py`
+- `experiments/tests/test_qwen3_targeted_repair.py`
+- Extended `experiments/rulefaith/prepare_qwen3_validation_package.py` to support multiple ready inputs and empty refine inputs.
+- Extended `experiments/tests/test_qwen3_validation_package.py`.
+
+Commands:
+
+- `python3 -m py_compile experiments/rulefaith/repair_qwen3_needs_refinement.py`
+- `python3 -m unittest experiments.tests.test_qwen3_targeted_repair`
+- `python3 experiments/rulefaith/repair_qwen3_needs_refinement.py --overwrite`
+- `python3 experiments/rulefaith/validate_qwen3_target_masked.py --inputs results/rulefaith/qwen3_targeted_repaired_candidates.jsonl --prefix qwen3_targeted_repaired_target_masked --stats-output results/rulefaith/qwen3_targeted_repaired_target_masked_stats.json --report-output results/rulefaith/qwen3_targeted_repaired_target_masked_report.md --csv-output results/rulefaith/qwen3_targeted_repaired_target_masked.csv --overwrite`
+- `python3 experiments/rulefaith/audit_qwen3_rule_plausibility.py --input data/rulefaith/filtering/qwen3_targeted_repaired_target_masked_validated.jsonl --prefix qwen3_targeted_repaired_rule_plausibility --stats-output results/rulefaith/qwen3_targeted_repaired_rule_plausibility_stats.json --report-output results/rulefaith/qwen3_targeted_repaired_rule_plausibility_report.md --csv-output results/rulefaith/qwen3_targeted_repaired_rule_plausibility.csv --overwrite`
+- `python3 experiments/rulefaith/prepare_qwen3_validation_package.py --ready data/rulefaith/filtering/qwen3_rule_plausibility_ready_for_human_spotcheck.jsonl data/rulefaith/filtering/qwen3_targeted_repaired_rule_plausibility_ready_for_human_spotcheck.jsonl --refine data/rulefaith/filtering/qwen3_targeted_repaired_rule_plausibility_needs_refinement.jsonl --output-dir annotation/rulefaith_qwen3_ready_validation_v2 --summary-output results/rulefaith/qwen3_ready_validation_package_v2_summary.json --report-output results/rulefaith/qwen3_ready_validation_package_v2_report.md --overwrite`
+
+Outputs:
+
+- `results/rulefaith/qwen3_targeted_repaired_candidates.jsonl`
+- `results/rulefaith/qwen3_targeted_repair_stats.json`
+- `results/rulefaith/qwen3_targeted_repair_report.md`
+- `results/rulefaith/qwen3_targeted_repair_before_after.csv`
+- `data/rulefaith/filtering/qwen3_targeted_repaired_target_masked_validated.jsonl`
+- `data/rulefaith/filtering/qwen3_targeted_repaired_target_masked_refine.jsonl`
+- `data/rulefaith/filtering/qwen3_targeted_repaired_target_masked_rejected.jsonl`
+- `results/rulefaith/qwen3_targeted_repaired_target_masked_stats.json`
+- `results/rulefaith/qwen3_targeted_repaired_target_masked_report.md`
+- `results/rulefaith/qwen3_targeted_repaired_target_masked.csv`
+- `data/rulefaith/filtering/qwen3_targeted_repaired_rule_plausibility_ready_for_human_spotcheck.jsonl`
+- `data/rulefaith/filtering/qwen3_targeted_repaired_rule_plausibility_needs_refinement.jsonl`
+- `data/rulefaith/filtering/qwen3_targeted_repaired_rule_plausibility_reject.jsonl`
+- `results/rulefaith/qwen3_targeted_repaired_rule_plausibility_stats.json`
+- `results/rulefaith/qwen3_targeted_repaired_rule_plausibility_report.md`
+- `results/rulefaith/qwen3_targeted_repaired_rule_plausibility.csv`
+- `annotation/rulefaith_qwen3_ready_validation_v2/`
+- `results/rulefaith/qwen3_ready_validation_package_v2_summary.json`
+- `results/rulefaith/qwen3_ready_validation_package_v2_report.md`
+- `docs/rulefaith_loop_M_targeted_repair_and_validation_v2.md`
+
+Verified results:
+
+- Targeted repair candidates: 16.
+- Rationale edit-copy before/after: 8 -> 0.
+- Evidence mentioned in rule/rationale before/after: 8 -> 16.
+- Repair actions: 8 evidence appends, 8 rationale replacements, 14 confidence caps.
+- Target-masked revalidation: 16/16 validated.
+- Rule/evidence re-audit: 16/16 ready-for-human-spotcheck.
+- V2 blind validation package: 41 blind rows, 41 hidden key rows, 0 repair rows.
+- V2 zip SHA256: `31ce8d7735d57107b9271dd1202ba0cde4d1c0acbed489ec11c8e3d18938799d`.
+
+Interpretation:
+
+Targeted repair fixes the structural failure modes it was designed for, but it may also optimize to deterministic gate heuristics. The repaired candidates should enter blind validation, not training data.
+
+Decision: use the v2 package as the current validation package. The next loop should either fill it as explicitly marked Codex/AI pseudo-validation or hand it to real validators.
+
+Validation after Loop M:
+
+- `python3 -m py_compile experiments/rulefaith/validate_qwen3_target_masked.py experiments/rulefaith/audit_qwen3_rule_plausibility.py experiments/rulefaith/prepare_qwen3_validation_package.py experiments/rulefaith/repair_qwen3_needs_refinement.py` passed.
+- `python3 -m unittest discover -s experiments/tests` passed, 51 tests.
+- `python3 -m pytest -q` passed, 51 tests.
+- `git diff --check` passed.
+- Output integrity check passed for targeted-repair outputs, target-masked revalidation buckets, rule-plausibility re-audit buckets, and v2 blind package counts.
+- Secret-pattern scan over `annotation`, `docs`, `results`, `experiments`, and `data` produced no matches.
+
 Validation after Loops J--L:
 
 - `python3 -m py_compile experiments/rulefaith/validate_qwen3_target_masked.py experiments/rulefaith/audit_qwen3_rule_plausibility.py experiments/rulefaith/prepare_qwen3_validation_package.py` passed.

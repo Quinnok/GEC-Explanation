@@ -1,0 +1,40 @@
+{
+  "by_dataset": {
+    "EXPECT": {
+      "ready_for_human_spotcheck": 16
+    }
+  },
+  "by_model_key": {
+    "coedit_large": {
+      "ready_for_human_spotcheck": 9
+    },
+    "gector_roberta_base": {
+      "ready_for_human_spotcheck": 3
+    },
+    "t5_base_grammar": {
+      "ready_for_human_spotcheck": 4
+    }
+  },
+  "candidate_count": 16,
+  "decision": "use_ready_bucket_for_blind_human_or_stronger_validation_package_only",
+  "decision_counts": {
+    "ready_for_human_spotcheck": 16
+  },
+  "decision_rates": {
+    "ready_for_human_spotcheck": 1.0
+  },
+  "evidence_sufficiency_counts": {
+    "sufficient": 16
+  },
+  "generated_at": "2026-07-21T06:04:15+00:00",
+  "git_commit": "0120b1f",
+  "policy": {
+    "needs_refinement": "rule/evidence mostly usable but explanation needs targeted repair before human package or positive construction",
+    "ready_for_human_spotcheck": "target-masked validated candidate with plausible rule, sufficient source evidence, evidence mentioned in rule/rationale, no rationale edit-copy, and no unsupported high confidence",
+    "reject": "implausible rule or insufficient evidence after target-masked validation"
+  },
+  "reason_counts": {},
+  "rule_plausibility_counts": {
+    "plausible": 16
+  }
+}

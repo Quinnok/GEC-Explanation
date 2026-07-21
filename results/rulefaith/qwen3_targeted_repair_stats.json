@@ -1,0 +1,16 @@
+{
+  "action_counts": {
+    "appended_source_evidence_to_rationale": 8,
+    "capped_confidence_at_0.8": 14,
+    "replaced_rationale_edit_copy": 8
+  },
+  "after_evidence_mentioned_in_quality_text": 16,
+  "after_rationale_edit_copy": 0,
+  "before_evidence_mentioned_in_quality_text": 8,
+  "before_rationale_edit_copy": 8,
+  "candidate_count": 16,
+  "decision": "rerun_target_masked_and_rule_plausibility_audit_on_repaired_candidates",
+  "generated_at": "2026-07-21T06:04:15+00:00",
+  "git_commit": "0120b1f",
+  "label_source": "deterministic_repair_not_human_label"
+}
